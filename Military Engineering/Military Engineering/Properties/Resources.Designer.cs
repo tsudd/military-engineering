@@ -81,6 +81,15 @@ namespace Military_Engineering.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0bc7ddba7e46fafc53fe08aeb3419666ca1106cdb7932d43b744a70ab5258fbc.
+        /// </summary>
+        internal static string hashed {
+            get {
+                return ResourceManager.GetString("hashed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Main {
@@ -91,12 +100,48 @@ namespace Military_Engineering.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to B3inYTphUU2RCfVOMjB+9aCAKPH3flFEhZkhfFB/bvssYuh6v99PNUh98e16x/ro08i5mx9+1c1rGNaqb4fsKaFtnd7coHrWFc+khKgJyLCvVd/zMgNIVNGiZBz+HTArSsvFt4GgANcOQ1EUxM3IeN25lrPS/zMrbwtXTPQBAkFydFehC5JeumiXe/LDXCrROQycC4uCGZf/vzBRpeodlFMm6kXXXpO51cMA1ecOCFaRxnyFEoaAMIHEMqyTqnuVwcCzcXKC7cmPvAPtbMFpyt0ypFe7Y2rwdDpTe60WgTnyNImz53bzQIfnMsy9gJ1mkF3QiIbx1fUMr+Xaxvh969hpTjqqTBvWp4mg3VQdZzxIHnr3OB6YWsotT4BBzO7dKZMkjB4w70buf53kO1r1dweTSPuAdCDgYlHaXx0DYxXkrZjIfpxUX57Uipw5aUlopfovNbZP46xo7YoKM6LkZcQBauQ2vfPaH8vIP1PH5za7pnpHKC1G4kNFkq9RcKlJ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string p1str {
+            get {
+                return ResourceManager.GetString("p1str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to B3inYTphUU2RCfVOMjB+9aCAKPH3flFEhZkhfFB/bvt+96WMB+KEFfe2/GgO8HWxfnfuBpVwOlBOFFEnlW+Wtp2F8sd0/YknCWawfcgTCWpn/SJLlFCmY4p7/pwXZUNFG5k3zSiKBhyEIW6f1Z0CLtg9n7TTeTN69swiPA9J1wa2uIEFOPr3teaNUJD8k3I2LH1488kyFEiF8vbQAm9lpcE1tuvsfkIzmo65I2IiqsO/bgqrOlLdzkYFcZSHTLXUEtfVz8YLRk3iKP7t+6srReTVN9HwXfDWDhPrgD8l2vOhVDCxC/2jre6ooJHSTvdpqEsqvQDMY9FmwrB5c9QBBDJFoxd5HTX9VcfYTUyCd6R/SHAKcOV/x42OikGHD4LZnFSZ+5xbzLgntUHMMWKyVYtaVsFLJAT1narJt4b9dBq6MTNvoanMx3LFlP3Q8/JIQfwkOBV37RPSJEXLCMnY+DZsFHlg/KGzzQLMD76WgWjSUy8fNHDRbgM+X6BT3Zx4 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string p2str {
+            get {
+                return ResourceManager.GetString("p2str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NJ6xFNPC4yywnhxMLiB1JuqCm8htAl8lw29XfkB4ie1KPjh70CqYODr6MAKeN7llByoYxdOIy4aUMCzvKOblEg==.
+        /// </summary>
+        internal static string p3str {
+            get {
+                return ResourceManager.GetString("p3str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Placeholder {
             get {
                 object obj = ResourceManager.GetObject("Placeholder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0VR5GzI6YSk24d93n4j3.
+        /// </summary>
+        internal static string salt {
+            get {
+                return ResourceManager.GetString("salt", resourceCulture);
             }
         }
     }

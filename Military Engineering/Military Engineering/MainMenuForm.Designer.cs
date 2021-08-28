@@ -30,14 +30,14 @@ namespace Military_Engineering
         private void InitializeComponent()
         {
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.Placeholder = new System.Windows.Forms.Button();
             this.FencingButton = new System.Windows.Forms.Button();
             this.FortificationButton = new System.Windows.Forms.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
-            this.Placeholder = new System.Windows.Forms.Button();
             this.PreviewPictureBox = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,70 @@ namespace Military_Engineering
             this.LeftPanel.Name = "LeftPanel";
             this.LeftPanel.Size = new System.Drawing.Size(490, 640);
             this.LeftPanel.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.button3.Location = new System.Drawing.Point(57, 495);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(350, 66);
+            this.button3.TabIndex = 5;
+            this.button3.TabStop = false;
+            this.button3.Text = "PLACEHOLDER";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.DisplayMain);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.button2.Location = new System.Drawing.Point(57, 410);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(350, 66);
+            this.button2.TabIndex = 4;
+            this.button2.TabStop = false;
+            this.button2.Text = "PLACEHOLDER";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.DisplayMain);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.button1.Location = new System.Drawing.Point(57, 325);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(350, 66);
+            this.button1.TabIndex = 3;
+            this.button1.TabStop = false;
+            this.button1.Text = "PLACEHOLDER";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.DisplayMain);
+            // 
+            // Placeholder
+            // 
+            this.Placeholder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.Placeholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Placeholder.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.Placeholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.Placeholder.Location = new System.Drawing.Point(57, 240);
+            this.Placeholder.Name = "Placeholder";
+            this.Placeholder.Size = new System.Drawing.Size(350, 66);
+            this.Placeholder.TabIndex = 2;
+            this.Placeholder.TabStop = false;
+            this.Placeholder.Text = "PLACEHOLDER";
+            this.Placeholder.UseVisualStyleBackColor = false;
+            this.Placeholder.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
+            this.Placeholder.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
             // FencingButton
             // 
@@ -102,22 +166,6 @@ namespace Military_Engineering
             this.InfoLabel.Text = "МЕТОДИКИ ИНЖЕНЕРНЫХ РАСЧЕТОВ";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Placeholder
-            // 
-            this.Placeholder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.Placeholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Placeholder.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.Placeholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.Placeholder.Location = new System.Drawing.Point(57, 240);
-            this.Placeholder.Name = "Placeholder";
-            this.Placeholder.Size = new System.Drawing.Size(350, 66);
-            this.Placeholder.TabIndex = 2;
-            this.Placeholder.TabStop = false;
-            this.Placeholder.Text = "PLACEHOLDER";
-            this.Placeholder.UseVisualStyleBackColor = false;
-            this.Placeholder.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
-            this.Placeholder.MouseLeave += new System.EventHandler(this.DisplayMain);
-            // 
             // PreviewPictureBox
             // 
             this.PreviewPictureBox.Image = global::Military_Engineering.Properties.Resources.Main;
@@ -127,54 +175,6 @@ namespace Military_Engineering
             this.PreviewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PreviewPictureBox.TabIndex = 1;
             this.PreviewPictureBox.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button1.Location = new System.Drawing.Point(57, 325);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(350, 66);
-            this.button1.TabIndex = 3;
-            this.button1.TabStop = false;
-            this.button1.Text = "PLACEHOLDER";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
-            this.button1.MouseLeave += new System.EventHandler(this.DisplayMain);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button2.Location = new System.Drawing.Point(57, 410);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(350, 66);
-            this.button2.TabIndex = 4;
-            this.button2.TabStop = false;
-            this.button2.Text = "PLACEHOLDER";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
-            this.button2.MouseLeave += new System.EventHandler(this.DisplayMain);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button3.Location = new System.Drawing.Point(57, 495);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(350, 66);
-            this.button3.TabIndex = 5;
-            this.button3.TabStop = false;
-            this.button3.Text = "PLACEHOLDER";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
-            this.button3.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
             // MainMenuForm
             // 
@@ -191,6 +191,7 @@ namespace Military_Engineering
             this.Name = "MainMenuForm";
             this.ShowIcon = false;
             this.Text = "Главное меню";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainMenuForm_KeyDown);
             this.LeftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PreviewPictureBox)).EndInit();
             this.ResumeLayout(false);
