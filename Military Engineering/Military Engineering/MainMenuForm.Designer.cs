@@ -203,12 +203,12 @@ namespace Military_Engineering
         private System.Windows.Forms.Panel LeftPanel;
         private System.Windows.Forms.Button FencingButton;
         private System.Windows.Forms.Button FortificationButton;
-        private System.Windows.Forms.PictureBox PreviewPictureBox;
-        private System.Windows.Forms.Label InfoLabel;
         private System.Windows.Forms.Button Placeholder;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.PictureBox PreviewPictureBox;
+        public System.Windows.Forms.Label InfoLabel;
     }
 }
 

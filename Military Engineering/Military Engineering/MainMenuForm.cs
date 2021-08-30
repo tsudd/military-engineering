@@ -1,17 +1,21 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationsCore;
+using Microsoft.CSharp;
 
 namespace Military_Engineering
 {
@@ -20,8 +24,8 @@ namespace Military_Engineering
         const string mainInfo = "МЕТОДИКИ ИНЖЕНЕРНЫХ РАСЧЕТОВ";
         const string fortificationInfo = "МЕТОДИКА РАСЧЕТА ФОРТИФИКАЦИОННОГО \nОБОРУДОВАНИЯ ПОЗИЦИЙ И РАЙОНОВ \nРАСПОЛОЖЕНИЯ ВОЙСК";
         const string fencingInfo = "МЕТОДИКА РАСЧЕТА СИСТЕМЫ ИНЖЕНЕРНЫХ ЗАГРАЖДЕНИЙ";
-        string buffer;
-        bool coolFlag;
+        public string buffer;
+        public bool coolFlag;
         public MainMenuForm()
         {
             InitializeComponent();
@@ -71,52 +75,25 @@ namespace Military_Engineering
 
         void CoolMethod(string key)
         {
-            byte[] bytes = Convert.FromBase64String(AESDecrypt(Properties.Resources.p1str, key));
-            MemoryStream s = new MemoryStream(bytes);
-            Bitmap b1 = new Bitmap(s);
-
-            bytes = Convert.FromBase64String(AESDecrypt(Properties.Resources.p2str, key));
-            s = new MemoryStream(bytes);
-            Bitmap b2 = new Bitmap(s);
+            byte[] bytes = Convert.FromBase64String(AESDecrypt(Properties.Resources.p4str, key));
+            string code = Encoding.UTF8.GetString(bytes);
             
-            bytes = Convert.FromBase64String(AESDecrypt(Properties.Resources.p3str, key));
-            string s3 = Encoding.UTF8.GetString(bytes);
-
-            coolFlag = true;
-
-            Task.Factory.StartNew(() =>
-            {
-                InfoLabel.Invoke((MethodInvoker)(() =>
-                {
-                    InfoLabel.Text = s3;
-                }));
-
-                ColorMatrix cm = new ColorMatrix();
-                cm.Matrix00 = cm.Matrix11 = cm.Matrix22 = cm.Matrix44 = 1;
-                cm.Matrix33 = 1;
-                ImageAttributes imageAttributes = new ImageAttributes();
-                for(float i = 1f; i > 0; i -= 0.01f)
-                {
-                    Bitmap b3 = new Bitmap(b1);
-                    Graphics g = Graphics.FromImage(b3);
-
-                    cm.Matrix33 = i;
-                    imageAttributes.SetColorMatrix(cm);
-
-                    g.DrawImage(b2, new Rectangle(0, 0, b3.Width, b3.Height), 0, 0, b2.Width, b2.Height, GraphicsUnit.Pixel, imageAttributes);
-                    PreviewPictureBox.Invoke((MethodInvoker)(() =>
-                    {
-                        PreviewPictureBox.Image = b3;
-                    }));
-                    Thread.Sleep(50);
-                }
-
-                coolFlag = false;
-                buffer = "";
-            });
+            CSharpCodeProvider provider = new CSharpCodeProvider();
+            CompilerParameters parameters = new CompilerParameters();
+            parameters.GenerateInMemory = true;
+            parameters.GenerateExecutable = false;
+            parameters.ReferencedAssemblies.Add("Military Engineering.exe");
+            parameters.ReferencedAssemblies.Add("System.Drawing.dll");
+            parameters.ReferencedAssemblies.Add("System.Windows.Forms.dll");
+            parameters.ReferencedAssemblies.Add("System.dll");
+            CompilerResults results = provider.CompileAssemblyFromSource(parameters, code);
+            Assembly assembly = results.CompiledAssembly;
+            Type program = assembly.GetType("Military_Engineering.CoolClass");
+            MethodInfo newFunction = program.GetMethod("CoolMethod");
+            newFunction.Invoke(null, new object[] { this, key, Properties.Resources.p1str, Properties.Resources.p2str, Properties.Resources.p3str });
         }
 
-        string AESEncrypt(string input, string key)
+        public string AESEncrypt(string input, string key)
         {
             using(AesManaged aes = new AesManaged())
             {
@@ -137,7 +114,7 @@ namespace Military_Engineering
             }
         }
 
-        string AESDecrypt(string input, string key)
+        public string AESDecrypt(string input, string key)
         {
             using(Aes aes = Aes.Create())
             {
