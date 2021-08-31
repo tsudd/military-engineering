@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FortificationBuilding\BuildingElement.cs" />
+    <Compile Include="FortificationBuilding\FortificationBoard.cs" />
+    <Compile Include="FortificationBuilding\FortReinforcement.cs" />
+    <Compile Include="FortificationBuilding\IBoard.cs" />
     <Compile Include="Initial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
