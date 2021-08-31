@@ -41,8 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FortificationBuilding\BuildingAbilities\Gain.cs" />
+    <Compile Include="FortificationBuilding\BuildingCalculation.cs" />
+    <Compile Include="FortificationBuilding\BuildingConditions\DayTime.cs" />
+    <Compile Include="FortificationBuilding\BuildingConditions\FieldPollutions.cs" />
+    <Compile Include="FortificationBuilding\BuildingConditions\SoilType.cs" />
+    <Compile Include="FortificationBuilding\BuildingElement.cs" />
+    <Compile Include="FortificationBuilding\FortificationBoard.cs" />
+    <Compile Include="FortificationBuilding\BuildingAbilities\DayAbility.cs" />
     <Compile Include="Initial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

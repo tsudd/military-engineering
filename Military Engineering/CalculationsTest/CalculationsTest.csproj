@@ -49,6 +49,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestBoard.cs" />
+    <Compile Include="TestCalculation.cs" />
     <Compile Include="UnitTestKisel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
