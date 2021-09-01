@@ -8,9 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-
-namespace Military_Engineering.Properties
-{
+namespace Military_Engineering.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -18,52 +19,138 @@ namespace Military_Engineering.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Military_Engineering.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fencing {
+            get {
+                object obj = ResourceManager.GetObject("Fencing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Fortification {
+            get {
+                object obj = ResourceManager.GetObject("Fortification", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0bc7ddba7e46fafc53fe08aeb3419666ca1106cdb7932d43b744a70ab5258fbc.
+        /// </summary>
+        internal static string hashed {
+            get {
+                return ResourceManager.GetString("hashed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Main {
+            get {
+                object obj = ResourceManager.GetObject("Main", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to B3inYTphUU2RCfVOMjB+9aCAKPH3flFEhZkhfFB/bvssYuh6v99PNUh98e16x/ro08i5mx9+1c1rGNaqb4fsKaFtnd7coHrWFc+khKgJyLCvVd/zMgNIVNGiZBz+HTArSsvFt4GgANcOQ1EUxM3IeN25lrPS/zMrbwtXTPQBAkFydFehC5JeumiXe/LDXCrROQycC4uCGZf/vzBRpeodlFMm6kXXXpO51cMA1ecOCFaRxnyFEoaAMIHEMqyTqnuVwcCzcXKC7cmPvAPtbMFpyt0ypFe7Y2rwdDpTe60WgTnyNImz53bzQIfnMsy9gJ1mkF3QiIbx1fUMr+Xaxvh969hpTjqqTBvWp4mg3VQdZzxIHnr3OB6YWsotT4BBzO7dKZMkjB4w70buf53kO1r1dweTSPuAdCDgYlHaXx0DYxXkrZjIfpxUX57Uipw5aUlopfovNbZP46xo7YoKM6LkZcQBauQ2vfPaH8vIP1PH5za7pnpHKC1G4kNFkq9RcKlJ [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string p1str {
+            get {
+                return ResourceManager.GetString("p1str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to B3inYTphUU2RCfVOMjB+9aCAKPH3flFEhZkhfFB/bvt+96WMB+KEFfe2/GgO8HWxfnfuBpVwOlBOFFEnlW+Wtp2F8sd0/YknCWawfcgTCWpn/SJLlFCmY4p7/pwXZUNFG5k3zSiKBhyEIW6f1Z0CLtg9n7TTeTN69swiPA9J1wa2uIEFOPr3teaNUJD8k3I2LH1488kyFEiF8vbQAm9lpcE1tuvsfkIzmo65I2IiqsO/bgqrOlLdzkYFcZSHTLXUEtfVz8YLRk3iKP7t+6srReTVN9HwXfDWDhPrgD8l2vOhVDCxC/2jre6ooJHSTvdpqEsqvQDMY9FmwrB5c9QBBDJFoxd5HTX9VcfYTUyCd6R/SHAKcOV/x42OikGHD4LZnFSZ+5xbzLgntUHMMWKyVYtaVsFLJAT1narJt4b9dBq6MTNvoanMx3LFlP3Q8/JIQfwkOBV37RPSJEXLCMnY+DZsFHlg/KGzzQLMD76WgWjSUy8fNHDRbgM+X6BT3Zx4 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string p2str {
+            get {
+                return ResourceManager.GetString("p2str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NJ6xFNPC4yywnhxMLiB1JuqCm8htAl8lw29XfkB4ie1KPjh70CqYODr6MAKeN7llByoYxdOIy4aUMCzvKOblEg==.
+        /// </summary>
+        internal static string p3str {
+            get {
+                return ResourceManager.GetString("p3str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eGSlo8jQw+yi9c7r4jWVySoJCasWsSIVsoj+IN2eQU5ID/N0UlLZ7a3E5SUDUMoA/Dw8n2dJAbgznHZXI0ez/UPQ8ZnP3+Ta0+2eanFj1/gV4sOgyMiDVoc/lQTph8KlUdkeSny5uiC7IXTUpzxyqtoK0w+0OL9OmTtOx9N9nnZZayMxerwtZD/1EDQalqt9MC7ykvDUiKfBVGGyzLRXULvwvasImXdi1JvwIPg7aZgyrrt+qDPhnf1BaFKXwwNgbjv7UvsgJ4iBVV8ikqGDCsVKAWP+o7MEJxgPiXKIm0mM1iWY1tQnpUcQQmhb/OImJOrpPvEnno1znpc+d1HpTeuefe/5Sm/DBFH+eka1AQbnKU5cXkN8MIz5JIXxkRqG8aRYCloGK1pkQZ7ckLT9xxZtHnt1TFzT4TAxH+YHuKEl+JY/vIsIXP07MUr0Ey23jNu69DvMmi47N+6Ki4jp3XGaanMdilEbpLzT4MF/F6puArd5oPUefsCu4CV3cLg1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string p4str {
+            get {
+                return ResourceManager.GetString("p4str", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Placeholder {
+            get {
+                object obj = ResourceManager.GetObject("Placeholder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0VR5GzI6YSk24d93n4j3.
+        /// </summary>
+        internal static string salt {
+            get {
+                return ResourceManager.GetString("salt", resourceCulture);
             }
         }
     }
