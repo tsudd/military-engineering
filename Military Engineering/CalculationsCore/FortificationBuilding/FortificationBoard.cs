@@ -1,4 +1,4 @@
-﻿using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using CalculationsCore.FortificationBuilding.BuildingConditions;
 using System;
 using System.Collections.Generic;
@@ -110,7 +110,7 @@ namespace CalculationsCore.FortificationBuilding
 
         public int CalculationsNumber()
         {
-            return elements.Count;
+            return elements.Count;              
         }
     }
 }
