@@ -8,9 +8,9 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
 {
     public class DayTime
     {
-        public static DayTime Day { get; } = new DayTime(1, "Day");
-        public static DayTime Night { get; } = new DayTime(0.7, "Night");
-        public static DayTime DayNight { get; } = new DayTime(0.85, "DayNight");
+        public static DayTime Day { get; } = new DayTime(1, "День");
+        public static DayTime Night { get; } = new DayTime(0.7, "Ночь");
+        public static DayTime DayNight { get; } = new DayTime(0.85, "День-Ночь");
         public string Name { get; private set; }
         public double Value { get; private set; }
 
@@ -18,6 +18,10 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
         {
             Value = val;
             Name = name;
+        }
+        public static IEnumerable<DayTime> GetTimeCondotions()
+        {
+            return new[] { Day, Night, DayNight };
         }
     }
 }

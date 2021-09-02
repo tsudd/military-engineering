@@ -22,5 +22,9 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
             Value = val;
             Name = name;
         }
+        public static IEnumerable<SoilType> GetSoilConditions()
+        {
+            return new[] { Weak, Medium, Solid, Rocky, FrozenShallow, FrozenDeep };
+        }
     }
 }
