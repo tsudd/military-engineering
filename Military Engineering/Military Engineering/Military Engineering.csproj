@@ -47,6 +47,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementCreatorForm.Designer.cs">
+      <DependentUpon>BuildingElementCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementPanel.Designer.cs">
+      <DependentUpon>BuildingElementPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.Designer.cs">
+      <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\FortificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\FortificationForm.Designer.cs">
+      <DependentUpon>FortificationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +79,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementCreatorForm.resx">
+      <DependentUpon>BuildingElementCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementPanel.resx">
+      <DependentUpon>BuildingElementPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.resx">
+      <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\FortificationForm.resx">
+      <DependentUpon>FortificationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +122,10 @@
       <Project>{fbcdb1a4-64b0-43bf-95d3-b153e5c4394e}</Project>
       <Name>CalculationsCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MilitaryConfiguration\MilitaryConfiguration.csproj">
+      <Project>{64e862a3-1d1e-4db3-b116-bbf3284198df}</Project>
+      <Name>MilitaryConfiguration</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Main.png" />
@@ -98,6 +138,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CrossHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\EditHover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
