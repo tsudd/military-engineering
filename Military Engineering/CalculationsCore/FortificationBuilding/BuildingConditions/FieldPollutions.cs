@@ -8,10 +8,10 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
 {
     public class FieldPollution
     {
-        public static FieldPollution Radioation { get; } = new FieldPollution(0.75, "Radioation");
-        public static FieldPollution Chemical { get; } = new FieldPollution(0.75, "Chemical");
-        public static FieldPollution Bacteriological { get; } = new FieldPollution(0.75, "Bacteriological");
-        public static FieldPollution Purely { get; } = new FieldPollution(1, "Purely");
+        public static FieldPollution Radioation { get; } = new FieldPollution(0.75, "Радиоактивное");
+        public static FieldPollution Chemical { get; } = new FieldPollution(0.75, "Химическое");
+        public static FieldPollution Bacteriological { get; } = new FieldPollution(0.75, "Бактериологическое");
+        public static FieldPollution Purely { get; } = new FieldPollution(1, "Чисто");
         public string Name { get; private set; }
         public double Value { get; private set; }
 
@@ -19,6 +19,10 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
         {
             Value = val;
             Name = name;
+        }
+        public IEnumerable<FieldPollution> GetPollutionConditions()
+        {
+            return new[] { Radioation, Chemical, Bacteriological, Purely };
         }
     }
 }
