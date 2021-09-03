@@ -23,7 +23,15 @@ namespace MilitaryConfiguration
         {
             using (StreamReader reader = new StreamReader(FileName))
             {
-                return JsonConvert.DeserializeObject<Configuration>(reader.ReadToEnd());  
+                try
+                {
+                    return JsonConvert.DeserializeObject<Configuration>(reader.ReadToEnd());
+
+                }
+                catch
+                {
+                    return GetDefaultConfiguration();
+                }
             }
         }
 

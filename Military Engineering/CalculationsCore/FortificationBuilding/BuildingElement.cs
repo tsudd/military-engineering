@@ -12,6 +12,8 @@ namespace CalculationsCore.FortificationBuilding
         public double AllTurns { get => FirstTurn + SecondTurn + FutureTurn; }
         public string Name { get; set; }
         public bool IsDefault { get; set; }
+
+        public BuildingElement() { }
         public BuildingElement(string name = STANDART_NAME) => this.Name = name;
         public BuildingElement(string name, double firstTurn, double secondTurn, double futurTurns, bool isDefault)
         {

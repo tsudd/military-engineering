@@ -89,6 +89,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор элемента построения";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BuildingElementSelectorForm_FormClosed);
             this.Load += new System.EventHandler(this.BuildingElementSelectorForm_Load);
             this.ResumeLayout(false);
 

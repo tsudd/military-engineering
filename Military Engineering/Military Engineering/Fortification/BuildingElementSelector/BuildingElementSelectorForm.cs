@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
+using MilitaryConfiguration;
 
 namespace Military_Engineering.Fortification.BuildingElementSelector
 {
@@ -108,6 +109,13 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
                 }
             }
 
+        }
+
+        private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ConfigurationManager configurationManager = new ConfigurationManager();
+            Configuration configuration = new Configuration() { BuildingElements = buildingElements };
+            configurationManager.SaveConfiguration(configuration);
         }
     }
 }
