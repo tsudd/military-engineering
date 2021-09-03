@@ -31,9 +31,19 @@ namespace CalculationsCore.FortificationBuilding
             }
         }
 
-        public object GetBuildingTerms()
+        public List<Evaluations> GetBuildingTerms()
         {
-            throw new NotImplementedException();
+            List<Evaluations> buildingTerms = new List<Evaluations>();
+            foreach (var el in elements)
+            {
+                buildingTerms.Add(new Evaluations(
+                    el.Value.EvaluateFirstTurn(), 
+                    el.Value.EvaluateSecondTurn(),
+                    el.Value.EvaluateFutureTurn(),
+                    el.Value.Element.Name, 
+                    el.Value.DaysToSettle));
+            }
+            return buildingTerms;
         }
 
         public void UpdateElementCondition(int id, DayTime value)
