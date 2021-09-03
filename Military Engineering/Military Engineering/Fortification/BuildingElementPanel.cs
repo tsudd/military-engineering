@@ -16,10 +16,5 @@ namespace Military_Engineering.Fortification
         {
             InitializeComponent();
         }
-
-        private void NameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
