@@ -21,17 +21,17 @@ namespace MilitaryConfiguration
 
         public Configuration LoadConfiguration()
         {
-            using (StreamReader reader = new StreamReader(FileName))
+            try
             {
-                try
+                using (StreamReader reader = new StreamReader(FileName))
                 {
-                    return JsonConvert.DeserializeObject<Configuration>(reader.ReadToEnd());
 
+                    return JsonConvert.DeserializeObject<Configuration>(reader.ReadToEnd());
                 }
-                catch
-                {
-                    return GetDefaultConfiguration();
-                }
+            } 
+            catch
+            {
+                return GetDefaultConfiguration();
             }
         }
 

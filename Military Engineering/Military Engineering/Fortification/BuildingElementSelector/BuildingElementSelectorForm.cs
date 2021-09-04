@@ -22,7 +22,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.sender = sender;
             for(int i = buildingElements.Count - 1; i >= 0; i--)
             {
-                BuildingElement element = buildingElements[i];
+                var element = buildingElements[i];
                 AddNewElement(element);
             }
         }
@@ -35,7 +35,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
 
         private void CreateElementButton_Click(object sender, EventArgs e)
         {
-            BuildingElementCreatorForm form = new BuildingElementCreatorForm(this);
+            var form = new BuildingElementCreatorForm(this);
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -60,19 +60,19 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
 
         public void RemoveClick(object sender, EventArgs e)
         {
-            Panel panelParent = (Panel)((Button)sender).Parent;
-            BuildingElementPanel parent = (BuildingElementPanel)(panelParent.Parent);
-            BuildingElement buildingElement = parent.BuildingElement;
+            var panelParent = (Panel)((Button)sender).Parent;
+            var parent = (BuildingElementPanel)(panelParent.Parent);
+            var buildingElement = parent.BuildingElement;
             buildingElements.Remove(buildingElement);
             parent.Dispose();
         }
 
         public void EditClick(object sender, EventArgs e)
         {
-            Panel panelParent = (Panel)((Button)sender).Parent;
-            BuildingElementPanel parent = (BuildingElementPanel)(panelParent.Parent);
-            BuildingElement buildingElement = parent.BuildingElement;
-            BuildingElementCreatorForm form = new BuildingElementCreatorForm(this, buildingElement);
+            var panelParent = (Panel)((Button)sender).Parent;
+            var parent = (BuildingElementPanel)(panelParent.Parent);
+            var buildingElement = parent.BuildingElement;
+            var form = new BuildingElementCreatorForm(this, buildingElement);
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -84,7 +84,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         public void AddNewElement(BuildingElement buildingElement)
         {
             buildingElements.Add(buildingElement);
-            BuildingElementPanel panel = new BuildingElementPanel(buildingElement);
+            var panel = new BuildingElementPanel(buildingElement);
             panel.Parent = MainPanel;
             panel.Dock = DockStyle.Top;
             panel.CloseButton.Visible = false;
@@ -113,8 +113,8 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
 
         private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ConfigurationManager configurationManager = new ConfigurationManager();
-            Configuration configuration = new Configuration() { BuildingElements = buildingElements };
+            var configurationManager = new ConfigurationManager();
+            var configuration = new Configuration() { BuildingElements = buildingElements };
             configurationManager.SaveConfiguration(configuration);
         }
     }

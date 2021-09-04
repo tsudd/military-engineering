@@ -19,7 +19,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
             Value = val;
             Name = name;
         }
-        public static IEnumerable<DayTime> GetTimeCondotions()
+        public static IEnumerable<DayTime> GetTimeConditions()
         {
             return new[] { Day, Night, DayNight };
         }

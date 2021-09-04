@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MilitaryConfiguration;
 using Military_Engineering.Fortification.BuildingElementSelector;
@@ -15,6 +9,12 @@ namespace Military_Engineering.Fortification
 {
     public partial class FortificationForm : Form
     {
+        public FortificationBoard Board { get; private set; } = new FortificationBoard();
+        public int ElementsAmount { get; private set; } = 0;
+        public double AllFirstTurns { get; private set; } = 0;
+        public double AllSecondTurns { get; private set; } = 0;
+        public double AllFutureTurns { get; private set; } = 0;
+        public double AllAllTurns { get; private set; } = 0;
         public FortificationForm()
         {
             InitializeComponent();
@@ -22,11 +22,11 @@ namespace Military_Engineering.Fortification
 
         private void AddElementButton_Click(object sender, EventArgs e)
         {
-            ConfigurationManager configurationManager = new ConfigurationManager();
-            Configuration configuration = configurationManager.LoadConfiguration();
-            List<BuildingElement> buildingElements = configuration.BuildingElements;
+            var configurationManager = new ConfigurationManager();
+            var configuration = configurationManager.LoadConfiguration();
+            var buildingElements = configuration.BuildingElements;
             
-            BuildingElementSelectorForm form = new BuildingElementSelectorForm(this, buildingElements);
+            var form = new BuildingElementSelectorForm(this, buildingElements);
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -35,10 +35,33 @@ namespace Military_Engineering.Fortification
             Enabled = false;
         }
 
+        private void RemoveElement(object sender, EventArgs e)
+        {
+            var childPanel = (Panel)((Button)sender).Parent;
+            var parent = (BuildingElementPanel)(childPanel.Parent);
+            Board.DeleteElement(parent.ElementIndex);
+            parent.Dispose();
+        }
+
         public void AddNewElement(BuildingElement buildingElement)
         {
-            //Someone please implement this method
-            MessageBox.Show(buildingElement.Name);
+            var index = Board.AddElement(new BuildingCalculation(buildingElement));
+            if (index == -1)
+            {
+                //oops..
+            }
+            var element = new BuildingElementPanel(Board, index);
+            MainTable.RowCount++;
+            MainTable.RowStyles.Add(new RowStyle(SizeType.Percent));
+            MainTable.Controls.Add(element, 0, MainTable.RowCount - 1);
+            element.Dock = DockStyle.Top;
+        }
+
+        //public void Update(
+
+        private void FirstTurnLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

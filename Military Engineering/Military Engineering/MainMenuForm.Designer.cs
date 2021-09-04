@@ -55,9 +55,8 @@ namespace Military_Engineering
             this.LeftPanel.Controls.Add(this.FencingButton);
             this.LeftPanel.Controls.Add(this.FortificationButton);
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
-            this.LeftPanel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(882, 1152);
+            this.LeftPanel.Size = new System.Drawing.Size(490, 640);
             this.LeftPanel.TabIndex = 0;
             // 
             // button3
@@ -66,10 +65,9 @@ namespace Military_Engineering
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button3.Location = new System.Drawing.Point(103, 891);
-            this.button3.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button3.Location = new System.Drawing.Point(57, 495);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(630, 119);
+            this.button3.Size = new System.Drawing.Size(350, 66);
             this.button3.TabIndex = 5;
             this.button3.TabStop = false;
             this.button3.Text = "PLACEHOLDER";
@@ -84,10 +82,9 @@ namespace Military_Engineering
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button2.Location = new System.Drawing.Point(103, 738);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Location = new System.Drawing.Point(57, 410);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(630, 119);
+            this.button2.Size = new System.Drawing.Size(350, 66);
             this.button2.TabIndex = 4;
             this.button2.TabStop = false;
             this.button2.Text = "PLACEHOLDER";
@@ -102,10 +99,9 @@ namespace Military_Engineering
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.button1.Location = new System.Drawing.Point(103, 585);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button1.Location = new System.Drawing.Point(57, 325);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(630, 119);
+            this.button1.Size = new System.Drawing.Size(350, 66);
             this.button1.TabIndex = 3;
             this.button1.TabStop = false;
             this.button1.Text = "PLACEHOLDER";
@@ -120,10 +116,9 @@ namespace Military_Engineering
             this.Placeholder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Placeholder.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.Placeholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.Placeholder.Location = new System.Drawing.Point(103, 432);
-            this.Placeholder.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Placeholder.Location = new System.Drawing.Point(57, 240);
             this.Placeholder.Name = "Placeholder";
-            this.Placeholder.Size = new System.Drawing.Size(630, 119);
+            this.Placeholder.Size = new System.Drawing.Size(350, 66);
             this.Placeholder.TabIndex = 2;
             this.Placeholder.TabStop = false;
             this.Placeholder.Text = "PLACEHOLDER";
@@ -138,10 +133,9 @@ namespace Military_Engineering
             this.FencingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FencingButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FencingButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.FencingButton.Location = new System.Drawing.Point(103, 279);
-            this.FencingButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.FencingButton.Location = new System.Drawing.Point(57, 155);
             this.FencingButton.Name = "FencingButton";
-            this.FencingButton.Size = new System.Drawing.Size(630, 119);
+            this.FencingButton.Size = new System.Drawing.Size(350, 66);
             this.FencingButton.TabIndex = 1;
             this.FencingButton.TabStop = false;
             this.FencingButton.Text = "РСИЗ";
@@ -156,10 +150,9 @@ namespace Military_Engineering
             this.FortificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.FortificationButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FortificationButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.FortificationButton.Location = new System.Drawing.Point(103, 126);
-            this.FortificationButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.FortificationButton.Location = new System.Drawing.Point(57, 70);
             this.FortificationButton.Name = "FortificationButton";
-            this.FortificationButton.Size = new System.Drawing.Size(630, 119);
+            this.FortificationButton.Size = new System.Drawing.Size(350, 66);
             this.FortificationButton.TabIndex = 0;
             this.FortificationButton.TabStop = false;
             this.FortificationButton.Text = "РФО";
@@ -172,10 +165,9 @@ namespace Military_Engineering
             // 
             this.InfoLabel.Font = new System.Drawing.Font("Bahnschrift", 20F);
             this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.InfoLabel.Location = new System.Drawing.Point(893, 16);
-            this.InfoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.InfoLabel.Location = new System.Drawing.Point(496, 9);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(1388, 284);
+            this.InfoLabel.Size = new System.Drawing.Size(771, 158);
             this.InfoLabel.TabIndex = 2;
             this.InfoLabel.Text = "МЕТОДИКИ ИНЖЕНЕРНЫХ РАСЧЕТОВ";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -183,26 +175,24 @@ namespace Military_Engineering
             // PreviewPictureBox
             // 
             this.PreviewPictureBox.Image = global::Military_Engineering.Properties.Resources.Main;
-            this.PreviewPictureBox.Location = new System.Drawing.Point(1044, 306);
-            this.PreviewPictureBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.PreviewPictureBox.Location = new System.Drawing.Point(580, 170);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
-            this.PreviewPictureBox.Size = new System.Drawing.Size(1080, 648);
+            this.PreviewPictureBox.Size = new System.Drawing.Size(600, 360);
             this.PreviewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PreviewPictureBox.TabIndex = 1;
             this.PreviewPictureBox.TabStop = false;
             // 
             // MainMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(216F, 216F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(2282, 1148);
+            this.ClientSize = new System.Drawing.Size(1246, 584);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.PreviewPictureBox);
             this.Controls.Add(this.LeftPanel);
             this.Font = new System.Drawing.Font("Bahnschrift", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.Name = "MainMenuForm";
             this.ShowIcon = false;

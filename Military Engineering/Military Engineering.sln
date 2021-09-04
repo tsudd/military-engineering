@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Military Engineering", "Military Engineering\Military Engineering.csproj", "{BFAC6BEE-48A9-4D19-AB23-2EF8D3D4B6F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitaryEngineering", "Military Engineering\MilitaryEngineering.csproj", "{BFAC6BEE-48A9-4D19-AB23-2EF8D3D4B6F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationsCore", "CalculationsCore\CalculationsCore.csproj", "{FBCDB1A4-64B0-43BF-95D3-B153E5C4394E}"
 EndProject

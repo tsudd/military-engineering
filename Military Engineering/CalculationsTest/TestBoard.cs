@@ -37,43 +37,43 @@ namespace CalculationsTest
         public void TestInsert()
         {
             // when
-            Board.AddElement(1, Calc);
+            var ind = Board.AddElement(Calc);
 
             // then
-            Assert.AreEqual(Calc, Board.GetElement(1)); 
+            Assert.AreEqual(Calc, Board.GetElement(ind)); 
         }
 
         [TestMethod]
         public void TestDelete()
         {
             // when
-            Board.AddElement(1, Calc);
-            Board.DeleteElement(1);
+            var ind = Board.AddElement(Calc);
+            Board.DeleteElement(ind);
 
             //then
-            Assert.AreEqual(0, Board.CalculationsNumber());
+            Assert.AreEqual(0, Board.GetCalculationsNumber());
         }
 
         [TestMethod]
         public void TestConditionChange()
         {
             // when
-            Board.AddElement(1, Calc);
+            var ind = Board.AddElement(Calc);
             Board.UpdateElementCondition(1, DayTime.Night);
 
             //then
-            Assert.AreEqual(DayTime.Night, Board.GetElement(1).DayTime);
+            Assert.AreEqual(DayTime.Night, Board.GetElement(ind).DayTime);
         }
 
         [TestMethod]
         public void TestAbilityChange()
         {
             // when
-            Board.AddElement(1, Calc);
+            var ind = Board.AddElement(Calc);
             Board.UpdateElementAbility(1, 80, AbilityType.PeopleAmount);
 
             //then
-            Assert.AreEqual(80, Board.GetElement(1).Ability.PeopleAmount);
+            Assert.AreEqual(80, Board.GetElement(ind).Ability.PeopleAmount);
         }
     }
 }

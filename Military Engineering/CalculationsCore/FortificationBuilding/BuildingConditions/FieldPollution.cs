@@ -20,7 +20,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingConditions
             Value = val;
             Name = name;
         }
-        public IEnumerable<FieldPollution> GetPollutionConditions()
+        public static IEnumerable<FieldPollution> GetPollutionConditions()
         {
             return new[] { Radioation, Chemical, Bacteriological, Purely };
         }
