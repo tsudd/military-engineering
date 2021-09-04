@@ -3,12 +3,22 @@ using CalculationsCore.FortificationBuilding.BuildingConditions;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Military_Engineering.Fortification
 {
     public partial class BuildingElementPanel : UserControl
     {
         public const string ERROR_TEXT = "Ошибка";
+        Dictionary<string, string> coeffInfo = new Dictionary<string, string>()
+        {
+            { "CoeffNpersonnelLabel", "Количество личного состава в соединении (воинской части) по штату, чел" },
+            { "CoeffKstaffingLabel", "Коэффициент, учитывающий укомплектованность соединения (воинской части) \nк моменту начала выполнения задач" },
+            { "CoeffKorganizationLabel", "Коэффициент, учитывающий время на организационно-технологические мероприятия" },
+            { "CoeffKcallingLabel", "Коэффициент, учитывающий привлечение личного состава для фортификационного оборудования \n(для мотострелковых, танковых, артиллерийских воинских частей (подразделений) Кпр = 0,6…0,7; \nдля ракетных, зенитных ракетно-артиллерийских воинских частей (подразделений) Кпр = 0,3…0,4; \nдля воинских частей (подразделений) обеспечения и обслуживания Кпр = 0,5)" },
+            { "CoeffThoursLabel", "Время работы в течение одних суток, ч" },
+        };
+
         public FortificationBoard Board {  get; private set; }
         public int ElementIndex { get; private set; }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
@@ -18,6 +28,7 @@ namespace Military_Engineering.Fortification
             Board = fortificationBoard;
             ElementIndex = key;
             InitializeComponent();
+            ConfigureToolTip();
             defaultColor = tableLayoutPanel1.BackColor;
             var element = Board.GetElement(ElementIndex);
             ElementNameLabel.Text = element.Element.Name;
@@ -48,6 +59,20 @@ namespace Military_Engineering.Fortification
             PollutionsBox.SelectedIndexChanged += Evaluate;
         }
 
+        void ConfigureToolTip()
+        {
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, coeffInfo);
+            autoMapper.Map();
+            CoeffInfoToolTip.OwnerDraw = true;
+            CoeffInfoToolTip.Draw += (sender, e) =>
+            {
+                Font f = new Font("Arial", 9f);
+                //CoeffInfoToolTip.BackColor = System.Drawing.Color.Red;
+                e.DrawBackground();
+                e.DrawBorder();
+                e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
+            };
+        }
         private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
         {
 

@@ -39,6 +39,7 @@ namespace Military_Engineering.Fortification
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -56,12 +57,12 @@ namespace Military_Engineering.Fortification
             this.ManPowerInput = new System.Windows.Forms.TextBox();
             this.AttritionRateInput = new System.Windows.Forms.TextBox();
             this.OrganizationInput = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.CoeffThoursLabel = new System.Windows.Forms.Label();
             this.PeopleAmountInput = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.CoeffKorganizationLabel = new System.Windows.Forms.Label();
+            this.CoeffKcallingLabel = new System.Windows.Forms.Label();
+            this.CoeffKstaffingLabel = new System.Windows.Forms.Label();
+            this.CoeffNpersonnelLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SecondTurnLabel = new System.Windows.Forms.Label();
             this.FutureTurnLabel = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@ namespace Military_Engineering.Fortification
             this.FutureTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
+            this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -247,12 +249,12 @@ namespace Military_Engineering.Fortification
             this.tableLayoutPanel6.Controls.Add(this.ManPowerInput, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.AttritionRateInput, 3, 0);
             this.tableLayoutPanel6.Controls.Add(this.OrganizationInput, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label6, 2, 1);
+            this.tableLayoutPanel6.Controls.Add(this.CoeffThoursLabel, 2, 1);
             this.tableLayoutPanel6.Controls.Add(this.PeopleAmountInput, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label5, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label4, 2, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.CoeffKorganizationLabel, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.CoeffKcallingLabel, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.CoeffKstaffingLabel, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.CoeffNpersonnelLabel, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -337,17 +339,17 @@ namespace Military_Engineering.Fortification
             this.OrganizationInput.TabIndex = 21;
             this.OrganizationInput.TextChanged += new System.EventHandler(this.OrganizationInput_TextChanged);
             // 
-            // label6
+            // CoeffThoursLabel
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label6.Location = new System.Drawing.Point(191, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 33);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "tч";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CoeffThoursLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoeffThoursLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CoeffThoursLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffThoursLabel.Location = new System.Drawing.Point(191, 33);
+            this.CoeffThoursLabel.Name = "CoeffThoursLabel";
+            this.CoeffThoursLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffThoursLabel.TabIndex = 20;
+            this.CoeffThoursLabel.Text = "tч";
+            this.CoeffThoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PeopleAmountInput
             // 
@@ -361,53 +363,53 @@ namespace Military_Engineering.Fortification
             this.PeopleAmountInput.TabIndex = 19;
             this.PeopleAmountInput.TextChanged += new System.EventHandler(this.PeopleAmountInput_TextChanged);
             // 
-            // label5
+            // CoeffKorganizationLabel
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label5.Location = new System.Drawing.Point(3, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 34);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Kор";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CoeffKorganizationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoeffKorganizationLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CoeffKorganizationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffKorganizationLabel.Location = new System.Drawing.Point(3, 66);
+            this.CoeffKorganizationLabel.Name = "CoeffKorganizationLabel";
+            this.CoeffKorganizationLabel.Size = new System.Drawing.Size(88, 34);
+            this.CoeffKorganizationLabel.TabIndex = 17;
+            this.CoeffKorganizationLabel.Text = "Kор";
+            this.CoeffKorganizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // CoeffKcallingLabel
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label4.Location = new System.Drawing.Point(191, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 33);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Kпр";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CoeffKcallingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoeffKcallingLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CoeffKcallingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffKcallingLabel.Location = new System.Drawing.Point(191, 0);
+            this.CoeffKcallingLabel.Name = "CoeffKcallingLabel";
+            this.CoeffKcallingLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffKcallingLabel.TabIndex = 16;
+            this.CoeffKcallingLabel.Text = "Kпр";
+            this.CoeffKcallingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // CoeffKstaffingLabel
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label3.Location = new System.Drawing.Point(3, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 33);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Kук";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CoeffKstaffingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoeffKstaffingLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CoeffKstaffingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffKstaffingLabel.Location = new System.Drawing.Point(3, 33);
+            this.CoeffKstaffingLabel.Name = "CoeffKstaffingLabel";
+            this.CoeffKstaffingLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffKstaffingLabel.TabIndex = 15;
+            this.CoeffKstaffingLabel.Text = "Kук";
+            this.CoeffKstaffingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // CoeffNpersonnelLabel
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 33);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Nлс";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CoeffNpersonnelLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoeffNpersonnelLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CoeffNpersonnelLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffNpersonnelLabel.Location = new System.Drawing.Point(3, 0);
+            this.CoeffNpersonnelLabel.Name = "CoeffNpersonnelLabel";
+            this.CoeffNpersonnelLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffNpersonnelLabel.TabIndex = 14;
+            this.CoeffNpersonnelLabel.Text = "Nлс";
+            this.CoeffNpersonnelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -505,7 +507,7 @@ namespace Military_Engineering.Fortification
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 318F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1007, 179);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
@@ -525,7 +527,7 @@ namespace Military_Engineering.Fortification
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 312F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(352, 173);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
@@ -577,6 +579,11 @@ namespace Military_Engineering.Fortification
             this.FirstTurnEvaluationLabel.Text = "Ошибка";
             this.FirstTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // CoeffInfoToolTip
+            // 
+            this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            // 
             // BuildingElementPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -610,15 +617,15 @@ namespace Military_Engineering.Fortification
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        public System.Windows.Forms.Label label5;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label CoeffKorganizationLabel;
+        public System.Windows.Forms.Label CoeffKcallingLabel;
+        public System.Windows.Forms.Label CoeffKstaffingLabel;
+        public System.Windows.Forms.Label CoeffNpersonnelLabel;
         private System.Windows.Forms.TextBox WorkTimeInput;
         private System.Windows.Forms.TextBox ManPowerInput;
         private System.Windows.Forms.TextBox AttritionRateInput;
         private System.Windows.Forms.TextBox OrganizationInput;
-        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label CoeffThoursLabel;
         private System.Windows.Forms.TextBox PeopleAmountInput;
         public System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox GainBox;
@@ -628,5 +635,6 @@ namespace Military_Engineering.Fortification
         public System.Windows.Forms.Label FutureTurnEvaluationLabel;
         public System.Windows.Forms.Label SecondTurnEvaluationLabel;
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
+        private System.Windows.Forms.ToolTip CoeffInfoToolTip;
     }
 }
