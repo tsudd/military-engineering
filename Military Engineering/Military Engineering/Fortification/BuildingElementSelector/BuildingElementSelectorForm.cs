@@ -52,6 +52,10 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             }
             else
             {
+                if (sender is BuildingElementPanel)
+                {
+                    return;
+                }
                 sender = ((Panel)sender).Parent;
             }
             this.sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);

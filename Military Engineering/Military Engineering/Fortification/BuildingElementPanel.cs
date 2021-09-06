@@ -67,7 +67,6 @@ namespace Military_Engineering.Fortification
             CoeffInfoToolTip.Draw += (sender, e) =>
             {
                 Font f = new Font("Arial", 9f);
-                //CoeffInfoToolTip.BackColor = System.Drawing.Color.Red;
                 e.DrawBackground();
                 e.DrawBorder();
                 e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
