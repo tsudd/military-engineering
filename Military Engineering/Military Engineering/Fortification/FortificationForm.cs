@@ -68,8 +68,6 @@ namespace Military_Engineering.Fortification
             {
                 if(panel is BuildingElementPanel buildingElement && buildingElement.Checked)
                 {
-                    //MainTable.Controls.Remove((BuildingElementPanel)panel);
-                    //MainTable.RowCount--;
                     rowsToRemove.Add(buildingElement);
                 }
             }

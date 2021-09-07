@@ -30,6 +30,7 @@ namespace Military_Engineering.Fortification
         private void InitializeComponent()
         {
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.RemoveSelectedButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@ namespace Military_Engineering.Fortification
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
-            this.RemoveSelectedButton = new System.Windows.Forms.Button();
             this.HeaderPanel.SuspendLayout();
             this.FooterPanel.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -80,6 +80,22 @@ namespace Military_Engineering.Fortification
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(1128, 90);
             this.HeaderPanel.TabIndex = 0;
+            // 
+            // RemoveSelectedButton
+            // 
+            this.RemoveSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.RemoveSelectedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveSelectedButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.RemoveSelectedButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.RemoveSelectedButton.Location = new System.Drawing.Point(835, 12);
+            this.RemoveSelectedButton.Name = "RemoveSelectedButton";
+            this.RemoveSelectedButton.Size = new System.Drawing.Size(281, 66);
+            this.RemoveSelectedButton.TabIndex = 2;
+            this.RemoveSelectedButton.TabStop = false;
+            this.RemoveSelectedButton.Text = "Удалить выбранные";
+            this.RemoveSelectedButton.UseVisualStyleBackColor = false;
+            this.RemoveSelectedButton.Click += new System.EventHandler(this.RemoveSelectedButton_Click);
             // 
             // FooterPanel
             // 
@@ -448,22 +464,6 @@ namespace Military_Engineering.Fortification
             this.ElementNameLabel.TabIndex = 5;
             this.ElementNameLabel.Text = "ЭОП";
             this.ElementNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // RemoveSelectedButton
-            // 
-            this.RemoveSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RemoveSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.RemoveSelectedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveSelectedButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.RemoveSelectedButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.RemoveSelectedButton.Location = new System.Drawing.Point(835, 12);
-            this.RemoveSelectedButton.Name = "RemoveSelectedButton";
-            this.RemoveSelectedButton.Size = new System.Drawing.Size(281, 66);
-            this.RemoveSelectedButton.TabIndex = 2;
-            this.RemoveSelectedButton.TabStop = false;
-            this.RemoveSelectedButton.Text = "Удалить выбранные";
-            this.RemoveSelectedButton.UseVisualStyleBackColor = false;
-            this.RemoveSelectedButton.Click += new System.EventHandler(this.RemoveSelectedButton_Click);
             // 
             // FortificationForm
             // 

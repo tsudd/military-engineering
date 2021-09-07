@@ -47,6 +47,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(439, 70);
             this.panel1.TabIndex = 0;
+            this.panel1.Click += new System.EventHandler(this.InfoLabel_Click);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
@@ -63,6 +64,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.EditButton.TabIndex = 6;
             this.EditButton.TabStop = false;
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             this.EditButton.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.EditButton.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
@@ -95,6 +97,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.InfoLabel.TabIndex = 4;
             this.InfoLabel.Text = "No name";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InfoLabel.Click += new System.EventHandler(this.InfoLabel_Click);
             this.InfoLabel.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.InfoLabel.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 

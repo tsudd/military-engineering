@@ -20,10 +20,9 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         {
             InitializeComponent();
             this.sender = sender;
-            for(int i = buildingElements.Count - 1; i >= 0; i--)
+            foreach(BuildingElement buildingElement in buildingElements)
             {
-                var element = buildingElements[i];
-                AddNewElement(element);
+                AddNewElement(buildingElement);
             }
         }
 
@@ -44,41 +43,22 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             Enabled = false;
         }
 
-        public void Panel_Click(object sender, EventArgs e)
+        public void Remove(object sender, EventArgs e)
         {
-            if(sender is Label)
-            {
-                sender = ((Label)sender).Parent.Parent;
-            }
-            else
-            {
-                if (sender is BuildingElementPanel)
-                {
-                    return;
-                }
-                sender = ((Panel)sender).Parent;
-            }
-            this.sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);
-            Close();
-        }
-
-        public void RemoveClick(object sender, EventArgs e)
-        {
-            var panelParent = (Panel)((Button)sender).Parent;
-            var parent = (BuildingElementPanel)(panelParent.Parent);
-            var buildingElement = parent.BuildingElement;
+            BuildingElementPanel panel = sender as BuildingElementPanel;
+            BuildingElement buildingElement = panel.BuildingElement;
             buildingElements.Remove(buildingElement);
-            parent.Dispose();
+            MainTable.Controls.Remove(panel);
         }
 
-        public void EditClick(object sender, EventArgs e)
+        public void Edit(object sender, EventArgs e)
         {
-            var panelParent = (Panel)((Button)sender).Parent;
-            var parent = (BuildingElementPanel)(panelParent.Parent);
-            var buildingElement = parent.BuildingElement;
-            var form = new BuildingElementCreatorForm(this, buildingElement);
+            BuildingElement buildingElement = ((BuildingElementPanel)sender).BuildingElement;
+            BuildingElementCreatorForm form = new BuildingElementCreatorForm(this, buildingElement);
+            
             form.FormClosed += (obj, args) =>
             {
+                ((BuildingElementPanel)sender).Unfocus();
                 Enabled = true;
             };
             form.Show();
@@ -89,30 +69,35 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         {
             buildingElements.Add(buildingElement);
             var panel = new BuildingElementPanel(buildingElement);
-            panel.Parent = MainPanel;
+            MainTable.RowCount++;
+            MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
             panel.CloseButton.Visible = false;
             panel.EditButton.Visible = false;
-            panel.MouseClick += Panel_Click;
-            panel.InfoLabel.MouseClick += Panel_Click;
-            panel.CloseButton.Click += RemoveClick;
-            panel.EditButton.Click += EditClick;
+            panel.Clicked += (sender, e) =>
+            {
+                this.sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);
+                Close();
+            };
+            panel.Removed += Remove;
+            panel.Edited += Edit;
         }
 
         public void EditElement(BuildingElement prevElement, BuildingElement newElement)
         {
             int index = buildingElements.IndexOf(prevElement);
             buildingElements[index] = newElement;
-            foreach(BuildingElementPanel child in MainPanel.Controls.OfType<BuildingElementPanel>())
+            foreach(BuildingElementPanel panel in MainTable.Controls)
             {
-                if(child.BuildingElement == prevElement)
+                if (panel.BuildingElement == prevElement)
                 {
-                    child.BuildingElement = newElement;
-                    child.InfoLabel.Text = newElement.Name;
+                    panel.BuildingElement = newElement;
+                    panel.InfoLabel.Text = newElement.Name;
+                    panel.Unfocus();
                     break;
                 }
             }
-
         }
 
         private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)

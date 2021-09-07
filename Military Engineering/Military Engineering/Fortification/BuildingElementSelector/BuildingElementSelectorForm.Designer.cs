@@ -30,8 +30,10 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         private void InitializeComponent()
         {
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.MainTable = new System.Windows.Forms.TableLayoutPanel();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.CreateElementButton = new System.Windows.Forms.Button();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanel
@@ -42,10 +44,24 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.MainPanel.AutoScroll = true;
             this.MainPanel.AutoScrollMargin = new System.Drawing.Size(10, 0);
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.MainPanel.Controls.Add(this.MainTable);
             this.MainPanel.Location = new System.Drawing.Point(12, 85);
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(470, 498);
             this.MainPanel.TabIndex = 0;
+            // 
+            // MainTable
+            // 
+            this.MainTable.AutoScroll = true;
+            this.MainTable.ColumnCount = 1;
+            this.MainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MainTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainTable.Location = new System.Drawing.Point(0, 0);
+            this.MainTable.Name = "MainTable";
+            this.MainTable.RowCount = 1;
+            this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.MainTable.Size = new System.Drawing.Size(470, 498);
+            this.MainTable.TabIndex = 0;
             // 
             // InfoLabel
             // 
@@ -91,6 +107,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.Text = "Выбор элемента построения";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BuildingElementSelectorForm_FormClosed);
             this.Load += new System.EventHandler(this.BuildingElementSelectorForm_Load);
+            this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -100,5 +117,6 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         private System.Windows.Forms.Panel MainPanel;
         public System.Windows.Forms.Label InfoLabel;
         private System.Windows.Forms.Button CreateElementButton;
+        private System.Windows.Forms.TableLayoutPanel MainTable;
     }
 }

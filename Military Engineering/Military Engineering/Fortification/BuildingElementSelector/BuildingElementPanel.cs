@@ -8,19 +8,19 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
     public partial class BuildingElementPanel : UserControl
     {
         public BuildingElement BuildingElement { get; set; }
+        public event EventHandler Clicked;
+        public event EventHandler Edited;
+        public event EventHandler Removed;
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
+
         public BuildingElementPanel(BuildingElement buildingElement)
         {
             BuildingElement = buildingElement;
             InitializeComponent();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = buildingElement.Name;
-        }
-
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-
+            EditButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
@@ -37,9 +37,14 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
 
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
+            Unfocus();
+        }
+
+        public void Unfocus()
+        {
             Point cursorPos = Cursor.Position;
             Point location = panel1.PointToScreen(Point.Empty);
-            if(cursorPos.X > location.X && cursorPos.X < location.X + panel1.Width
+            if (cursorPos.X > location.X && cursorPos.X < location.X + panel1.Width
                 && cursorPos.Y > location.Y && cursorPos.Y < location.Y + panel1.Height)
             {
                 return;
@@ -75,6 +80,20 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             {
                 EditButton.BackgroundImage = Properties.Resources.Edit;
             }
+        }
+
+        private void InfoLabel_Click(object sender, EventArgs e)
+        {
+            Clicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            Edited?.Invoke(this, EventArgs.Empty);
+        }
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Removed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
