@@ -38,10 +38,10 @@ namespace Military_Engineering.Fortification
             defaultColor = tableLayoutPanel1.BackColor;
             var element = Board.GetElement(ElementIndex);
             ElementNameLabel.Text = element.Element.Name;
-            FirstTurnLabel.Text = element.Element.FirstTurn.ToString();
-            SecondTurnLabel.Text = element.Element.SecondTurn.ToString();
-            FutureTurnLabel.Text = element.Element.FutureTurn.ToString();
-            AllTurnsLabel.Text = element.Element.AllTurns.ToString();
+            FirstTurnLabel.Text = element.Element.FirstTurn.ToString("0.###");
+            SecondTurnLabel.Text = element.Element.SecondTurn.ToString("0.###");
+            FutureTurnLabel.Text = element.Element.FutureTurn.ToString("0.###");
+            AllTurnsLabel.Text = element.Element.AllTurns.ToString("0.###");
 
             SoilTypeBox.DataSource = Board.SoilTypes;
             SoilTypeBox.DisplayMember = "Name";

@@ -81,6 +81,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.FutureTurnsTextBox.Name = "FutureTurnsTextBox";
             this.FutureTurnsTextBox.Size = new System.Drawing.Size(307, 38);
             this.FutureTurnsTextBox.TabIndex = 12;
+            this.FutureTurnsTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
             // label2
             // 
@@ -102,6 +103,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.SecondTurnTextBox.Name = "SecondTurnTextBox";
             this.SecondTurnTextBox.Size = new System.Drawing.Size(307, 38);
             this.SecondTurnTextBox.TabIndex = 10;
+            this.SecondTurnTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
             // label1
             // 
@@ -123,6 +125,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.FirstTurnTextBox.Name = "FirstTurnTextBox";
             this.FirstTurnTextBox.Size = new System.Drawing.Size(307, 38);
             this.FirstTurnTextBox.TabIndex = 8;
+            this.FirstTurnTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
             // FirstTurnLabel
             // 
