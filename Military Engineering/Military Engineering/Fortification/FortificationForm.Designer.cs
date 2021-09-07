@@ -31,6 +31,12 @@ namespace Military_Engineering.Fortification
         {
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.FooterPanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
+            this.AllAllTurnsLabel = new System.Windows.Forms.Label();
+            this.AllSecondTurnsLabel = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.AllFirstTurnsLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.MainTable = new System.Windows.Forms.TableLayoutPanel();
@@ -51,13 +57,10 @@ namespace Military_Engineering.Fortification
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.AllFirstTurnsLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.AllSecondTurnsLabel = new System.Windows.Forms.Label();
-            this.AllAllTurnsLabel = new System.Windows.Forms.Label();
-            this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
+            this.RemoveSelectedButton = new System.Windows.Forms.Button();
+            this.HeaderPanel.SuspendLayout();
             this.FooterPanel.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.MainPanel.SuspendLayout();
             this.MainTable.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -66,12 +69,12 @@ namespace Military_Engineering.Fortification
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.HeaderPanel.Controls.Add(this.RemoveSelectedButton);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeaderPanel.Location = new System.Drawing.Point(0, 0);
             this.HeaderPanel.Name = "HeaderPanel";
@@ -89,6 +92,89 @@ namespace Military_Engineering.Fortification
             this.FooterPanel.Size = new System.Drawing.Size(1128, 90);
             this.FooterPanel.TabIndex = 1;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 5;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel5.Controls.Add(this.AllFutureTurnsLabel, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.AllAllTurnsLabel, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.AllSecondTurnsLabel, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.AllFirstTurnsLabel, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(723, 90);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // AllFutureTurnsLabel
+            // 
+            this.AllFutureTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllFutureTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllFutureTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllFutureTurnsLabel.Location = new System.Drawing.Point(508, 0);
+            this.AllFutureTurnsLabel.Name = "AllFutureTurnsLabel";
+            this.AllFutureTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllFutureTurnsLabel.TabIndex = 9;
+            this.AllFutureTurnsLabel.Text = "Всего";
+            this.AllFutureTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AllAllTurnsLabel
+            // 
+            this.AllAllTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllAllTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllAllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllAllTurnsLabel.Location = new System.Drawing.Point(616, 0);
+            this.AllAllTurnsLabel.Name = "AllAllTurnsLabel";
+            this.AllAllTurnsLabel.Size = new System.Drawing.Size(104, 90);
+            this.AllAllTurnsLabel.TabIndex = 8;
+            this.AllAllTurnsLabel.Text = "Всего";
+            this.AllAllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AllSecondTurnsLabel
+            // 
+            this.AllSecondTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllSecondTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllSecondTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllSecondTurnsLabel.Location = new System.Drawing.Point(400, 0);
+            this.AllSecondTurnsLabel.Name = "AllSecondTurnsLabel";
+            this.AllSecondTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllSecondTurnsLabel.TabIndex = 7;
+            this.AllSecondTurnsLabel.Text = "Всего";
+            this.AllSecondTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.label11.Location = new System.Drawing.Point(3, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(283, 90);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Всего";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AllFirstTurnsLabel
+            // 
+            this.AllFirstTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllFirstTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllFirstTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllFirstTurnsLabel.Location = new System.Drawing.Point(292, 0);
+            this.AllFirstTurnsLabel.Name = "AllFirstTurnsLabel";
+            this.AllFirstTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllFirstTurnsLabel.TabIndex = 5;
+            this.AllFirstTurnsLabel.Text = "Всего";
+            this.AllFirstTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // AddElementButton
             // 
             this.AddElementButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -96,9 +182,9 @@ namespace Military_Engineering.Fortification
             this.AddElementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddElementButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddElementButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddElementButton.Location = new System.Drawing.Point(852, 12);
+            this.AddElementButton.Location = new System.Drawing.Point(835, 12);
             this.AddElementButton.Name = "AddElementButton";
-            this.AddElementButton.Size = new System.Drawing.Size(264, 66);
+            this.AddElementButton.Size = new System.Drawing.Size(281, 66);
             this.AddElementButton.TabIndex = 1;
             this.AddElementButton.TabStop = false;
             this.AddElementButton.Text = "Добавить элемент";
@@ -363,88 +449,21 @@ namespace Military_Engineering.Fortification
             this.ElementNameLabel.Text = "ЭОП";
             this.ElementNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel5
+            // RemoveSelectedButton
             // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 5;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.Controls.Add(this.AllFutureTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.AllAllTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.AllSecondTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.AllFirstTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(723, 90);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // AllFirstTurnsLabel
-            // 
-            this.AllFirstTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AllFirstTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AllFirstTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllFirstTurnsLabel.Location = new System.Drawing.Point(292, 0);
-            this.AllFirstTurnsLabel.Name = "AllFirstTurnsLabel";
-            this.AllFirstTurnsLabel.Size = new System.Drawing.Size(102, 90);
-            this.AllFirstTurnsLabel.TabIndex = 5;
-            this.AllFirstTurnsLabel.Text = "Всего";
-            this.AllFirstTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(283, 90);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Всего";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AllSecondTurnsLabel
-            // 
-            this.AllSecondTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AllSecondTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AllSecondTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllSecondTurnsLabel.Location = new System.Drawing.Point(400, 0);
-            this.AllSecondTurnsLabel.Name = "AllSecondTurnsLabel";
-            this.AllSecondTurnsLabel.Size = new System.Drawing.Size(102, 90);
-            this.AllSecondTurnsLabel.TabIndex = 7;
-            this.AllSecondTurnsLabel.Text = "Всего";
-            this.AllSecondTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AllAllTurnsLabel
-            // 
-            this.AllAllTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AllAllTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AllAllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllAllTurnsLabel.Location = new System.Drawing.Point(616, 0);
-            this.AllAllTurnsLabel.Name = "AllAllTurnsLabel";
-            this.AllAllTurnsLabel.Size = new System.Drawing.Size(104, 90);
-            this.AllAllTurnsLabel.TabIndex = 8;
-            this.AllAllTurnsLabel.Text = "Всего";
-            this.AllAllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AllFutureTurnsLabel
-            // 
-            this.AllFutureTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AllFutureTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AllFutureTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllFutureTurnsLabel.Location = new System.Drawing.Point(508, 0);
-            this.AllFutureTurnsLabel.Name = "AllFutureTurnsLabel";
-            this.AllFutureTurnsLabel.Size = new System.Drawing.Size(102, 90);
-            this.AllFutureTurnsLabel.TabIndex = 9;
-            this.AllFutureTurnsLabel.Text = "Всего";
-            this.AllFutureTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.RemoveSelectedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveSelectedButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.RemoveSelectedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveSelectedButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.RemoveSelectedButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.RemoveSelectedButton.Location = new System.Drawing.Point(835, 12);
+            this.RemoveSelectedButton.Name = "RemoveSelectedButton";
+            this.RemoveSelectedButton.Size = new System.Drawing.Size(281, 66);
+            this.RemoveSelectedButton.TabIndex = 2;
+            this.RemoveSelectedButton.TabStop = false;
+            this.RemoveSelectedButton.Text = "Удалить выбранные";
+            this.RemoveSelectedButton.UseVisualStyleBackColor = false;
+            this.RemoveSelectedButton.Click += new System.EventHandler(this.RemoveSelectedButton_Click);
             // 
             // FortificationForm
             // 
@@ -459,7 +478,9 @@ namespace Military_Engineering.Fortification
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "РФО";
+            this.HeaderPanel.ResumeLayout(false);
             this.FooterPanel.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.MainPanel.ResumeLayout(false);
             this.MainTable.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
@@ -468,7 +489,6 @@ namespace Military_Engineering.Fortification
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -503,5 +523,6 @@ namespace Military_Engineering.Fortification
         public System.Windows.Forms.Label AllAllTurnsLabel;
         public System.Windows.Forms.Label AllSecondTurnsLabel;
         public System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button RemoveSelectedButton;
     }
 }

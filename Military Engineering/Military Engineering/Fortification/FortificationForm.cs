@@ -18,6 +18,7 @@ namespace Military_Engineering.Fortification
         public FortificationForm()
         {
             InitializeComponent();
+            MainPanel.Visible = false;
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace Military_Engineering.Fortification
 
         public void AddNewElement(BuildingElement buildingElement)
         {
+            MainPanel.Visible = true;
             var index = Board.AddElement(new BuildingCalculation(buildingElement));
             if (index == -1)
             {
@@ -59,9 +61,28 @@ namespace Military_Engineering.Fortification
 
         //public void Update(
 
-        private void FirstTurnLabel_Click(object sender, EventArgs e)
+        private void RemoveSelectedButton_Click(object sender, EventArgs e)
         {
-
+            List<BuildingElementPanel> rowsToRemove = new List<BuildingElementPanel>();
+            foreach(object panel in MainTable.Controls)
+            {
+                if(panel is BuildingElementPanel buildingElement && buildingElement.Checked)
+                {
+                    //MainTable.Controls.Remove((BuildingElementPanel)panel);
+                    //MainTable.RowCount--;
+                    rowsToRemove.Add(buildingElement);
+                }
+            }
+            foreach(BuildingElementPanel buildingElement in rowsToRemove)
+            {
+                MainTable.Controls.Remove(buildingElement);
+                MainTable.RowCount--;
+                Board.DeleteElement(buildingElement.ElementIndex);
+            }
+            if(MainTable.RowCount == 1)
+            {
+                MainPanel.Visible = false;
+            }
         }
     }
 }

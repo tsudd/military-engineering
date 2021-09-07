@@ -31,14 +31,14 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
         {
             this.InfoLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.FirstTurnTextBox = new System.Windows.Forms.TextBox();
-            this.FirstTurnLabel = new System.Windows.Forms.Label();
-            this.SecondTurnTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.FutureTurnsTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.SecondTurnTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.FirstTurnTextBox = new System.Windows.Forms.TextBox();
+            this.FirstTurnLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.HeaderPanel.SuspendLayout();
@@ -72,47 +72,26 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.HeaderPanel.Size = new System.Drawing.Size(667, 300);
             this.HeaderPanel.TabIndex = 5;
             // 
-            // NameLabel
+            // FutureTurnsTextBox
             // 
-            this.NameLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.NameLabel.Location = new System.Drawing.Point(8, 13);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(312, 85);
-            this.NameLabel.TabIndex = 5;
-            this.NameLabel.Text = "Имя";
-            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FutureTurnsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FutureTurnsTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FutureTurnsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.FutureTurnsTextBox.Location = new System.Drawing.Point(337, 230);
+            this.FutureTurnsTextBox.Name = "FutureTurnsTextBox";
+            this.FutureTurnsTextBox.Size = new System.Drawing.Size(307, 38);
+            this.FutureTurnsTextBox.TabIndex = 12;
             // 
-            // NameTextBox
+            // label2
             // 
-            this.NameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.NameTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.NameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.NameTextBox.Location = new System.Drawing.Point(13, 101);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(307, 38);
-            this.NameTextBox.TabIndex = 6;
-            // 
-            // FirstTurnTextBox
-            // 
-            this.FirstTurnTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FirstTurnTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.FirstTurnTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.FirstTurnTextBox.Location = new System.Drawing.Point(337, 101);
-            this.FirstTurnTextBox.Name = "FirstTurnTextBox";
-            this.FirstTurnTextBox.Size = new System.Drawing.Size(307, 38);
-            this.FirstTurnTextBox.TabIndex = 8;
-            // 
-            // FirstTurnLabel
-            // 
-            this.FirstTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.FirstTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FirstTurnLabel.Location = new System.Drawing.Point(335, 13);
-            this.FirstTurnLabel.Name = "FirstTurnLabel";
-            this.FirstTurnLabel.Size = new System.Drawing.Size(309, 85);
-            this.FirstTurnLabel.TabIndex = 7;
-            this.FirstTurnLabel.Text = "I очереди VI\r\nприв.чел./час";
-            this.FirstTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.label2.Location = new System.Drawing.Point(335, 142);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(309, 85);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "В дальнейшем VIII\r\nприв.чел./час";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SecondTurnTextBox
             // 
@@ -135,26 +114,47 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             this.label1.Text = "II очереди VII\r\nприв.чел./час";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // FutureTurnsTextBox
+            // FirstTurnTextBox
             // 
-            this.FutureTurnsTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnsTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.FutureTurnsTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.FutureTurnsTextBox.Location = new System.Drawing.Point(337, 230);
-            this.FutureTurnsTextBox.Name = "FutureTurnsTextBox";
-            this.FutureTurnsTextBox.Size = new System.Drawing.Size(307, 38);
-            this.FutureTurnsTextBox.TabIndex = 12;
+            this.FirstTurnTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FirstTurnTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FirstTurnTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.FirstTurnTextBox.Location = new System.Drawing.Point(337, 101);
+            this.FirstTurnTextBox.Name = "FirstTurnTextBox";
+            this.FirstTurnTextBox.Size = new System.Drawing.Size(307, 38);
+            this.FirstTurnTextBox.TabIndex = 8;
             // 
-            // label2
+            // FirstTurnLabel
             // 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label2.Location = new System.Drawing.Point(335, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 85);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "В дальнейшем VIII\r\nприв.чел./час";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FirstTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FirstTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FirstTurnLabel.Location = new System.Drawing.Point(335, 13);
+            this.FirstTurnLabel.Name = "FirstTurnLabel";
+            this.FirstTurnLabel.Size = new System.Drawing.Size(309, 85);
+            this.FirstTurnLabel.TabIndex = 7;
+            this.FirstTurnLabel.Text = "I очереди VI\r\nприв.чел./час";
+            this.FirstTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // NameTextBox
+            // 
+            this.NameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.NameTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.NameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.NameTextBox.Location = new System.Drawing.Point(13, 101);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(307, 38);
+            this.NameTextBox.TabIndex = 6;
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.NameLabel.Location = new System.Drawing.Point(8, 13);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(312, 85);
+            this.NameLabel.TabIndex = 5;
+            this.NameLabel.Text = "Имя";
+            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AddElementButton
             // 

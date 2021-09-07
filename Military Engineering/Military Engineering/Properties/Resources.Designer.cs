@@ -63,6 +63,46 @@ namespace Military_Engineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxChecked {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxChecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxCheckedHower {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxCheckedHower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUnchecked {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUnchecked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUncheckedHower {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedHower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cross {
             get {
                 object obj = ResourceManager.GetObject("Cross", resourceCulture);

@@ -89,6 +89,12 @@
     <Compile Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.Designer.cs">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fortification\CheckBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\CheckBox.Designer.cs">
+      <DependentUpon>CheckBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fortification\FortificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.resx">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CheckBox.resx">
+      <DependentUpon>CheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
@@ -190,6 +199,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxChecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUnchecked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxCheckedHower.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedHower.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

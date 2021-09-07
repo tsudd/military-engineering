@@ -19,15 +19,21 @@ namespace Military_Engineering.Fortification
             { "CoeffThoursLabel", "Время работы в течение одних суток, ч" },
         };
 
+        public bool Checked { get; set; } = false;
         public FortificationBoard Board {  get; private set; }
         public int ElementIndex { get; private set; }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor { get; set; }
+        Image prevImage {  get; set; }
         public BuildingElementPanel(FortificationBoard fortificationBoard, int key)
         {
             Board = fortificationBoard;
             ElementIndex = key;
             InitializeComponent();
+            checkBox1.CheckBox_Checked += (sender, e) =>
+            {
+                Checked = ((CheckBox)sender).Checked;
+            };
             ConfigureToolTip();
             defaultColor = tableLayoutPanel1.BackColor;
             var element = Board.GetElement(ElementIndex);
@@ -210,5 +216,6 @@ namespace Military_Engineering.Fortification
                 WorkTimeInput.BackColor = Color.FromArgb(255, 128, 128);
             }
         }
+
     }
 }
