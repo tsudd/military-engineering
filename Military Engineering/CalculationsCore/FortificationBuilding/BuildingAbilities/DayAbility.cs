@@ -26,7 +26,15 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public double WorkTime { get; set; } = 0;
         public double Evaluate()
         {
-            return BuildingGain.HumanEquivalent 
+            if (WorkTime <= 0 
+                || PeopleAmount <= 0 
+                || ManPower <= 0 
+                || Organization <= 0 
+                || AttritionRate <= 0)
+            {
+                throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero");
+            }
+            return (BuildingGain is null ? 0 : BuildingGain.HumanEquivalent) 
                 + ( PeopleAmount 
                 * ManPower 
                 * AttritionRate 

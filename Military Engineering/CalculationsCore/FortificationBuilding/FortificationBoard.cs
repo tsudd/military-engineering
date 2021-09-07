@@ -2,21 +2,27 @@ using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using CalculationsCore.FortificationBuilding.BuildingConditions;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 
 namespace CalculationsCore.FortificationBuilding
 {
     public class FortificationBoard
     {
         Dictionary<int, BuildingCalculation> elements;
+        int lastNumber = 0;
+
+        public IEnumerable<DayTime> DayTimes { get; private set;  } = DayTime.GetTimeConditions();
+        public IEnumerable<FieldPollution> Pollutions { get; private set; } = FieldPollution.GetPollutionConditions();
+        public IEnumerable<SoilType> SoilTypes { get; private set; } = SoilType.GetSoilConditions();
 
         public FortificationBoard()
         {
             elements = new Dictionary<int, BuildingCalculation>();
         }
-        public void AddElement(int id, BuildingCalculation calculation)
+        public int AddElement(BuildingCalculation calculation)
         {
-            elements.Add(id, calculation);
+            lastNumber++;
+            elements.Add(lastNumber, calculation);
+            return lastNumber;
         }
 
         public void DeleteElement(int id)
@@ -118,9 +124,27 @@ namespace CalculationsCore.FortificationBuilding
             return elements[id];
         }
 
-        public int CalculationsNumber()
+        public int GetCalculationsNumber()
         {
             return elements.Count;              
+        }
+
+        public double EvaluateAllFirstTurns()
+        {
+            double ans = 0;
+            foreach (var element in elements.Values)
+            {
+                try
+                {
+                    ans += element.EvaluateFirstTurn();
+                }
+                catch (DivideByZeroException)
+                {
+                    //oops
+                }
+
+            }
+            return ans;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -16,6 +17,7 @@ namespace Military_Engineering
         const string mainInfo = "МЕТОДИКИ ИНЖЕНЕРНЫХ РАСЧЕТОВ";
         const string fortificationInfo = "МЕТОДИКА РАСЧЕТА ФОРТИФИКАЦИОННОГО \nОБОРУДОВАНИЯ ПОЗИЦИЙ И РАЙОНОВ \nРАСПОЛОЖЕНИЯ ВОЙСК";
         const string fencingInfo = "МЕТОДИКА РАСЧЕТА СИСТЕМЫ ИНЖЕНЕРНЫХ ЗАГРАЖДЕНИЙ";
+        Dictionary<Button, Type> formMap { get; set; }
         public string buffer;
         public bool coolFlag;
         public MainMenuForm()
@@ -24,6 +26,10 @@ namespace Military_Engineering
             this.KeyPreview = true;
             buffer = "";
             coolFlag = false;
+            formMap = new Dictionary<Button, Type>() 
+            {
+                { FortificationButton, typeof(Fortification.FortificationForm) }
+            };
         }
 
         private void DisplayButtonInfo(string displayInfo, Image displayImage)
@@ -138,6 +144,26 @@ namespace Military_Engineering
                 }
                 return output;
             }
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            if(formMap.ContainsKey(sender as Button))
+            {
+                Form newForm = (Form)Activator.CreateInstance(formMap[sender as Button]);
+                newForm.FormClosed += (form, args) => Visible = true;
+                newForm.Visible = true;
+                Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("This feature in not implemented yet");
+            }
+        }
+
+        private void NewForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

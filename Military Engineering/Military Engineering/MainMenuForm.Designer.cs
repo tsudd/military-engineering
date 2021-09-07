@@ -72,6 +72,7 @@ namespace Military_Engineering
             this.button3.TabStop = false;
             this.button3.Text = "PLACEHOLDER";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button_Click);
             this.button3.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
             this.button3.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -88,6 +89,7 @@ namespace Military_Engineering
             this.button2.TabStop = false;
             this.button2.Text = "PLACEHOLDER";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button_Click);
             this.button2.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
             this.button2.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -104,6 +106,7 @@ namespace Military_Engineering
             this.button1.TabStop = false;
             this.button1.Text = "PLACEHOLDER";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button_Click);
             this.button1.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -120,6 +123,7 @@ namespace Military_Engineering
             this.Placeholder.TabStop = false;
             this.Placeholder.Text = "PLACEHOLDER";
             this.Placeholder.UseVisualStyleBackColor = false;
+            this.Placeholder.Click += new System.EventHandler(this.Button_Click);
             this.Placeholder.MouseEnter += new System.EventHandler(this.Placeholder_MouseEnter);
             this.Placeholder.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -136,6 +140,7 @@ namespace Military_Engineering
             this.FencingButton.TabStop = false;
             this.FencingButton.Text = "РСИЗ";
             this.FencingButton.UseVisualStyleBackColor = false;
+            this.FencingButton.Click += new System.EventHandler(this.Button_Click);
             this.FencingButton.MouseEnter += new System.EventHandler(this.FencingButton_MouseEnter);
             this.FencingButton.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -152,6 +157,7 @@ namespace Military_Engineering
             this.FortificationButton.TabStop = false;
             this.FortificationButton.Text = "РФО";
             this.FortificationButton.UseVisualStyleBackColor = false;
+            this.FortificationButton.Click += new System.EventHandler(this.Button_Click);
             this.FortificationButton.MouseEnter += new System.EventHandler(this.FortificationButton_MouseEnter);
             this.FortificationButton.MouseLeave += new System.EventHandler(this.DisplayMain);
             // 
@@ -181,7 +187,7 @@ namespace Military_Engineering
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(1268, 638);
+            this.ClientSize = new System.Drawing.Size(1246, 584);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.PreviewPictureBox);
             this.Controls.Add(this.LeftPanel);
@@ -190,6 +196,7 @@ namespace Military_Engineering
             this.MaximizeBox = false;
             this.Name = "MainMenuForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainMenuForm_KeyDown);
             this.LeftPanel.ResumeLayout(false);
