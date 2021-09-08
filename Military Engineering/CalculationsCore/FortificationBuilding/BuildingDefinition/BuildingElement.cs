@@ -3,6 +3,12 @@ using System;
 
 namespace CalculationsCore.FortificationBuilding
 {
+    public enum ElementType
+    {
+        Trench,
+        Pit
+    }
+
     public class BuildingElement
     {
         public const string STANDART_NAME = "Unknown building";
@@ -11,6 +17,7 @@ namespace CalculationsCore.FortificationBuilding
         public double FutureTurn { get; set; } = 0;
         public double AllTurns { get => FirstTurn + SecondTurn + FutureTurn; }
         public string Name { get; set; }
+	public ElementType ElementType {  get; set; } = ElementType.Pit;
         public bool IsDefault { get; set; }
 
         public BuildingElement() { }
