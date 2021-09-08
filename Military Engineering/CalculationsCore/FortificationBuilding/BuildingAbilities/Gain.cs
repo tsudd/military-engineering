@@ -1,16 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace CalculationsCore.FortificationBuilding.BuildingAbilities
 {
     public class Gain
     {
-        public const string DEFAULT_NAME = "UKNOWN_GAIN";
+        public const string DEFAULT_NAME = "UNKNOWN_GAIN";
         public string Name { get; set; } = DEFAULT_NAME;
         public string Description { get; set; } = "";
-        public double HumanEquivalent { get; set; } = 0;
+        public int Amount { get; set; } = 1;
+        public double TrenchPerformance {  get; set; } = 0;
+        public double PitPerformance { get; set;  } = 0;
+        public Gain(string name = DEFAULT_NAME) => this.Name = name;
+        public double Evaluate(BuildingElement element, DayAbility ability)
+        {
+            if (element is null || ability is null)
+            {
+                return 0;
+            }
+            return Amount
+                * DeterminePerformance(element.ElementType)
+                * ability.Organization
+                * ((ability.WorkTime > 24) ? 1.5 : 1)
+                * ability.WorkTime;
+        }
+
+        private double DeterminePerformance(ElementType type)
+        {
+            return (type == ElementType.Pit) ? PitPerformance : TrenchPerformance;
+        }
     }
 }
