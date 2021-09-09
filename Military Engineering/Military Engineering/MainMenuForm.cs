@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CalculationsCore;
 using Microsoft.CSharp;
 
-namespace Military_Engineering
+namespace MilitaryEngineering
 {
     public partial class MainMenuForm : Form
     {
@@ -80,13 +80,13 @@ namespace Military_Engineering
             CompilerParameters parameters = new CompilerParameters();
             parameters.GenerateInMemory = true;
             parameters.GenerateExecutable = false;
-            parameters.ReferencedAssemblies.Add("Military Engineering.exe");
+            parameters.ReferencedAssemblies.Add("MilitaryEngineering.exe");
             parameters.ReferencedAssemblies.Add("System.Drawing.dll");
             parameters.ReferencedAssemblies.Add("System.Windows.Forms.dll");
             parameters.ReferencedAssemblies.Add("System.dll");
             CompilerResults results = provider.CompileAssemblyFromSource(parameters, code);
             Assembly assembly = results.CompiledAssembly;
-            Type program = assembly.GetType("Military_Engineering.CoolClass");
+            Type program = assembly.GetType("MilitaryEngineering.CoolClass");
             MethodInfo newFunction = program.GetMethod("CoolMethod");
             newFunction.Invoke(null, new object[] { this, key, Properties.Resources.p1str, Properties.Resources.p2str, Properties.Resources.p3str });
         }

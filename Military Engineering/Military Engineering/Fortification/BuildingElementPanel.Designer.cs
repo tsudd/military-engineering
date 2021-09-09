@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering.Fortification
+namespace MilitaryEngineering.Fortification
 {
     partial class BuildingElementPanel
     {
@@ -76,7 +76,7 @@ namespace Military_Engineering.Fortification
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new Military_Engineering.Fortification.CheckBox();
+            this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();

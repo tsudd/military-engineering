@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering.Fortification.BuildingElementSelector
+namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
     partial class BuildingElementPanel
     {
@@ -54,7 +54,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             // EditButton
             // 
             this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.EditButton.BackgroundImage = global::Military_Engineering.Properties.Resources.Edit;
+            this.EditButton.BackgroundImage = global::MilitaryEngineering.Properties.Resources.Edit;
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,7 +71,7 @@ namespace Military_Engineering.Fortification.BuildingElementSelector
             // CloseButton
             // 
             this.CloseButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.CloseButton.BackgroundImage = global::Military_Engineering.Properties.Resources.Cross;
+            this.CloseButton.BackgroundImage = global::MilitaryEngineering.Properties.Resources.Cross;
             this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using MilitaryConfiguration;
 
-namespace Military_Engineering.Fortification.BuildingElementSelector
+namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
     public partial class BuildingElementSelectorForm : Form
     {

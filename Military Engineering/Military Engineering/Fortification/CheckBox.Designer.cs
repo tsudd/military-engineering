@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering.Fortification
+namespace MilitaryEngineering.Fortification
 {
     partial class CheckBox
     {
@@ -34,7 +34,7 @@ namespace Military_Engineering.Fortification
             // 
             // button
             // 
-            this.button.BackgroundImage = global::Military_Engineering.Properties.Resources.CheckBoxUnchecked;
+            this.button.BackgroundImage = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
             this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button.FlatAppearance.BorderSize = 0;

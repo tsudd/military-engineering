@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace Military_Engineering.Fortification
+namespace MilitaryEngineering.Fortification
 {
     public partial class BuildingElementPanel : UserControl
     {

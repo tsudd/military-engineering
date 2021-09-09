@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MilitaryConfiguration;
-using Military_Engineering.Fortification.BuildingElementSelector;
+using MilitaryEngineering.Fortification.BuildingElementSelector;
 using CalculationsCore.FortificationBuilding;
 
-namespace Military_Engineering.Fortification
+namespace MilitaryEngineering.Fortification
 {
     public partial class FortificationForm : Form
     {
