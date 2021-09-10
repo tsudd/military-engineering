@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering.Fortification
+namespace MilitaryEngineering.Fortification
 {
     partial class FortificationForm
     {

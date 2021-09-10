@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Military_Engineering.Properties {
+namespace MilitaryEngineering.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

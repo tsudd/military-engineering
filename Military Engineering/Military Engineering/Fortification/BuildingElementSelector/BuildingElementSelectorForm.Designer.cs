@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering.Fortification.BuildingElementSelector
+namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
     partial class BuildingElementSelectorForm
     {

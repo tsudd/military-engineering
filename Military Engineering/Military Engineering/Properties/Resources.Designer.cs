@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Military_Engineering.Properties {
+namespace MilitaryEngineering.Properties {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace Military_Engineering.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -207,7 +207,7 @@ namespace Military_Engineering.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eGSlo8jQw+yi9c7r4jWVySoJCasWsSIVsoj+IN2eQU5ID/N0UlLZ7a3E5SUDUMoA/Dw8n2dJAbgznHZXI0ez/UPQ8ZnP3+Ta0+2eanFj1/gV4sOgyMiDVoc/lQTph8KlUdkeSny5uiC7IXTUpzxyqtoK0w+0OL9OmTtOx9N9nnZZayMxerwtZD/1EDQalqt9MC7ykvDUiKfBVGGyzLRXULvwvasImXdi1JvwIPg7aZgyrrt+qDPhnf1BaFKXwwNgbjv7UvsgJ4iBVV8ikqGDCsVKAWP+o7MEJxgPiXKIm0mM1iWY1tQnpUcQQmhb/OImJOrpPvEnno1znpc+d1HpTeuefe/5Sm/DBFH+eka1AQbnKU5cXkN8MIz5JIXxkRqG8aRYCloGK1pkQZ7ckLT9xxZtHnt1TFzT4TAxH+YHuKEl+JY/vIsIXP07MUr0Ey23jNu69DvMmi47N+6Ki4jp3XGaanMdilEbpLzT4MF/F6puArd5oPUefsCu4CV3cLg1 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to eGSlo8jQw+yi9c7r4jWVySoJCasWsSIVsoj+IN2eQU5ID/N0UlLZ7a3E5SUDUMoA/Dw8n2dJAbgznHZXI0ez/UPQ8ZnP3+Ta0+2eanFj1/gV4sOgyMiDVoc/lQTph8KlUdkeSny5uiC7IXTUpzxyqtoK0w+0OL9OmTtOx9N9nnZZayMxerwtZD/1EDQalqt9MC7ykvDUiKfBVGGyzLRXULvwvasImXdi1JvwIPg7aZgyrrt+qDPhnf1BaFKXwwNgbjv7UvsgJ4iBVV8ikqGDCsVKAWP+o7MEJxgPiXKIm0mM1iWY1tQnpUcQQmhb/OImJOrpPvEnno1znpc+d1HpTeuefe/5Sm/DBFH+eka1AQZE4L6oVwqCwvA4hndVqYKGrRfxXtGresnRAL20C+6g9qsYWKX3LwRUP3Bzr8N9DPGSLsEk92bTCF7DruntDcDXpMSgbI8G+wKAwdSNynVtX+SAeRAzNIfWs33xnlZgOEqDDkunTKY3bzya0y/dLEL7 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string p4str {
             get {

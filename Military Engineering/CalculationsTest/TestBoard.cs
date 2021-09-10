@@ -24,7 +24,7 @@ namespace CalculationsTest
             dayAbility.AttritionRate = 1;
             dayAbility.Organization = 0.9;
             dayAbility.WorkTime = 10;
-            dayAbility.BuildingGain = new Gain() { HumanEquivalent = 80 };
+            //dayAbility.BuildingGain = new Gain() { HumanEquivalent = 80 };
 
             Calc = new BuildingCalculation(element);
             Calc.DayTime = DayTime.DayNight;

@@ -1,5 +1,5 @@
 ﻿
-namespace Military_Engineering
+namespace MilitaryEngineering
 {
     partial class MainMenuForm
     {
@@ -174,7 +174,7 @@ namespace Military_Engineering
             // 
             // PreviewPictureBox
             // 
-            this.PreviewPictureBox.Image = global::Military_Engineering.Properties.Resources.Main;
+            this.PreviewPictureBox.Image = global::MilitaryEngineering.Properties.Resources.Main;
             this.PreviewPictureBox.Location = new System.Drawing.Point(580, 170);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
             this.PreviewPictureBox.Size = new System.Drawing.Size(600, 360);

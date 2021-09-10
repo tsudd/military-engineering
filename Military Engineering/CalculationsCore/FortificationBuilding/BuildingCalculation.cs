@@ -10,7 +10,7 @@ namespace CalculationsCore.FortificationBuilding
 {
     public class BuildingCalculation
     {
-        public const int DECIMAL_DIGITS = 1;
+        public const int ACCURACY = 2;
         public BuildingElement Element { get; private set; }
         public DayTime DayTime { get; set; } = DayTime.Day;
         public FieldPollution Pollution { get; set; } = FieldPollution.Purely;
@@ -30,28 +30,28 @@ namespace CalculationsCore.FortificationBuilding
         {
             var days = Element.FirstTurn 
                 / EvaluateConditions();
-            return Math.Round(days, DECIMAL_DIGITS);
+            return Math.Round(days, ACCURACY);
         }
 
         public double EvaluateSecondTurn()
         {
             var days = Element.SecondTurn 
                 / EvaluateConditions();
-            return Math.Round(days, DECIMAL_DIGITS);
+            return Math.Round(days, ACCURACY);
         }
 
         public double EvaluateFutureTurn()
         {
             var days = Element.FutureTurn 
                 / EvaluateConditions();
-            return Math.Round(days, DECIMAL_DIGITS);
+            return Math.Round(days, ACCURACY);
         }
 
         public double EvaluateAllTurns()
         {
             var days = ( Element.FirstTurn + Element.SecondTurn + Element.FutureTurn ) 
                 / EvaluateConditions();
-            return Math.Round(days, DECIMAL_DIGITS);
+            return Math.Round(days, ACCURACY);
         }
 
         private double EvaluateConditions()
@@ -59,7 +59,7 @@ namespace CalculationsCore.FortificationBuilding
             return DayTime.Value 
                 * Pollution.Value 
                 * Soil.Value
-                * Ability.Evaluate();
+                * Ability.Evaluate(Element);
         }
     }
 }

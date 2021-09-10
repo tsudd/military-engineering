@@ -104,7 +104,7 @@ namespace CalculationsCore.FortificationBuilding
                         ability.Organization = (double)value;
                         break;
                     case AbilityType.BuildingGain:
-                        ability.BuildingGain = (Gain)value;
+                        ability.BuildingGains = (List<Gain>)value;
                         break;
                     case AbilityType.WorkTime:
                         ability.WorkTime = (double)value;

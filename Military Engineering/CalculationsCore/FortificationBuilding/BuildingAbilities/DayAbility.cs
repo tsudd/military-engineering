@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculationsCore.FortificationBuilding.BuildingAbilities
 {
@@ -22,9 +19,9 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public double ManPower { get; set; } = 0;
         public double AttritionRate { get; set; } = 0;
         public double Organization { get; set; } = 0;
-        public Gain BuildingGain { get; set; }
+        public List<Gain> BuildingGains { get; set; } = new List<Gain>();
         public double WorkTime { get; set; } = 0;
-        public double Evaluate()
+        public double Evaluate(BuildingElement element)
         {
             if (WorkTime <= 0 
                 || PeopleAmount <= 0 
@@ -34,12 +31,22 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             {
                 throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero");
             }
-            return (BuildingGain is null ? 0 : BuildingGain.HumanEquivalent) 
+            return EvaluateGains(element) 
                 + ( PeopleAmount 
                 * ManPower 
                 * AttritionRate 
                 * Organization 
                 * WorkTime );
+        }
+
+        private double EvaluateGains(BuildingElement element)
+        {
+            double ans = 0;
+            foreach( var ga in BuildingGains)
+            {
+                ans += ga.Evaluate(element, this);
+            }
+            return ans;
         }
     }
 }

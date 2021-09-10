@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 
-namespace Military_Engineering.Fortification.BuildingElementSelector
+namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
     public partial class BuildingElementCreatorForm : Form
     {
