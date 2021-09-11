@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MilitaryConfiguration
+namespace MilitaryConfiguration.Configurations
 {
-    public class Configuration
+    public class FortificationConfiguration
     {
         public List<CalculationsCore.FortificationBuilding.BuildingElement> BuildingElements {  get; set; }
-        public Configuration() { }
+        public List<CalculationsCore.FortificationBuilding.BuildingAbilities.Gain> Gains {  get; set; }
+        public FortificationConfiguration() { }
     }
 }
