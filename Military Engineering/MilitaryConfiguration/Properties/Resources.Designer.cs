@@ -61,11 +61,11 @@ namespace MilitaryConfiguration.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {&quot;BuildingElements&quot;: []}.
+        ///   Looks up a localized string similar to {&quot;BuildingElements&quot;: [], &quot;Gains&quot;: []}.
         /// </summary>
-        internal static string DefaultConfiguration {
+        internal static string FortificationConfiguration {
             get {
-                return ResourceManager.GetString("DefaultConfiguration", resourceCulture);
+                return ResourceManager.GetString("FortificationConfiguration", resourceCulture);
             }
         }
     }

@@ -1,57 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Reflection;
 using Newtonsoft.Json;
 
 namespace MilitaryConfiguration
 {
     public class ConfigurationManager
     {
-        public string FileName { get; set; } = "appsetting.json";
         
         public ConfigurationManager() { }
-
-        public ConfigurationManager(string fileName)
-        {
-            FileName = fileName;
-        }
-
-        public Configuration LoadConfiguration()
+        public T LoadConfiguration<T>(string filename)
         {
             try
             {
-                using (StreamReader reader = new StreamReader(FileName))
+                using (var reader = new StreamReader(filename))
                 {
 
-                    return JsonConvert.DeserializeObject<Configuration>(reader.ReadToEnd());
+                    return JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
                 }
             } 
             catch
             {
-                return GetDefaultConfiguration();
+                return GetDefaultConfiguration<T>(typeof(T).Name);
             }
         }
 
-        public void SaveConfiguration(Configuration configuration) 
+        public void SaveConfiguration<T>(string fileName, T configuration) 
         {
-            using(StreamWriter sw = new StreamWriter(FileName))
+            using(var sw = new StreamWriter(fileName))
             {
                 sw.Write(JsonConvert.SerializeObject(configuration));
             }
         }
 
-        public Configuration GetDefaultConfiguration()
+        public T GetDefaultConfiguration<T>(string configName)
         {
-            string configuration = Properties.Resources.DefaultConfiguration;
-            return JsonConvert.DeserializeObject<Configuration>(configuration); 
+            var configuration = GetConfigurationValue(configName);
+            return JsonConvert.DeserializeObject<T>(configuration); 
         }
 
-        public void SaveDefaultConfiguration()
+        private string GetConfigurationValue(string configName)
         {
-            SaveConfiguration(GetDefaultConfiguration());
+            return typeof(Properties.Resources)
+                .GetTypeInfo()
+                .GetDeclaredProperty(configName)
+                .GetValue(null) as string;
+        }
+
+        public void SaveDefaultConfiguration<T>(string fileName)
+        {
+            SaveConfiguration<T>(fileName, GetDefaultConfiguration<T>(typeof(T).Name));
         }
     }
 }
