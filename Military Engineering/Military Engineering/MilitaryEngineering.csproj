@@ -101,6 +101,18 @@
     <Compile Include="Fortification\FortificationForm.Designer.cs">
       <DependentUpon>FortificationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.Designer.cs">
+      <DependentUpon>GainPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.Designer.cs">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainPanel.resx">
+      <DependentUpon>GainPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainSelectorForm.resx">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
@@ -212,5 +230,6 @@
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHower.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

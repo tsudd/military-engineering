@@ -49,9 +49,9 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.GainBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
             this.ManPowerInput = new System.Windows.Forms.TextBox();
@@ -76,7 +76,7 @@ namespace MilitaryEngineering.Fortification
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
+            this.GainButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -225,6 +225,15 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.Checked = false;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Location = new System.Drawing.Point(3, 38);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(34, 29);
+            this.checkBox1.TabIndex = 14;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
@@ -246,7 +255,6 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Controls.Add(this.GainBox, 3, 2);
             this.tableLayoutPanel6.Controls.Add(this.label7, 2, 2);
             this.tableLayoutPanel6.Controls.Add(this.WorkTimeInput, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.ManPowerInput, 1, 1);
@@ -258,6 +266,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.Controls.Add(this.CoeffKcallingLabel, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.CoeffKstaffingLabel, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.CoeffNpersonnelLabel, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.GainButton, 3, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -268,19 +277,6 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(379, 100);
             this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // GainBox
-            // 
-            this.GainBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.GainBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GainBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GainBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GainBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.GainBox.FormattingEnabled = true;
-            this.GainBox.Location = new System.Drawing.Point(285, 69);
-            this.GainBox.Name = "GainBox";
-            this.GainBox.Size = new System.Drawing.Size(91, 29);
-            this.GainBox.TabIndex = 26;
             // 
             // label7
             // 
@@ -587,13 +583,21 @@ namespace MilitaryEngineering.Fortification
             this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
-            // checkBox1
+            // GainButton
             // 
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(3, 38);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(34, 29);
-            this.checkBox1.TabIndex = 14;
+            this.GainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.GainButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.GainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.GainButton.Location = new System.Drawing.Point(285, 69);
+            this.GainButton.Name = "GainButton";
+            this.GainButton.Size = new System.Drawing.Size(91, 28);
+            this.GainButton.TabIndex = 26;
+            this.GainButton.TabStop = false;
+            this.GainButton.Text = "+";
+            this.GainButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GainButton.UseVisualStyleBackColor = false;
             // 
             // BuildingElementPanel
             // 
@@ -639,7 +643,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label CoeffThoursLabel;
         private System.Windows.Forms.TextBox PeopleAmountInput;
         public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox GainBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         public System.Windows.Forms.Label AllTurnEvaluationLabel;
@@ -648,5 +651,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
         private CheckBox checkBox1;
+        private System.Windows.Forms.Button GainButton;
     }
 }

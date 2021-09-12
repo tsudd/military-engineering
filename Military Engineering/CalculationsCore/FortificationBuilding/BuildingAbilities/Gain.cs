@@ -10,6 +10,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public int Amount { get; set; } = 1;
         public double TrenchPerformance {  get; set; } = 0;
         public double PitPerformance { get; set;  } = 0;
+        public bool IsDefault { get; set; } = false;
         public Gain(string name = DEFAULT_NAME) => this.Name = name;
         public double Evaluate(BuildingElement element, DayAbility ability)
         {
