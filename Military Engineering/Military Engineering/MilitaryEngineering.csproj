@@ -221,5 +221,6 @@
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHower.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

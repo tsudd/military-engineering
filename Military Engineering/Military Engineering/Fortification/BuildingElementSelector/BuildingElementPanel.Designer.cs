@@ -71,6 +71,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             // CloseButton
             // 
             this.CloseButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.CloseButton.BackColor = System.Drawing.Color.White;
             this.CloseButton.BackgroundImage = global::MilitaryEngineering.Properties.Resources.Cross;
             this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CloseButton.FlatAppearance.BorderSize = 0;
@@ -80,7 +81,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.CloseButton.Size = new System.Drawing.Size(25, 25);
             this.CloseButton.TabIndex = 5;
             this.CloseButton.TabStop = false;
-            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             this.CloseButton.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.CloseButton.MouseLeave += new System.EventHandler(this.Button_MouseLeave);

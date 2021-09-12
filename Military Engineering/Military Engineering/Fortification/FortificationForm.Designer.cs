@@ -529,6 +529,7 @@ namespace MilitaryEngineering.Fortification
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "РФО";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FortificationForm_FormClosed);
             this.HeaderPanel.ResumeLayout(false);
             this.FooterPanel.ResumeLayout(false);
             this.FooterPanel.PerformLayout();
