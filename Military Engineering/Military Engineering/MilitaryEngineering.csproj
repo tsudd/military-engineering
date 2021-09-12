@@ -101,6 +101,12 @@
     <Compile Include="Fortification\FortificationForm.Designer.cs">
       <DependentUpon>FortificationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fortification\GainCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainCreatorForm.Designer.cs">
+      <DependentUpon>GainCreatorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainCreatorForm.resx">
+      <DependentUpon>GainCreatorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>

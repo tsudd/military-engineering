@@ -63,6 +63,11 @@ namespace MilitaryEngineering.Fortification
             DayTimeBox.SelectedIndexChanged += Evaluate;
             SoilTypeBox.SelectedIndexChanged += Evaluate;
             PollutionsBox.SelectedIndexChanged += Evaluate;
+
+            foreach(var gain in Board.gainFacilities)
+            {
+                GainBox.Items.Add(gain.Name);
+            }
         }
 
         void ConfigureToolTip()
@@ -217,5 +222,18 @@ namespace MilitaryEngineering.Fortification
             }
         }
 
+        private void GainBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+          
+        }
+
+        public void UpdateGainBox()
+        {
+            GainBox.Items.Clear();
+            foreach (var gain in Board.gainFacilities)
+            {
+                GainBox.Items.Add(gain.Name);
+            }
+        }
     }
 }

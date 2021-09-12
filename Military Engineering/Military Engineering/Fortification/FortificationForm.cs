@@ -4,6 +4,8 @@ using System.Windows.Forms;
 using MilitaryConfiguration;
 using MilitaryEngineering.Fortification.BuildingElementSelector;
 using CalculationsCore.FortificationBuilding;
+using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using Military_Engineering.Fortification;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -80,6 +82,23 @@ namespace MilitaryEngineering.Fortification
             if(MainTable.RowCount == 1)
             {
                 MainPanel.Visible = false;
+            }
+        }
+
+        private void AddGainButton_Click(object sender, EventArgs e)
+        {
+            var form = new GainCreatorForm(this);
+            form.Show(this);
+        }
+
+        public void UpdateAllElementsGain()
+        {
+            foreach (object panel in MainTable.Controls)
+            {
+                if (panel is BuildingElementPanel buildingElement)
+                {
+                    buildingElement.UpdateGainBox();
+                }
             }
         }
     }

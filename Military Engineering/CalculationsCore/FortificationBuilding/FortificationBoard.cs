@@ -8,6 +8,7 @@ namespace CalculationsCore.FortificationBuilding
     public class FortificationBoard
     {
         Dictionary<int, BuildingCalculation> elements;
+        public List<Gain> gainFacilities;
         int lastNumber = 0;
 
         public IEnumerable<DayTime> DayTimes { get; private set;  } = DayTime.GetTimeConditions();
@@ -17,12 +18,18 @@ namespace CalculationsCore.FortificationBuilding
         public FortificationBoard()
         {
             elements = new Dictionary<int, BuildingCalculation>();
+            gainFacilities = new List<Gain>();
         }
         public int AddElement(BuildingCalculation calculation)
         {
             lastNumber++;
             elements.Add(lastNumber, calculation);
             return lastNumber;
+        }
+
+        public void AddGainFacility(Gain gain)
+        {
+            gainFacilities.Add(gain);
         }
 
         public void DeleteElement(int id)
@@ -122,6 +129,11 @@ namespace CalculationsCore.FortificationBuilding
         public BuildingCalculation GetElement(int id)
         {
             return elements[id];
+        }
+
+        public Gain GetGainFacility(int id)
+        {
+            return gainFacilities[id];
         }
 
         public int GetCalculationsNumber()
