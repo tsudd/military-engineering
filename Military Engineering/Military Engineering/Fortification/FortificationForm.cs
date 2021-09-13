@@ -160,8 +160,11 @@ namespace MilitaryEngineering.Fortification
         {
             if (control is ComboBox comboBox)
             {
-                ComboBox globalComboBox = (ComboBox)globalControl;  
-                comboBox.SelectedItem = globalComboBox.SelectedItem;
+                ComboBox globalComboBox = (ComboBox)globalControl;
+                if(globalComboBox.SelectedItem != null)
+                {
+                    comboBox.SelectedItem = globalComboBox.SelectedItem;
+                }
             }
             else if (control is TextBox textBox)
             {
