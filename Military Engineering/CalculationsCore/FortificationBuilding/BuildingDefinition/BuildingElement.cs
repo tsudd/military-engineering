@@ -22,13 +22,14 @@ namespace CalculationsCore.FortificationBuilding
 
         public BuildingElement() { }
         public BuildingElement(string name = STANDART_NAME) => this.Name = name;
-        public BuildingElement(string name, double firstTurn, double secondTurn, double futurTurns, bool isDefault)
+        public BuildingElement(string name, double firstTurn, double secondTurn, double futurTurns, bool isDefault, ElementType elementType = ElementType.Pit)
         {
             Name = name;
             FirstTurn = firstTurn;
-            SecondTurn = secondTurn;    
+            SecondTurn = secondTurn;
             FutureTurn = futurTurns;
             IsDefault = isDefault;
-        }  
+            ElementType = elementType;
+        }
     }
 }
