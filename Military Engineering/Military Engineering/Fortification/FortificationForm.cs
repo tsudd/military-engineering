@@ -88,6 +88,11 @@ namespace MilitaryEngineering.Fortification
         private void AddGainButton_Click(object sender, EventArgs e)
         {
             var form = new GainCreatorForm(this);
+            Enabled = false;
+            form.FormClosed += (obj, args) =>
+            {
+                Enabled = true;
+            };
             form.Show(this);
         }
 
