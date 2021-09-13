@@ -6,30 +6,30 @@ using MilitaryEngineering.Fortification.BuildingElementSelector;
 using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using Military_Engineering.Fortification;
+using MilitaryConfiguration.Configurations;
 
 namespace MilitaryEngineering.Fortification
 {
     public partial class FortificationForm : Form
     {
+        public const string CONFIG_PATH = "fortification.json";
         public FortificationBoard Board { get; private set; } = new FortificationBoard();
         public int ElementsAmount { get; private set; } = 0;
         public double AllFirstTurns { get; private set; } = 0;
         public double AllSecondTurns { get; private set; } = 0;
         public double AllFutureTurns { get; private set; } = 0;
         public double AllAllTurns { get; private set; } = 0;
+        public FortificationConfiguration Config { get; private set;  }
         public FortificationForm()
         {
             InitializeComponent();
             MainPanel.Visible = false;
+            Config = (new ConfigurationManager()).LoadConfiguration<FortificationConfiguration>(CONFIG_PATH);
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
         {
-            var configurationManager = new ConfigurationManager();
-            var configuration = configurationManager.LoadConfiguration();
-            var buildingElements = configuration.BuildingElements;
-            
-            var form = new BuildingElementSelectorForm(this, buildingElements);
+            var form = new BuildingElementSelectorForm(this, Config.BuildingElements);
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -100,6 +100,12 @@ namespace MilitaryEngineering.Fortification
                     buildingElement.UpdateGainBox();
                 }
             }
+        }
+
+        private void FortificationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            var configManager = new ConfigurationManager();
+            configManager.SaveConfiguration(CONFIG_PATH, Config);
         }
     }
 }

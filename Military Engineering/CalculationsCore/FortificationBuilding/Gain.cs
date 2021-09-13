@@ -3,6 +3,7 @@ using System;
 
 namespace CalculationsCore.FortificationBuilding
 {
+<<<<<<< Updated upstream:Military Engineering/CalculationsCore/FortificationBuilding/BuildingDefinition/BuildingElement.cs
     public enum ElementType
     {
         Trench,
@@ -10,6 +11,9 @@ namespace CalculationsCore.FortificationBuilding
     }
 
     public class BuildingElement
+=======
+    public class Gain
+>>>>>>> Stashed changes:Military Engineering/CalculationsCore/FortificationBuilding/Gain.cs
     {
         public const string STANDART_NAME = "Unknown building";
         public double FirstTurn { get; set; } = 0;
@@ -17,12 +21,12 @@ namespace CalculationsCore.FortificationBuilding
         public double FutureTurn { get; set; } = 0;
         public double AllTurns { get => FirstTurn + SecondTurn + FutureTurn; }
         public string Name { get; set; }
-	    public ElementType ElementType {  get; set; } = ElementType.Pit;
+	public ElementType ElementType {  get; set; } = ElementType.Pit;
         public bool IsDefault { get; set; }
 
-        public BuildingElement() { }
-        public BuildingElement(string name = STANDART_NAME) => this.Name = name;
-        public BuildingElement(string name, double firstTurn, double secondTurn, double futurTurns, bool isDefault)
+        public Gain() { }
+        public Gain(string name = STANDART_NAME) => this.Name = name;
+        public Gain(string name, double firstTurn, double secondTurn, double futurTurns, bool isDefault)
         {
             Name = name;
             FirstTurn = firstTurn;
