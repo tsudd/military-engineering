@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BFAC6BEE-48A9-4D19-AB23-2EF8D3D4B6F0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Military_Engineering</RootNamespace>
+    <RootNamespace>MilitaryEngineering</RootNamespace>
     <AssemblyName>MilitaryEngineering</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

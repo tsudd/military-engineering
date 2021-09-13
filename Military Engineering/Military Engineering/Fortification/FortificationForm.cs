@@ -5,7 +5,7 @@ using MilitaryConfiguration;
 using MilitaryEngineering.Fortification.BuildingElementSelector;
 using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
-using Military_Engineering.Fortification;
+using MilitaryEngineering.Fortification;
 using MilitaryConfiguration.Configurations;
 
 namespace MilitaryEngineering.Fortification

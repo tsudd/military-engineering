@@ -34,7 +34,7 @@ namespace MilitaryEngineering.Fortification
             // 
             // button
             // 
-            this.button.BackgroundImage = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.button.BackgroundImage = MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
             this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button.FlatAppearance.BorderSize = 0;

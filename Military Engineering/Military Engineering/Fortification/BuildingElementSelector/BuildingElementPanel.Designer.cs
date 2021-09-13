@@ -54,7 +54,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             // EditButton
             // 
             this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.EditButton.BackgroundImage = global::MilitaryEngineering.Properties.Resources.Edit;
+            this.EditButton.BackgroundImage = MilitaryEngineering.Properties.Resources.Edit;
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
