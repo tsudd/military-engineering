@@ -118,7 +118,7 @@ namespace MilitaryEngineering.Fortification
             this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddGainButton.Location = new System.Drawing.Point(750, 7);
+            this.AddGainButton.Location = new System.Drawing.Point(764, 6);
             this.AddGainButton.Name = "AddGainButton";
             this.AddGainButton.Size = new System.Drawing.Size(171, 72);
             this.AddGainButton.TabIndex = 3;
@@ -147,7 +147,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(723, 90);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(749, 90);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // AllFutureTurnsLabel
@@ -155,9 +155,9 @@ namespace MilitaryEngineering.Fortification
             this.AllFutureTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllFutureTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllFutureTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllFutureTurnsLabel.Location = new System.Drawing.Point(508, 0);
+            this.AllFutureTurnsLabel.Location = new System.Drawing.Point(526, 0);
             this.AllFutureTurnsLabel.Name = "AllFutureTurnsLabel";
-            this.AllFutureTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllFutureTurnsLabel.Size = new System.Drawing.Size(106, 90);
             this.AllFutureTurnsLabel.TabIndex = 9;
             this.AllFutureTurnsLabel.Text = "Всего";
             this.AllFutureTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,9 +167,9 @@ namespace MilitaryEngineering.Fortification
             this.AllAllTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllAllTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllAllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllAllTurnsLabel.Location = new System.Drawing.Point(616, 0);
+            this.AllAllTurnsLabel.Location = new System.Drawing.Point(638, 0);
             this.AllAllTurnsLabel.Name = "AllAllTurnsLabel";
-            this.AllAllTurnsLabel.Size = new System.Drawing.Size(104, 90);
+            this.AllAllTurnsLabel.Size = new System.Drawing.Size(108, 90);
             this.AllAllTurnsLabel.TabIndex = 8;
             this.AllAllTurnsLabel.Text = "Всего";
             this.AllAllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,9 +179,9 @@ namespace MilitaryEngineering.Fortification
             this.AllSecondTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllSecondTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllSecondTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllSecondTurnsLabel.Location = new System.Drawing.Point(400, 0);
+            this.AllSecondTurnsLabel.Location = new System.Drawing.Point(414, 0);
             this.AllSecondTurnsLabel.Name = "AllSecondTurnsLabel";
-            this.AllSecondTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllSecondTurnsLabel.Size = new System.Drawing.Size(106, 90);
             this.AllSecondTurnsLabel.TabIndex = 7;
             this.AllSecondTurnsLabel.Text = "Всего";
             this.AllSecondTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -193,7 +193,7 @@ namespace MilitaryEngineering.Fortification
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.label11.Location = new System.Drawing.Point(3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(283, 90);
+            this.label11.Size = new System.Drawing.Size(293, 90);
             this.label11.TabIndex = 6;
             this.label11.Text = "Всего";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -203,9 +203,9 @@ namespace MilitaryEngineering.Fortification
             this.AllFirstTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllFirstTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllFirstTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllFirstTurnsLabel.Location = new System.Drawing.Point(292, 0);
+            this.AllFirstTurnsLabel.Location = new System.Drawing.Point(302, 0);
             this.AllFirstTurnsLabel.Name = "AllFirstTurnsLabel";
-            this.AllFirstTurnsLabel.Size = new System.Drawing.Size(102, 90);
+            this.AllFirstTurnsLabel.Size = new System.Drawing.Size(106, 90);
             this.AllFirstTurnsLabel.TabIndex = 5;
             this.AllFirstTurnsLabel.Text = "Всего";
             this.AllFirstTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,7 +218,7 @@ namespace MilitaryEngineering.Fortification
             this.AddElementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddElementButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddElementButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddElementButton.Location = new System.Drawing.Point(931, 7);
+            this.AddElementButton.Location = new System.Drawing.Point(945, 6);
             this.AddElementButton.Name = "AddElementButton";
             this.AddElementButton.Size = new System.Drawing.Size(171, 72);
             this.AddElementButton.TabIndex = 1;
@@ -299,7 +299,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 478F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 476F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(387, 476);
             this.tableLayoutPanel4.TabIndex = 8;
             // 
@@ -409,7 +409,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 472F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 470F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(419, 470);
             this.tableLayoutPanel3.TabIndex = 8;
             // 

@@ -25,6 +25,10 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.Text = edit.FirstTurn.ToString("0.###"); 
             SecondTurnTextBox.Text = edit.SecondTurn.ToString("0.###");
             FutureTurnsTextBox.Text = edit.FutureTurn.ToString("0.###");
+            if(edit.ElementType == ElementType.Trench)
+            {
+                TrenchRadioButton.Checked = true;
+            }
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
@@ -40,7 +44,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 parsed[0],
                 parsed[1],
                 parsed[2],
-                checkBox1.Checked);
+                checkBox1.Checked,
+                PitRadioButton.Checked ? ElementType.Pit : ElementType.Trench);
 
             if(BuildingElement == null)
             {
@@ -56,8 +61,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         private void TurnTextBox_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            List<float> parsed;
-            if (!Validate(out parsed, textBox.Text))
+            if (!Validate(out _, textBox.Text))
             {
                 textBox.BackColor = Color.FromArgb(255, 128, 128);
             }
