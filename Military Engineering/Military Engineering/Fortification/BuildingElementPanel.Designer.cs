@@ -48,7 +48,7 @@
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
+            this.CheckBox = new MilitaryEngineering.Fortification.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.GainBox = new System.Windows.Forms.ComboBox();
@@ -134,7 +134,7 @@
             this.tableLayoutPanel4.Controls.Add(this.PollutionLabel, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.DayTimeLabel, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.DayTimeBox, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.checkBox1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.CheckBox, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -224,14 +224,14 @@
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
             // 
-            // checkBox1
+            // CheckBox
             // 
-            this.checkBox1.Checked = false;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(3, 38);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(34, 29);
-            this.checkBox1.TabIndex = 14;
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 38);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 29);
+            this.CheckBox.TabIndex = 14;
             // 
             // tableLayoutPanel5
             // 
@@ -518,7 +518,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1007, 179);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
@@ -538,7 +538,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(352, 173);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
@@ -647,6 +647,6 @@
         public System.Windows.Forms.Label SecondTurnEvaluationLabel;
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
-        private CheckBox checkBox1;
+        private CheckBox CheckBox;
     }
 }

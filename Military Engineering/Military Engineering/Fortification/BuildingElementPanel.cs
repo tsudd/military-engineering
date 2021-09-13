@@ -4,6 +4,7 @@ using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -18,7 +19,7 @@ namespace MilitaryEngineering.Fortification
             { "CoeffKcallingLabel", "Коэффициент, учитывающий привлечение личного состава для фортификационного оборудования \n(для мотострелковых, танковых, артиллерийских воинских частей (подразделений) Кпр = 0,6…0,7; \nдля ракетных, зенитных ракетно-артиллерийских воинских частей (подразделений) Кпр = 0,3…0,4; \nдля воинских частей (подразделений) обеспечения и обслуживания Кпр = 0,5)" },
             { "CoeffThoursLabel", "Время работы в течение одних суток, ч" },
         };
-
+        public event EventHandler ElementChanged; 
         public bool Checked { get; set; } = false;
         public FortificationBoard Board {  get; private set; }
         public int ElementIndex { get; private set; }
@@ -30,9 +31,10 @@ namespace MilitaryEngineering.Fortification
             Board = fortificationBoard;
             ElementIndex = key;
             InitializeComponent();
-            checkBox1.CheckBox_Checked += (sender, e) =>
+            CheckBox.CheckBox_Checked += (sender, e) =>
             {
                 Checked = ((CheckBox)sender).Checked;
+                ElementChanged?.Invoke(sender, e);
             };
             ConfigureToolTip();
             defaultColor = tableLayoutPanel1.BackColor;
@@ -43,15 +45,15 @@ namespace MilitaryEngineering.Fortification
             FutureTurnLabel.Text = element.Element.FutureTurn.ToString("0.###");
             AllTurnsLabel.Text = element.Element.AllTurns.ToString("0.###");
 
-            SoilTypeBox.DataSource = Board.SoilTypes;
+            SoilTypeBox.DataSource = FortificationBoard.SoilTypes;
             SoilTypeBox.DisplayMember = "Name";
             SoilTypeBox.ValueMember = "Value";
 
-            DayTimeBox.DataSource = Board.DayTimes;
+            DayTimeBox.DataSource = FortificationBoard.DayTimes;
             DayTimeBox.DisplayMember = "Name";
             DayTimeBox.ValueMember = "Value";
 
-            PollutionsBox.DataSource = Board.Pollutions;
+            PollutionsBox.DataSource = FortificationBoard.Pollutions;
             PollutionsBox.DisplayMember = "Name";
             PollutionsBox.DisplayMember = "Name";
 
@@ -88,22 +90,25 @@ namespace MilitaryEngineering.Fortification
 
         }
 
-        private void DayTimeBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void DayTimeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Board.UpdateElementCondition(ElementIndex, (DayTime)DayTimeBox.SelectedItem);
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void PollutionsBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void PollutionsBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Board.UpdateElementCondition(ElementIndex, (FieldPollution)PollutionsBox.SelectedItem);
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void SoilTypeBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void SoilTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Board.UpdateElementCondition(ElementIndex, (SoilType)SoilTypeBox.SelectedItem);
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void PeopleAmountInput_TextChanged(object sender, System.EventArgs e)
+        private void PeopleAmountInput_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -120,9 +125,10 @@ namespace MilitaryEngineering.Fortification
             {
                 PeopleAmountInput.BackColor = Color.FromArgb(255, 128, 128);
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void Evaluate(object sender, System.EventArgs e)
+        private void Evaluate(object sender, EventArgs e)
         {
             try
             {
@@ -136,6 +142,7 @@ namespace MilitaryEngineering.Fortification
             {
                 FillEvaluationLabelsWithError();
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
         private void FillEvaluationLabelsWithError()
@@ -146,7 +153,7 @@ namespace MilitaryEngineering.Fortification
             AllTurnEvaluationLabel.Text = ERROR_TEXT;
         }
 
-        private void ManPowerInput_TextChanged(object sender, System.EventArgs e)
+        private void ManPowerInput_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -163,9 +170,10 @@ namespace MilitaryEngineering.Fortification
             {
                 ManPowerInput.BackColor = Color.FromArgb(255, 128, 128);
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void OrganizationInput_TextChanged(object sender, System.EventArgs e)
+        private void OrganizationInput_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -182,9 +190,10 @@ namespace MilitaryEngineering.Fortification
             {
                 OrganizationInput.BackColor = Color.FromArgb(255, 128, 128);
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void AttritionRateInput_TextChanged(object sender, System.EventArgs e)
+        private void AttritionRateInput_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -201,9 +210,10 @@ namespace MilitaryEngineering.Fortification
             {
                 AttritionRateInput.BackColor = Color.FromArgb(255, 128, 128);
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void WorkTimeInput_TextChanged(object sender, System.EventArgs e)
+        private void WorkTimeInput_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -220,9 +230,10 @@ namespace MilitaryEngineering.Fortification
             {
                 WorkTimeInput.BackColor = Color.FromArgb(255, 128, 128);
             }
+            ElementChanged?.Invoke(sender, e);
         }
 
-        private void GainBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        private void GainBox_SelectedIndexChanged(object sender, EventArgs e)
         {
           
         }

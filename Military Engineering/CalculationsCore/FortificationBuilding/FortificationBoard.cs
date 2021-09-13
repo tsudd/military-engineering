@@ -11,9 +11,9 @@ namespace CalculationsCore.FortificationBuilding
         public List<Gain> gainFacilities;
         int lastNumber = 0;
 
-        public IEnumerable<DayTime> DayTimes { get; private set;  } = DayTime.GetTimeConditions();
-        public IEnumerable<FieldPollution> Pollutions { get; private set; } = FieldPollution.GetPollutionConditions();
-        public IEnumerable<SoilType> SoilTypes { get; private set; } = SoilType.GetSoilConditions();
+        public static IEnumerable<DayTime> DayTimes { get; private set;  } = DayTime.GetTimeConditions();
+        public static IEnumerable<FieldPollution> Pollutions { get; private set; } = FieldPollution.GetPollutionConditions();
+        public static IEnumerable<SoilType> SoilTypes { get; private set; } = SoilType.GetSoilConditions();
 
         public FortificationBoard()
         {

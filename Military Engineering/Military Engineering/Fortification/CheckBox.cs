@@ -12,7 +12,26 @@ namespace MilitaryEngineering.Fortification
 {
     public partial class CheckBox : UserControl
     {
-        public bool Checked {  get; set; }
+        private bool _checked;
+        public bool Checked 
+        {  
+            get 
+            {
+                return _checked;
+            } 
+            set 
+            {
+                _checked = value;
+                if (_checked)
+                {
+                    button.BackgroundImage = Properties.Resources.CheckBoxChecked;
+                }
+                else
+                {
+                    button.BackgroundImage = Properties.Resources.CheckBoxUnchecked;
+                }
+            } 
+        }
         Image PrevImage {  get; set; }
         public event EventHandler CheckBox_Checked;
         public CheckBox()
