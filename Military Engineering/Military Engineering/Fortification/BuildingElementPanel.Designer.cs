@@ -51,7 +51,6 @@
             this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.GainBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
             this.ManPowerInput = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@
             this.CoeffKcallingLabel = new System.Windows.Forms.Label();
             this.CoeffKstaffingLabel = new System.Windows.Forms.Label();
             this.CoeffNpersonnelLabel = new System.Windows.Forms.Label();
+            this.AddGainButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SecondTurnLabel = new System.Windows.Forms.Label();
             this.FutureTurnLabel = new System.Windows.Forms.Label();
@@ -254,7 +254,6 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Controls.Add(this.GainBox, 3, 2);
             this.tableLayoutPanel6.Controls.Add(this.label7, 2, 2);
             this.tableLayoutPanel6.Controls.Add(this.WorkTimeInput, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.ManPowerInput, 1, 1);
@@ -266,6 +265,7 @@
             this.tableLayoutPanel6.Controls.Add(this.CoeffKcallingLabel, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.CoeffKstaffingLabel, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.CoeffNpersonnelLabel, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.AddGainButton, 3, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -276,19 +276,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(379, 100);
             this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // GainBox
-            // 
-            this.GainBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.GainBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GainBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GainBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GainBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.GainBox.FormattingEnabled = true;
-            this.GainBox.Location = new System.Drawing.Point(285, 69);
-            this.GainBox.Name = "GainBox";
-            this.GainBox.Size = new System.Drawing.Size(91, 29);
-            this.GainBox.TabIndex = 26;
             // 
             // label7
             // 
@@ -422,6 +409,24 @@
             this.CoeffNpersonnelLabel.Text = "Nлс";
             this.CoeffNpersonnelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // AddGainButton
+            // 
+            this.AddGainButton.AutoSize = true;
+            this.AddGainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AddGainButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.AddGainButton.Location = new System.Drawing.Point(285, 69);
+            this.AddGainButton.Name = "AddGainButton";
+            this.AddGainButton.Size = new System.Drawing.Size(91, 28);
+            this.AddGainButton.TabIndex = 26;
+            this.AddGainButton.TabStop = false;
+            this.AddGainButton.Text = "Добавить\r\nэлемент";
+            this.AddGainButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddGainButton.UseVisualStyleBackColor = false;
+            this.AddGainButton.Click += new System.EventHandler(this.AddGainButton_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
@@ -518,7 +523,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 215F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1007, 179);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
@@ -538,7 +543,7 @@
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 209F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
             this.tableLayoutPanel8.Size = new System.Drawing.Size(352, 173);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
@@ -639,7 +644,6 @@
         public System.Windows.Forms.Label CoeffThoursLabel;
         private System.Windows.Forms.TextBox PeopleAmountInput;
         public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox GainBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         public System.Windows.Forms.Label AllTurnEvaluationLabel;
@@ -648,5 +652,6 @@
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
         private CheckBox checkBox1;
+        private System.Windows.Forms.Button AddGainButton;
     }
 }

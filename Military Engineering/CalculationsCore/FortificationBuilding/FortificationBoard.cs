@@ -2,6 +2,7 @@ using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using CalculationsCore.FortificationBuilding.BuildingConditions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CalculationsCore.FortificationBuilding
 {
@@ -111,7 +112,7 @@ namespace CalculationsCore.FortificationBuilding
                         ability.Organization = (double)value;
                         break;
                     case AbilityType.BuildingGain:
-                        ability.BuildingGains = (List<Gain>)value;
+                        ability.BuildingGains = ((List<Gain>)value).Select(gain => new Gain(gain)).ToList();
                         break;
                     case AbilityType.WorkTime:
                         ability.WorkTime = (double)value;
@@ -124,6 +125,7 @@ namespace CalculationsCore.FortificationBuilding
             {
                 throw new ArgumentException();
             }
+
         }
 
         public BuildingCalculation GetElement(int id)

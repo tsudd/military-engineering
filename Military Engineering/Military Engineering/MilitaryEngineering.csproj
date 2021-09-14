@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
@@ -101,11 +101,23 @@
     <Compile Include="Fortification\FortificationForm.Designer.cs">
       <DependentUpon>FortificationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fortification\GainCreatorForm.cs">
+    <Compile Include="Fortification\GainSelector\GainCreatorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fortification\GainCreatorForm.Designer.cs">
+    <Compile Include="Fortification\GainSelector\GainCreatorForm.Designer.cs">
       <DependentUpon>GainCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.Designer.cs">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.Designer.cs">
+      <DependentUpon>GainPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
@@ -134,8 +146,14 @@
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fortification\GainCreatorForm.resx">
+    <EmbeddedResource Include="Fortification\GainSelector\GainCreatorForm.resx">
       <DependentUpon>GainCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainSelectorForm.resx">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainPanel.resx">
+      <DependentUpon>GainPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>

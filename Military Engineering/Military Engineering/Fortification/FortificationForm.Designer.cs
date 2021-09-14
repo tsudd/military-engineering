@@ -32,7 +32,6 @@ namespace MilitaryEngineering.Fortification
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.RemoveSelectedButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
-            this.AddGainButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
             this.AllAllTurnsLabel = new System.Windows.Forms.Label();
@@ -101,7 +100,6 @@ namespace MilitaryEngineering.Fortification
             // FooterPanel
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-            this.FooterPanel.Controls.Add(this.AddGainButton);
             this.FooterPanel.Controls.Add(this.tableLayoutPanel5);
             this.FooterPanel.Controls.Add(this.AddElementButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -109,23 +107,6 @@ namespace MilitaryEngineering.Fortification
             this.FooterPanel.Name = "FooterPanel";
             this.FooterPanel.Size = new System.Drawing.Size(1128, 90);
             this.FooterPanel.TabIndex = 1;
-            // 
-            // AddGainButton
-            // 
-            this.AddGainButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddGainButton.AutoSize = true;
-            this.AddGainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddGainButton.Location = new System.Drawing.Point(764, 6);
-            this.AddGainButton.Name = "AddGainButton";
-            this.AddGainButton.Size = new System.Drawing.Size(171, 72);
-            this.AddGainButton.TabIndex = 3;
-            this.AddGainButton.TabStop = false;
-            this.AddGainButton.Text = "Добавить\r\nусиление";
-            this.AddGainButton.UseVisualStyleBackColor = false;
-            this.AddGainButton.Click += new System.EventHandler(this.AddGainButton_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -546,6 +527,5 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label AllSecondTurnsLabel;
         public System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button RemoveSelectedButton;
-        private System.Windows.Forms.Button AddGainButton;
     }
 }

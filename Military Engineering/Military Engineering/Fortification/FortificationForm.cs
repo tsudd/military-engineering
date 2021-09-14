@@ -54,7 +54,7 @@ namespace MilitaryEngineering.Fortification
             {
                 //oops..
             }
-            var element = new BuildingElementPanel(Board, index);
+            var element = new BuildingElementPanel(this, index);
             MainTable.RowCount++;
             MainTable.RowStyles.Add(new RowStyle(SizeType.Percent));
             MainTable.Controls.Add(element, 0, MainTable.RowCount - 1);
@@ -82,28 +82,6 @@ namespace MilitaryEngineering.Fortification
             if(MainTable.RowCount == 1)
             {
                 MainPanel.Visible = false;
-            }
-        }
-
-        private void AddGainButton_Click(object sender, EventArgs e)
-        {
-            var form = new GainCreatorForm(this);
-            Enabled = false;
-            form.FormClosed += (obj, args) =>
-            {
-                Enabled = true;
-            };
-            form.Show(this);
-        }
-
-        public void UpdateAllElementsGain()
-        {
-            foreach (object panel in MainTable.Controls)
-            {
-                if (panel is BuildingElementPanel buildingElement)
-                {
-                    buildingElement.UpdateGainBox();
-                }
             }
         }
 

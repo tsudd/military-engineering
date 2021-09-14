@@ -4,13 +4,14 @@ using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using MilitaryEngineering.Fortification.GainSelector;
 
 namespace MilitaryEngineering.Fortification
 {
     public partial class BuildingElementPanel : UserControl
     {
         public const string ERROR_TEXT = "Ошибка";
-        Dictionary<string, string> coeffInfo = new Dictionary<string, string>()
+        public static readonly Dictionary<string, string> coeffInfo = new Dictionary<string, string>()
         {
             { "CoeffNpersonnelLabel", "Количество личного состава в соединении (воинской части) по штату, чел" },
             { "CoeffKstaffingLabel", "Коэффициент, учитывающий укомплектованность соединения (воинской части) \nк моменту начала выполнения задач" },
@@ -20,14 +21,14 @@ namespace MilitaryEngineering.Fortification
         };
 
         public bool Checked { get; set; } = false;
-        public FortificationBoard Board {  get; private set; }
+        public FortificationForm FortForm {  get; private set; }
         public int ElementIndex { get; private set; }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor { get; set; }
         Image prevImage {  get; set; }
-        public BuildingElementPanel(FortificationBoard fortificationBoard, int key)
+        public BuildingElementPanel(FortificationForm fortificationForm, int key)
         {
-            Board = fortificationBoard;
+            FortForm = fortificationForm;
             ElementIndex = key;
             InitializeComponent();
             checkBox1.CheckBox_Checked += (sender, e) =>
@@ -36,22 +37,23 @@ namespace MilitaryEngineering.Fortification
             };
             ConfigureToolTip();
             defaultColor = tableLayoutPanel1.BackColor;
-            var element = Board.GetElement(ElementIndex);
+            var element = FortForm.Board.GetElement(ElementIndex);
             ElementNameLabel.Text = element.Element.Name;
             FirstTurnLabel.Text = element.Element.FirstTurn.ToString("0.###");
             SecondTurnLabel.Text = element.Element.SecondTurn.ToString("0.###");
             FutureTurnLabel.Text = element.Element.FutureTurn.ToString("0.###");
             AllTurnsLabel.Text = element.Element.AllTurns.ToString("0.###");
+            AddGainButton.Text = element.Ability.BuildingGains.Count.ToString();
 
-            SoilTypeBox.DataSource = Board.SoilTypes;
+            SoilTypeBox.DataSource = FortForm.Board.SoilTypes;
             SoilTypeBox.DisplayMember = "Name";
             SoilTypeBox.ValueMember = "Value";
 
-            DayTimeBox.DataSource = Board.DayTimes;
+            DayTimeBox.DataSource = FortForm.Board.DayTimes;
             DayTimeBox.DisplayMember = "Name";
             DayTimeBox.ValueMember = "Value";
 
-            PollutionsBox.DataSource = Board.Pollutions;
+            PollutionsBox.DataSource = FortForm.Board.Pollutions;
             PollutionsBox.DisplayMember = "Name";
             PollutionsBox.DisplayMember = "Name";
 
@@ -63,11 +65,7 @@ namespace MilitaryEngineering.Fortification
             DayTimeBox.SelectedIndexChanged += Evaluate;
             SoilTypeBox.SelectedIndexChanged += Evaluate;
             PollutionsBox.SelectedIndexChanged += Evaluate;
-
-            foreach(var gain in Board.gainFacilities)
-            {
-                GainBox.Items.Add(gain.Name);
-            }
+            AddGainButton.Click += Evaluate;
         }
 
         void ConfigureToolTip()
@@ -90,17 +88,17 @@ namespace MilitaryEngineering.Fortification
 
         private void DayTimeBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            Board.UpdateElementCondition(ElementIndex, (DayTime)DayTimeBox.SelectedItem);
+            FortForm.Board.UpdateElementCondition(ElementIndex, (DayTime)DayTimeBox.SelectedItem);
         }
 
         private void PollutionsBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            Board.UpdateElementCondition(ElementIndex, (FieldPollution)PollutionsBox.SelectedItem);
+            FortForm.Board.UpdateElementCondition(ElementIndex, (FieldPollution)PollutionsBox.SelectedItem);
         }
 
         private void SoilTypeBox_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            Board.UpdateElementCondition(ElementIndex, (SoilType)SoilTypeBox.SelectedItem);
+            FortForm.Board.UpdateElementCondition(ElementIndex, (SoilType)SoilTypeBox.SelectedItem);
         }
 
         private void PeopleAmountInput_TextChanged(object sender, System.EventArgs e)
@@ -113,7 +111,7 @@ namespace MilitaryEngineering.Fortification
                     PeopleAmountInput.BackColor = Color.FromArgb(255, 128, 128);
                     return;
                 }
-                Board.UpdateElementAbility(ElementIndex, value, AbilityType.PeopleAmount);
+                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.PeopleAmount);
                 PeopleAmountInput.BackColor = Color.FromArgb(119, 141, 169);
             }
             catch
@@ -126,7 +124,7 @@ namespace MilitaryEngineering.Fortification
         {
             try
             {
-                var calc = Board.GetElement(ElementIndex);
+                var calc = FortForm.Board.GetElement(ElementIndex);
                 FirstTurnEvaluationLabel.Text = calc.EvaluateFirstTurn().ToString();
                 SecondTurnEvaluationLabel.Text = calc.EvaluateSecondTurn().ToString();
                 FutureTurnEvaluationLabel.Text = calc.EvaluateFutureTurn().ToString();
@@ -156,7 +154,7 @@ namespace MilitaryEngineering.Fortification
                     ManPowerInput.BackColor = Color.FromArgb(255, 128, 128);
                     return;
                 }
-                Board.UpdateElementAbility(ElementIndex, value, AbilityType.ManPower);
+                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.ManPower);
                 ManPowerInput.BackColor = Color.FromArgb(119, 141, 169);
             }
             catch
@@ -175,7 +173,7 @@ namespace MilitaryEngineering.Fortification
                     OrganizationInput.BackColor = Color.FromArgb(255, 128, 128);
                     return;
                 }
-                Board.UpdateElementAbility(ElementIndex, value, AbilityType.Organization);
+                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.Organization);
                 OrganizationInput.BackColor = Color.FromArgb(119, 141, 169);
             }
             catch
@@ -194,7 +192,7 @@ namespace MilitaryEngineering.Fortification
                     AttritionRateInput.BackColor = Color.FromArgb(255, 128, 128);
                     return;
                 }
-                Board.UpdateElementAbility(ElementIndex, value, AbilityType.AttritionRate);
+                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.AttritionRate);
                 AttritionRateInput.BackColor = Color.FromArgb(119, 141, 169);
             }
             catch
@@ -213,7 +211,7 @@ namespace MilitaryEngineering.Fortification
                     WorkTimeInput.BackColor = Color.FromArgb(255, 128, 128);
                     return;
                 }
-                Board.UpdateElementAbility(ElementIndex, value, AbilityType.WorkTime);
+                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.WorkTime);
                 WorkTimeInput.BackColor = Color.FromArgb(119, 141, 169);
             }
             catch
@@ -222,18 +220,25 @@ namespace MilitaryEngineering.Fortification
             }
         }
 
-        private void GainBox_SelectedIndexChanged(object sender, System.EventArgs e)
+        public void UpdateGains(List<Gain> newGains)
         {
-          
+            if (newGains is null)
+            {
+                return;
+            }
+            FortForm.Board.UpdateElementAbility(ElementIndex, newGains, AbilityType.BuildingGain);
         }
 
-        public void UpdateGainBox()
+        private void AddGainButton_Click(object sender, System.EventArgs e)
         {
-            GainBox.Items.Clear();
-            foreach (var gain in Board.gainFacilities)
+            var form = new GainSelectorForm(this);
+            form.FormClosed += (obj, args) =>
             {
-                GainBox.Items.Add(gain.Name);
-            }
+                FortForm.Enabled = true;
+                AddGainButton.Text = $"Всего {form.GainsAmount}";
+            };
+            form.Show(this);
+            FortForm.Enabled = false; 
         }
     }
 }
