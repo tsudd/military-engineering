@@ -632,9 +632,7 @@
         public System.Windows.Forms.Label PollutionLabel;
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
-
-        public Controls.CheckBox CheckBox { get; private set; }
-
+        public Controls.CheckBox CheckBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         public System.Windows.Forms.Label CoeffKorganizationLabel;
         public System.Windows.Forms.Label CoeffKcallingLabel;
