@@ -146,17 +146,42 @@ namespace CalculationsCore.FortificationBuilding
             double ans = 0;
             foreach (var element in elements.Values)
             {
-                try
-                {
-                    ans += element.EvaluateFirstTurn();
-                }
-                catch (DivideByZeroException)
-                {
-                    //oops
-                }
-
+                ans += element.Element.FirstTurn;
             }
-            return ans;
+
+            return Math.Round(ans, 2);
+        }
+
+        public double EvaluateAllSecondTurns()
+        {
+            double ans = 0;
+            foreach (var element in elements.Values)
+            {
+                ans += element.Element.SecondTurn;
+            }
+
+            return Math.Round(ans, 2);
+        }
+
+        public double EvaluateAllFutureTurns()
+        {
+            double ans = 0;
+            foreach (var element in elements.Values)
+            {
+                ans += element.Element.FutureTurn;
+            }
+
+            return Math.Round(ans, 2);
+        }
+
+        public double EvaluateAllAllTurns()
+        {
+            double ans = 0;
+            foreach (var element in elements.Values)
+            {
+                ans += element.Element.AllTurns;
+            }
+            return Math.Round(ans, 2);
         }
     }
 }

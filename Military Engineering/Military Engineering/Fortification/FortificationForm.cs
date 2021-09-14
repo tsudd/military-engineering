@@ -76,6 +76,7 @@ namespace MilitaryEngineering.Fortification
             MainTable.RowStyles.Add(new RowStyle(SizeType.Percent));
             MainTable.Controls.Add(element, 0, MainTable.RowCount - 1);
             element.Dock = DockStyle.Top;
+            EvaluateAllTurns();
         }
 
         //public void Update(
@@ -100,6 +101,7 @@ namespace MilitaryEngineering.Fortification
             {
                 MainPanel.Visible = false;
             }
+            EvaluateAllTurns();
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -241,6 +243,14 @@ namespace MilitaryEngineering.Fortification
                 result.AddRange(GetAllChildren(child));
             }
             return result;
+        }
+
+        public void EvaluateAllTurns()
+        {
+            AllFirstTurnsLabel.Text = Board.EvaluateAllFirstTurns().ToString("0.##");
+            AllSecondTurnsLabel.Text = Board.EvaluateAllSecondTurns().ToString("0.##");
+            AllFutureTurnsLabel.Text = Board.EvaluateAllFutureTurns().ToString("0.##");
+            AllAllTurnsLabel.Text = Board.EvaluateAllAllTurns().ToString("0.##");
         }
     }
 }
