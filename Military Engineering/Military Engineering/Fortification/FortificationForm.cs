@@ -69,7 +69,7 @@ namespace MilitaryEngineering.Fortification
             {
                 //oops..
             }
-            var element = new BuildingElementPanel(Board, index);
+            var element = new BuildingElementPanel(this, index);
             element.ElementChanged += ResetGlobalSetting;
             SetGlobalSettings(element);
             MainTable.RowCount++;

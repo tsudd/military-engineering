@@ -632,6 +632,9 @@
         public System.Windows.Forms.Label PollutionLabel;
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
+
+        public CheckBox CheckBox { get; private set; }
+
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         public System.Windows.Forms.Label CoeffKorganizationLabel;
         public System.Windows.Forms.Label CoeffKcallingLabel;
@@ -651,7 +654,6 @@
         public System.Windows.Forms.Label SecondTurnEvaluationLabel;
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
-        private CheckBox checkBox1;
         private System.Windows.Forms.Button AddGainButton;
     }
 }
