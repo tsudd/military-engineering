@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fortification\BuildingElementPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,10 +95,10 @@
     <Compile Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.Designer.cs">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fortification\CheckBox.cs">
+    <Compile Include="Controls\CheckBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fortification\CheckBox.Designer.cs">
+    <Compile Include="Controls\CheckBox.Designer.cs">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Fortification\FortificationForm.cs">
@@ -128,6 +134,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolTipAutoMapper.cs" />
+    <EmbeddedResource Include="Controls\Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fortification\BuildingElementPanel.resx">
       <DependentUpon>BuildingElementPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,7 +149,7 @@
     <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.resx">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fortification\CheckBox.resx">
+    <EmbeddedResource Include="Controls\CheckBox.resx">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
@@ -239,6 +248,11 @@
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHower.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\EditHoverT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\EditT.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

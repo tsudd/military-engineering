@@ -34,7 +34,7 @@ namespace MilitaryEngineering.Fortification
             InitializeComponent();
             CheckBox.CheckBox_Checked += (sender, e) =>
             {
-                Checked = ((CheckBox)sender).Checked;
+                Checked = ((Controls.CheckBox)sender).Checked;
                 ElementChanged?.Invoke(sender, e);
             };
             ConfigureToolTip();

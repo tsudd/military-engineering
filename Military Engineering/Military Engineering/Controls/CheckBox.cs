@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MilitaryEngineering.Fortification
+namespace MilitaryEngineering.Controls
 {
     public partial class CheckBox : UserControl
     {

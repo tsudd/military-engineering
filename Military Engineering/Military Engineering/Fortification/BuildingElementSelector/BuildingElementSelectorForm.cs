@@ -73,8 +73,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
-            panel.CloseButton.Visible = false;
-            panel.EditButton.Visible = false;
             panel.Clicked += (sender, e) =>
             {
                 this.Sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);

@@ -48,7 +48,7 @@
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
-            this.CheckBox = new MilitaryEngineering.Fortification.CheckBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -633,7 +633,7 @@
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
 
-        public CheckBox CheckBox { get; private set; }
+        public Controls.CheckBox CheckBox { get; private set; }
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         public System.Windows.Forms.Label CoeffKorganizationLabel;

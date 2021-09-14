@@ -20,7 +20,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             InitializeComponent();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = buildingElement.Name;
-            EditButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
+            RemoveButton.Visible = false;
+            EditButton.Visible = false;
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 
             if(!BuildingElement.IsDefault)
             {
-                CloseButton.Visible = true;
+                RemoveButton.Visible = true;
                 EditButton.Visible = true; 
             }
         }
@@ -53,32 +54,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             panel1.BackColor = defaultColor;
             if (!BuildingElement.IsDefault)
             {
-                CloseButton.Visible = false;
+                RemoveButton.Visible = false;
                 EditButton.Visible = false;
-            }
-        }
-
-        private void Button_MouseEnter(object sender, EventArgs e)
-        {
-            if(sender == CloseButton)
-            {
-                CloseButton.BackgroundImage = Properties.Resources.CrossHover;
-            }
-            else
-            {
-                EditButton.BackgroundImage = Properties.Resources.EditHover;
-            }
-        }
-
-        private void Button_MouseLeave(object sender, EventArgs e)
-        {
-            if(sender == CloseButton)
-            {
-                CloseButton.BackgroundImage = Properties.Resources.Cross;
-            }
-            else
-            {
-                EditButton.BackgroundImage = Properties.Resources.Edit;
             }
         }
 

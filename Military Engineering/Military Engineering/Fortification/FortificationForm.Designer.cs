@@ -81,7 +81,7 @@ namespace MilitaryEngineering.Fortification
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.CheckBox = new MilitaryEngineering.Fortification.CheckBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -909,7 +909,7 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label PollutionLabel;
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
-        private CheckBox CheckBox;
+        private Controls.CheckBox CheckBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private System.Windows.Forms.TextBox WorkTimeInput;

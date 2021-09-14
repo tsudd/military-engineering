@@ -150,9 +150,9 @@ namespace MilitaryEngineering.Fortification
             {
                 textBox.Text = (globalControl as TextBox).Text;
             }
-            else if (control is Fortification.CheckBox checkBox)
+            else if (control is Controls.CheckBox checkBox)
             {
-                checkBox.Checked = (globalControl as Fortification.CheckBox).Checked;
+                checkBox.Checked = (globalControl as Controls.CheckBox).Checked;
                 element.Checked = checkBox.Checked;
             }
         }
@@ -200,7 +200,7 @@ namespace MilitaryEngineering.Fortification
                         {
                             globalTextBox.Text = "";
                         }
-                        else if(globalChild is Fortification.CheckBox globalCheckBox)
+                        else if(globalChild is Controls.CheckBox globalCheckBox)
                         {
                             globalCheckBox.Checked = false;
                         }

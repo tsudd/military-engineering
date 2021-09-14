@@ -1,5 +1,5 @@
 ﻿
-namespace MilitaryEngineering.Fortification
+namespace MilitaryEngineering.Controls
 {
     partial class CheckBox
     {
