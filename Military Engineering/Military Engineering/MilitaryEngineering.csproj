@@ -243,18 +243,6 @@
     <None Include="Images\CheckBoxUnchecked.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\CheckBoxCheckedHower.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\CheckBoxUncheckedHower.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\EditHoverT.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Images\EditT.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Images\Add.png" />
   </ItemGroup>
   <ItemGroup>
