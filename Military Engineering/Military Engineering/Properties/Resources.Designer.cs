@@ -63,6 +63,26 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add {
+            get {
+                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddHover {
+            get {
+                object obj = ResourceManager.GetObject("AddHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckBoxChecked {
             get {
                 object obj = ResourceManager.GetObject("CheckBoxChecked", resourceCulture);
@@ -73,9 +93,9 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CheckBoxCheckedHower {
+        internal static System.Drawing.Bitmap CheckBoxCheckedHover {
             get {
-                object obj = ResourceManager.GetObject("CheckBoxCheckedHower", resourceCulture);
+                object obj = ResourceManager.GetObject("CheckBoxCheckedHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,9 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CheckBoxUncheckedHower {
+        internal static System.Drawing.Bitmap CheckBoxUncheckedHover {
             get {
-                object obj = ResourceManager.GetObject("CheckBoxUncheckedHower", resourceCulture);
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -231,6 +251,26 @@ namespace MilitaryEngineering.Properties {
         internal static string salt {
             get {
                 return ResourceManager.GetString("salt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Substract {
+            get {
+                object obj = ResourceManager.GetObject("Substract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubstractHover {
+            get {
+                object obj = ResourceManager.GetObject("SubstractHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

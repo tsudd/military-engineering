@@ -36,7 +36,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             MainPanel.AutoScrollPosition = new Point(MainPanel.AutoScrollPosition.X, 0);
             MainPanel.VerticalScroll.Value = 0;
-            UpdateAmountLabel(sender, e);
+            UpdateAmountLabel();
         }
 
         private void CreateGainButton_Click(object sender, EventArgs e)
@@ -82,21 +82,15 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void AddEntry(Gain gain)
         {
-            var panel = new GainPanel(gain)
-            {
-                IncrementGain = IncrementGainAmount,
-                DecrementGain = DecrementGainAmount
-            };
+            var panel = new GainPanel(gain);
+            panel.Incremented += IncrementGainAmount;
+            panel.Decremented += DecrementGainAmount;
             MainTable.RowCount++;
             MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
-            panel.CloseButton.Visible = false;
-            panel.EditButton.Visible = false;
             panel.Removed += Remove;
-            panel.Removed += UpdateAmountLabel;
-            panel.IncrementButton.Click += UpdateAmountLabel;
-            panel.DecrementButton.Click += UpdateAmountLabel;
+            panel.Removed += (sender, e) => UpdateAmountLabel();
             panel.Edited += Edit;
         }
 
@@ -106,11 +100,12 @@ namespace MilitaryEngineering.Fortification.GainSelector
             {
                 Gains[gainId].Amount++;
                 GainsAmount++;
-            } 
+                UpdateAmountLabel();
+            }
             catch
             {
                 //damn son...
-            }
+            }            
         }
 
         private void DecrementGainAmount(int gainId)
@@ -121,6 +116,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             }
             Gains[gainId].Amount--;
             GainsAmount--;
+            UpdateAmountLabel();  
         }
 
         public void EditElement(Gain prevElement, Gain newElement)
@@ -144,7 +140,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             Close();
         }
 
-        public void UpdateAmountLabel(object sender, EventArgs e)
+        public void UpdateAmountLabel()
         {
             AmountLabel.Text = $"Всего {GainsAmount}";
         }

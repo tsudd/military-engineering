@@ -14,9 +14,14 @@ namespace MilitaryEngineering.Controls
     {
         public Image Image {  get; set; }
         public Image HoverImage {  get; set; }
+#pragma warning disable CS0108
+        public event EventHandler Click;
+#pragma warning restore CS0108
         public Button()
         {
             InitializeComponent();
+            DoubleClick += (sender, e) => Click?.Invoke(sender, e);
+            base.Click += (sender, e) => Click?.Invoke(sender, e);
             BackgroundImageLayout = ImageLayout.Stretch;
             MouseEnter += (sender, e) =>
             {
@@ -37,8 +42,6 @@ namespace MilitaryEngineering.Controls
             Parent.BackColorChanged += (sender, e) =>
             {
                 BackColor = Parent.BackColor;
-                //MessageBox.Show("q");
-
             };
         }
     }

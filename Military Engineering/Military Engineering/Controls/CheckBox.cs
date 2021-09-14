@@ -43,12 +43,12 @@ namespace MilitaryEngineering.Controls
         {
             if (Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
                 PrevImage = Properties.Resources.CheckBoxUnchecked;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
                 PrevImage = Properties.Resources.CheckBoxChecked;
             }
             Checked = !Checked;
@@ -61,11 +61,11 @@ namespace MilitaryEngineering.Controls
             PrevImage = button.BackgroundImage;
             if (Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
             }
         }
 

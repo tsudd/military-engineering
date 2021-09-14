@@ -29,6 +29,8 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public event EventHandler Removed;
         public delegate void IncrementGainAmount(int gainId);
         public delegate void DecrementGainAmount(int gainId);
+        public event IncrementGainAmount Incremented;
+        public event DecrementGainAmount Decremented;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
@@ -38,13 +40,34 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             GainEntry = gain;
             InitializeComponent();
+            EditButton.Click += (sender, e) => Edited?.Invoke(this, e);
+            RemoveButton.Click += (sender, e) => Removed?.Invoke(this, e);
+            HideAll();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = gain.Name;
             CounterLabel.Text = gain.Amount.ToString();
-            EditButton.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
             GainInfo.Add(InfoLabel.Name,
                 $"{gain.Description} Производительность: для траншей - {gain.TrenchPerformance}, для котлованов - {gain.PitPerformance}.");
             ConfigureToolTip();
+        }
+
+        private void HideAll()
+        {
+            EditButton.Visible = false;
+            RemoveButton.Visible = false;
+            AddButton.Visible = false;
+            SubstractButton.Visible = false;
+        }
+
+        private void ShowAll()
+        {
+            AddButton.Visible = true;
+            SubstractButton.Visible = true;
+            if (!GainEntry.IsDefault)
+            {
+                EditButton.Visible = true;
+                RemoveButton.Visible = true;
+            }
         }
 
         void ConfigureToolTip()
@@ -64,13 +87,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private void panel1_MouseEnter(object sender, EventArgs e)
         {
             InfoLabel.BackColor = hoverColor;
+            CounterLabel.BackColor = hoverColor;
             panel1.BackColor = hoverColor;
 
-            if(!GainEntry.IsDefault)
-            {
-                CloseButton.Visible = true;
-                EditButton.Visible = true; 
-            }
+            ShowAll();
         }
 
         private void panel1_MouseLeave(object sender, EventArgs e)
@@ -88,12 +108,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 return;
             }
             InfoLabel.BackColor = defaultColor;
+            CounterLabel.BackColor = defaultColor;
             panel1.BackColor = defaultColor;
-            if (!GainEntry.IsDefault)
-            {
-                CloseButton.Visible = false;
-                EditButton.Visible = false;
-            }
+            HideAll();
         }
 
         private void InfoLabel_Click(object sender, EventArgs e)
@@ -103,47 +120,30 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            Edited?.Invoke(this, EventArgs.Empty);
+
         }
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            Removed?.Invoke(this, EventArgs.Empty);
+
         }
 
         private void DecrementButton_Click(object sender, EventArgs e)
         {
-            DecrementGain?.Invoke(GainIndex);
+            //DecrementGain?.Invoke(GainIndex);
+            Decremented?.Invoke(GainIndex);
             CounterLabel.Text = GainEntry.Amount.ToString();
         }
 
         private void IncrementButton_Click(object sender, EventArgs e)
         {
-            IncrementGain?.Invoke(GainIndex);
+            //IncrementGain?.Invoke(GainIndex);
+            Incremented?.Invoke(GainIndex);
             CounterLabel.Text = GainEntry.Amount.ToString();
         }
 
-        private void Button_MouseEnter(object sender, EventArgs e)
+        private void EditButton_Click_1(object sender, EventArgs e)
         {
-            if (sender == CloseButton)
-            {
-                CloseButton.BackgroundImage = Properties.Resources.CrossHover;
-            }
-            else
-            {
-                EditButton.BackgroundImage = Properties.Resources.EditHover;
-            }
-        }
 
-        private void Button_MouseLeave(object sender, EventArgs e)
-        {
-            if (sender == CloseButton)
-            {
-                CloseButton.BackgroundImage = Properties.Resources.Cross;
-            }
-            else
-            {
-                EditButton.BackgroundImage = Properties.Resources.Edit;
-            }
         }
     }
 }

@@ -254,5 +254,23 @@
   <ItemGroup>
     <None Include="Images\EditT.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\AddHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Substract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\SubstractHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxCheckedHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedHover.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

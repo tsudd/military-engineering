@@ -154,12 +154,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.Controls.Add(this.CreateGainButton);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.MainPanel);
-            this.MaximumSize = new System.Drawing.Size(700, 715);
             this.MinimumSize = new System.Drawing.Size(512, 715);
             this.Name = "GainSelectorForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Выбор элемента построения";
+            this.Text = "Выбор усиления";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GainSelectorForm_FormClosed);
             this.Load += new System.EventHandler(this.GainSelectorForm_Load);
             this.MainPanel.ResumeLayout(false);

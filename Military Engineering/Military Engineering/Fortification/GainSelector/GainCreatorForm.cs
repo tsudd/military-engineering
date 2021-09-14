@@ -11,7 +11,7 @@ namespace MilitaryEngineering.Fortification
     {
         Color DefaultColor { get; set; }
         GainSelectorForm Sender { get; set; }
-        public Gain NewGain { get; private set; } = new Gain();
+        public Gain PrevGain { get; private set; }
         public GainCreatorForm(GainSelectorForm sender)
         {
             InitializeComponent();
@@ -21,7 +21,7 @@ namespace MilitaryEngineering.Fortification
 
         public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)
         {
-            NewGain = edit;
+            PrevGain = edit;
             NameTextBox.Text = edit.Name;
             DescriptionBox.Text = edit.Description;
             TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
@@ -41,9 +41,9 @@ namespace MilitaryEngineering.Fortification
                 parsed[0],
                 parsed[1],
                 NameTextBox.Text);
+            //FIX HERE PLS
             Sender.Sender.FortForm.Config.Gains.Add(gain);
-            Sender.AddEntry(gain);
-            Sender.Gains.Add(gain.Id, gain);
+            Sender.EditElement(PrevGain, gain);
             Close();
         }
 
