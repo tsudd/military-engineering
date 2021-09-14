@@ -104,28 +104,6 @@ namespace MilitaryEngineering.Fortification
             EvaluateAllTurns();
         }
 
-        private void AddGainButton_Click(object sender, EventArgs e)
-        {
-            var form = new GainCreatorForm(this);
-            Enabled = false;
-            form.FormClosed += (obj, args) =>
-            {
-                Enabled = true;
-            };
-            form.Show(this);
-        }
-
-        public void UpdateAllElementsGain()
-        {
-            foreach (object panel in MainTable.Controls)
-            {
-                if (panel is BuildingElementPanel buildingElement)
-                {
-                    buildingElement.UpdateGainBox();
-                }
-            }
-        }
-
         private void FortificationForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             var configManager = new ConfigurationManager();

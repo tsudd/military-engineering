@@ -1,13 +1,8 @@
 ﻿using CalculationsCore.FortificationBuilding.BuildingAbilities;
-using MilitaryEngineering.Fortification;
+using MilitaryEngineering.Fortification.GainSelector;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MilitaryEngineering.Fortification
@@ -15,12 +10,22 @@ namespace MilitaryEngineering.Fortification
     public partial class GainCreatorForm : Form
     {
         Color DefaultColor { get; set; }
-        FortificationForm sender { get; set; }
-        public GainCreatorForm(FortificationForm sender)
+        GainSelectorForm Sender { get; set; }
+        public Gain NewGain { get; private set; } = new Gain();
+        public GainCreatorForm(GainSelectorForm sender)
         {
             InitializeComponent();
             DefaultColor = TrenchPerfomanceBox.BackColor;
-            this.sender = sender;
+            Sender = sender;
+        }
+
+        public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)
+        {
+            NewGain = edit;
+            NameTextBox.Text = edit.Name;
+            DescriptionBox.Text = edit.Description;
+            TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
+            PitPerfomanceBox.Text = edit.PitPerformance.ToString("0.###");
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -36,9 +41,9 @@ namespace MilitaryEngineering.Fortification
                 parsed[0],
                 parsed[1],
                 NameTextBox.Text);
-
-            this.sender.Board.AddGainFacility(gain);
-            this.sender.UpdateAllElementsGain();
+            Sender.Sender.FortForm.Config.Gains.Add(gain);
+            Sender.AddEntry(gain);
+            Sender.Gains.Add(gain.Id, gain);
             Close();
         }
 

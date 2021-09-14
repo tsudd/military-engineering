@@ -31,6 +31,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             this.InfoLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.TrenchRadioButton = new System.Windows.Forms.RadioButton();
+            this.PitRadioButton = new System.Windows.Forms.RadioButton();
             this.FutureTurnsTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SecondTurnTextBox = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.NameLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.PitRadioButton = new System.Windows.Forms.RadioButton();
-            this.TrenchRadioButton = new System.Windows.Forms.RadioButton();
             this.HeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,32 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(667, 380);
             this.HeaderPanel.TabIndex = 5;
+            // 
+            // TrenchRadioButton
+            // 
+            this.TrenchRadioButton.AutoSize = true;
+            this.TrenchRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.TrenchRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.TrenchRadioButton.Location = new System.Drawing.Point(13, 331);
+            this.TrenchRadioButton.Name = "TrenchRadioButton";
+            this.TrenchRadioButton.Size = new System.Drawing.Size(131, 34);
+            this.TrenchRadioButton.TabIndex = 14;
+            this.TrenchRadioButton.Text = "Траншея";
+            this.TrenchRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // PitRadioButton
+            // 
+            this.PitRadioButton.AutoSize = true;
+            this.PitRadioButton.Checked = true;
+            this.PitRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.PitRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.PitRadioButton.Location = new System.Drawing.Point(13, 291);
+            this.PitRadioButton.Name = "PitRadioButton";
+            this.PitRadioButton.Size = new System.Drawing.Size(145, 34);
+            this.PitRadioButton.TabIndex = 13;
+            this.PitRadioButton.TabStop = true;
+            this.PitRadioButton.Text = "Котлован";
+            this.PitRadioButton.UseVisualStyleBackColor = true;
             // 
             // FutureTurnsTextBox
             // 
@@ -188,32 +214,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Сделать стандартным";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // PitRadioButton
-            // 
-            this.PitRadioButton.AutoSize = true;
-            this.PitRadioButton.Checked = true;
-            this.PitRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.PitRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.PitRadioButton.Location = new System.Drawing.Point(13, 291);
-            this.PitRadioButton.Name = "PitRadioButton";
-            this.PitRadioButton.Size = new System.Drawing.Size(91, 34);
-            this.PitRadioButton.TabIndex = 13;
-            this.PitRadioButton.TabStop = true;
-            this.PitRadioButton.Text = "Окоп";
-            this.PitRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // TrenchRadioButton
-            // 
-            this.TrenchRadioButton.AutoSize = true;
-            this.TrenchRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.TrenchRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.TrenchRadioButton.Location = new System.Drawing.Point(13, 331);
-            this.TrenchRadioButton.Name = "TrenchRadioButton";
-            this.TrenchRadioButton.Size = new System.Drawing.Size(131, 34);
-            this.TrenchRadioButton.TabIndex = 14;
-            this.TrenchRadioButton.Text = "Траншея";
-            this.TrenchRadioButton.UseVisualStyleBackColor = true;
             // 
             // BuildingElementCreatorForm
             // 

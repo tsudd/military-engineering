@@ -14,8 +14,12 @@ namespace MilitaryConfiguration
             {
                 using (var reader = new StreamReader(filename))
                 {
-
-                    return JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
+                    var config = JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
+                    if (config == null)
+                    {
+                        return GetDefaultConfiguration<T>(typeof(T).Name);
+                    }
+                    return config;
                 }
             } 
             catch
