@@ -74,6 +74,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void AddEntries()
         {
+            MainTable.Controls.Clear();
             foreach (var gain in Gains.Values)
             {
                 AddEntry(gain);
@@ -121,6 +122,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void EditElement(Gain prevElement, Gain newElement)
         {
+            if (prevElement == null)
+            {
+                prevElement = newElement;
+            }
+
             Gains[prevElement.Id] = newElement;
             foreach (GainPanel panel in MainTable.Controls)
             {

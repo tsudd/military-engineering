@@ -44,6 +44,7 @@ namespace MilitaryEngineering.Fortification
             //FIX HERE PLS
             Sender.Sender.FortForm.Config.Gains.Add(gain);
             Sender.EditElement(PrevGain, gain);
+            Sender.AddEntries();
             Close();
         }
 
