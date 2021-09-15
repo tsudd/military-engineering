@@ -35,11 +35,12 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public DecrementGainAmount DecrementGain { get; set;  }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
-
+        TextAutoAdjuster textAutoAdjuster;
         public GainPanel(Gain gain)
         {
             GainEntry = gain;
             InitializeComponent();
+            textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - SubstractButton.Location.X);
             EditButton.Click += (sender, e) => Edited?.Invoke(this, e);
             RemoveButton.Click += (sender, e) => Removed?.Invoke(this, e);
             HideAll();

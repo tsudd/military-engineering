@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextAutoAdjuster.cs" />
     <Compile Include="ToolTipAutoMapper.cs" />
     <EmbeddedResource Include="Controls\Button.resx">
       <DependentUpon>Button.cs</DependentUpon>
