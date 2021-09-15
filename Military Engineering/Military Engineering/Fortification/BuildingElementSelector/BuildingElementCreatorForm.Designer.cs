@@ -228,7 +228,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "BuildingElementCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BuildingElementCreatorForm";
+            this.Text = "Создание элемента построения";
             this.HeaderPanel.ResumeLayout(false);
             this.HeaderPanel.PerformLayout();
             this.ResumeLayout(false);
