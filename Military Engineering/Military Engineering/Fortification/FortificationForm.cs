@@ -230,5 +230,16 @@ namespace MilitaryEngineering.Fortification
             AllFutureTurnsLabel.Text = Board.EvaluateAllFutureTurns().ToString("0.##");
             AllAllTurnsLabel.Text = Board.EvaluateAllAllTurns().ToString("0.##");
         }
+
+        public void UpdateChartsInterval()
+        {
+            foreach (var control in MainTable.Controls)
+            {
+                if (control is BuildingElementPanel buildingElement)
+                {
+                    buildingElement.ChangeChartInterval(Board.GetNewChartInterval());
+                }
+            }
+        }
     }
 }
