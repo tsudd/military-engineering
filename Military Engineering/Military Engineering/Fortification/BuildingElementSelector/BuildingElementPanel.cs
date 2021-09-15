@@ -11,6 +11,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         public event EventHandler Clicked;
         public event EventHandler Edited;
         public event EventHandler Removed;
+        TextAutoAdjuster textAutoAdjuster;
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
 
@@ -18,6 +19,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             BuildingElement = buildingElement;
             InitializeComponent();
+            textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - EditButton.Location.X);
             defaultColor = panel1.BackColor;
             InfoLabel.Text = buildingElement.Name;
             RemoveButton.Visible = false;
