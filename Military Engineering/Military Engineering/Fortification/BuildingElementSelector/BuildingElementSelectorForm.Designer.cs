@@ -101,6 +101,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.Controls.Add(this.CreateElementButton);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.MainPanel);
+            this.MinimumSize = new System.Drawing.Size(512, 715);
             this.Name = "BuildingElementSelectorForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

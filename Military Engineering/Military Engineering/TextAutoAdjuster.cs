@@ -14,10 +14,8 @@ namespace MilitaryEngineering
         public Label Label;
         string text;
         string adjustedText = "";
-        bool isAdjusted;
         public TextAutoAdjuster(Label label, int blindZoneLength)
         {
-            isAdjusted = false;
             BlindZoneLength = blindZoneLength;
             Label = label;
             label.SizeChanged += (sender, e) =>
@@ -40,20 +38,28 @@ namespace MilitaryEngineering
         {
             if(sender is Label label)
             {
-                if(adjustedText == label.Text)
-                {
-                    return;
-                }
                 Size size = TextRenderer.MeasureText(text, label.Font);
                 int maxSize = label.Width - BlindZoneLength;
                 if(size.Width > maxSize)
                 {
-                    //int extraSize = size.Width - (maxSize);
                     double proportion = (double)(maxSize) / size.Width;
                     int stringSize = (int)Math.Floor(text.Length * proportion) - 3;
-                    string newText = text.Substring(0, stringSize) + "...";
+                    string newText;
+                    if(stringSize <= 0)
+                    {
+                        newText = "...";
+                    }
+                    else
+                    {
+                        newText = text.Substring(0, stringSize) + "...";
+                    }
                     adjustedText = newText;
                     label.Text = newText;
+                }
+                else
+                {
+                    adjustedText = text;
+                    label.Text = text;
                 }
             }
             else
