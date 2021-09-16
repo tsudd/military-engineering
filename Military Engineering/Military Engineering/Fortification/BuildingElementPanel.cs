@@ -22,6 +22,7 @@ namespace MilitaryEngineering.Fortification
         };
         public event EventHandler ElementChanged; 
         public bool Checked { get; set; } = false;
+        public int GainsAmount { get; private set; } = 0;
         public FortificationForm FortForm {  get; private set; }
         public int ElementIndex { get; private set; }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
@@ -83,10 +84,6 @@ namespace MilitaryEngineering.Fortification
                 e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
             };
         }
-        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void DayTimeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -126,11 +123,12 @@ namespace MilitaryEngineering.Fortification
             ElementChanged?.Invoke(sender, e);
         }
 
-        private void Evaluate(object sender, EventArgs e)
+        public void Evaluate(object sender, EventArgs e)
         {
             try
             {
                 var calc = FortForm.Board.GetElement(ElementIndex);
+                AddGainButton.Text = $"Всего {GainsAmount}";
                 FirstTurnEvaluationLabel.Text = calc.EvaluateFirstTurn().ToString();
                 SecondTurnEvaluationLabel.Text = calc.EvaluateSecondTurn().ToString();
                 FutureTurnEvaluationLabel.Text = calc.EvaluateFutureTurn().ToString();
@@ -231,13 +229,26 @@ namespace MilitaryEngineering.Fortification
             ElementChanged?.Invoke(sender, e);
         }
 
-        public void UpdateGains(List<Gain> newGains)
+        public void UpdateGainsAmountsList(Dictionary<int, int> gainsAmounts)
         {
-            if (newGains is null)
-            {
+            if (gainsAmounts == null)
                 return;
+            GainsAmount = 0;
+            var ans = new List<KeyValuePair<Gain, int>>();
+            foreach (var gainAmount in gainsAmounts)
+            {
+                if (gainAmount.Value > 0)
+                {
+                    GainsAmount += gainAmount.Value;
+                    ans.Add(new KeyValuePair<Gain, int>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
+                }
             }
-            FortForm.Board.UpdateElementAbility(ElementIndex, newGains, AbilityType.BuildingGain);
+            FortForm.Board.UpdateElementAbility(ElementIndex, ans, AbilityType.BuildingGain);
+        }
+
+        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainToRemove)
+        {
+            FortForm.UpdateAndRemoveGains(gainsToUpdate, gainToRemove);
         }
 
         private void AddGainButton_Click(object sender, System.EventArgs e)
@@ -246,7 +257,6 @@ namespace MilitaryEngineering.Fortification
             form.FormClosed += (obj, args) =>
             {
                 FortForm.Enabled = true;
-                AddGainButton.Text = $"Всего {form.GainsAmount}";
             };
             form.Show(this);
             FortForm.Enabled = false; 

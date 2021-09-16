@@ -83,6 +83,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             // 
             this.CreateGainButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CreateGainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CreateGainButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CreateGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.CreateGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
@@ -92,7 +93,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.CreateGainButton.Size = new System.Drawing.Size(75, 67);
             this.CreateGainButton.TabIndex = 4;
             this.CreateGainButton.TabStop = false;
-            this.CreateGainButton.Text = "+";
             this.CreateGainButton.UseVisualStyleBackColor = false;
             this.CreateGainButton.Click += new System.EventHandler(this.CreateGainButton_Click);
             // 

@@ -10,7 +10,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
     public partial class GainSelectorForm : Form
     {
         public BuildingElementPanel Sender {  get; private set; }
-        public Dictionary<int, Gain> Gains { get; private set; } = new Dictionary<int, Gain>();
+        public List<Gain> Gains { get; private set; } = new List<Gain>();
+        public Dictionary<int, int> Amounts { get; private set; } = new Dictionary<int, int>();
+        public List<int> GainsToRemove { get; private set; } = new List<int>();
+        public Dictionary<int, Gain> GainsToUpdate { get; private set; } = new Dictionary<int, Gain>();
         public int GainsAmount { get; private set; } = 0;
         public GainSelectorForm(BuildingElementPanel sender)
         {
@@ -18,7 +21,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             Sender = sender;
             foreach(var gain in Sender.FortForm.Config.Gains)
             {
-                Gains.Add(gain.Id, gain);
+                var g = new Gain(gain);
+                Gains.Add(g);
+                Amounts.Add(g.Id, 0);
             }
             foreach(var gain in Sender.FortForm
                 .Board
@@ -26,10 +31,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 .Ability
                 .BuildingGains) // really hate this code
             {
-                Gains[gain.Id].Amount = gain.Amount;
-                GainsAmount += gain.Amount;
+                Amounts[gain.Key.Id] = gain.Value;
+                GainsAmount += gain.Value;
             }
             AddEntries();
+            UpdateAmountLabel();
         }
 
         private void GainSelectorForm_Load(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             var panel = sender as GainPanel;
             var gain = panel.GainEntry;
-            Gains.Remove(gain.Id);
+            RemoveGain(gain);
             MainTable.Controls.Remove(panel);
         }
 
@@ -75,7 +81,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public void AddEntries()
         {
             MainTable.Controls.Clear();
-            foreach (var gain in Gains.Values)
+            foreach (var gain in Gains)
             {
                 AddEntry(gain);
             }
@@ -83,7 +89,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void AddEntry(Gain gain)
         {
-            var panel = new GainPanel(gain);
+            var panel = new GainPanel(gain, Amounts[gain.Id]);
             panel.Incremented += IncrementGainAmount;
             panel.Decremented += DecrementGainAmount;
             MainTable.RowCount++;
@@ -95,45 +101,53 @@ namespace MilitaryEngineering.Fortification.GainSelector
             panel.Edited += Edit;
         }
 
-        private void IncrementGainAmount(int gainId)
+        private void IncrementGainAmount(int gainId, out int amount)
         {
             try
             {
-                Gains[gainId].Amount++;
+                Amounts[gainId]++;
+                amount = Amounts[gainId];
                 GainsAmount++;
                 UpdateAmountLabel();
             }
             catch
             {
+                amount = 0;
                 //damn son...
             }            
         }
 
-        private void DecrementGainAmount(int gainId)
+        private void DecrementGainAmount(int gainId, out int amount)
         {
-            if (Gains[gainId].Amount == 0)
+            if (Amounts[gainId] == 0)
             {
+                amount = 0;
                 return;
             }
-            Gains[gainId].Amount--;
+            Amounts[gainId]--;
+            amount = Amounts[gainId];
             GainsAmount--;
             UpdateAmountLabel();  
         }
 
-        public void EditElement(Gain prevElement, Gain newElement)
+        public void EditElement(Gain prevGain, Gain newGain)
         {
-            if (prevElement == null)
+            if (prevGain == null)
             {
-                prevElement = newElement;
+                prevGain = newGain;
             }
 
-            Gains[prevElement.Id] = newElement;
+            Gains[prevGain.Id] = newGain;
             foreach (GainPanel panel in MainTable.Controls)
             {
-                if (panel.GainEntry == prevElement)
+                if (panel.GainEntry == prevGain)
                 {
-                    panel.GainEntry = newElement;
-                    panel.InfoLabel.Text = newElement.Name;
+                    var index = Gains.IndexOf(prevGain);
+                    Gains[index] = newGain;
+                    AddGainToUpdateList(newGain);
+                    panel.GainEntry = newGain;
+                    panel.ConfigureToolTip();
+                    panel.InfoLabel.Text = newGain.Name;
                     panel.Unfocus();
                     break;
                 }
@@ -142,7 +156,8 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            Sender.UpdateGains(Gains.Values.ToList());
+            Sender.UpdateAndRemoveGains(GainsToUpdate.Values.ToList(), GainsToRemove);
+            Sender.UpdateGainsAmountsList(Amounts);
             Close();
         }
 
@@ -158,10 +173,44 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void GainSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            foreach(var gain in Gains.Values)
+            MainTable.Controls.Clear();
+            Gains.Clear();
+            Amounts.Clear();
+            GainsToRemove.Clear();
+            GainsToUpdate.Clear();
+        }
+
+        public void AddGainToUpdateList(Gain gain)
+        {
+            if (GainsToUpdate.ContainsKey(gain.Id))
             {
-                gain.Amount = 0;
+                GainsToUpdate[gain.Id] = gain;
             }
+            else
+            {
+                GainsToUpdate.Add(gain.Id, gain);
+            }
+        }
+
+        public void CreateEntry(Gain gain)
+        {
+            Gains.Add(gain);
+            GainsToUpdate.Add(gain.Id, gain);
+            Amounts.Add(gain.Id, 0);
+            AddEntry(gain);
+        }
+
+        private void RemoveGain(Gain gain)
+        {
+            if (GainsToUpdate.ContainsKey(gain.Id))
+            {
+                GainsToUpdate.Remove(gain.Id);
+            }
+            GainsToRemove.Add(gain.Id);
+            GainsAmount -= Amounts[gain.Id];
+            Amounts.Remove(gain.Id);
+            Gains.Remove(gain);
+            UpdateAmountLabel();
         }
     }
 }

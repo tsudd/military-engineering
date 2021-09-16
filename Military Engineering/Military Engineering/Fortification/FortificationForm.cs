@@ -230,5 +230,83 @@ namespace MilitaryEngineering.Fortification
             AllFutureTurnsLabel.Text = Board.EvaluateAllFutureTurns().ToString("0.##");
             AllAllTurnsLabel.Text = Board.EvaluateAllAllTurns().ToString("0.##");
         }
+
+        public void RemoveGains(List<int> gainsToRemove)
+        {
+            if (gainsToRemove is null)
+            {
+                return;
+            }
+            foreach(var gainId in gainsToRemove)
+            {
+                Board.RemoveGainFromElements(gainId);
+                foreach (var gain in Config.Gains)
+                {
+                    if (gain.Id == gainId)
+                    {
+                        Config.Gains.Remove(gain);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void UpdateGains(List<Gain> gainsToUpdate)
+        {
+            if (gainsToUpdate is null)
+                return;
+            foreach (var ga in gainsToUpdate)
+            {
+                foreach (var gain in Config.Gains)
+                {
+                    if (gain.Id == ga.Id)
+                    {
+                        Config.Gains.Remove(gain);
+                        Config.Gains.Add(ga);
+                        break;
+                    }
+                }
+                if (Config.Gains[Config.Gains.Count - 1].Id != ga.Id)
+                {
+                    Config.Gains.Add(ga);
+                    break;
+                }
+                Board.UpdateGainInElements(ga);
+            }
+        }
+
+        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainsToRemove)
+        {
+            if (gainsToUpdate is null || gainsToRemove is null)
+            {
+                return;
+            }
+            UpdateGains(gainsToUpdate);
+            RemoveGains(gainsToRemove);
+            EvaluateElements();
+        }
+
+        public void EvaluateElements()
+        {
+            foreach(var panel in MainTable.Controls)
+            {
+                if (panel is BuildingElementPanel panel1)
+                {
+                    panel1.Evaluate(this, EventArgs.Empty);
+                }
+            }
+        }
+
+        public Gain GetGainById(int gainId)
+        {
+            foreach (var ga in Config.Gains)
+            {
+                if (ga.Id == gainId)
+                {
+                    return ga;
+                }
+            }
+            return null;
+        }
     }
 }

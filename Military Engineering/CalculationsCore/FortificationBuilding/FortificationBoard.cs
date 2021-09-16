@@ -112,7 +112,7 @@ namespace CalculationsCore.FortificationBuilding
                         ability.Organization = (double)value;
                         break;
                     case AbilityType.BuildingGain:
-                        ability.BuildingGains = ((List<Gain>)value).Select(gain => new Gain(gain)).ToList();
+                        ability.BuildingGains = (List<KeyValuePair<Gain, int>>)value;
                         break;
                     case AbilityType.WorkTime:
                         ability.WorkTime = (double)value;
@@ -184,6 +184,38 @@ namespace CalculationsCore.FortificationBuilding
                 ans += element.Element.AllTurns;
             }
             return Math.Round(ans, 2);
+        }
+
+        public void RemoveGainFromElements(int gainId)
+        {
+            foreach(var element in elements.Values)
+            {
+                foreach(var gain in element.Ability.BuildingGains)
+                {
+                    if (gain.Key.Id == gainId)
+                    {
+                        element.Ability.BuildingGains.Remove(gain);
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void UpdateGainInElements(Gain gain)
+        {
+            foreach (var element in elements.Values)
+            {
+                foreach (var g in element.Ability.BuildingGains)
+                {
+                    if (g.Key.Id == gain.Id)
+                    {
+                        var newGain = new KeyValuePair<Gain, int>(gain, g.Value);
+                        element.Ability.BuildingGains.Remove(g);
+                        element.Ability.BuildingGains.Add(newGain);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
     public partial class GainPanel : UserControl
     {
         Gain gainEntry;
-        public readonly Dictionary<string, string> GainInfo = new Dictionary<string, string>();
+        public Dictionary<string, string> GainInfo = new Dictionary<string, string>();
         public Gain GainEntry
         {
             get
@@ -23,12 +23,13 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 GainIndex = value.Id;
             }
         }
+        public int GainAmount { get; private set; } = 0;
         public int GainIndex {  get; private set; }
         public event EventHandler Clicked;
         public event EventHandler Edited;
         public event EventHandler Removed;
-        public delegate void IncrementGainAmount(int gainId);
-        public delegate void DecrementGainAmount(int gainId);
+        public delegate void IncrementGainAmount(int gainId, out int amount);
+        public delegate void DecrementGainAmount(int gainId, out int amount);
         public event IncrementGainAmount Incremented;
         public event DecrementGainAmount Decremented;
         public IncrementGainAmount IncrementGain { get; set; }
@@ -36,7 +37,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
         TextAutoAdjuster textAutoAdjuster;
-        public GainPanel(Gain gain)
+        public GainPanel(Gain gain, int amount = 0)
         {
             GainEntry = gain;
             InitializeComponent();
@@ -46,9 +47,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             HideAll();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = gain.Name;
-            CounterLabel.Text = gain.Amount.ToString();
-            GainInfo.Add(InfoLabel.Name,
-                $"{gain.Description} Производительность: для траншей - {gain.TrenchPerformance}, для котлованов - {gain.PitPerformance}.");
+            CounterLabel.Text = amount.ToString();
             ConfigureToolTip();
         }
 
@@ -71,8 +70,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             }
         }
 
-        void ConfigureToolTip()
+        public void ConfigureToolTip()
         {
+            GainInfo.Clear();
+            GainInfo.Add(InfoLabel.Name, FormDescribtion());
             ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, GainInfo);
             autoMapper.Map();
             CoeffInfoToolTip.OwnerDraw = true;
@@ -90,7 +91,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             InfoLabel.BackColor = hoverColor;
             CounterLabel.BackColor = hoverColor;
             panel1.BackColor = hoverColor;
-
             ShowAll();
         }
 
@@ -119,32 +119,35 @@ namespace MilitaryEngineering.Fortification.GainSelector
             Clicked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void EditButton_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void CloseButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DecrementButton_Click(object sender, EventArgs e)
         {
             //DecrementGain?.Invoke(GainIndex);
-            Decremented?.Invoke(GainIndex);
-            CounterLabel.Text = GainEntry.Amount.ToString();
+            int amount = 0;
+            Decremented?.Invoke(GainIndex, out amount);
+            CounterLabel.Text = amount.ToString();
         }
 
         private void IncrementButton_Click(object sender, EventArgs e)
         {
             //IncrementGain?.Invoke(GainIndex);
-            Incremented?.Invoke(GainIndex);
-            CounterLabel.Text = GainEntry.Amount.ToString();
+            int amount = 0;
+            Incremented?.Invoke(GainIndex, out amount);
+            CounterLabel.Text = amount.ToString();
         }
 
-        private void EditButton_Click_1(object sender, EventArgs e)
+        private void RemoveButton_Click(object sender, EventArgs e)
         {
+        }
 
+        private string FormDescribtion()
+        {
+            return $"{GainEntry.Description} Производительность: " +
+                $"для траншей - {GainEntry.TrenchPerformance}, " +
+                $"для котлованов - {GainEntry.PitPerformance}.";
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -41,10 +41,15 @@ namespace MilitaryEngineering.Fortification
                 parsed[0],
                 parsed[1],
                 NameTextBox.Text);
-            //FIX HERE PLS
-            Sender.Sender.FortForm.Config.Gains.Add(gain);
-            Sender.EditElement(PrevGain, gain);
-            Sender.AddEntries();
+            if (PrevGain is null)
+            {
+                Sender.CreateEntry(gain);
+            }
+            else
+            {
+                gain.Id = PrevGain.Id;
+                Sender.EditElement(PrevGain, gain);
+            }
             Close();
         }
 
