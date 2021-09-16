@@ -50,12 +50,7 @@ namespace CalculationsCore.FortificationBuilding
             List<Evaluations> buildingTerms = new List<Evaluations>();
             foreach (var el in elements)
             {
-                buildingTerms.Add(new Evaluations(
-                    el.Value.EvaluateFirstTurn(), 
-                    el.Value.EvaluateSecondTurn(),
-                    el.Value.EvaluateFutureTurn(),
-                    el.Value.Element.Name, 
-                    el.Value.DaysToSettle));
+                buildingTerms.Add(el.Value.GetBuildingTerms());
             }
             return buildingTerms;
         }
@@ -216,6 +211,17 @@ namespace CalculationsCore.FortificationBuilding
                     }
                 }
             }
+        }
+
+        public double GetNewChartInterval()
+        {
+            double interval = 0;
+            foreach(var element in elements.Values)
+            {
+                if (interval < element.EvaluateAllTurns())
+                    interval = element.EvaluateAllTurns();
+            }
+            return interval / 2;
         }
     }
 }

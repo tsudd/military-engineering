@@ -61,5 +61,14 @@ namespace CalculationsCore.FortificationBuilding
                 * Soil.Value
                 * Ability.Evaluate(Element);
         }
+
+        public Evaluations GetBuildingTerms()
+        {
+            return new Evaluations(EvaluateFirstTurn(),
+                EvaluateSecondTurn(),
+                EvaluateFutureTurn(),
+                Element.Name,
+                DaysToSettle);
+        }
     }
 }
