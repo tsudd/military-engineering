@@ -39,6 +39,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,7 +54,6 @@
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -76,6 +81,8 @@
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -84,6 +91,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -102,7 +110,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 173);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(641, 173);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -118,7 +126,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(637, 112);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(635, 112);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -142,7 +150,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(240, 106);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(239, 106);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // SoilTypeBox
@@ -153,7 +161,7 @@
             this.SoilTypeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SoilTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.SoilTypeBox.FormattingEnabled = true;
-            this.SoilTypeBox.Location = new System.Drawing.Point(137, 73);
+            this.SoilTypeBox.Location = new System.Drawing.Point(136, 73);
             this.SoilTypeBox.Name = "SoilTypeBox";
             this.SoilTypeBox.Size = new System.Drawing.Size(100, 29);
             this.SoilTypeBox.TabIndex = 13;
@@ -166,7 +174,7 @@
             this.SoilTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.SoilTypeLabel.Location = new System.Drawing.Point(43, 70);
             this.SoilTypeLabel.Name = "SoilTypeLabel";
-            this.SoilTypeLabel.Size = new System.Drawing.Size(88, 36);
+            this.SoilTypeLabel.Size = new System.Drawing.Size(87, 36);
             this.SoilTypeLabel.TabIndex = 12;
             this.SoilTypeLabel.Text = "Тип грунта";
             this.SoilTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,7 +187,7 @@
             this.PollutionsBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PollutionsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.PollutionsBox.FormattingEnabled = true;
-            this.PollutionsBox.Location = new System.Drawing.Point(137, 38);
+            this.PollutionsBox.Location = new System.Drawing.Point(136, 38);
             this.PollutionsBox.Name = "PollutionsBox";
             this.PollutionsBox.Size = new System.Drawing.Size(100, 29);
             this.PollutionsBox.TabIndex = 10;
@@ -192,7 +200,7 @@
             this.PollutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.PollutionLabel.Location = new System.Drawing.Point(43, 35);
             this.PollutionLabel.Name = "PollutionLabel";
-            this.PollutionLabel.Size = new System.Drawing.Size(88, 35);
+            this.PollutionLabel.Size = new System.Drawing.Size(87, 35);
             this.PollutionLabel.TabIndex = 9;
             this.PollutionLabel.Text = "Заражение";
             this.PollutionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,7 +212,7 @@
             this.DayTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.DayTimeLabel.Location = new System.Drawing.Point(43, 0);
             this.DayTimeLabel.Name = "DayTimeLabel";
-            this.DayTimeLabel.Size = new System.Drawing.Size(88, 35);
+            this.DayTimeLabel.Size = new System.Drawing.Size(87, 35);
             this.DayTimeLabel.TabIndex = 6;
             this.DayTimeLabel.Text = "Время суток";
             this.DayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -217,20 +225,11 @@
             this.DayTimeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DayTimeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.DayTimeBox.FormattingEnabled = true;
-            this.DayTimeBox.Location = new System.Drawing.Point(137, 3);
+            this.DayTimeBox.Location = new System.Drawing.Point(136, 3);
             this.DayTimeBox.Name = "DayTimeBox";
             this.DayTimeBox.Size = new System.Drawing.Size(100, 29);
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 38);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 29);
-            this.CheckBox.TabIndex = 14;
             // 
             // tableLayoutPanel5
             // 
@@ -238,12 +237,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(249, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(248, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(385, 106);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(384, 106);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -273,7 +272,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(379, 100);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(378, 100);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label7
@@ -296,7 +295,7 @@
             this.WorkTimeInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.WorkTimeInput.Location = new System.Drawing.Point(285, 36);
             this.WorkTimeInput.Name = "WorkTimeInput";
-            this.WorkTimeInput.Size = new System.Drawing.Size(91, 28);
+            this.WorkTimeInput.Size = new System.Drawing.Size(90, 28);
             this.WorkTimeInput.TabIndex = 24;
             this.WorkTimeInput.TextChanged += new System.EventHandler(this.WorkTimeInput_TextChanged);
             // 
@@ -320,7 +319,7 @@
             this.AttritionRateInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.AttritionRateInput.Location = new System.Drawing.Point(285, 3);
             this.AttritionRateInput.Name = "AttritionRateInput";
-            this.AttritionRateInput.Size = new System.Drawing.Size(91, 28);
+            this.AttritionRateInput.Size = new System.Drawing.Size(90, 28);
             this.AttritionRateInput.TabIndex = 22;
             this.AttritionRateInput.TextChanged += new System.EventHandler(this.AttritionRateInput_TextChanged);
             // 
@@ -418,7 +417,7 @@
             this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.AddGainButton.Location = new System.Drawing.Point(285, 69);
             this.AddGainButton.Name = "AddGainButton";
-            this.AddGainButton.Size = new System.Drawing.Size(91, 28);
+            this.AddGainButton.Size = new System.Drawing.Size(90, 28);
             this.AddGainButton.TabIndex = 26;
             this.AddGainButton.TabStop = false;
             this.AddGainButton.Text = "Добавить\r\nэлемент";
@@ -445,7 +444,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(637, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(635, 49);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // SecondTurnLabel
@@ -503,7 +502,7 @@
             this.AllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.AllTurnsLabel.Location = new System.Drawing.Point(542, 0);
             this.AllTurnsLabel.Name = "AllTurnsLabel";
-            this.AllTurnsLabel.Size = new System.Drawing.Size(92, 49);
+            this.AllTurnsLabel.Size = new System.Drawing.Size(90, 49);
             this.AllTurnsLabel.TabIndex = 8;
             this.AllTurnsLabel.Text = "AllTurnsLabel";
             this.AllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -513,17 +512,18 @@
             this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.44886F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.55114F));
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.chart1, 2, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(15, 10);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 179F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1007, 179);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1422, 179);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
             // tableLayoutPanel8
@@ -538,12 +538,12 @@
             this.tableLayoutPanel8.Controls.Add(this.SecondTurnEvaluationLabel, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.FirstTurnEvaluationLabel, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(652, 3);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(650, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(352, 173);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(342, 173);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // AllTurnEvaluationLabel
@@ -599,6 +599,51 @@
             this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(52)))), ((int)(((byte)(81)))));
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Location = new System.Drawing.Point(998, 3);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Name = "Сроки занятия";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series2.Name = "Первая Очередь";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series3.Name = "Вторая очередь";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series4.Name = "В будущем";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(421, 173);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
+            title1.Font = new System.Drawing.Font("Bahnschrift", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
+            title1.Name = "Title1";
+            title1.Text = "Сроки фортоборудования";
+            this.chart1.Titles.Add(title1);
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 38);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 29);
+            this.CheckBox.TabIndex = 14;
+            // 
             // BuildingElementPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -606,7 +651,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.Controls.Add(this.tableLayoutPanel7);
             this.Name = "BuildingElementPanel";
-            this.Size = new System.Drawing.Size(1032, 206);
+            this.Size = new System.Drawing.Size(1447, 206);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -618,6 +663,7 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,5 +698,6 @@
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
         private System.Windows.Forms.Button AddGainButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

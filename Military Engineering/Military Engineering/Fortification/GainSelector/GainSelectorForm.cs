@@ -136,19 +136,29 @@ namespace MilitaryEngineering.Fortification.GainSelector
             {
                 prevGain = newGain;
             }
-
-            Gains[prevGain.Id] = newGain;
             foreach (GainPanel panel in MainTable.Controls)
             {
                 if (panel.GainEntry == prevGain)
                 {
                     var index = Gains.IndexOf(prevGain);
-                    Gains[index] = newGain;
+
                     AddGainToUpdateList(newGain);
                     panel.GainEntry = newGain;
                     panel.ConfigureToolTip();
                     panel.InfoLabel.Text = newGain.Name;
                     panel.Unfocus();
+                    break;
+                }
+            }
+        }
+
+        private void UpdateGain(Gain gain)
+        {
+            foreach(var ga in Gains)
+            {
+                if (ga.Id == gain.Id)
+                {
+                    Gains[Gains.IndexOf(ga)] = gain;
                     break;
                 }
             }

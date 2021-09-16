@@ -308,5 +308,16 @@ namespace MilitaryEngineering.Fortification
             }
             return null;
         }
+
+        public void UpdateChartsInterval()
+        {
+            foreach (var control in MainTable.Controls)
+            {
+                if (control is BuildingElementPanel buildingElement)
+                {
+                    buildingElement.ChangeChartInterval(Board.GetNewChartInterval());
+                }
+            }
+        }
     }
 }
