@@ -39,6 +39,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
@@ -80,7 +81,7 @@ namespace MilitaryEngineering.Fortification
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.HeaderPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -242,6 +243,16 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.Size = new System.Drawing.Size(139, 29);
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 40);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 31);
+            this.CheckBox.TabIndex = 14;
+            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // tableLayoutPanel12
             // 
@@ -582,6 +593,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label12, 2, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
@@ -602,6 +614,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 479);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
@@ -807,15 +820,18 @@ namespace MilitaryEngineering.Fortification
             this.ElementNameLabel.Text = "ЭОП";
             this.ElementNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CheckBox
+            // label12
             // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 40);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 31);
-            this.CheckBox.TabIndex = 14;
-            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.label12.Location = new System.Drawing.Point(787, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(332, 485);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "График сроков фортоборудования";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FortificationForm
             // 
@@ -847,6 +863,7 @@ namespace MilitaryEngineering.Fortification
             this.MainPanel.ResumeLayout(false);
             this.MainTable.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
@@ -910,5 +927,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label CoeffKstaffingLabel;
         public System.Windows.Forms.Label CoeffNpersonnelLabel;
         public System.Windows.Forms.TableLayoutPanel ComboBoxLayoutPanel;
+        private System.Windows.Forms.Label label12;
     }
 }

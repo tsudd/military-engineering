@@ -44,7 +44,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,6 +53,7 @@
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -80,9 +80,8 @@
             this.FutureTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
-            this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
+            this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -230,6 +229,15 @@
             this.DayTimeBox.Size = new System.Drawing.Size(100, 29);
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 38);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 29);
+            this.CheckBox.TabIndex = 14;
             // 
             // tableLayoutPanel5
             // 
@@ -551,9 +559,9 @@
             this.AllTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AllTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(267, 0);
+            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(258, 0);
             this.AllTurnEvaluationLabel.Name = "AllTurnEvaluationLabel";
-            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(81, 173);
             this.AllTurnEvaluationLabel.TabIndex = 9;
             this.AllTurnEvaluationLabel.Text = "Ошибка";
             this.AllTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -563,9 +571,9 @@
             this.FutureTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FutureTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FutureTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(179, 0);
+            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(173, 0);
             this.FutureTurnEvaluationLabel.Name = "FutureTurnEvaluationLabel";
-            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.FutureTurnEvaluationLabel.TabIndex = 8;
             this.FutureTurnEvaluationLabel.Text = "Ошибка";
             this.FutureTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -575,9 +583,9 @@
             this.SecondTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.SecondTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(91, 0);
+            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(88, 0);
             this.SecondTurnEvaluationLabel.Name = "SecondTurnEvaluationLabel";
-            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.SecondTurnEvaluationLabel.TabIndex = 7;
             this.SecondTurnEvaluationLabel.Text = "Ошибка";
             this.SecondTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -589,15 +597,10 @@
             this.FirstTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.FirstTurnEvaluationLabel.Location = new System.Drawing.Point(3, 0);
             this.FirstTurnEvaluationLabel.Name = "FirstTurnEvaluationLabel";
-            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.FirstTurnEvaluationLabel.TabIndex = 6;
             this.FirstTurnEvaluationLabel.Text = "Ошибка";
             this.FirstTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // CoeffInfoToolTip
-            // 
-            this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
             // chart1
             // 
@@ -607,6 +610,7 @@
             chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(998, 3);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
@@ -629,20 +633,11 @@
             this.chart1.Size = new System.Drawing.Size(421, 173);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Bahnschrift", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
-            title1.Name = "Title1";
-            title1.Text = "Сроки фортоборудования";
-            this.chart1.Titles.Add(title1);
             // 
-            // CheckBox
+            // CoeffInfoToolTip
             // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 38);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 29);
-            this.CheckBox.TabIndex = 14;
+            this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
             // BuildingElementPanel
             // 

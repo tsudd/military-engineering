@@ -221,7 +221,7 @@ namespace CalculationsCore.FortificationBuilding
                 if (interval < element.EvaluateAllTurns())
                     interval = element.EvaluateAllTurns();
             }
-            return interval / 2;
+            return interval;
         }
     }
 }

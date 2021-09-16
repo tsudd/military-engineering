@@ -311,11 +311,12 @@ namespace MilitaryEngineering.Fortification
 
         public void UpdateChartsInterval()
         {
+            double interval = Board.GetNewChartInterval();
             foreach (var control in MainTable.Controls)
             {
                 if (control is BuildingElementPanel buildingElement)
                 {
-                    buildingElement.ChangeChartInterval(Board.GetNewChartInterval());
+                    buildingElement.ChangeChartInterval(interval);
                 }
             }
         }

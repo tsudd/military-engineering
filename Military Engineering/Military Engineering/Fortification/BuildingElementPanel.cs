@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using MilitaryEngineering.Fortification.GainSelector;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -142,7 +143,7 @@ namespace MilitaryEngineering.Fortification
             }
             ElementChanged?.Invoke(sender, e);
         }
-        public void ChangeChartInterval(double interval) => chart1.ChartAreas[0].AxisY.Interval = interval;
+        public void ChangeChartInterval(double interval) => chart1.ChartAreas[0].AxisY.Maximum = interval;
         private void DrawTurnsChart()
         {
             Evaluations buildingTerms = FortForm.Board.GetElement(ElementIndex).GetBuildingTerms();
