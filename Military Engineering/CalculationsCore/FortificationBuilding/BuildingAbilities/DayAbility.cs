@@ -19,7 +19,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public double ManPower { get; set; } = 0;
         public double AttritionRate { get; set; } = 0;
         public double Organization { get; set; } = 0;
-        public List<Gain> BuildingGains { get; set; } = new List<Gain>();
+        public List<KeyValuePair<Gain, int>> BuildingGains { get; set; } = new List<KeyValuePair<Gain, int>>();
         public double WorkTime { get; set; } = 0;
         public double Evaluate(BuildingElement element)
         {
@@ -44,7 +44,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             double ans = 0;
             foreach( var ga in BuildingGains)
             {
-                ans += ga.Evaluate(element, this);
+                ans += ga.Key.Evaluate(element, this, ga.Value);
             }
             return ans;
         }

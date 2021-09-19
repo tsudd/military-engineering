@@ -19,7 +19,7 @@ namespace MilitaryEngineering.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,7 +39,7 @@ namespace MilitaryEngineering.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Military_Engineering.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MilitaryEngineering.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -63,6 +63,26 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add {
+            get {
+                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddHover {
+            get {
+                object obj = ResourceManager.GetObject("AddHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckBoxChecked {
             get {
                 object obj = ResourceManager.GetObject("CheckBoxChecked", resourceCulture);
@@ -73,9 +93,9 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CheckBoxCheckedHower {
+        internal static System.Drawing.Bitmap CheckBoxCheckedHover {
             get {
-                object obj = ResourceManager.GetObject("CheckBoxCheckedHower", resourceCulture);
+                object obj = ResourceManager.GetObject("CheckBoxCheckedHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,9 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap CheckBoxUncheckedHower {
+        internal static System.Drawing.Bitmap CheckBoxUncheckedHover {
             get {
-                object obj = ResourceManager.GetObject("CheckBoxUncheckedHower", resourceCulture);
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -231,6 +251,26 @@ namespace MilitaryEngineering.Properties {
         internal static string salt {
             get {
                 return ResourceManager.GetString("salt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Substract {
+            get {
+                object obj = ResourceManager.GetObject("Substract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubstractHover {
+            get {
+                object obj = ResourceManager.GetObject("SubstractHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

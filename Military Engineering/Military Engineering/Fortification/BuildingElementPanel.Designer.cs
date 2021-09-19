@@ -1,5 +1,4 @@
-﻿
-namespace MilitaryEngineering.Fortification
+﻿namespace MilitaryEngineering.Fortification
 {
     partial class BuildingElementPanel
     {
@@ -40,6 +39,11 @@ namespace MilitaryEngineering.Fortification
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -49,9 +53,9 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.GainBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
             this.ManPowerInput = new System.Windows.Forms.TextBox();
@@ -63,6 +67,7 @@ namespace MilitaryEngineering.Fortification
             this.CoeffKcallingLabel = new System.Windows.Forms.Label();
             this.CoeffKstaffingLabel = new System.Windows.Forms.Label();
             this.CoeffNpersonnelLabel = new System.Windows.Forms.Label();
+            this.AddGainButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.SecondTurnLabel = new System.Windows.Forms.Label();
             this.FutureTurnLabel = new System.Windows.Forms.Label();
@@ -75,8 +80,8 @@ namespace MilitaryEngineering.Fortification
             this.FutureTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.SecondTurnEvaluationLabel = new System.Windows.Forms.Label();
             this.FirstTurnEvaluationLabel = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox1 = new MilitaryEngineering.Fortification.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -85,6 +90,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,7 +109,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(643, 173);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(641, 173);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -119,7 +125,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(637, 112);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(635, 112);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -135,7 +141,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel4.Controls.Add(this.PollutionLabel, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.DayTimeLabel, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.DayTimeBox, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.checkBox1, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.CheckBox, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -143,9 +149,8 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(240, 106);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(239, 106);
             this.tableLayoutPanel4.TabIndex = 0;
-            this.tableLayoutPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel4_Paint);
             // 
             // SoilTypeBox
             // 
@@ -155,7 +160,7 @@ namespace MilitaryEngineering.Fortification
             this.SoilTypeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SoilTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.SoilTypeBox.FormattingEnabled = true;
-            this.SoilTypeBox.Location = new System.Drawing.Point(137, 73);
+            this.SoilTypeBox.Location = new System.Drawing.Point(136, 73);
             this.SoilTypeBox.Name = "SoilTypeBox";
             this.SoilTypeBox.Size = new System.Drawing.Size(100, 29);
             this.SoilTypeBox.TabIndex = 13;
@@ -168,7 +173,7 @@ namespace MilitaryEngineering.Fortification
             this.SoilTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.SoilTypeLabel.Location = new System.Drawing.Point(43, 70);
             this.SoilTypeLabel.Name = "SoilTypeLabel";
-            this.SoilTypeLabel.Size = new System.Drawing.Size(88, 36);
+            this.SoilTypeLabel.Size = new System.Drawing.Size(87, 36);
             this.SoilTypeLabel.TabIndex = 12;
             this.SoilTypeLabel.Text = "Тип грунта";
             this.SoilTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,7 +186,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionsBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PollutionsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.PollutionsBox.FormattingEnabled = true;
-            this.PollutionsBox.Location = new System.Drawing.Point(137, 38);
+            this.PollutionsBox.Location = new System.Drawing.Point(136, 38);
             this.PollutionsBox.Name = "PollutionsBox";
             this.PollutionsBox.Size = new System.Drawing.Size(100, 29);
             this.PollutionsBox.TabIndex = 10;
@@ -194,7 +199,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.PollutionLabel.Location = new System.Drawing.Point(43, 35);
             this.PollutionLabel.Name = "PollutionLabel";
-            this.PollutionLabel.Size = new System.Drawing.Size(88, 35);
+            this.PollutionLabel.Size = new System.Drawing.Size(87, 35);
             this.PollutionLabel.TabIndex = 9;
             this.PollutionLabel.Text = "Заражение";
             this.PollutionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,7 +211,7 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.DayTimeLabel.Location = new System.Drawing.Point(43, 0);
             this.DayTimeLabel.Name = "DayTimeLabel";
-            this.DayTimeLabel.Size = new System.Drawing.Size(88, 35);
+            this.DayTimeLabel.Size = new System.Drawing.Size(87, 35);
             this.DayTimeLabel.TabIndex = 6;
             this.DayTimeLabel.Text = "Время суток";
             this.DayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,11 +224,20 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DayTimeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.DayTimeBox.FormattingEnabled = true;
-            this.DayTimeBox.Location = new System.Drawing.Point(137, 3);
+            this.DayTimeBox.Location = new System.Drawing.Point(136, 3);
             this.DayTimeBox.Name = "DayTimeBox";
             this.DayTimeBox.Size = new System.Drawing.Size(100, 29);
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 38);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 29);
+            this.CheckBox.TabIndex = 14;
             // 
             // tableLayoutPanel5
             // 
@@ -231,12 +245,12 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(249, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(248, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(385, 106);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(384, 106);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -246,7 +260,6 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel6.Controls.Add(this.GainBox, 3, 2);
             this.tableLayoutPanel6.Controls.Add(this.label7, 2, 2);
             this.tableLayoutPanel6.Controls.Add(this.WorkTimeInput, 3, 1);
             this.tableLayoutPanel6.Controls.Add(this.ManPowerInput, 1, 1);
@@ -258,6 +271,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.Controls.Add(this.CoeffKcallingLabel, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.CoeffKstaffingLabel, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.CoeffNpersonnelLabel, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.AddGainButton, 3, 2);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -266,21 +280,8 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(379, 100);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(378, 100);
             this.tableLayoutPanel6.TabIndex = 0;
-            // 
-            // GainBox
-            // 
-            this.GainBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.GainBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GainBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GainBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GainBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.GainBox.FormattingEnabled = true;
-            this.GainBox.Location = new System.Drawing.Point(285, 69);
-            this.GainBox.Name = "GainBox";
-            this.GainBox.Size = new System.Drawing.Size(91, 29);
-            this.GainBox.TabIndex = 26;
             // 
             // label7
             // 
@@ -302,7 +303,7 @@ namespace MilitaryEngineering.Fortification
             this.WorkTimeInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.WorkTimeInput.Location = new System.Drawing.Point(285, 36);
             this.WorkTimeInput.Name = "WorkTimeInput";
-            this.WorkTimeInput.Size = new System.Drawing.Size(91, 28);
+            this.WorkTimeInput.Size = new System.Drawing.Size(90, 28);
             this.WorkTimeInput.TabIndex = 24;
             this.WorkTimeInput.TextChanged += new System.EventHandler(this.WorkTimeInput_TextChanged);
             // 
@@ -326,7 +327,7 @@ namespace MilitaryEngineering.Fortification
             this.AttritionRateInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.AttritionRateInput.Location = new System.Drawing.Point(285, 3);
             this.AttritionRateInput.Name = "AttritionRateInput";
-            this.AttritionRateInput.Size = new System.Drawing.Size(91, 28);
+            this.AttritionRateInput.Size = new System.Drawing.Size(90, 28);
             this.AttritionRateInput.TabIndex = 22;
             this.AttritionRateInput.TextChanged += new System.EventHandler(this.AttritionRateInput_TextChanged);
             // 
@@ -414,6 +415,24 @@ namespace MilitaryEngineering.Fortification
             this.CoeffNpersonnelLabel.Text = "Nлс";
             this.CoeffNpersonnelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // AddGainButton
+            // 
+            this.AddGainButton.AutoSize = true;
+            this.AddGainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AddGainButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.AddGainButton.Location = new System.Drawing.Point(285, 69);
+            this.AddGainButton.Name = "AddGainButton";
+            this.AddGainButton.Size = new System.Drawing.Size(90, 28);
+            this.AddGainButton.TabIndex = 26;
+            this.AddGainButton.TabStop = false;
+            this.AddGainButton.Text = "Добавить\r\nэлемент";
+            this.AddGainButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.AddGainButton.UseVisualStyleBackColor = false;
+            this.AddGainButton.Click += new System.EventHandler(this.AddGainButton_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
@@ -433,7 +452,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(637, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(635, 49);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // SecondTurnLabel
@@ -491,7 +510,7 @@ namespace MilitaryEngineering.Fortification
             this.AllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.AllTurnsLabel.Location = new System.Drawing.Point(542, 0);
             this.AllTurnsLabel.Name = "AllTurnsLabel";
-            this.AllTurnsLabel.Size = new System.Drawing.Size(92, 49);
+            this.AllTurnsLabel.Size = new System.Drawing.Size(90, 49);
             this.AllTurnsLabel.TabIndex = 8;
             this.AllTurnsLabel.Text = "AllTurnsLabel";
             this.AllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -501,17 +520,18 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.44886F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.55114F));
+            this.tableLayoutPanel7.ColumnCount = 3;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.5F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.chart1, 2, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(15, 10);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 215F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1007, 179);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1422, 179);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
             // tableLayoutPanel8
@@ -526,12 +546,12 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel8.Controls.Add(this.SecondTurnEvaluationLabel, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.FirstTurnEvaluationLabel, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(652, 3);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(650, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 209F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(352, 173);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(342, 173);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // AllTurnEvaluationLabel
@@ -539,9 +559,9 @@ namespace MilitaryEngineering.Fortification
             this.AllTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AllTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(267, 0);
+            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(258, 0);
             this.AllTurnEvaluationLabel.Name = "AllTurnEvaluationLabel";
-            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(81, 173);
             this.AllTurnEvaluationLabel.TabIndex = 9;
             this.AllTurnEvaluationLabel.Text = "Ошибка";
             this.AllTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -551,9 +571,9 @@ namespace MilitaryEngineering.Fortification
             this.FutureTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FutureTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FutureTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(179, 0);
+            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(173, 0);
             this.FutureTurnEvaluationLabel.Name = "FutureTurnEvaluationLabel";
-            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.FutureTurnEvaluationLabel.TabIndex = 8;
             this.FutureTurnEvaluationLabel.Text = "Ошибка";
             this.FutureTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -563,9 +583,9 @@ namespace MilitaryEngineering.Fortification
             this.SecondTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.SecondTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(91, 0);
+            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(88, 0);
             this.SecondTurnEvaluationLabel.Name = "SecondTurnEvaluationLabel";
-            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.SecondTurnEvaluationLabel.TabIndex = 7;
             this.SecondTurnEvaluationLabel.Text = "Ошибка";
             this.SecondTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -577,23 +597,47 @@ namespace MilitaryEngineering.Fortification
             this.FirstTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.FirstTurnEvaluationLabel.Location = new System.Drawing.Point(3, 0);
             this.FirstTurnEvaluationLabel.Name = "FirstTurnEvaluationLabel";
-            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(82, 173);
+            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
             this.FirstTurnEvaluationLabel.TabIndex = 6;
             this.FirstTurnEvaluationLabel.Text = "Ошибка";
             this.FirstTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(52)))), ((int)(((byte)(81)))));
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.Location = new System.Drawing.Point(998, 3);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Name = "Сроки занятия";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series2.Name = "Первая Очередь";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series3.Name = "Вторая очередь";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+            series4.Name = "В будущем";
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
+            this.chart1.Series.Add(series3);
+            this.chart1.Series.Add(series4);
+            this.chart1.Size = new System.Drawing.Size(421, 173);
+            this.chart1.TabIndex = 2;
+            this.chart1.Text = "chart1";
             // 
             // CoeffInfoToolTip
             // 
             this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(3, 38);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(34, 29);
-            this.checkBox1.TabIndex = 14;
             // 
             // BuildingElementPanel
             // 
@@ -602,7 +646,7 @@ namespace MilitaryEngineering.Fortification
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.Controls.Add(this.tableLayoutPanel7);
             this.Name = "BuildingElementPanel";
-            this.Size = new System.Drawing.Size(1032, 206);
+            this.Size = new System.Drawing.Size(1447, 206);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -614,6 +658,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -627,6 +672,7 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label PollutionLabel;
         public System.Windows.Forms.Label DayTimeLabel;
         private System.Windows.Forms.ComboBox DayTimeBox;
+        public Controls.CheckBox CheckBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         public System.Windows.Forms.Label CoeffKorganizationLabel;
         public System.Windows.Forms.Label CoeffKcallingLabel;
@@ -639,7 +685,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label CoeffThoursLabel;
         private System.Windows.Forms.TextBox PeopleAmountInput;
         public System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox GainBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         public System.Windows.Forms.Label AllTurnEvaluationLabel;
@@ -647,6 +692,7 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label SecondTurnEvaluationLabel;
         public System.Windows.Forms.Label FirstTurnEvaluationLabel;
         private System.Windows.Forms.ToolTip CoeffInfoToolTip;
-        private CheckBox checkBox1;
+        private System.Windows.Forms.Button AddGainButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

@@ -8,11 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MilitaryEngineering.Fortification
+namespace MilitaryEngineering.Controls
 {
     public partial class CheckBox : UserControl
     {
-        public bool Checked {  get; set; }
+        private bool _checked;
+        public bool Checked 
+        {  
+            get 
+            {
+                return _checked;
+            } 
+            set 
+            {
+                _checked = value;
+                if (_checked)
+                {
+                    button.BackgroundImage = Properties.Resources.CheckBoxChecked;
+                }
+                else
+                {
+                    button.BackgroundImage = Properties.Resources.CheckBoxUnchecked;
+                }
+            } 
+        }
         Image PrevImage {  get; set; }
         public event EventHandler CheckBox_Checked;
         public CheckBox()
@@ -24,12 +43,12 @@ namespace MilitaryEngineering.Fortification
         {
             if (Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
                 PrevImage = Properties.Resources.CheckBoxUnchecked;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
                 PrevImage = Properties.Resources.CheckBoxChecked;
             }
             Checked = !Checked;
@@ -42,11 +61,11 @@ namespace MilitaryEngineering.Fortification
             PrevImage = button.BackgroundImage;
             if (Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHower;
+                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
             }
         }
 

@@ -14,12 +14,12 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
     public partial class BuildingElementSelectorForm : Form
     {
-        FortificationForm sender {  get; set; }
+        FortificationForm Sender {  get; set; }
         List<BuildingElement> buildingElements { get; set; } = new List<BuildingElement>();
         public BuildingElementSelectorForm(FortificationForm sender, List<BuildingElement> buildingElements)
         {
             InitializeComponent();
-            this.sender = sender;
+            Sender = sender;
             foreach(BuildingElement buildingElement in buildingElements)
             {
                 AddNewElement(buildingElement);
@@ -73,11 +73,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
-            panel.CloseButton.Visible = false;
-            panel.EditButton.Visible = false;
             panel.Clicked += (sender, e) =>
             {
-                this.sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);
+                this.Sender.AddNewElement(((BuildingElementPanel)sender).BuildingElement);
                 Close();
             };
             panel.Removed += Remove;
@@ -102,9 +100,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 
         private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var configurationManager = new ConfigurationManager();
-            var configuration = new Configuration() { BuildingElements = buildingElements };
-            configurationManager.SaveConfiguration(configuration);
+            Sender.Config.BuildingElements = buildingElements;
         }
     }
 }

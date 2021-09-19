@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BFAC6BEE-48A9-4D19-AB23-2EF8D3D4B6F0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Military_Engineering</RootNamespace>
+    <RootNamespace>MilitaryEngineering</RootNamespace>
     <AssemblyName>MilitaryEngineering</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -50,10 +50,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Button.Designer.cs">
+      <DependentUpon>Button.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fortification\BuildingElementPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,10 +96,10 @@
     <Compile Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.Designer.cs">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fortification\CheckBox.cs">
+    <Compile Include="Controls\CheckBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Fortification\CheckBox.Designer.cs">
+    <Compile Include="Controls\CheckBox.Designer.cs">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Fortification\FortificationForm.cs">
@@ -100,6 +107,24 @@
     </Compile>
     <Compile Include="Fortification\FortificationForm.Designer.cs">
       <DependentUpon>FortificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainCreatorForm.Designer.cs">
+      <DependentUpon>GainCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainSelectorForm.Designer.cs">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\GainSelector\GainPanel.Designer.cs">
+      <DependentUpon>GainPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
@@ -109,7 +134,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextAutoAdjuster.cs" />
     <Compile Include="ToolTipAutoMapper.cs" />
+    <EmbeddedResource Include="Controls\Button.resx">
+      <DependentUpon>Button.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fortification\BuildingElementPanel.resx">
       <DependentUpon>BuildingElementPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,11 +151,20 @@
     <EmbeddedResource Include="Fortification\BuildingElementSelector\BuildingElementSelectorForm.resx">
       <DependentUpon>BuildingElementSelectorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fortification\CheckBox.resx">
+    <EmbeddedResource Include="Controls\CheckBox.resx">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainCreatorForm.resx">
+      <DependentUpon>GainCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainSelectorForm.resx">
+      <DependentUpon>GainSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\GainSelector\GainPanel.resx">
+      <DependentUpon>GainPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
@@ -207,10 +245,22 @@
     <None Include="Images\CheckBoxUnchecked.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\CheckBoxCheckedHower.png" />
+    <None Include="Images\Add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\CheckBoxUncheckedHower.png" />
+    <None Include="Images\AddHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Substract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\SubstractHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxCheckedHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedHover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
