@@ -11,7 +11,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
     {
         public BuildingElementPanel Sender {  get; private set; }
         public List<Gain> Gains { get; private set; } = new List<Gain>();
-        public Dictionary<int, GainAbility> Amounts { get; private set; } = new Dictionary<int, GainAbility>();
+        public Dictionary<int, int> Amounts { get; private set; } = new Dictionary<int, int>();
         public List<int> GainsToRemove { get; private set; } = new List<int>();
         public Dictionary<int, Gain> GainsToUpdate { get; private set; } = new Dictionary<int, Gain>();
         public int GainsAmount { get; private set; } = 0;
@@ -23,7 +23,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             {
                 var g = new Gain(gain);
                 Gains.Add(g);
-                Amounts.Add(g.Id, new GainAbility(0, 0));
+                Amounts.Add(g.Id, 0);
             }
             foreach(var gain in Sender.FortForm
                 .Board
@@ -32,7 +32,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 .BuildingGains) // really hate this code
             {
                 Amounts[gain.Key.Id] = gain.Value;
-                GainsAmount += gain.Value.Amount;
+                GainsAmount += gain.Value;
             }
             AddEntries();
             UpdateAmountLabel();
@@ -92,7 +92,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             var panel = new GainPanel(gain, Amounts[gain.Id]);
             panel.Incremented += IncrementGainAmount;
             panel.Decremented += DecrementGainAmount;
-            panel.ChangedTime += ChangeGainWorkTime;
             MainTable.RowCount++;
             MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
@@ -102,21 +101,12 @@ namespace MilitaryEngineering.Fortification.GainSelector
             panel.Edited += Edit;
         }
 
-        private void ChangeGainWorkTime(int gainId, double workTime)
-        {
-            GainAbility gainAbility = Amounts[gainId];
-            gainAbility.WorkTime = workTime;
-            Amounts[gainId] = gainAbility;
-        }
-
         private void IncrementGainAmount(int gainId, out int amount)
         {
             try
             {
-                GainAbility gainAbility = Amounts[gainId];
-                gainAbility.Amount++;
-                Amounts[gainId] = gainAbility;
-                amount = gainAbility.Amount;
+                Amounts[gainId]++;
+                amount = Amounts[gainId];
                 GainsAmount++;
                 UpdateAmountLabel();
             }
@@ -129,15 +119,13 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DecrementGainAmount(int gainId, out int amount)
         {
-            if (Amounts[gainId].Amount == 0)
+            if (Amounts[gainId] == 0)
             {
                 amount = 0;
                 return;
             }
-            GainAbility gainAbility = Amounts[gainId];
-            gainAbility.Amount--;
-            Amounts[gainId] = gainAbility;
-            amount = Amounts[gainId].Amount;
+            Amounts[gainId]--;
+            amount = Amounts[gainId];
             GainsAmount--;
             UpdateAmountLabel();  
         }
@@ -218,7 +206,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             Gains.Add(gain);
             GainsToUpdate.Add(gain.Id, gain);
-            Amounts.Add(gain.Id, new GainAbility(0, 0));
+            Amounts.Add(gain.Id, 0);
             AddEntry(gain);
         }
 
@@ -229,7 +217,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 GainsToUpdate.Remove(gain.Id);
             }
             GainsToRemove.Add(gain.Id);
-            GainsAmount -= Amounts[gain.Id].Amount;
+            GainsAmount -= Amounts[gain.Id];
             Amounts.Remove(gain.Id);
             Gains.Remove(gain);
             UpdateAmountLabel();

@@ -35,17 +35,17 @@
                 Id = id;
             }
         }
-        public double Evaluate(BuildingElement element, DayAbility ability, GainAbility gainAbility)
+        public double Evaluate(BuildingElement element, DayAbility ability, int amount)
         {
             if (element is null || ability is null)
             {
                 return 0;
             }
-            return gainAbility.Amount
+            return amount
                 * DeterminePerformance(element.ElementType)
                 * ability.Organization
-                * ((gainAbility.WorkTime > 24) ? 1.5 : 1)
-                * gainAbility.WorkTime;
+                * ((ability.WorkTime > 24) ? 1.5 : 1)
+                * ability.WorkTime;
         }
 
         private double DeterminePerformance(ElementType type)

@@ -257,18 +257,18 @@ namespace MilitaryEngineering.Fortification
             ElementChanged?.Invoke(sender, e);
         }
 
-        public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAmounts)
+        public void UpdateGainsAmountsList(Dictionary<int, int> gainsAmounts)
         {
             if (gainsAmounts == null)
                 return;
             GainsAmount = 0;
-            var ans = new List<KeyValuePair<Gain, GainAbility>>();
+            var ans = new List<KeyValuePair<Gain, int>>();
             foreach (var gainAmount in gainsAmounts)
             {
-                if (gainAmount.Value.Amount > 0)
+                if (gainAmount.Value > 0)
                 {
-                    GainsAmount += gainAmount.Value.Amount;
-                    ans.Add(new KeyValuePair<Gain, GainAbility>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
+                    GainsAmount += gainAmount.Value;
+                    ans.Add(new KeyValuePair<Gain, int>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
                 }
             }
             FortForm.Board.UpdateElementAbility(ElementIndex, ans, AbilityType.BuildingGain);
