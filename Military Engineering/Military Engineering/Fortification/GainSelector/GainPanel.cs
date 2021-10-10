@@ -32,12 +32,15 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public delegate void DecrementGainAmount(int gainId, out int amount);
         public event IncrementGainAmount Incremented;
         public event DecrementGainAmount Decremented;
+        public delegate void ChangeGainTime(int gainId, double workTime);
+        public event ChangeGainTime ChangedTime;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
+        Color DefaultBoxColor;
         TextAutoAdjuster textAutoAdjuster;
-        public GainPanel(Gain gain, int amount = 0)
+        public GainPanel(Gain gain, GainAbility gainAbility)
         {
             GainEntry = gain;
             InitializeComponent();
@@ -47,7 +50,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             HideAll();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = gain.Name;
-            CounterLabel.Text = amount.ToString();
+            CounterLabel.Text = gainAbility.Amount.ToString();
+            WorkTimeBox.Text = gainAbility.WorkTime.ToString();
+            DefaultBoxColor = WorkTimeBox.BackColor;
             ConfigureToolTip();
         }
 
@@ -148,6 +153,27 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void WorkTimeBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (double.TryParse(textBox.Text, out double num))
+            {
+                if (num < 0)
+                {
+                    textBox.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                else
+                {
+                    textBox.BackColor = DefaultBoxColor;
+                    ChangedTime?.Invoke(GainIndex, Convert.ToDouble(textBox.Text));
+                }
+            }
+            else
+            {
+                textBox.BackColor = Color.FromArgb(255, 128, 128);
+            }
         }
     }
 }

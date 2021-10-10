@@ -35,18 +35,18 @@
                 Id = id;
             }
         }
-        public double Evaluate(DayAbility ability, int amount)
+        public double Evaluate(DayAbility ability, GainAbility gainAbility)
         {
             //TODO: implement performance evaluation according to building type (keep in mind, that we have new hierarchy)
             if (ability is null)
             {
                 return 0;
             }
-            return amount
+            return gainAbility.Amount
                 * DeterminePerformance(0)
                 * ability.Organization
-                * ((ability.WorkTime > 24) ? 1.5 : 1)
-                * ability.WorkTime;
+                * ((gainAbility.WorkTime > 24) ? 1.5 : 1)
+                * gainAbility.WorkTime;
         }
 
         private double DeterminePerformance(ElementType type)
