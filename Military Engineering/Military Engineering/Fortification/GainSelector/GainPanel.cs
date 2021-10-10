@@ -10,6 +10,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
     public partial class GainPanel : UserControl
     {
         Gain gainEntry;
+        Color DefaultBoxColor;
         public Dictionary<string, string> GainInfo = new Dictionary<string, string>();
         public Gain GainEntry
         {
@@ -34,10 +35,12 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public event DecrementGainAmount Decremented;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
+        public delegate void ChangeGainTime(int gainId, double workTime);
+        public event ChangeGainTime ChangedTime;
         Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor {  get; set; }
         TextAutoAdjuster textAutoAdjuster;
-        public GainPanel(Gain gain, int amount = 0)
+        public GainPanel(Gain gain, GainAbility gainAbility)
         {
             GainEntry = gain;
             InitializeComponent();
@@ -46,8 +49,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             RemoveButton.Click += (sender, e) => Removed?.Invoke(this, e);
             HideAll();
             defaultColor = panel1.BackColor;
+            DefaultBoxColor = WorkTimeBox.BackColor;
             InfoLabel.Text = gain.Name;
-            CounterLabel.Text = amount.ToString();
+            CounterLabel.Text = gainAbility.Amount.ToString();
+            WorkTimeBox.Text = gainAbility.WorkTime.ToString();
             ConfigureToolTip();
         }
 
@@ -148,6 +153,27 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void WorkTimeBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (double.TryParse(textBox.Text, out double num))
+            {
+                if (num < 0)
+                {
+                    textBox.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                else
+                {
+                    textBox.BackColor = DefaultBoxColor;
+                    ChangedTime?.Invoke(GainIndex, Convert.ToDouble(textBox.Text));
+                }
+            }
+            else
+            {
+                textBox.BackColor = Color.FromArgb(255, 128, 128);
+            }
         }
     }
 }

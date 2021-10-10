@@ -107,7 +107,7 @@ namespace CalculationsCore.FortificationBuilding
                         ability.Organization = (double)value;
                         break;
                     case AbilityType.BuildingGain:
-                        ability.BuildingGains = (List<KeyValuePair<Gain, int>>)value;
+                        ability.BuildingGains = (List<KeyValuePair<Gain, GainAbility>>)value;
                         break;
                     case AbilityType.WorkTime:
                         ability.WorkTime = (double)value;
@@ -204,7 +204,7 @@ namespace CalculationsCore.FortificationBuilding
                 {
                     if (g.Key.Id == gain.Id)
                     {
-                        var newGain = new KeyValuePair<Gain, int>(gain, g.Value);
+                        var newGain = new KeyValuePair<Gain, GainAbility>(gain, g.Value);
                         element.Ability.BuildingGains.Remove(g);
                         element.Ability.BuildingGains.Add(newGain);
                         break;
