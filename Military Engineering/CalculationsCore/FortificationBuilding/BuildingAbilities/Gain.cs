@@ -35,14 +35,15 @@
                 Id = id;
             }
         }
-        public double Evaluate(BuildingElement element, DayAbility ability, int amount)
+        public double Evaluate(DayAbility ability, int amount)
         {
-            if (element is null || ability is null)
+            //TODO: implement performance evaluation according to building type (keep in mind, that we have new hierarchy)
+            if (ability is null)
             {
                 return 0;
             }
             return amount
-                * DeterminePerformance(element.ElementType)
+                * DeterminePerformance(0)
                 * ability.Organization
                 * ((ability.WorkTime > 24) ? 1.5 : 1)
                 * ability.WorkTime;

@@ -8,6 +8,7 @@ namespace CalculationsCore.FortificationBuilding
 {
     public class FortificationBoard
     {
+        public const int ACCURACY = 2;
         Dictionary<int, BuildingCalculation> elements;
         public List<Gain> gainFacilities;
         int lastNumber = 0;
@@ -143,10 +144,10 @@ namespace CalculationsCore.FortificationBuilding
             double ans = 0;
             foreach (var element in elements.Values)
             {
-                ans += element.Element.FirstTurn;
+                ans += element.Building.GetFirstTurn();
             }
 
-            return Math.Round(ans, 2);
+            return Math.Round(ans, ACCURACY);
         }
 
         public double EvaluateAllSecondTurns()
@@ -154,10 +155,10 @@ namespace CalculationsCore.FortificationBuilding
             double ans = 0;
             foreach (var element in elements.Values)
             {
-                ans += element.Element.SecondTurn;
+                ans += element.Building.GetSecondTurn();
             }
 
-            return Math.Round(ans, 2);
+            return Math.Round(ans, ACCURACY);
         }
 
         public double EvaluateAllFutureTurns()
@@ -165,10 +166,10 @@ namespace CalculationsCore.FortificationBuilding
             double ans = 0;
             foreach (var element in elements.Values)
             {
-                ans += element.Element.FutureTurn;
+                ans += element.Building.GetFutureTurn();
             }
 
-            return Math.Round(ans, 2);
+            return Math.Round(ans, ACCURACY);
         }
 
         public double EvaluateAllAllTurns()
@@ -176,9 +177,9 @@ namespace CalculationsCore.FortificationBuilding
             double ans = 0;
             foreach (var element in elements.Values)
             {
-                ans += element.Element.AllTurns;
+                ans += element.Building.GetAllTurns();
             }
-            return Math.Round(ans, 2);
+            return Math.Round(ans, ACCURACY);
         }
 
         public void RemoveGainFromElements(int gainId)
