@@ -9,6 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using CalculationsCore;
 using Microsoft.CSharp;
+using ColorThemeManager;
+using System.Linq;
 
 namespace MilitaryEngineering
 {
@@ -30,6 +32,26 @@ namespace MilitaryEngineering
             {
                 { FortificationButton, typeof(Fortification.FortificationForm) }
             };
+            SetColorTheme();
+
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.GetColorTheme();
+
+            BackColor = selectedTheme.MainColor;
+
+            InfoLabel.BackColor = selectedTheme.MainColor;
+            InfoLabel.ForeColor = selectedTheme.ForeColor;
+
+            LeftPanel.BackColor = selectedTheme.SecondaryColor;
+            foreach(Button button in LeftPanel.Controls.OfType<Button>())
+            {
+                button.BackColor = selectedTheme.ForeColor;
+                button.ForeColor = selectedTheme.MainColor;
+            }
         }
 
         private void DisplayButtonInfo(string displayInfo, Image displayImage)

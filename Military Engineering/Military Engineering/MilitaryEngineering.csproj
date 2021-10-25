@@ -197,6 +197,10 @@
       <Project>{fbcdb1a4-64b0-43bf-95d3-b153e5c4394e}</Project>
       <Name>CalculationsCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ColorThemeManager\ColorThemeManager.csproj">
+      <Project>{c984c1ea-8cab-4c04-8207-e19c09b3fa15}</Project>
+      <Name>ColorThemeManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MilitaryConfiguration\MilitaryConfiguration.csproj">
       <Project>{64e862a3-1d1e-4db3-b116-bbf3284198df}</Project>
       <Name>MilitaryConfiguration</Name>

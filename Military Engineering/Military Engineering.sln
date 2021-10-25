@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculationsTest", "Calcula
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitaryConfiguration", "MilitaryConfiguration\MilitaryConfiguration.csproj", "{64E862A3-1D1E-4DB3-B116-BBF3284198DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorThemeManager", "ColorThemeManager\ColorThemeManager.csproj", "{C984C1EA-8CAB-4C04-8207-E19C09B3FA15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{64E862A3-1D1E-4DB3-B116-BBF3284198DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64E862A3-1D1E-4DB3-B116-BBF3284198DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64E862A3-1D1E-4DB3-B116-BBF3284198DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C984C1EA-8CAB-4C04-8207-E19C09B3FA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C984C1EA-8CAB-4C04-8207-E19C09B3FA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C984C1EA-8CAB-4C04-8207-E19C09B3FA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C984C1EA-8CAB-4C04-8207-E19C09B3FA15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
