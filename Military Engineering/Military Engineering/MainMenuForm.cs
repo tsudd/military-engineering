@@ -41,16 +41,16 @@ namespace MilitaryEngineering
             ThemeManager themeManager = ThemeManager.GetInstance();
             ColorTheme selectedTheme = themeManager.GetColorTheme();
 
-            BackColor = selectedTheme.MainColor;
+            BackColor = selectedTheme.MainMainColor;
 
-            InfoLabel.BackColor = selectedTheme.MainColor;
-            InfoLabel.ForeColor = selectedTheme.ForeColor;
+            InfoLabel.BackColor = selectedTheme.MainMainColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
 
-            LeftPanel.BackColor = selectedTheme.SecondaryColor;
-            foreach(Button button in LeftPanel.Controls.OfType<Button>())
+            LeftPanel.BackColor = selectedTheme.MainSecondaryColor;
+            foreach (Button button in LeftPanel.Controls.OfType<Button>())
             {
-                button.BackColor = selectedTheme.ForeColor;
-                button.ForeColor = selectedTheme.MainColor;
+                button.BackColor = selectedTheme.SecondaryMainColor;
+                button.ForeColor = selectedTheme.SecondaryForeColor;
             }
         }
 

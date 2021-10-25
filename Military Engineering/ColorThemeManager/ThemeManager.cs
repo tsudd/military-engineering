@@ -15,6 +15,8 @@ namespace ColorThemeManager
         private ThemeManager()
         {
             ConfigurationManager configurationManager = new ConfigurationManager();
+            //themes = new Themes() { ColorThemes = new List<ColorTheme>() { new ColorTheme() } };
+            //configurationManager.SaveConfiguration<Themes>("themes.json", themes);
             themes = configurationManager.LoadConfiguration<Themes>("themes.json");
         }
 

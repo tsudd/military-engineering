@@ -174,6 +174,7 @@ namespace MilitaryEngineering
             // 
             // PreviewPictureBox
             // 
+            this.PreviewPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PreviewPictureBox.Image = global::MilitaryEngineering.Properties.Resources.Main;
             this.PreviewPictureBox.Location = new System.Drawing.Point(580, 170);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
