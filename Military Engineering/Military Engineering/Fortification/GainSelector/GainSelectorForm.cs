@@ -225,7 +225,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private void RemoveGain(Gain gain)
         {
             if (GainsToUpdate.ContainsKey(gain.Id))
-            {S
+            {
                 GainsToUpdate.Remove(gain.Id);
             }
             GainsToRemove.Add(gain.Id);

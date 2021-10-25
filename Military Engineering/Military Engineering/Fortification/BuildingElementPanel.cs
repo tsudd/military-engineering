@@ -42,11 +42,11 @@ namespace MilitaryEngineering.Fortification
             ConfigureToolTip();
             defaultColor = tableLayoutPanel1.BackColor;
             var element = FortForm.Board.GetElement(ElementIndex);
-            ElementNameLabel.Text = element.Element.Name;
-            FirstTurnLabel.Text = element.Element.FirstTurn.ToString("0.###");
-            SecondTurnLabel.Text = element.Element.SecondTurn.ToString("0.###");
-            FutureTurnLabel.Text = element.Element.FutureTurn.ToString("0.###");
-            AllTurnsLabel.Text = element.Element.AllTurns.ToString("0.###");
+            ElementNameLabel.Text = element.Building.Name;
+            FirstTurnLabel.Text = element.Building.GetFirstTurn().ToString("0.###");
+            SecondTurnLabel.Text = element.Building.GetSecondTurn().ToString("0.###");
+            FutureTurnLabel.Text = element.Building.GetFutureTurn().ToString("0.###");
+            AllTurnsLabel.Text = element.Building.GetAllTurns().ToString("0.###");
             AddGainButton.Text = element.Ability.BuildingGains.Count.ToString();
 
             SoilTypeBox.DataSource = FortificationBoard.SoilTypes;

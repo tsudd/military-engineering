@@ -7,6 +7,7 @@ using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using MilitaryEngineering.Fortification;
 using MilitaryConfiguration.Configurations;
+using CalculationsCore.FortificationBuilding.BuildingDefinition;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -61,7 +62,7 @@ namespace MilitaryEngineering.Fortification
             parent.Dispose();
         }
 
-        public void AddNewElement(BuildingElement buildingElement)
+        public void AddNewElement(IBuilding buildingElement)
         {
             MainPanel.Visible = true;
             var index = Board.AddElement(new BuildingCalculation(buildingElement));
@@ -78,8 +79,6 @@ namespace MilitaryEngineering.Fortification
             element.Dock = DockStyle.Top;
             EvaluateAllTurns();
         }
-
-        //public void Update(
 
         private void RemoveSelectedButton_Click(object sender, EventArgs e)
         {
