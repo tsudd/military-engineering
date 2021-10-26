@@ -49,7 +49,7 @@ namespace MilitaryEngineering.Fortification
         private void SetColorTheme()
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
-            ColorTheme selectedTheme = themeManager.GetColorTheme();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
 
             BackColor = selectedTheme.MainMainColor;
             MainTable.BackColor = selectedTheme.MainMainColor;
@@ -98,12 +98,12 @@ namespace MilitaryEngineering.Fortification
             WorkTimeInput.BackColor = selectedTheme.SecondarySecondaryColor;
 
             RemoveSelectedButton.BackColor = selectedTheme.SecondaryMainColor;
-            RemoveSelectedButton.ForeColor = selectedTheme.SecondarySecondaryColor;
+            RemoveSelectedButton.ForeColor = selectedTheme.SecondaryForeColor;
             
             FooterPanel.BackColor = selectedTheme.MainSecondaryColor;
 
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
-            AddElementButton.ForeColor = selectedTheme.SecondarySecondaryColor;
+            AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
 
             AllLabel.BackColor = selectedTheme.MainSecondaryColor;
             AllLabel.ForeColor = selectedTheme.SecondarySecondaryColor;

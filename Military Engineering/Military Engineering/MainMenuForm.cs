@@ -22,29 +22,39 @@ namespace MilitaryEngineering
         Dictionary<Button, Type> formMap { get; set; }
         public string buffer;
         public bool coolFlag;
+        private ThemeManager themeManager;
+        private bool isStarting = true;
         public MainMenuForm()
         {
             InitializeComponent();
             this.KeyPreview = true;
             buffer = "";
             coolFlag = false;
-            formMap = new Dictionary<Button, Type>() 
+            formMap = new Dictionary<Button, Type>()
             {
                 { FortificationButton, typeof(Fortification.FortificationForm) }
             };
-            SetColorTheme();
 
+            themeManager = ThemeManager.GetInstance();
+            SetColorTheme();
+            isStarting = false;
         }
 
         private void SetColorTheme()
         {
-            ThemeManager themeManager = ThemeManager.GetInstance();
-            ColorTheme selectedTheme = themeManager.GetColorTheme();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            ThemesBox.DataSource = themeManager.AllThemes;
+            ThemesBox.DisplayMember = "Name";
+
+            ThemesBox.SelectedIndex = themeManager.SelectedIndex;
 
             BackColor = selectedTheme.MainMainColor;
 
             InfoLabel.BackColor = selectedTheme.MainMainColor;
             InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            ThemeLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
             LeftPanel.BackColor = selectedTheme.MainSecondaryColor;
             foreach (Button button in LeftPanel.Controls.OfType<Button>())
@@ -52,6 +62,7 @@ namespace MilitaryEngineering
                 button.BackColor = selectedTheme.SecondaryMainColor;
                 button.ForeColor = selectedTheme.SecondaryForeColor;
             }
+            
         }
 
         private void DisplayButtonInfo(string displayInfo, Image displayImage)
@@ -183,9 +194,15 @@ namespace MilitaryEngineering
             }
         }
 
-        private void NewForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void ThemesBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (isStarting)
+            {
+                return;
+            }
+            int newIndex = ThemesBox.SelectedIndex;
+            themeManager.SelectedIndex = newIndex;
+            SetColorTheme();
         }
     }
 }

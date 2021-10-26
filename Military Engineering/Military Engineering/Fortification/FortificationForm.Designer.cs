@@ -39,6 +39,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
@@ -81,7 +82,6 @@ namespace MilitaryEngineering.Fortification
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -243,6 +243,16 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.Size = new System.Drawing.Size(139, 29);
             this.DayTimeBox.TabIndex = 7;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.Location = new System.Drawing.Point(3, 40);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 31);
+            this.CheckBox.TabIndex = 14;
+            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // tableLayoutPanel12
             // 
@@ -822,16 +832,6 @@ namespace MilitaryEngineering.Fortification
             this.label12.TabIndex = 8;
             this.label12.Text = "График сроков фортоборудования";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 40);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 31);
-            this.CheckBox.TabIndex = 14;
-            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // FortificationForm
             // 
