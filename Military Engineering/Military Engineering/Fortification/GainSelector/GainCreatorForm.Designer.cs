@@ -181,7 +181,9 @@ namespace MilitaryEngineering.Fortification
             this.Controls.Add(this.AddGainButton);
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.InfoLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "GainCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание усиления";

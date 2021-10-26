@@ -119,7 +119,25 @@ namespace MilitaryEngineering.Fortification
 
             AllFutureTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
             AllFutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            ChangeTableLabels(selectedTheme, MainTable);
         }
+
+        private void ChangeTableLabels(ColorTheme theme, object obj)
+        {
+            if(obj is TableLayoutPanel panel)
+            {
+                foreach (object obj1 in panel.Controls)
+                {
+                    ChangeTableLabels(theme, obj1);
+                }
+            }
+            else if(obj is Label label)
+            {
+                label.ForeColor = theme.MainForeColor;
+            }
+        }
+
         private void AddElementButton_Click(object sender, EventArgs e)
         {
             var form = new BuildingElementSelectorForm(this, Config.BuildingElements);

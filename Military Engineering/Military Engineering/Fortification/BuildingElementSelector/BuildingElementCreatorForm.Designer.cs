@@ -34,9 +34,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.TrenchRadioButton = new System.Windows.Forms.RadioButton();
             this.PitRadioButton = new System.Windows.Forms.RadioButton();
             this.FutureTurnsTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FutureTurnsLabel = new System.Windows.Forms.Label();
             this.SecondTurnTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SecondTurnLabel = new System.Windows.Forms.Label();
             this.FirstTurnTextBox = new System.Windows.Forms.TextBox();
             this.FirstTurnLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
@@ -64,9 +64,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.HeaderPanel.Controls.Add(this.TrenchRadioButton);
             this.HeaderPanel.Controls.Add(this.PitRadioButton);
             this.HeaderPanel.Controls.Add(this.FutureTurnsTextBox);
-            this.HeaderPanel.Controls.Add(this.label2);
+            this.HeaderPanel.Controls.Add(this.FutureTurnsLabel);
             this.HeaderPanel.Controls.Add(this.SecondTurnTextBox);
-            this.HeaderPanel.Controls.Add(this.label1);
+            this.HeaderPanel.Controls.Add(this.SecondTurnLabel);
             this.HeaderPanel.Controls.Add(this.FirstTurnTextBox);
             this.HeaderPanel.Controls.Add(this.FirstTurnLabel);
             this.HeaderPanel.Controls.Add(this.NameTextBox);
@@ -113,16 +113,16 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.FutureTurnsTextBox.TabIndex = 12;
             this.FutureTurnsTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
-            // label2
+            // FutureTurnsLabel
             // 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label2.Location = new System.Drawing.Point(335, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 85);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "В дальнейшем VIII\r\nприв.чел./час";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FutureTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FutureTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FutureTurnsLabel.Location = new System.Drawing.Point(335, 142);
+            this.FutureTurnsLabel.Name = "FutureTurnsLabel";
+            this.FutureTurnsLabel.Size = new System.Drawing.Size(309, 85);
+            this.FutureTurnsLabel.TabIndex = 11;
+            this.FutureTurnsLabel.Text = "В дальнейшем VIII\r\nприв.чел./час";
+            this.FutureTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SecondTurnTextBox
             // 
@@ -135,16 +135,16 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.SecondTurnTextBox.TabIndex = 10;
             this.SecondTurnTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
-            // label1
+            // SecondTurnLabel
             // 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label1.Location = new System.Drawing.Point(8, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 85);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "II очереди VII\r\nприв.чел./час";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SecondTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.SecondTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.SecondTurnLabel.Location = new System.Drawing.Point(8, 142);
+            this.SecondTurnLabel.Name = "SecondTurnLabel";
+            this.SecondTurnLabel.Size = new System.Drawing.Size(309, 85);
+            this.SecondTurnLabel.TabIndex = 9;
+            this.SecondTurnLabel.Text = "II очереди VII\r\nприв.чел./час";
+            this.SecondTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FirstTurnTextBox
             // 
@@ -226,6 +226,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "BuildingElementCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание элемента построения";
@@ -245,9 +246,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         private System.Windows.Forms.TextBox FirstTurnTextBox;
         public System.Windows.Forms.Label FirstTurnLabel;
         private System.Windows.Forms.TextBox FutureTurnsTextBox;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label FutureTurnsLabel;
         private System.Windows.Forms.TextBox SecondTurnTextBox;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label SecondTurnLabel;
         private System.Windows.Forms.Button AddElementButton;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.RadioButton TrenchRadioButton;

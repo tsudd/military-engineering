@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
@@ -36,7 +37,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public event ChangeGainTime ChangedTime;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
-        Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
+        Color hoverColor { get; set; }
         Color defaultColor {  get; set; }
         Color DefaultBoxColor;
         TextAutoAdjuster textAutoAdjuster;
@@ -44,6 +45,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             GainEntry = gain;
             InitializeComponent();
+            SetColorTheme();
             textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - SubstractButton.Location.X);
             EditButton.Click += (sender, e) => Edited?.Invoke(this, e);
             RemoveButton.Click += (sender, e) => Removed?.Invoke(this, e);
@@ -54,6 +56,21 @@ namespace MilitaryEngineering.Fortification.GainSelector
             WorkTimeBox.Text = gainAbility.WorkTime.ToString();
             DefaultBoxColor = WorkTimeBox.BackColor;
             ConfigureToolTip();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
+            InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
+            panel1.BackColor = selectedTheme.SecondaryMainColor;
+            hoverColor = selectedTheme.HoverColor;
+
+            CounterLabel.BackColor = selectedTheme.SecondaryMainColor;
+            CounterLabel.ForeColor = selectedTheme.SecondaryForeColor;
         }
 
         private void HideAll()

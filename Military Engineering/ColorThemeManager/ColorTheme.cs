@@ -16,6 +16,7 @@ namespace ColorThemeManager
         public Color SecondaryMainColor { get; set; }
         public Color SecondarySecondaryColor { get; set; }
         public Color SecondaryForeColor { get; set; }
+        public Color HoverColor { get; set; }
         public IconTypes IconType { get; set; }
         public enum IconTypes
         {
