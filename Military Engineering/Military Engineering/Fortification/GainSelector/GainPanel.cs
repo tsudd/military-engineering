@@ -51,7 +51,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
             defaultColor = panel1.BackColor;
             InfoLabel.Text = gain.Name;
             CounterLabel.Text = gainAbility.Amount.ToString();
-            WorkTimeBox.Text = gainAbility.WorkTime.ToString();
+            if (gainAbility.Amount > 0)
+            {
+                WorkTimeBox.ReadOnly = false;
+            }
+            WorkTimeBox.Text = gainAbility.WorkTime > 0 ? gainAbility.WorkTime.ToString(): "";
             DefaultBoxColor = WorkTimeBox.BackColor;
             ConfigureToolTip();
         }
@@ -129,6 +133,13 @@ namespace MilitaryEngineering.Fortification.GainSelector
             //DecrementGain?.Invoke(GainIndex);
             int amount = 0;
             Decremented?.Invoke(GainIndex, out amount);
+            if (amount == 0)
+            {
+                WorkTimeBox.Text = "";
+                WorkTimeBox.BackColor = DefaultBoxColor;
+                WorkTimeBox.ReadOnly = true;
+            }
+
             CounterLabel.Text = amount.ToString();
         }
 
@@ -137,6 +148,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             //IncrementGain?.Invoke(GainIndex);
             int amount = 0;
             Incremented?.Invoke(GainIndex, out amount);
+            WorkTimeBox.ReadOnly = false;
             CounterLabel.Text = amount.ToString();
         }
 
@@ -160,7 +172,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             TextBox textBox = (TextBox)sender;
             if (double.TryParse(textBox.Text, out double num))
             {
-                if (num < 0)
+                if (num <= 0 || num > 24)
                 {
                     textBox.BackColor = Color.FromArgb(255, 128, 128);
                 }

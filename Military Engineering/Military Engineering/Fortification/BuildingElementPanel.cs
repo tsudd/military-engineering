@@ -267,9 +267,9 @@ namespace MilitaryEngineering.Fortification
             {
                 if (gainAmount.Value.Amount > 0)
                 {
-                    if (gainAmount.Value.WorkTime < 0)
+                    if (gainAmount.Value.WorkTime <= 0 || gainAmount.Value.WorkTime  > 24)
                     {
-                        throw new ArgumentException("Введите неотрицательное значение для времени усиления");
+                        throw new ArgumentException("Введите положительные часы работы");
                     }
 
                     GainsAmount += gainAmount.Value.Amount;

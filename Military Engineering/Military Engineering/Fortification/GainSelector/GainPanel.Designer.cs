@@ -31,6 +31,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.WorkTimeBox = new System.Windows.Forms.TextBox();
             this.SubstractButton = new MilitaryEngineering.Controls.Button();
             this.AddButton = new MilitaryEngineering.Controls.Button();
             this.CounterLabel = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.RemoveButton = new MilitaryEngineering.Controls.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.WorkTimeBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,14 +53,26 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.panel1.Controls.Add(this.EditButton);
             this.panel1.Controls.Add(this.RemoveButton);
             this.panel1.Controls.Add(this.InfoLabel);
-            this.panel1.Location = new System.Drawing.Point(30, 14);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel1.Location = new System.Drawing.Point(17, 8);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 127);
+            this.panel1.Size = new System.Drawing.Size(638, 70);
             this.panel1.TabIndex = 0;
             this.panel1.Click += new System.EventHandler(this.InfoLabel_Click);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
+            // WorkTimeBox
+            // 
+            this.WorkTimeBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.WorkTimeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.WorkTimeBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.WorkTimeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.WorkTimeBox.Location = new System.Drawing.Point(465, 18);
+            this.WorkTimeBox.Name = "WorkTimeBox";
+            this.WorkTimeBox.ReadOnly = true;
+            this.WorkTimeBox.Size = new System.Drawing.Size(93, 38);
+            this.WorkTimeBox.TabIndex = 16;
+            this.WorkTimeBox.TextChanged += new System.EventHandler(this.WorkTimeBox_TextChanged);
             // 
             // SubstractButton
             // 
@@ -70,10 +82,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.SubstractButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SubstractButton.HoverImage = global::MilitaryEngineering.Properties.Resources.SubstractHover;
             this.SubstractButton.Image = global::MilitaryEngineering.Properties.Resources.Substract;
-            this.SubstractButton.Location = new System.Drawing.Point(600, 42);
-            this.SubstractButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.SubstractButton.Location = new System.Drawing.Point(343, 23);
+            this.SubstractButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.SubstractButton.Name = "SubstractButton";
-            this.SubstractButton.Size = new System.Drawing.Size(44, 45);
+            this.SubstractButton.Size = new System.Drawing.Size(25, 25);
             this.SubstractButton.TabIndex = 14;
             this.SubstractButton.Click += new System.EventHandler(this.DecrementButton_Click);
             // 
@@ -85,10 +97,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.AddButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AddButton.HoverImage = global::MilitaryEngineering.Properties.Resources.AddHover;
             this.AddButton.Image = global::MilitaryEngineering.Properties.Resources.Add;
-            this.AddButton.Location = new System.Drawing.Point(751, 42);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.AddButton.Location = new System.Drawing.Point(429, 23);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(44, 45);
+            this.AddButton.Size = new System.Drawing.Size(25, 25);
             this.AddButton.TabIndex = 13;
             this.AddButton.Click += new System.EventHandler(this.IncrementButton_Click);
             // 
@@ -98,10 +110,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.CounterLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CounterLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.CounterLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.CounterLabel.Location = new System.Drawing.Point(655, 0);
-            this.CounterLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.CounterLabel.Location = new System.Drawing.Point(374, 0);
             this.CounterLabel.Name = "CounterLabel";
-            this.CounterLabel.Size = new System.Drawing.Size(86, 127);
+            this.CounterLabel.Size = new System.Drawing.Size(49, 70);
             this.CounterLabel.TabIndex = 12;
             this.CounterLabel.Text = "0";
             this.CounterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -116,10 +127,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EditButton.HoverImage = global::MilitaryEngineering.Properties.Resources.EditHover;
             this.EditButton.Image = global::MilitaryEngineering.Properties.Resources.Edit;
-            this.EditButton.Location = new System.Drawing.Point(988, 42);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.EditButton.Location = new System.Drawing.Point(565, 23);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(44, 45);
+            this.EditButton.Size = new System.Drawing.Size(25, 25);
             this.EditButton.TabIndex = 11;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
@@ -131,10 +142,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.RemoveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.RemoveButton.HoverImage = global::MilitaryEngineering.Properties.Resources.CrossHover;
             this.RemoveButton.Image = global::MilitaryEngineering.Properties.Resources.Cross;
-            this.RemoveButton.Location = new System.Drawing.Point(1042, 42);
-            this.RemoveButton.Margin = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.RemoveButton.Location = new System.Drawing.Point(595, 23);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(44, 45);
+            this.RemoveButton.Size = new System.Drawing.Size(25, 25);
             this.RemoveButton.TabIndex = 10;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
@@ -145,9 +156,8 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.InfoLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.InfoLabel.Location = new System.Drawing.Point(0, 0);
-            this.InfoLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(1117, 127);
+            this.InfoLabel.Size = new System.Drawing.Size(638, 70);
             this.InfoLabel.TabIndex = 5;
             this.InfoLabel.Text = "No name";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -159,28 +169,14 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
-            // WorkTimeBox
-            // 
-            this.WorkTimeBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.WorkTimeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.WorkTimeBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.WorkTimeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.WorkTimeBox.Location = new System.Drawing.Point(814, 33);
-            this.WorkTimeBox.Margin = new System.Windows.Forms.Padding(5);
-            this.WorkTimeBox.Name = "WorkTimeBox";
-            this.WorkTimeBox.Size = new System.Drawing.Size(160, 62);
-            this.WorkTimeBox.TabIndex = 16;
-            this.WorkTimeBox.TextChanged += new System.EventHandler(this.WorkTimeBox_TextChanged);
-            // 
             // GainPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "GainPanel";
-            this.Size = new System.Drawing.Size(1180, 154);
+            this.Size = new System.Drawing.Size(674, 85);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
