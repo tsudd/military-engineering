@@ -166,9 +166,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 }
                 else
                 {
-                    textBox.BackColor = DefaultBoxColor;
-                    ChangedTime?.Invoke(GainIndex, Convert.ToDouble(textBox.Text));
+                    textBox.BackColor = DefaultBoxColor;              
                 }
+                ChangedTime?.Invoke(GainIndex, Convert.ToDouble(textBox.Text));
             }
             else
             {

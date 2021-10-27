@@ -179,7 +179,15 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private void DoneButton_Click(object sender, EventArgs e)
         {
             Sender.UpdateAndRemoveGains(GainsToUpdate.Values.ToList(), GainsToRemove);
-            Sender.UpdateGainsAmountsList(Amounts);
+            try
+            {
+                Sender.UpdateGainsAmountsList(Amounts);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             Close();
         }
 

@@ -267,6 +267,11 @@ namespace MilitaryEngineering.Fortification
             {
                 if (gainAmount.Value.Amount > 0)
                 {
+                    if (gainAmount.Value.WorkTime < 0)
+                    {
+                        throw new ArgumentException("Введите неотрицательное значение для времени усиления");
+                    }
+
                     GainsAmount += gainAmount.Value.Amount;
                     ans.Add(new KeyValuePair<Gain, GainAbility>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
                 }
