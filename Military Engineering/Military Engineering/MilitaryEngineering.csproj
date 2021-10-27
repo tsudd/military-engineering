@@ -266,5 +266,11 @@
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedHoverAlternative.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

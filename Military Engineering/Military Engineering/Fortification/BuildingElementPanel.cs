@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System;
 using MilitaryEngineering.Fortification.GainSelector;
 using System.Windows.Forms.DataVisualization.Charting;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -26,21 +27,20 @@ namespace MilitaryEngineering.Fortification
         public int GainsAmount { get; private set; } = 0;
         public FortificationForm FortForm {  get; private set; }
         public int ElementIndex { get; private set; }
-        Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor { get; set; }
-        Image prevImage {  get; set; }
+        Color chartForeColor;
         public BuildingElementPanel(FortificationForm fortificationForm, int key)
         {
             FortForm = fortificationForm;
             ElementIndex = key;
             InitializeComponent();
+            SetColorTheme();
             CheckBox.CheckBox_Checked += (sender, e) =>
             {
                 Checked = ((Controls.CheckBox)sender).Checked;
                 ElementChanged?.Invoke(sender, e);
             };
             ConfigureToolTip();
-            defaultColor = tableLayoutPanel1.BackColor;
             var element = FortForm.Board.GetElement(ElementIndex);
             ElementNameLabel.Text = element.Building.Name;
             FirstTurnLabel.Text = element.Building.GetFirstTurn().ToString("0.###");
@@ -70,6 +70,63 @@ namespace MilitaryEngineering.Fortification
             SoilTypeBox.SelectedIndexChanged += Evaluate;
             PollutionsBox.SelectedIndexChanged += Evaluate;
             AddGainButton.Click += Evaluate;
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            tableLayoutPanel1.BackColor = selectedTheme.MainSecondaryColor;
+
+            defaultColor = selectedTheme.SecondarySecondaryColor;
+
+            ChangeMainTableLabels(selectedTheme, tableLayoutPanel1);
+
+            FirstTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            SecondTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            FutureTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            AllTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+
+            chart1.BackColor = selectedTheme.MainSecondaryColor;
+            chart1.BorderlineColor = selectedTheme.MainMainColor;
+            chart1.ChartAreas["ChartArea1"].BackColor = selectedTheme.SecondarySecondaryColor;
+            chartForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddGainButton.ForeColor = selectedTheme.MainMainColor;
+
+            if(selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                CheckBox.ImgDefault = Properties.Resources.CheckBoxUncheckedAlternative;
+                CheckBox.ImgDefaultHower = Properties.Resources.CheckBoxUncheckedHoverAlternative;
+            }
+        }
+
+        private void ChangeMainTableLabels(ColorTheme colorTheme, object obj)
+        {
+            if (obj is TableLayoutPanel panel)
+            {
+                foreach (object obj1 in panel.Controls)
+                {
+                    ChangeMainTableLabels(colorTheme, obj1);
+                }
+            }
+            else if (obj is Label label)
+            {
+                label.ForeColor = colorTheme.SecondarySecondaryColor;
+            }
+            else if(obj is ComboBox comboBox)
+            {
+                comboBox.BackColor = colorTheme.SecondarySecondaryColor;
+                comboBox.ForeColor = colorTheme.MainForeColor;
+            }
+            else if(obj is TextBox textBox)
+            {
+                textBox.BackColor = colorTheme.SecondarySecondaryColor;
+                textBox.ForeColor = colorTheme.SecondaryForeColorAlternative;
+            }
         }
 
         void ConfigureToolTip()
@@ -115,7 +172,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.PeopleAmount);
-                PeopleAmountInput.BackColor = Color.FromArgb(119, 141, 169);
+                PeopleAmountInput.BackColor = defaultColor;
             }
             catch
             {
@@ -159,7 +216,7 @@ namespace MilitaryEngineering.Fortification
             chart1.ChartAreas[0].AxisY.MinorGrid.LineWidth = 0;
 
             chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Bahnschrift", 6, FontStyle.Regular);
-            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.FromArgb(166, 180, 199);
+            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = chartForeColor;
 
             FortForm.UpdateChartsInterval();
 
@@ -188,7 +245,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.ManPower);
-                ManPowerInput.BackColor = Color.FromArgb(119, 141, 169);
+                ManPowerInput.BackColor = defaultColor;
             }
             catch
             {
@@ -208,7 +265,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.Organization);
-                OrganizationInput.BackColor = Color.FromArgb(119, 141, 169);
+                OrganizationInput.BackColor = defaultColor;
             }
             catch
             {
@@ -228,7 +285,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.AttritionRate);
-                AttritionRateInput.BackColor = Color.FromArgb(119, 141, 169);
+                AttritionRateInput.BackColor = defaultColor;
             }
             catch
             {
@@ -248,7 +305,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.WorkTime);
-                WorkTimeInput.BackColor = Color.FromArgb(119, 141, 169);
+                WorkTimeInput.BackColor = defaultColor;
             }
             catch
             {
@@ -289,6 +346,5 @@ namespace MilitaryEngineering.Fortification
             form.Show(this);
             FortForm.Enabled = false; 
         }
-
     }
 }

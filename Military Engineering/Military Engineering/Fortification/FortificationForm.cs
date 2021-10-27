@@ -121,6 +121,12 @@ namespace MilitaryEngineering.Fortification
             AllFutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
             ChangeTableLabels(selectedTheme, MainTable);
+
+            if (selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                CheckBox.ImgDefault = Properties.Resources.CheckBoxUncheckedAlternative;
+                CheckBox.ImgDefaultHower = Properties.Resources.CheckBoxUncheckedHoverAlternative;
+            }
         }
 
         private void ChangeTableLabels(ColorTheme theme, object obj)

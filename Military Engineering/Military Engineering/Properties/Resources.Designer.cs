@@ -113,9 +113,29 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUncheckedAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckBoxUncheckedHover {
             get {
                 object obj = ResourceManager.GetObject("CheckBoxUncheckedHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUncheckedHoverAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedHoverAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
