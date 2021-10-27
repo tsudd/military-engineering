@@ -93,20 +93,19 @@ namespace MilitaryConfiguration.Properties {
         ///  &quot;ColorThemes&quot;: [
         ///    {
         ///      &quot;Name&quot;: &quot;Темная&quot;,
-        ///      &quot;MainMainColor&quot;: &quot;#0D1B2A&quot;,
-        ///      &quot;MainSecondaryColor&quot;: &quot;#1B263B&quot;,
-        ///      &quot;MainForeColor&quot;: &quot;#778DA9&quot;,
-        ///      &quot;SecondaryMainColor&quot;: &quot;#778DA9&quot;,
-        ///      &quot;SecondarySecondaryColor&quot;: &quot;#778DA9&quot;,
-        ///      &quot;SecondaryForeColor&quot;: &quot;#0D1B2A&quot;,
+        ///      &quot;MainMainColor&quot;: &quot;13, 27, 42&quot;,
+        ///      &quot;MainSecondaryColor&quot;: &quot;27, 38, 59&quot;,
+        ///      &quot;MainForeColor&quot;: &quot;119, 141, 169&quot;,
+        ///      &quot;SecondaryMainColor&quot;: &quot;119, 141, 169&quot;,
+        ///      &quot;SecondarySecondaryColor&quot;: &quot;119, 141, 169&quot;,
+        ///      &quot;SecondaryForeColor&quot;: &quot;13, 27, 42&quot;,
+        ///      &quot;SecondaryForeColorAlternative&quot;: &quot;13, 27, 42&quot;,
+        ///      &quot;HoverColor&quot;: &quot;107, 126, 152&quot;,
         ///      &quot;IconType&quot;: 0
         ///    },
         ///    {
         ///      &quot;Name&quot;: &quot;Министерство Обороны РБ&quot;,
-        ///      &quot;MainMainColor&quot;: &quot;#ffffff&quot;,
-        ///      &quot;MainSecondaryColor&quot;: &quot;#3b5430&quot;,
-        ///      &quot;MainForeColor&quot;: &quot;#000000&quot;,
-        ///      &quot;SecondaryMainColor&quot;: &quot;#5974 [rest of string was truncated]&quot;;.
+        ///      &quot;MainMainColor&quot;: &quot;W [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Themes {
             get {
