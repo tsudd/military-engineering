@@ -39,7 +39,6 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
@@ -82,6 +81,7 @@ namespace MilitaryEngineering.Fortification
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -177,7 +177,7 @@ namespace MilitaryEngineering.Fortification
             this.SoilTypeBox.Location = new System.Drawing.Point(170, 77);
             this.SoilTypeBox.Name = "SoilTypeBox";
             this.SoilTypeBox.Size = new System.Drawing.Size(139, 29);
-            this.SoilTypeBox.TabIndex = 13;
+            this.SoilTypeBox.TabIndex = 4;
             this.SoilTypeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // SoilTypeLabel
@@ -203,7 +203,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionsBox.Location = new System.Drawing.Point(170, 40);
             this.PollutionsBox.Name = "PollutionsBox";
             this.PollutionsBox.Size = new System.Drawing.Size(139, 29);
-            this.PollutionsBox.TabIndex = 10;
+            this.PollutionsBox.TabIndex = 3;
             this.PollutionsBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // PollutionLabel
@@ -241,22 +241,8 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.Location = new System.Drawing.Point(170, 3);
             this.DayTimeBox.Name = "DayTimeBox";
             this.DayTimeBox.Size = new System.Drawing.Size(139, 29);
-            this.DayTimeBox.TabIndex = 7;
+            this.DayTimeBox.TabIndex = 2;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.ImgChecked = global::MilitaryEngineering.Properties.Resources.CheckBoxChecked;
-            this.CheckBox.ImgCheckedHower = global::MilitaryEngineering.Properties.Resources.CheckBoxCheckedHover;
-            this.CheckBox.ImgDefault = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
-            this.CheckBox.ImgDefaultHower = global::MilitaryEngineering.Properties.Resources.CheckBoxUncheckedHover;
-            this.CheckBox.Location = new System.Drawing.Point(3, 40);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 31);
-            this.CheckBox.TabIndex = 14;
-            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // tableLayoutPanel12
             // 
@@ -309,7 +295,7 @@ namespace MilitaryEngineering.Fortification
             this.WorkTimeInput.Location = new System.Drawing.Point(372, 38);
             this.WorkTimeInput.Name = "WorkTimeInput";
             this.WorkTimeInput.Size = new System.Drawing.Size(117, 28);
-            this.WorkTimeInput.TabIndex = 24;
+            this.WorkTimeInput.TabIndex = 9;
             this.WorkTimeInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // ManPowerInput
@@ -321,7 +307,7 @@ namespace MilitaryEngineering.Fortification
             this.ManPowerInput.Location = new System.Drawing.Point(126, 38);
             this.ManPowerInput.Name = "ManPowerInput";
             this.ManPowerInput.Size = new System.Drawing.Size(117, 28);
-            this.ManPowerInput.TabIndex = 23;
+            this.ManPowerInput.TabIndex = 6;
             this.ManPowerInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // AttritionRateInput
@@ -333,7 +319,7 @@ namespace MilitaryEngineering.Fortification
             this.AttritionRateInput.Location = new System.Drawing.Point(372, 3);
             this.AttritionRateInput.Name = "AttritionRateInput";
             this.AttritionRateInput.Size = new System.Drawing.Size(117, 28);
-            this.AttritionRateInput.TabIndex = 22;
+            this.AttritionRateInput.TabIndex = 8;
             this.AttritionRateInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // OrganizationInput
@@ -345,7 +331,7 @@ namespace MilitaryEngineering.Fortification
             this.OrganizationInput.Location = new System.Drawing.Point(126, 73);
             this.OrganizationInput.Name = "OrganizationInput";
             this.OrganizationInput.Size = new System.Drawing.Size(117, 28);
-            this.OrganizationInput.TabIndex = 21;
+            this.OrganizationInput.TabIndex = 7;
             this.OrganizationInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // CoeffThoursLabel
@@ -369,7 +355,7 @@ namespace MilitaryEngineering.Fortification
             this.PeopleAmountInput.Location = new System.Drawing.Point(126, 3);
             this.PeopleAmountInput.Name = "PeopleAmountInput";
             this.PeopleAmountInput.Size = new System.Drawing.Size(117, 28);
-            this.PeopleAmountInput.TabIndex = 19;
+            this.PeopleAmountInput.TabIndex = 5;
             this.PeopleAmountInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // CoeffKorganizationLabel
@@ -445,7 +431,7 @@ namespace MilitaryEngineering.Fortification
             this.RemoveSelectedButton.Location = new System.Drawing.Point(3, 11);
             this.RemoveSelectedButton.Name = "RemoveSelectedButton";
             this.RemoveSelectedButton.Size = new System.Drawing.Size(288, 94);
-            this.RemoveSelectedButton.TabIndex = 2;
+            this.RemoveSelectedButton.TabIndex = 10;
             this.RemoveSelectedButton.TabStop = false;
             this.RemoveSelectedButton.Text = "Удалить выбранные";
             this.RemoveSelectedButton.UseVisualStyleBackColor = false;
@@ -836,6 +822,22 @@ namespace MilitaryEngineering.Fortification
             this.label12.TabIndex = 8;
             this.label12.Text = "График сроков фортоборудования";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // CheckBox
+            // 
+            this.CheckBox.BackgroundImage = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.ImgChecked = global::MilitaryEngineering.Properties.Resources.CheckBoxChecked;
+            this.CheckBox.ImgCheckedHower = global::MilitaryEngineering.Properties.Resources.CheckBoxCheckedHover;
+            this.CheckBox.ImgDefault = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.ImgDefaultHower = global::MilitaryEngineering.Properties.Resources.CheckBoxUncheckedHover;
+            this.CheckBox.Location = new System.Drawing.Point(3, 40);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 31);
+            this.CheckBox.TabIndex = 14;
+            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // FortificationForm
             // 

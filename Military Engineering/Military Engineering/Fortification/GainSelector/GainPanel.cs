@@ -73,6 +73,8 @@ namespace MilitaryEngineering.Fortification.GainSelector
             panel1.BackColor = selectedTheme.SecondaryMainColor;
             hoverColor = selectedTheme.HoverColor;
 
+            WorkTimeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+
             CounterLabel.BackColor = selectedTheme.SecondaryMainColor;
             CounterLabel.ForeColor = selectedTheme.SecondaryForeColor;
         }

@@ -175,8 +175,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             {
                 if (panel.GainEntry == prevGain)
                 {
-                    var index = Gains.IndexOf(prevGain);
-
                     AddGainToUpdateList(newGain);
                     panel.GainEntry = newGain;
                     panel.ConfigureToolTip();
@@ -201,16 +199,16 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
-            Sender.UpdateAndRemoveGains(GainsToUpdate.Values.ToList(), GainsToRemove);
             try
             {
-                Sender.UpdateGainsAmountsList(Amounts);
+                Sender.UpdateGainsAmountsList(Amounts, GainsToUpdate.Values.ToList());
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            Sender.UpdateAndRemoveGains(GainsToUpdate.Values.ToList(), GainsToRemove);
             Close();
         }
 

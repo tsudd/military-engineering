@@ -333,7 +333,7 @@ namespace MilitaryEngineering.Fortification
 
         public void RemoveGains(List<int> gainsToRemove)
         {
-            if (gainsToRemove is null)
+            if (gainsToRemove is null || gainsToRemove.Count == 0)
             {
                 return;
             }
@@ -353,7 +353,7 @@ namespace MilitaryEngineering.Fortification
 
         public void UpdateGains(List<Gain> gainsToUpdate)
         {
-            if (gainsToUpdate is null)
+            if (gainsToUpdate is null || gainsToUpdate.Count == 0)
                 return;
             foreach (var ga in gainsToUpdate)
             {

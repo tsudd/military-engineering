@@ -71,5 +71,15 @@ namespace CalculationsCore.FortificationBuilding
                 Building.Name,
                 DaysToSettle);
         }
+
+        public int GetGainsAmount()
+        {
+            int amount = 0;
+            foreach(var gains in Ability.BuildingGains)
+            {
+                amount += gains.Value.Amount;
+            }
+            return amount;
+        }
     }
 }

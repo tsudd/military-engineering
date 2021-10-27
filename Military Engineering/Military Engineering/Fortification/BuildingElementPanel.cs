@@ -24,7 +24,6 @@ namespace MilitaryEngineering.Fortification
         };
         public event EventHandler ElementChanged; 
         public bool Checked { get; set; } = false;
-        public int GainsAmount { get; private set; } = 0;
         public FortificationForm FortForm {  get; private set; }
         public int ElementIndex { get; private set; }
         Color defaultColor { get; set; }
@@ -69,7 +68,6 @@ namespace MilitaryEngineering.Fortification
             DayTimeBox.SelectedIndexChanged += Evaluate;
             SoilTypeBox.SelectedIndexChanged += Evaluate;
             PollutionsBox.SelectedIndexChanged += Evaluate;
-            AddGainButton.Click += Evaluate;
         }
 
         private void SetColorTheme()
@@ -186,7 +184,7 @@ namespace MilitaryEngineering.Fortification
             try
             {
                 var calc = FortForm.Board.GetElement(ElementIndex);
-                AddGainButton.Text = $"Всего {GainsAmount}";
+                AddGainButton.Text = calc.GetGainsAmount().ToString();
                 FirstTurnEvaluationLabel.Text = calc.EvaluateFirstTurn().ToString();
                 SecondTurnEvaluationLabel.Text = calc.EvaluateSecondTurn().ToString();
                 FutureTurnEvaluationLabel.Text = calc.EvaluateFutureTurn().ToString();
@@ -314,31 +312,45 @@ namespace MilitaryEngineering.Fortification
             ElementChanged?.Invoke(sender, e);
         }
 
-        public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAmounts)
+        public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAbilities, List<Gain> createdGains = null)
         {
-            if (gainsAmounts == null)
+            if (gainsAbilities == null)
                 return;
-            GainsAmount = 0;
             var ans = new List<KeyValuePair<Gain, GainAbility>>();
-            foreach (var gainAmount in gainsAmounts)
+            foreach (var gainAbility in gainsAbilities)
             {
-                if (gainAmount.Value.Amount > 0)
+                if (gainAbility.Value.Amount > 0)
                 {
-                    if (gainAmount.Value.WorkTime <= 0 || gainAmount.Value.WorkTime  > 24)
+                    if (gainAbility.Value.WorkTime <= 0 || gainAbility.Value.WorkTime  > 24)
                     {
                         throw new ArgumentException("Введите положительные часы работы");
                     }
-
-                    GainsAmount += gainAmount.Value.Amount;
-                    ans.Add(new KeyValuePair<Gain, GainAbility>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
+                    var gain = FortForm.GetGainById(gainAbility.Key);
+                    if (gain == null && createdGains != null) // really hate this code
+                    {
+                        foreach(var g in createdGains)
+                        {
+                            if (g.Id == gainAbility.Key)
+                            {
+                                gain = g;
+                                break;
+                            }
+                        }
+                    }
+                    else if (gain == null)
+                    {
+                        continue;
+                    }
+                    ans.Add(new KeyValuePair<Gain, GainAbility>(gain, gainAbility.Value));
                 }
             }
             FortForm.Board.UpdateElementAbility(ElementIndex, ans, AbilityType.BuildingGain);
+            //FortForm.EvaluateElements();
         }
 
-        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainToRemove)
+        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainsToRemove)
         {
-            FortForm.UpdateAndRemoveGains(gainsToUpdate, gainToRemove);
+            FortForm.UpdateAndRemoveGains(gainsToUpdate, gainsToRemove);
         }
 
         private void AddGainButton_Click(object sender, System.EventArgs e)
