@@ -1,4 +1,5 @@
 ﻿using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 using MilitaryEngineering.Fortification.GainSelector;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,32 @@ namespace MilitaryEngineering.Fortification
         public GainCreatorForm(GainSelectorForm sender)
         {
             InitializeComponent();
+            SetColorTheme();
             DefaultColor = TrenchPerfomanceBox.BackColor;
             Sender = sender;
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            TrenchPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            PitPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            NameTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            TrenchPerfomanceBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            PitPerfomanceBox.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddGainButton.ForeColor = selectedTheme.SecondaryForeColor;
         }
 
         public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)

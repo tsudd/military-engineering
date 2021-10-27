@@ -8,6 +8,8 @@ using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using MilitaryEngineering.Fortification;
 using MilitaryConfiguration.Configurations;
 using CalculationsCore.FortificationBuilding.BuildingDefinition;
+using ColorThemeManager;
+using System.Linq;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -41,6 +43,105 @@ namespace MilitaryEngineering.Fortification
             //PollutionsBox.SelectedItem = null;
 
             MainTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 120);
+            SetColorTheme();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainMainColor;
+            ForeColor = selectedTheme.MainForeColor;
+
+            //header labels
+            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            DayTimeLabel.BackColor = selectedTheme.MainSecondaryColor;
+            DayTimeLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            PollutionLabel.BackColor = selectedTheme.MainSecondaryColor;
+            PollutionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            SoilTypeLabel.BackColor = selectedTheme.MainSecondaryColor;
+            SoilTypeLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffNpersonnelLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffNpersonnelLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKcallingLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKcallingLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKorganizationLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKorganizationLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKstaffingLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKstaffingLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffThoursLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffThoursLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            DayTimeBox.BackColor = selectedTheme.MainMainColor;
+            DayTimeBox.ForeColor = selectedTheme.MainForeColor;
+
+            PollutionsBox.BackColor = selectedTheme.MainMainColor;
+            PollutionsBox.ForeColor = selectedTheme.MainForeColor;
+
+            SoilTypeBox.BackColor = selectedTheme.MainMainColor;
+            SoilTypeBox.ForeColor = selectedTheme.MainForeColor;
+
+            PeopleAmountInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            OrganizationInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            AttritionRateInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            ManPowerInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            WorkTimeInput.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            RemoveSelectedButton.BackColor = selectedTheme.SecondaryMainColor;
+            RemoveSelectedButton.ForeColor = selectedTheme.SecondaryForeColor;
+            
+            FooterPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            AllLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllAllTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllAllTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllFirstTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllFirstTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllSecondTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllSecondTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllFutureTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllFutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            ChangeTableLabels(selectedTheme, MainTable);
+
+            if (selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                CheckBox.ImgDefault = Properties.Resources.CheckBoxUncheckedAlternative;
+                CheckBox.ImgDefaultHower = Properties.Resources.CheckBoxUncheckedHoverAlternative;
+            }
+        }
+
+        private void ChangeTableLabels(ColorTheme theme, object obj)
+        {
+            if(obj is TableLayoutPanel panel)
+            {
+                foreach (object obj1 in panel.Controls)
+                {
+                    ChangeTableLabels(theme, obj1);
+                }
+            }
+            else if(obj is Label label)
+            {
+                label.ForeColor = theme.MainForeColor;
+            }
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)

@@ -13,6 +13,25 @@ namespace MilitaryEngineering.Controls
     public partial class CheckBox : UserControl
     {
         private bool _checked;
+
+        private Image imgDefault;
+        public Image ImgDefault 
+        {
+            get
+            {
+                return imgDefault;
+            }
+            set
+            {
+                imgDefault = value;
+                BackgroundImage = imgDefault;
+            }
+        }
+        public Image ImgDefaultHower { get; set; }
+        public Image ImgChecked { get; set; }
+        public Image ImgCheckedHower { get; set; }
+
+
         public bool Checked 
         {  
             get 
@@ -22,13 +41,13 @@ namespace MilitaryEngineering.Controls
             set 
             {
                 _checked = value;
-                if (_checked)
+                if(_checked)
                 {
-                    button.BackgroundImage = Properties.Resources.CheckBoxChecked;
+                    BackgroundImage = ImgChecked;
                 }
                 else
                 {
-                    button.BackgroundImage = Properties.Resources.CheckBoxUnchecked;
+                    BackgroundImage = ImgDefault;
                 }
             } 
         }
@@ -37,41 +56,63 @@ namespace MilitaryEngineering.Controls
         public CheckBox()
         {
             InitializeComponent();
+            Setup();
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void CheckBox_Click(object sender, EventArgs e)
         {
-            if (Checked)
+            if(Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
-                PrevImage = Properties.Resources.CheckBoxUnchecked;
+                BackgroundImage = ImgDefaultHower;
+                PrevImage = ImgDefault;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
-                PrevImage = Properties.Resources.CheckBoxChecked;
+                BackgroundImage = ImgCheckedHower;
+                PrevImage = ImgChecked;
             }
-            Checked = !Checked;
+            _checked = !_checked;
             
             CheckBox_Checked?.Invoke(this, EventArgs.Empty);
         }
 
-        private void button_MouseEnter(object sender, EventArgs e)
+        private void CheckBox_MouseEnter(object sender, EventArgs e)
         {
-            PrevImage = button.BackgroundImage;
-            if (Checked)
+            PrevImage = BackgroundImage;
+            if(Checked)
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxCheckedHover;
+                BackgroundImage = ImgCheckedHower;
             }
             else
             {
-                button.BackgroundImage = Properties.Resources.CheckBoxUncheckedHover;
+                BackgroundImage = ImgDefaultHower;
             }
         }
 
-        private void button_MouseLeave(object sender, EventArgs e)
+        private void CheckBox_MouseLeave(object sender, EventArgs e)
         {
-            button.BackgroundImage = PrevImage;
+            BackgroundImage = PrevImage;
+        }
+
+        private void Setup()
+        {
+            //button.BackColor = Parent.BackColor;
+            //Parent.BackColorChanged += (sender, e) =>
+            //{
+            //    button.BackColor = Parent.BackColor;
+            //};
+        }
+
+        private void CheckBox_Load(object sender, EventArgs e)
+        {
+            if (_checked)
+            {
+                BackgroundImage = ImgChecked;
+            }
+            else
+            {
+                BackgroundImage = ImgDefault;
+            }
         }
     }
 }

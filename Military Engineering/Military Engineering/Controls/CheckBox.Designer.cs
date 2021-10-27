@@ -29,37 +29,23 @@ namespace MilitaryEngineering.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.button = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button
-            // 
-            this.button.BackgroundImage = MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
-            this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button.FlatAppearance.BorderSize = 0;
-            this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button.Location = new System.Drawing.Point(0, 0);
-            this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(150, 150);
-            this.button.TabIndex = 15;
-            this.button.UseVisualStyleBackColor = true;
-            this.button.Click += new System.EventHandler(this.button_Click);
-            this.button.MouseEnter += new System.EventHandler(this.button_MouseEnter);
-            this.button.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
             // CheckBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "CheckBox";
+            this.Load += new System.EventHandler(this.CheckBox_Load);
+            this.Click += new System.EventHandler(this.CheckBox_Click);
+            this.DoubleClick += new System.EventHandler(this.CheckBox_Click);
+            this.MouseEnter += new System.EventHandler(this.CheckBox_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.CheckBox_MouseLeave);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button;
     }
 }

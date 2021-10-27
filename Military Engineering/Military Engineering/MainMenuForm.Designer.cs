@@ -38,6 +38,8 @@ namespace MilitaryEngineering
             this.FortificationButton = new System.Windows.Forms.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.PreviewPictureBox = new System.Windows.Forms.PictureBox();
+            this.ThemeLabel = new System.Windows.Forms.Label();
+            this.ThemesBox = new System.Windows.Forms.ComboBox();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +50,8 @@ namespace MilitaryEngineering
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.LeftPanel.Controls.Add(this.ThemesBox);
+            this.LeftPanel.Controls.Add(this.ThemeLabel);
             this.LeftPanel.Controls.Add(this.button3);
             this.LeftPanel.Controls.Add(this.button2);
             this.LeftPanel.Controls.Add(this.button1);
@@ -56,7 +60,7 @@ namespace MilitaryEngineering
             this.LeftPanel.Controls.Add(this.FortificationButton);
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(490, 640);
+            this.LeftPanel.Size = new System.Drawing.Size(490, 699);
             this.LeftPanel.TabIndex = 0;
             // 
             // button3
@@ -174,6 +178,7 @@ namespace MilitaryEngineering
             // 
             // PreviewPictureBox
             // 
+            this.PreviewPictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PreviewPictureBox.Image = global::MilitaryEngineering.Properties.Resources.Main;
             this.PreviewPictureBox.Location = new System.Drawing.Point(580, 170);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
@@ -182,12 +187,34 @@ namespace MilitaryEngineering
             this.PreviewPictureBox.TabIndex = 1;
             this.PreviewPictureBox.TabStop = false;
             // 
+            // ThemeLabel
+            // 
+            this.ThemeLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.ThemeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.ThemeLabel.Location = new System.Drawing.Point(12, 598);
+            this.ThemeLabel.Name = "ThemeLabel";
+            this.ThemeLabel.Size = new System.Drawing.Size(83, 36);
+            this.ThemeLabel.TabIndex = 6;
+            this.ThemeLabel.Text = "Тема:";
+            this.ThemeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ThemesBox
+            // 
+            this.ThemesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ThemesBox.FormattingEnabled = true;
+            this.ThemesBox.Location = new System.Drawing.Point(101, 606);
+            this.ThemesBox.Name = "ThemesBox";
+            this.ThemesBox.Size = new System.Drawing.Size(241, 25);
+            this.ThemesBox.TabIndex = 7;
+            this.ThemesBox.TabStop = false;
+            this.ThemesBox.SelectedIndexChanged += new System.EventHandler(this.ThemesBox_SelectedIndexChanged);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(1246, 584);
+            this.ClientSize = new System.Drawing.Size(1246, 643);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.PreviewPictureBox);
             this.Controls.Add(this.LeftPanel);
@@ -216,6 +243,8 @@ namespace MilitaryEngineering
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.PictureBox PreviewPictureBox;
         public System.Windows.Forms.Label InfoLabel;
+        private System.Windows.Forms.ComboBox ThemesBox;
+        public System.Windows.Forms.Label ThemeLabel;
     }
 }
 

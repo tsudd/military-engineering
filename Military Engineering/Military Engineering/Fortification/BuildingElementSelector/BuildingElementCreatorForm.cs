@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
@@ -15,7 +16,34 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             this.sender = sender;
             InitializeComponent();
+            SetColorTheme();
             DefaultColor = FirstTurnTextBox.BackColor;
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            FirstTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            SecondTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            FutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            PitRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
+            TrenchRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            NameTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            FirstTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            SecondTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            FutureTurnsTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
         }
 
         public BuildingElementCreatorForm(BuildingElementSelectorForm sender, BuildingElement edit) : this(sender)

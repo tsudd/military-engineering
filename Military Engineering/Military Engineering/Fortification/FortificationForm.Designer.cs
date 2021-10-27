@@ -59,7 +59,7 @@ namespace MilitaryEngineering.Fortification
             this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
             this.AllAllTurnsLabel = new System.Windows.Forms.Label();
             this.AllSecondTurnsLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.AllLabel = new System.Windows.Forms.Label();
             this.AllFirstTurnsLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -248,6 +248,10 @@ namespace MilitaryEngineering.Fortification
             // 
             this.CheckBox.Checked = false;
             this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.ImgChecked = global::MilitaryEngineering.Properties.Resources.CheckBoxChecked;
+            this.CheckBox.ImgCheckedHower = global::MilitaryEngineering.Properties.Resources.CheckBoxCheckedHover;
+            this.CheckBox.ImgDefault = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.ImgDefaultHower = global::MilitaryEngineering.Properties.Resources.CheckBoxUncheckedHover;
             this.CheckBox.Location = new System.Drawing.Point(3, 40);
             this.CheckBox.Name = "CheckBox";
             this.CheckBox.Size = new System.Drawing.Size(34, 31);
@@ -472,7 +476,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel5.Controls.Add(this.AllFutureTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllAllTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllSecondTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.AllLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllFirstTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -517,17 +521,17 @@ namespace MilitaryEngineering.Fortification
             this.AllSecondTurnsLabel.Text = "Всего";
             this.AllSecondTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // AllLabel
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(293, 90);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Всего";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AllLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllLabel.Location = new System.Drawing.Point(3, 0);
+            this.AllLabel.Name = "AllLabel";
+            this.AllLabel.Size = new System.Drawing.Size(293, 90);
+            this.AllLabel.TabIndex = 6;
+            this.AllLabel.Text = "Всего";
+            this.AllLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AllFirstTurnsLabel
             // 
@@ -902,7 +906,7 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label AllFutureTurnsLabel;
         public System.Windows.Forms.Label AllAllTurnsLabel;
         public System.Windows.Forms.Label AllSecondTurnsLabel;
-        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label AllLabel;
         private System.Windows.Forms.Button RemoveSelectedButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;

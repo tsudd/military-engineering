@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
@@ -18,6 +19,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public GainSelectorForm(BuildingElementPanel sender)
         {
             InitializeComponent();
+            SetColorTheme();
             Sender = sender;
             foreach(var gain in Sender.FortForm.Config.Gains)
             {
@@ -36,6 +38,27 @@ namespace MilitaryEngineering.Fortification.GainSelector
             }
             AddEntries();
             UpdateAmountLabel();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            DoneButton.BackColor = selectedTheme.SecondaryMainColor;
+            DoneButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            NoChangesButton.BackColor = selectedTheme.SecondaryMainColor;
+            NoChangesButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            AmountLabel.ForeColor = selectedTheme.MainForeColor;
+
+            CreateGainButton.BackColor = selectedTheme.SecondaryMainColor;
+
         }
 
         private void GainSelectorForm_Load(object sender, EventArgs e)

@@ -178,4 +178,35 @@
     ]
 }</value>
   </data>
+  <data name="Themes" xml:space="preserve">
+    <value>{
+  "ColorThemes": [
+    {
+      "Name": "Темная",
+      "MainMainColor": "13, 27, 42",
+      "MainSecondaryColor": "27, 38, 59",
+      "MainForeColor": "119, 141, 169",
+      "SecondaryMainColor": "119, 141, 169",
+      "SecondarySecondaryColor": "119, 141, 169",
+      "SecondaryForeColor": "13, 27, 42",
+      "SecondaryForeColorAlternative": "13, 27, 42",
+      "HoverColor": "107, 126, 152",
+      "IconType": 0
+    },
+    {
+      "Name": "Министерство Обороны РБ",
+      "MainMainColor": "White",
+      "MainSecondaryColor": "59, 84, 48",
+      "MainForeColor": "Black",
+      "SecondaryMainColor": "89, 116, 78",
+      "SecondarySecondaryColor": "White",
+      "SecondaryForeColor": "White",
+      "SecondaryForeColorAlternative": "Black",
+      "HoverColor": "77, 109, 65",
+      "IconType": 1
+    }
+  ],
+  "Selected": 1
+}</value>
+  </data>
 </root>

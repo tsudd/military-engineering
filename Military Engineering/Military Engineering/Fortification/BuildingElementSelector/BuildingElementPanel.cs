@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
@@ -12,18 +13,32 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         public event EventHandler Edited;
         public event EventHandler Removed;
         TextAutoAdjuster textAutoAdjuster;
-        Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
+        Color hoverColor { get; set; }
         Color defaultColor {  get; set; }
 
         public BuildingElementPanel(BuildingElement buildingElement)
         {
             BuildingElement = buildingElement;
             InitializeComponent();
+            SetColorTheme();
             textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - EditButton.Location.X);
             defaultColor = panel1.BackColor;
             InfoLabel.Text = buildingElement.Name;
             RemoveButton.Visible = false;
             EditButton.Visible = false;
+            
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
+            InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
+            panel1.BackColor = selectedTheme.SecondaryMainColor;
+            hoverColor = selectedTheme.HoverColor;
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
@@ -73,6 +88,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Removed?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void EditButton_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

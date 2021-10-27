@@ -32,7 +32,7 @@ namespace MilitaryConfiguration
         {
             using(var sw = new StreamWriter(fileName))
             {
-                sw.Write(JsonConvert.SerializeObject(configuration));
+                sw.Write(JsonConvert.SerializeObject(configuration, Formatting.Indented));
             }
         }
 
