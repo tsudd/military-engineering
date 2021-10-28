@@ -49,9 +49,9 @@
                 * gainAbility.WorkTime;
         }
 
-        private double DeterminePerformance(ElementType type)
+        private double DeterminePerformance(ElementTypes type)
         {
-            return (type == ElementType.Pit) ? PitPerformance : TrenchPerformance;
+            return (type == ElementTypes.Pit) ? PitPerformance : TrenchPerformance;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace MilitaryEngineering.Fortification
     public partial class BuildingElementPanel : UserControl
     {
         public const string ERROR_TEXT = "Ошибка";
-        public static readonly Dictionary<string, string> coeffInfo = new Dictionary<string, string>()
+        private Dictionary<string, string> tooltipDict = new Dictionary<string, string>()
         {
             { "CoeffNpersonnelLabel", "Количество личного состава в соединении (воинской части) по штату, чел" },
             { "CoeffKstaffingLabel", "Коэффициент, учитывающий укомплектованность соединения (воинской части) \nк моменту начала выполнения задач" },
@@ -39,8 +39,11 @@ namespace MilitaryEngineering.Fortification
                 Checked = ((Controls.CheckBox)sender).Checked;
                 ElementChanged?.Invoke(sender, e);
             };
-            ConfigureToolTip();
+            
             var element = FortForm.Board.GetElement(ElementIndex);
+            tooltipDict.Add("ElementNameLabel", element.Building.Description);
+
+            ConfigureToolTip();
             ElementNameLabel.Text = element.Building.Name;
             FirstTurnLabel.Text = element.Building.GetFirstTurn().ToString("0.###");
             SecondTurnLabel.Text = element.Building.GetSecondTurn().ToString("0.###");
@@ -129,7 +132,7 @@ namespace MilitaryEngineering.Fortification
 
         void ConfigureToolTip()
         {
-            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, coeffInfo);
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, tooltipDict);
             autoMapper.Map();
             CoeffInfoToolTip.OwnerDraw = true;
             CoeffInfoToolTip.Draw += (sender, e) =>

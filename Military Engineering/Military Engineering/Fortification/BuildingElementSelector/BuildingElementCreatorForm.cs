@@ -33,6 +33,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             SecondTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             FutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
             PitRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
             TrenchRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
@@ -41,9 +42,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             SecondTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             FutureTurnsTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
             AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
         }
 
         public BuildingElementCreatorForm(BuildingElementSelectorForm sender, BuildingElement edit) : this(sender)
@@ -53,7 +56,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.Text = edit.FirstTurn.ToString("0.###"); 
             SecondTurnTextBox.Text = edit.SecondTurn.ToString("0.###");
             FutureTurnsTextBox.Text = edit.FutureTurn.ToString("0.###");
-            if(edit.ElementType == ElementType.Trench)
+            DescriptionTextBox.Text = edit.Description;
+            if(edit.ElementType == ElementTypes.Trench)
             {
                 TrenchRadioButton.Checked = true;
             }
@@ -73,7 +77,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 parsed[1],
                 parsed[2],
                 checkBox1.Checked,
-                PitRadioButton.Checked ? ElementType.Pit : ElementType.Trench);
+                PitRadioButton.Checked ? ElementTypes.Pit : ElementTypes.Trench);
+
+            buildingElement.Description = DescriptionTextBox.Text;
 
             if(BuildingElement == null)
             {

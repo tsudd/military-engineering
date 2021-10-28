@@ -1,13 +1,21 @@
 using CalculationsCore.FortificationBuilding.BuildingConditions;
 using CalculationsCore.FortificationBuilding.BuildingDefinition;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CalculationsCore.FortificationBuilding
 {
-    public enum ElementType
+    public enum ElementTypes
     {
         Trench,
         Pit
+    }
+    public enum BuildingTypes
+    {
+        Element,
+        Composition
     }
 
     public class BuildingElement : IBuilding
@@ -20,7 +28,8 @@ namespace CalculationsCore.FortificationBuilding
         public string Name { get; set; }
         public string Description { get; set; } = "Single object";
         public int Id { get; set; } = 0;
-        public ElementType ElementType {  get; set; } = ElementType.Pit; //will be adjusted in future
+        public ElementTypes ElementType {  get; set; } = ElementTypes.Pit; //will be adjusted in future
+        public BuildingTypes BuildingType { get; set; } = BuildingTypes.Element;
 
         public bool IsDefault { get; set; }
 
@@ -32,7 +41,8 @@ namespace CalculationsCore.FortificationBuilding
             double secondTurn, 
             double futurTurns, 
             bool isDefault, 
-            ElementType elementType = ElementType.Pit)
+            ElementTypes elementType = ElementTypes.Pit,
+            BuildingTypes buildingType = BuildingTypes.Element)
         {
             Name = name;
             FirstTurn = firstTurn;
@@ -40,6 +50,41 @@ namespace CalculationsCore.FortificationBuilding
             FutureTurn = futurTurns;
             IsDefault = isDefault;
             ElementType = elementType;
+            BuildingType = buildingType;
+        }
+
+        public static BuildingElement CreateComposition(List<(BuildingElement, int)> elements, string name, string description = null)
+        {
+            BuildingElement buildingElement = new BuildingElement(name);
+            buildingElement.FirstTurn = elements.Sum(e => e.Item1.FirstTurn * e.Item2);
+            buildingElement.SecondTurn = elements.Sum(e => e.Item1.SecondTurn * e.Item2);
+            buildingElement.FutureTurn = elements.Sum(e => e.Item1.FutureTurn * e.Item2);
+
+            buildingElement.BuildingType = BuildingTypes.Composition;
+            buildingElement.ElementType = ElementTypes.Pit;
+
+            if(description == null)
+            {
+                StringBuilder autoDescription = new StringBuilder();
+                List<(BuildingElement, int)> compositions = elements.Where(e => e.Item1.BuildingType == BuildingTypes.Composition).ToList();
+                List<(BuildingElement, int)> simples = elements.Where(e => e.Item1.BuildingType == BuildingTypes.Element).ToList();
+
+                if(compositions.Count > 0)
+                {
+                    autoDescription.AppendLine("Композиции:");
+                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name};");
+                }
+
+                if (simples.Count > 0)
+                {
+                    autoDescription.AppendLine("Композиции:");
+                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name};");
+                }
+            }
+            else
+            {
+                buildingElement.Description = description;
+            }
         }
 
         public double GetFirstTurn()

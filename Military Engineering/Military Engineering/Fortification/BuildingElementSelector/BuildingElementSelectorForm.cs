@@ -22,7 +22,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             InitializeComponent();
             SetColorTheme();
             Sender = sender;
-            foreach(BuildingElement buildingElement in buildingElements)
+            foreach(BuildingElement buildingElement in buildingElements.Where(e => e.BuildingType == BuildingTypes.Element))
             {
                 AddNewElement(buildingElement);
             }
