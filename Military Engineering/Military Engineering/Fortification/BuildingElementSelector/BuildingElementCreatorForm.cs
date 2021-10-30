@@ -42,10 +42,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             SecondTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             FutureTurnsTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
-            DescriptionTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
             AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
 
         }
 
@@ -56,7 +57,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.Text = edit.FirstTurn.ToString("0.###"); 
             SecondTurnTextBox.Text = edit.SecondTurn.ToString("0.###");
             FutureTurnsTextBox.Text = edit.FutureTurn.ToString("0.###");
-            DescriptionTextBox.Text = edit.Description;
+            DescriptionBox.Text = edit.Description;
             if(edit.ElementType == ElementTypes.Trench)
             {
                 TrenchRadioButton.Checked = true;
@@ -79,7 +80,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 checkBox1.Checked,
                 PitRadioButton.Checked ? ElementTypes.Pit : ElementTypes.Trench);
 
-            buildingElement.Description = DescriptionTextBox.Text;
+            buildingElement.Description = DescriptionBox.Text;
 
             if(BuildingElement == null)
             {

@@ -42,6 +42,8 @@ namespace MilitaryEngineering.Fortification
 
             AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
             AddGainButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
         }
 
         public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)
@@ -51,6 +53,9 @@ namespace MilitaryEngineering.Fortification
             DescriptionBox.Text = edit.Description;
             TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
             PitPerfomanceBox.Text = edit.PitPerformance.ToString("0.###");
+            DefaultDescriptionCheckBox.Checked = false;
+            DescriptionLabel.Enabled = true;
+            DescriptionBox.Enabled = true;
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -62,10 +67,11 @@ namespace MilitaryEngineering.Fortification
             }
 
             Gain gain = new Gain(
-                DescriptionBox.Text,
                 parsed[0],
                 parsed[1],
-                NameTextBox.Text);
+                NameTextBox.Text,
+                description: DefaultDescriptionCheckBox.Checked ? null : DescriptionBox.Text);
+
             if (PrevGain is null)
             {
                 Sender.CreateEntry(gain);
@@ -116,6 +122,12 @@ namespace MilitaryEngineering.Fortification
             {
                 textBox.BackColor = DefaultColor;
             }
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
+            DescriptionLabel.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

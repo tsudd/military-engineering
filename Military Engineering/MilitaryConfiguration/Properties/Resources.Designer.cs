@@ -62,25 +62,23 @@ namespace MilitaryConfiguration.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to {
-        ///    &quot;BuildingElements&quot;: [],
-        ///    &quot;Gains&quot;: [
-        ///        {
-        ///            &quot;Name&quot;: &quot;БТМ-3&quot;,
-        ///            &quot;Description&quot;: &quot;&quot;,
-        ///            &quot;Amount&quot;: 0,
-        ///            &quot;TrenchPerformance&quot;: 500.0,
-        ///            &quot;PitPerformance&quot;: 0.0,
-        ///            &quot;IsDefault&quot;: true,
-        ///            &quot;Id&quot;: 8359
-        ///        },
-        ///        {
-        ///            &quot;Name&quot;: &quot;ПЗМ-2&quot;,
-        ///            &quot;Description&quot;: &quot;&quot;,
-        ///            &quot;Amount&quot;: 0,
-        ///            &quot;TrenchPerformance&quot;: 120.0,
-        ///            &quot;PitPerformance&quot;: 90.0,
-        ///            &quot;IsDefault&quot;: true,
-        ///            [rest of string was truncated]&quot;;.
+        ///  &quot;BuildingElements&quot;: [],
+        ///  &quot;Gains&quot;: [
+        ///    {
+        ///      &quot;Name&quot;: &quot;БТМ-3&quot;,
+        ///      &quot;Description&quot;: &quot;Производительность:\r\nдля траншей - 500\r\nдля котлованов - 0\r\n&quot;,
+        ///      &quot;TrenchPerformance&quot;: 500.0,
+        ///      &quot;PitPerformance&quot;: 0.0,
+        ///      &quot;Id&quot;: 8359,
+        ///      &quot;IsDefault&quot;: true
+        ///    },
+        ///    {
+        ///      &quot;Name&quot;: &quot;ПЗМ-2&quot;,
+        ///      &quot;Description&quot;: &quot;Производительность:\r\nдля траншей - 120\r\nдля котлованов - 90\r\n&quot;,
+        ///      &quot;TrenchPerformance&quot;: 120.0,
+        ///      &quot;PitPerformance&quot;: 90.0,
+        ///      &quot;Id&quot;: 4618,
+        ///      &quot;IsDefault&quot;:  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FortificationConfiguration {
             get {

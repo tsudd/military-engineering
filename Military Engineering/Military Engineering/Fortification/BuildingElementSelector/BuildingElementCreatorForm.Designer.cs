@@ -31,6 +31,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             this.InfoLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.DescriptionBox = new System.Windows.Forms.RichTextBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
             this.TrenchRadioButton = new System.Windows.Forms.RadioButton();
             this.PitRadioButton = new System.Windows.Forms.RadioButton();
             this.FutureTurnsTextBox = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.NameLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.DescriptionTextBox = new System.Windows.Forms.RichTextBox();
             this.HeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-            this.HeaderPanel.Controls.Add(this.DescriptionTextBox);
+            this.HeaderPanel.Controls.Add(this.DescriptionBox);
             this.HeaderPanel.Controls.Add(this.DescriptionLabel);
             this.HeaderPanel.Controls.Add(this.TrenchRadioButton);
             this.HeaderPanel.Controls.Add(this.PitRadioButton);
@@ -79,6 +79,28 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.HeaderPanel.Name = "HeaderPanel";
             this.HeaderPanel.Size = new System.Drawing.Size(667, 530);
             this.HeaderPanel.TabIndex = 5;
+            // 
+            // DescriptionBox
+            // 
+            this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.DescriptionBox.Location = new System.Drawing.Point(10, 345);
+            this.DescriptionBox.Name = "DescriptionBox";
+            this.DescriptionBox.Size = new System.Drawing.Size(631, 96);
+            this.DescriptionBox.TabIndex = 16;
+            this.DescriptionBox.Text = "";
+            // 
+            // DescriptionLabel
+            // 
+            this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionLabel.Location = new System.Drawing.Point(8, 271);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(312, 85);
+            this.DescriptionLabel.TabIndex = 15;
+            this.DescriptionLabel.Text = "Описание";
+            this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TrenchRadioButton
             // 
@@ -219,28 +241,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.checkBox1.Text = "Сделать стандартным";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // DescriptionLabel
-            // 
-            this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DescriptionLabel.Location = new System.Drawing.Point(8, 271);
-            this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(312, 85);
-            this.DescriptionLabel.TabIndex = 15;
-            this.DescriptionLabel.Text = "Описание";
-            this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // DescriptionTextBox
-            // 
-            this.DescriptionTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DescriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.DescriptionTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.DescriptionTextBox.Location = new System.Drawing.Point(10, 345);
-            this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(631, 96);
-            this.DescriptionTextBox.TabIndex = 16;
-            this.DescriptionTextBox.Text = "";
-            // 
             // BuildingElementCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -279,7 +279,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.RadioButton TrenchRadioButton;
         private System.Windows.Forms.RadioButton PitRadioButton;
-        private System.Windows.Forms.RichTextBox DescriptionTextBox;
+        private System.Windows.Forms.RichTextBox DescriptionBox;
         public System.Windows.Forms.Label DescriptionLabel;
     }
 }

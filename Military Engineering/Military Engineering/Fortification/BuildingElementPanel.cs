@@ -28,6 +28,8 @@ namespace MilitaryEngineering.Fortification
         public int ElementIndex { get; private set; }
         Color defaultColor { get; set; }
         Color chartForeColor;
+
+        ColorTheme selectedTheme;
         public BuildingElementPanel(FortificationForm fortificationForm, int key)
         {
             FortForm = fortificationForm;
@@ -76,7 +78,7 @@ namespace MilitaryEngineering.Fortification
         private void SetColorTheme()
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
-            ColorTheme selectedTheme = themeManager.ColorTheme;
+            selectedTheme = themeManager.ColorTheme;
 
             BackColor = selectedTheme.MainMainColor;
             tableLayoutPanel1.BackColor = selectedTheme.MainSecondaryColor;
@@ -134,14 +136,8 @@ namespace MilitaryEngineering.Fortification
         {
             ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, tooltipDict);
             autoMapper.Map();
-            CoeffInfoToolTip.OwnerDraw = true;
-            CoeffInfoToolTip.Draw += (sender, e) =>
-            {
-                Font f = new Font("Arial", 9f);
-                e.DrawBackground();
-                e.DrawBorder();
-                e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
-            };
+           
+            autoMapper.Configure(selectedTheme);
         }
 
         private void DayTimeBox_SelectedIndexChanged(object sender, EventArgs e)

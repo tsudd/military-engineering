@@ -29,10 +29,13 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.InfoLabel = new System.Windows.Forms.Label();
             this.RemoveButton = new MilitaryEngineering.Controls.Button();
             this.EditButton = new MilitaryEngineering.Controls.Button();
+            this.InfoLabel = new System.Windows.Forms.Label();
+            this.DescriptionToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,22 +53,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.panel1.Click += new System.EventHandler(this.InfoLabel_Click);
             this.panel1.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
-            // 
-            // InfoLabel
-            // 
-            this.InfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.InfoLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.InfoLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.InfoLabel.Location = new System.Drawing.Point(0, 0);
-            this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(439, 70);
-            this.InfoLabel.TabIndex = 4;
-            this.InfoLabel.Text = "No name";
-            this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.InfoLabel.Click += new System.EventHandler(this.InfoLabel_Click);
-            this.InfoLabel.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
-            this.InfoLabel.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
             // RemoveButton
             // 
@@ -96,6 +83,22 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             this.EditButton.Load += new System.EventHandler(this.EditButton_Load);
             // 
+            // InfoLabel
+            // 
+            this.InfoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.InfoLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.InfoLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.InfoLabel.Location = new System.Drawing.Point(0, 0);
+            this.InfoLabel.Name = "InfoLabel";
+            this.InfoLabel.Size = new System.Drawing.Size(439, 70);
+            this.InfoLabel.TabIndex = 4;
+            this.InfoLabel.Text = "No name";
+            this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InfoLabel.Click += new System.EventHandler(this.InfoLabel_Click);
+            this.InfoLabel.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
+            this.InfoLabel.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
+            // 
             // BuildingElementPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,5 +117,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         public System.Windows.Forms.Panel panel1;
         private Controls.Button EditButton;
         private Controls.Button RemoveButton;
+        private System.Windows.Forms.ToolTip DescriptionToolTip;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
