@@ -91,14 +91,16 @@ namespace CalculationsCore.FortificationBuilding
                 if(compositions.Count > 0)
                 {
                     autoDescription.AppendLine("Композиции:");
-                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name};"));
+                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name}({c.Item1.FirstTurn}|{c.Item1.SecondTurn}|{c.Item1.FutureTurn});"));
                 }
 
                 if (simples.Count > 0)
                 {
                     autoDescription.AppendLine("Элементы:");
-                    simples.ForEach(s => autoDescription.AppendLine($" - {s.Item2}x {s.Item1.Name};"));
+                    simples.ForEach(s => autoDescription.AppendLine($" - {s.Item2}x {s.Item1.Name}({s.Item1.FirstTurn}|{s.Item1.SecondTurn}|{s.Item1.FutureTurn});"));
                 }
+                //autoDescription.AppendLine();
+                //autoDescription.Append(CreateDefaultDescription(buildingElement, 2));
 
                 buildingElement.Description = autoDescription.ToString();
             }
