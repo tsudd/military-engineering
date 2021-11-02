@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
@@ -15,12 +16,14 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         TextAutoAdjuster textAutoAdjuster;
         Color hoverColor { get; set; }
         Color defaultColor {  get; set; }
+        ColorTheme selectedTheme;
 
         public BuildingElementPanel(BuildingElement buildingElement)
         {
             BuildingElement = buildingElement;
             InitializeComponent();
             SetColorTheme();
+            ConfigureToolTip();
             textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - EditButton.Location.X);
             defaultColor = panel1.BackColor;
             InfoLabel.Text = buildingElement.Name;
@@ -29,10 +32,21 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             
         }
 
+        public void ConfigureToolTip()
+        {
+            Dictionary<string, string> description = new Dictionary<string, string>()
+            {
+                {"InfoLabel", BuildingElement.Description }
+            };
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, DescriptionToolTip, description);
+
+            autoMapper.Map();
+            autoMapper.Configure(selectedTheme);
+        }
         private void SetColorTheme()
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
-            ColorTheme selectedTheme = themeManager.ColorTheme;
+            selectedTheme = themeManager.ColorTheme;
 
             BackColor = selectedTheme.MainSecondaryColor;
             InfoLabel.BackColor = selectedTheme.SecondaryMainColor;

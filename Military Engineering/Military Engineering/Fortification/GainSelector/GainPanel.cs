@@ -11,7 +11,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
     public partial class GainPanel : UserControl
     {
         Gain gainEntry;
-        public Dictionary<string, string> GainInfo = new Dictionary<string, string>();
         public Gain GainEntry
         {
             get
@@ -37,6 +36,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public event ChangeGainTime ChangedTime;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
+        ColorTheme selectedTheme;
         Color hoverColor { get; set; }
         Color defaultColor {  get; set; }
         Color DefaultBoxColor;
@@ -65,7 +65,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private void SetColorTheme()
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
-            ColorTheme selectedTheme = themeManager.ColorTheme;
+            selectedTheme = themeManager.ColorTheme;
 
             BackColor = selectedTheme.MainSecondaryColor;
             InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
@@ -100,18 +100,18 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void ConfigureToolTip()
         {
-            GainInfo.Clear();
-            GainInfo.Add(InfoLabel.Name, FormDescribtion());
-            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, GainInfo);
-            autoMapper.Map();
-            CoeffInfoToolTip.OwnerDraw = true;
-            CoeffInfoToolTip.Draw += (sender, e) =>
+            if (string.IsNullOrEmpty(gainEntry.Description))
             {
-                Font f = new Font("Arial", 9f);
-                e.DrawBackground();
-                e.DrawBorder();
-                e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
+                gainEntry.Description = Gain.CreateDefaultDescription(gainEntry.TrenchPerformance.ToString(), gainEntry.PitPerformance.ToString());
+            }
+            Dictionary<string, string> description = new Dictionary<string, string>()
+            {
+                { "InfoLabel", gainEntry.Description }
             };
+
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, DescriptionToolTip, description);
+            autoMapper.Map();
+            autoMapper.Configure(selectedTheme);
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
@@ -174,14 +174,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private void RemoveButton_Click(object sender, EventArgs e)
         {
         }
-
-        private string FormDescribtion()
-        {
-            return $"{GainEntry.Description} Производительность: " +
-                $"для траншей - {GainEntry.TrenchPerformance}, " +
-                $"для котлованов - {GainEntry.PitPerformance}.";
-        }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
         }

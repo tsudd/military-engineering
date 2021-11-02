@@ -74,7 +74,7 @@ namespace CalculationsTest
             Ability.BuildingGains.Add(new Gain() { PitPerformance = 90, Amount = 3 });
 
             // when
-            Element.ElementType = ElementType.Pit;
+            Element.ElementType = ElementTypes.Pit;
             var ability = Ability.Evaluate(Element);
 
             //then

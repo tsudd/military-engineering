@@ -18,6 +18,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             InitializeComponent();
             SetColorTheme();
             DefaultColor = FirstTurnTextBox.BackColor;
+            InfoLabel.Text = "СОЗДАТЬ ЭЛЕМЕНТ";
         }
 
         private void SetColorTheme()
@@ -33,6 +34,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             SecondTurnLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             FutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
             PitRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
             TrenchRadioButton.ForeColor = selectedTheme.SecondarySecondaryColor;
@@ -41,9 +43,12 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             SecondTurnTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             FutureTurnsTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
             AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
         }
 
         public BuildingElementCreatorForm(BuildingElementSelectorForm sender, BuildingElement edit) : this(sender)
@@ -53,10 +58,13 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             FirstTurnTextBox.Text = edit.FirstTurn.ToString("0.###"); 
             SecondTurnTextBox.Text = edit.SecondTurn.ToString("0.###");
             FutureTurnsTextBox.Text = edit.FutureTurn.ToString("0.###");
-            if(edit.ElementType == ElementType.Trench)
+            DescriptionBox.Text = edit.Description;
+            if(edit.ElementType == ElementTypes.Trench)
             {
                 TrenchRadioButton.Checked = true;
             }
+            InfoLabel.Text = "РЕДАКТИРОВАТЬ ЭЛЕМЕНТ";
+            DefaultDescriptionCheckBox.Checked = false;
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
@@ -73,7 +81,17 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 parsed[1],
                 parsed[2],
                 checkBox1.Checked,
-                PitRadioButton.Checked ? ElementType.Pit : ElementType.Trench);
+                PitRadioButton.Checked ? ElementTypes.Pit : ElementTypes.Trench);
+
+            if (DefaultDescriptionCheckBox.Checked)
+            {
+                buildingElement.Description = BuildingElement.CreateDefaultDescription(buildingElement, 2);
+            }
+            else
+            {
+                buildingElement.Description = DescriptionBox.Text;
+            }
+            
 
             if(BuildingElement == null)
             {
@@ -123,6 +141,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 }
             }
             return true;
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

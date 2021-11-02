@@ -54,6 +54,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.RemoveSelectedButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
+            this.AddCompositionButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
             this.AllAllTurnsLabel = new System.Windows.Forms.Label();
@@ -440,6 +441,7 @@ namespace MilitaryEngineering.Fortification
             // FooterPanel
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.FooterPanel.Controls.Add(this.AddCompositionButton);
             this.FooterPanel.Controls.Add(this.tableLayoutPanel5);
             this.FooterPanel.Controls.Add(this.AddElementButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -447,6 +449,23 @@ namespace MilitaryEngineering.Fortification
             this.FooterPanel.Name = "FooterPanel";
             this.FooterPanel.Size = new System.Drawing.Size(1128, 90);
             this.FooterPanel.TabIndex = 1;
+            // 
+            // AddCompositionButton
+            // 
+            this.AddCompositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddCompositionButton.AutoSize = true;
+            this.AddCompositionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AddCompositionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCompositionButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.AddCompositionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.AddCompositionButton.Location = new System.Drawing.Point(768, 6);
+            this.AddCompositionButton.Name = "AddCompositionButton";
+            this.AddCompositionButton.Size = new System.Drawing.Size(171, 72);
+            this.AddCompositionButton.TabIndex = 3;
+            this.AddCompositionButton.TabStop = false;
+            this.AddCompositionButton.Text = "Добавить\r\nкомпозицию";
+            this.AddCompositionButton.UseVisualStyleBackColor = false;
+            this.AddCompositionButton.Click += new System.EventHandler(this.AddCompositionButton_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -934,5 +953,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label CoeffNpersonnelLabel;
         public System.Windows.Forms.TableLayoutPanel ComboBoxLayoutPanel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button AddCompositionButton;
     }
 }

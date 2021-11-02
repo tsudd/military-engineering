@@ -19,6 +19,7 @@ namespace MilitaryEngineering.Fortification
             SetColorTheme();
             DefaultColor = TrenchPerfomanceBox.BackColor;
             Sender = sender;
+            InfoLabel.Text = "СОЗДАТЬ УСИЛЕНИЕ";
         }
 
         private void SetColorTheme()
@@ -28,7 +29,7 @@ namespace MilitaryEngineering.Fortification
 
             BackColor = selectedTheme.MainMainColor;
             InfoLabel.ForeColor = selectedTheme.MainForeColor;
-            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+            MainPanel.BackColor = selectedTheme.MainSecondaryColor;
 
             NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             TrenchPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
@@ -42,6 +43,8 @@ namespace MilitaryEngineering.Fortification
 
             AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
             AddGainButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
         }
 
         public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)
@@ -51,6 +54,8 @@ namespace MilitaryEngineering.Fortification
             DescriptionBox.Text = edit.Description;
             TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
             PitPerfomanceBox.Text = edit.PitPerformance.ToString("0.###");
+            DefaultDescriptionCheckBox.Checked = false;
+            InfoLabel.Text = "РЕДАКТИРОВАТЬ УСИЛЕНИЕ";
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -62,10 +67,11 @@ namespace MilitaryEngineering.Fortification
             }
 
             Gain gain = new Gain(
-                DescriptionBox.Text,
                 parsed[0],
                 parsed[1],
-                NameTextBox.Text);
+                NameTextBox.Text,
+                description: DefaultDescriptionCheckBox.Checked ? null : DescriptionBox.Text);
+
             if (PrevGain is null)
             {
                 Sender.CreateEntry(gain);
@@ -116,6 +122,11 @@ namespace MilitaryEngineering.Fortification
             {
                 textBox.BackColor = DefaultColor;
             }
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

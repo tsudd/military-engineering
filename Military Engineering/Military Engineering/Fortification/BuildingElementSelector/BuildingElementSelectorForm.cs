@@ -109,6 +109,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                     panel.BuildingElement = newElement;
                     panel.InfoLabel.Text = newElement.Name;
                     panel.Unfocus();
+                    panel.ConfigureToolTip();
                     break;
                 }
             }
@@ -116,7 +117,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 
         private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Sender.Config.BuildingElements = buildingElements;
+            //Sender.Config.BuildingElements = buildingElements;
+            Sender.SaveBuildingElementsToConfig(buildingElements);
         }
     }
 }

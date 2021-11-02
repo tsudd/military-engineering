@@ -102,6 +102,30 @@
     <Compile Include="Controls\CheckBox.Designer.cs">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionAddPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionAddPanel.Designer.cs">
+      <DependentUpon>CompositionAddPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionCreatorForm.Designer.cs">
+      <DependentUpon>CompositionCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionSelectorForm.Designer.cs">
+      <DependentUpon>CompositionSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionViewPanel.Designer.cs">
+      <DependentUpon>CompositionViewPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fortification\FortificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +177,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\CheckBox.resx">
       <DependentUpon>CheckBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionAddPanel.resx">
+      <DependentUpon>CompositionAddPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionCreatorForm.resx">
+      <DependentUpon>CompositionCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionSelectorForm.resx">
+      <DependentUpon>CompositionSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionViewPanel.resx">
+      <DependentUpon>CompositionViewPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
@@ -272,5 +308,6 @@
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHoverAlternative.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

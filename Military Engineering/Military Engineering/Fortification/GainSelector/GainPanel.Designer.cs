@@ -38,7 +38,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.EditButton = new MilitaryEngineering.Controls.Button();
             this.RemoveButton = new MilitaryEngineering.Controls.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
-            this.CoeffInfoToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.DescriptionToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +83,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.SubstractButton.HoverImage = global::MilitaryEngineering.Properties.Resources.SubstractHover;
             this.SubstractButton.Image = global::MilitaryEngineering.Properties.Resources.Substract;
             this.SubstractButton.Location = new System.Drawing.Point(343, 23);
-            this.SubstractButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.SubstractButton.Margin = new System.Windows.Forms.Padding(5);
             this.SubstractButton.Name = "SubstractButton";
             this.SubstractButton.Size = new System.Drawing.Size(25, 25);
             this.SubstractButton.TabIndex = 14;
@@ -98,7 +98,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.AddButton.HoverImage = global::MilitaryEngineering.Properties.Resources.AddHover;
             this.AddButton.Image = global::MilitaryEngineering.Properties.Resources.Add;
             this.AddButton.Location = new System.Drawing.Point(429, 23);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(5);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(25, 25);
             this.AddButton.TabIndex = 13;
@@ -128,7 +128,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.EditButton.HoverImage = global::MilitaryEngineering.Properties.Resources.EditHover;
             this.EditButton.Image = global::MilitaryEngineering.Properties.Resources.Edit;
             this.EditButton.Location = new System.Drawing.Point(565, 23);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(5);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(25, 25);
             this.EditButton.TabIndex = 11;
@@ -143,7 +143,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.RemoveButton.HoverImage = global::MilitaryEngineering.Properties.Resources.CrossHover;
             this.RemoveButton.Image = global::MilitaryEngineering.Properties.Resources.Cross;
             this.RemoveButton.Location = new System.Drawing.Point(595, 23);
-            this.RemoveButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(5);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(25, 25);
             this.RemoveButton.TabIndex = 10;
@@ -164,10 +164,10 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.InfoLabel.MouseEnter += new System.EventHandler(this.panel1_MouseEnter);
             this.InfoLabel.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             // 
-            // CoeffInfoToolTip
+            // DescriptionToolTip
             // 
-            this.CoeffInfoToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffInfoToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.DescriptionToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             // 
             // GainPanel
             // 
@@ -185,7 +185,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         #endregion
         public System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ToolTip CoeffInfoToolTip;
+        private System.Windows.Forms.ToolTip DescriptionToolTip;
         public System.Windows.Forms.Label InfoLabel;
         private Controls.Button AddButton;
         public System.Windows.Forms.Label CounterLabel;

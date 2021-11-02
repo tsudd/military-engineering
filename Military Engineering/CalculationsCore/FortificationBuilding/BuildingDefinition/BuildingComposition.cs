@@ -87,7 +87,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingDefinition
 
         private int GenerateIndex()
         {
-            return (new System.Random()).Next(MAX_ID);
+            return (new Random()).Next(MAX_ID);
         }
 
         public int GetId()
