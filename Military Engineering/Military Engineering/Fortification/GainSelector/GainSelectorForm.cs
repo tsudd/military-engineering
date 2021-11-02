@@ -58,6 +58,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             AmountLabel.ForeColor = selectedTheme.MainForeColor;
 
             CreateGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            CreateGainButton.ForeColor = selectedTheme.SecondaryForeColor;
 
         }
 

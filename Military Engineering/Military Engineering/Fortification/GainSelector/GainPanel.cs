@@ -77,6 +77,14 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
             CounterLabel.BackColor = selectedTheme.SecondaryMainColor;
             CounterLabel.ForeColor = selectedTheme.SecondaryForeColor;
+
+            if (selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                SubstractButton.Image = Properties.Resources.SubstractAlternative;
+                AddButton.Image = Properties.Resources.AddAlternative;
+                EditButton.Image = Properties.Resources.EditAlternative;
+                RemoveButton.Image = Properties.Resources.CrossAlternative;
+            }
         }
 
         private void HideAll()

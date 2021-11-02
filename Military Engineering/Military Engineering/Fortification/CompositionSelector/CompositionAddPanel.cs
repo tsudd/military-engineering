@@ -60,6 +60,12 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             BackPanel.BackColor = selectedTheme.SecondaryMainColor;
             CounterLabel.BackColor = selectedTheme.SecondaryMainColor;
             CounterLabel.ForeColor = selectedTheme.SecondaryForeColor;
+
+            if(selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                SubstractButton.Image = Properties.Resources.SubstractAlternative;
+                AddButton.Image = Properties.Resources.AddAlternative;
+            }
         }
 
         public void ConfigureToolTip()

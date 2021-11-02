@@ -73,6 +73,16 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddAlternative {
+            get {
+                object obj = ResourceManager.GetObject("AddAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddHover {
             get {
                 object obj = ResourceManager.GetObject("AddHover", resourceCulture);
@@ -153,6 +163,16 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CrossAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CrossAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CrossHover {
             get {
                 object obj = ResourceManager.GetObject("CrossHover", resourceCulture);
@@ -166,6 +186,16 @@ namespace MilitaryEngineering.Properties {
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditAlternative {
+            get {
+                object obj = ResourceManager.GetObject("EditAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -280,6 +310,16 @@ namespace MilitaryEngineering.Properties {
         internal static System.Drawing.Bitmap Substract {
             get {
                 object obj = ResourceManager.GetObject("Substract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubstractAlternative {
+            get {
+                object obj = ResourceManager.GetObject("SubstractAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

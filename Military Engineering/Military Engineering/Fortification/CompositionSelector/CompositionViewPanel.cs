@@ -59,6 +59,11 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
             InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
             BackPanel.BackColor = selectedTheme.SecondaryMainColor;
+
+            if(selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                RemoveButton.Image = Properties.Resources.CrossAlternative;
+            }
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)

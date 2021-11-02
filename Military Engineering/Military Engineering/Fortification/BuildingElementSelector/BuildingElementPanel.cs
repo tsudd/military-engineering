@@ -53,6 +53,12 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
             panel1.BackColor = selectedTheme.SecondaryMainColor;
             hoverColor = selectedTheme.HoverColor;
+
+            if(selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                EditButton.Image = Properties.Resources.EditAlternative;
+                RemoveButton.Image = Properties.Resources.CrossAlternative;
+            }
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
