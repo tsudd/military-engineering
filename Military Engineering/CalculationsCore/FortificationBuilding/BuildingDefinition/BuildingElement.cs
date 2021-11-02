@@ -99,8 +99,8 @@ namespace CalculationsCore.FortificationBuilding
                     autoDescription.AppendLine("Элементы:");
                     simples.ForEach(s => autoDescription.AppendLine($" - {s.Item2}x {s.Item1.Name}({s.Item1.FirstTurn}|{s.Item1.SecondTurn}|{s.Item1.FutureTurn});"));
                 }
-                //autoDescription.AppendLine();
-                //autoDescription.Append(CreateDefaultDescription(buildingElement, 2));
+                autoDescription.AppendLine();
+                autoDescription.Append(CreateDefaultDescription(buildingElement, 2));
 
                 buildingElement.Description = autoDescription.ToString();
             }

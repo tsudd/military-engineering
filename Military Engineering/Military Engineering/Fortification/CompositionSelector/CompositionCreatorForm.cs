@@ -90,8 +90,8 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
 
             MainPanel.BackColor = selectedTheme.MainSecondaryColor;
             NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
-            DescriptionLabel.ForeColor = selectedTheme.SecondaryForeColor;
-            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondaryForeColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
 
             NameTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
             NameTextBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
