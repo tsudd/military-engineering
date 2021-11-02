@@ -9,6 +9,7 @@ using MilitaryEngineering.Fortification;
 using MilitaryConfiguration.Configurations;
 using CalculationsCore.FortificationBuilding.BuildingDefinition;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.CompositionSelector;
 using System.Linq;
 
 namespace MilitaryEngineering.Fortification
@@ -105,6 +106,9 @@ namespace MilitaryEngineering.Fortification
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
             AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
 
+            AddCompositionButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddCompositionButton.ForeColor = selectedTheme.SecondaryForeColor;
+
             AllLabel.BackColor = selectedTheme.MainSecondaryColor;
             AllLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
@@ -146,7 +150,9 @@ namespace MilitaryEngineering.Fortification
 
         private void AddElementButton_Click(object sender, EventArgs e)
         {
-            var form = new BuildingElementSelectorForm(this, Config.BuildingElements);
+            var form = new BuildingElementSelectorForm(this, 
+                Config.BuildingElements.Where(b => b.BuildingType == BuildingTypes.Element).ToList());
+
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -419,6 +425,29 @@ namespace MilitaryEngineering.Fortification
                     buildingElement.ChangeChartInterval(interval);
                 }
             }
+        }
+
+        private void AddCompositionButton_Click(object sender, EventArgs e)
+        {
+            CompositionSelectorForm form = new CompositionSelectorForm(this, Config.BuildingElements);
+            form.FormClosed += (s, args) =>
+            {
+                Enabled = true;
+            };
+            Enabled = false;
+            form.Show();
+        }
+
+        public void SaveBuildingElementsToConfig(List<BuildingElement> buildingElements)
+        {
+            Config.BuildingElements.RemoveAll(b => b.BuildingType == BuildingTypes.Element);
+            Config.BuildingElements.AddRange(buildingElements);
+        }
+
+        public void SaveCompositionsToConfig(List<BuildingElement> compositions)
+        {
+            Config.BuildingElements.RemoveAll(b => b.BuildingType == BuildingTypes.Composition);
+            Config.BuildingElements.AddRange(compositions);
         }
     }
 }

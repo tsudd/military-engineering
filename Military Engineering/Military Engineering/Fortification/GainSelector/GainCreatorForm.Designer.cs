@@ -30,7 +30,9 @@ namespace MilitaryEngineering.Fortification
         private void InitializeComponent()
         {
             this.InfoLabel = new System.Windows.Forms.Label();
-            this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
+            this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
+            this.DescriptionBox = new System.Windows.Forms.RichTextBox();
             this.PitPerfomanceBox = new System.Windows.Forms.TextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.PitPerfomanceLabel = new System.Windows.Forms.Label();
@@ -39,9 +41,7 @@ namespace MilitaryEngineering.Fortification
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.AddGainButton = new System.Windows.Forms.Button();
-            this.DescriptionBox = new System.Windows.Forms.RichTextBox();
-            this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
-            this.HeaderPanel.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // InfoLabel
@@ -56,22 +56,49 @@ namespace MilitaryEngineering.Fortification
             this.InfoLabel.Text = "СОЗДАТЬ/РЕДАКТИРОВАТЬ УСИЛЕНИЕ";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // HeaderPanel
+            // MainPanel
             // 
-            this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-            this.HeaderPanel.Controls.Add(this.DefaultDescriptionCheckBox);
-            this.HeaderPanel.Controls.Add(this.DescriptionBox);
-            this.HeaderPanel.Controls.Add(this.PitPerfomanceBox);
-            this.HeaderPanel.Controls.Add(this.DescriptionLabel);
-            this.HeaderPanel.Controls.Add(this.PitPerfomanceLabel);
-            this.HeaderPanel.Controls.Add(this.TrenchPerfomanceBox);
-            this.HeaderPanel.Controls.Add(this.TrenchPerfomanceLabel);
-            this.HeaderPanel.Controls.Add(this.NameTextBox);
-            this.HeaderPanel.Controls.Add(this.NameLabel);
-            this.HeaderPanel.Location = new System.Drawing.Point(12, 83);
-            this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(667, 518);
-            this.HeaderPanel.TabIndex = 6;
+            this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.MainPanel.Controls.Add(this.DefaultDescriptionCheckBox);
+            this.MainPanel.Controls.Add(this.DescriptionBox);
+            this.MainPanel.Controls.Add(this.PitPerfomanceBox);
+            this.MainPanel.Controls.Add(this.DescriptionLabel);
+            this.MainPanel.Controls.Add(this.PitPerfomanceLabel);
+            this.MainPanel.Controls.Add(this.TrenchPerfomanceBox);
+            this.MainPanel.Controls.Add(this.TrenchPerfomanceLabel);
+            this.MainPanel.Controls.Add(this.NameTextBox);
+            this.MainPanel.Controls.Add(this.NameLabel);
+            this.MainPanel.Location = new System.Drawing.Point(12, 83);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(667, 518);
+            this.MainPanel.TabIndex = 6;
+            // 
+            // DefaultDescriptionCheckBox
+            // 
+            this.DefaultDescriptionCheckBox.AutoSize = true;
+            this.DefaultDescriptionCheckBox.Checked = true;
+            this.DefaultDescriptionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DefaultDescriptionCheckBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.DefaultDescriptionCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(13, 467);
+            this.DefaultDescriptionCheckBox.Name = "DefaultDescriptionCheckBox";
+            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(424, 34);
+            this.DefaultDescriptionCheckBox.TabIndex = 18;
+            this.DefaultDescriptionCheckBox.Text = "Создать описание автоматически";
+            this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
+            this.DefaultDescriptionCheckBox.CheckedChanged += new System.EventHandler(this.DefaultDescriptionCheckBox_CheckedChanged);
+            // 
+            // DescriptionBox
+            // 
+            this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionBox.Enabled = false;
+            this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.DescriptionBox.Location = new System.Drawing.Point(13, 355);
+            this.DescriptionBox.Name = "DescriptionBox";
+            this.DescriptionBox.Size = new System.Drawing.Size(631, 96);
+            this.DescriptionBox.TabIndex = 17;
+            this.DescriptionBox.Text = "";
             // 
             // PitPerfomanceBox
             // 
@@ -86,7 +113,6 @@ namespace MilitaryEngineering.Fortification
             // 
             // DescriptionLabel
             // 
-            this.DescriptionLabel.Enabled = false;
             this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.DescriptionLabel.Location = new System.Drawing.Point(11, 286);
@@ -165,33 +191,6 @@ namespace MilitaryEngineering.Fortification
             this.AddGainButton.UseVisualStyleBackColor = false;
             this.AddGainButton.Click += new System.EventHandler(this.AddGainButton_Click);
             // 
-            // DescriptionBox
-            // 
-            this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DescriptionBox.Enabled = false;
-            this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
-            this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.DescriptionBox.Location = new System.Drawing.Point(13, 355);
-            this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(631, 96);
-            this.DescriptionBox.TabIndex = 17;
-            this.DescriptionBox.Text = "";
-            // 
-            // DefaultDescriptionCheckBox
-            // 
-            this.DefaultDescriptionCheckBox.AutoSize = true;
-            this.DefaultDescriptionCheckBox.Checked = true;
-            this.DefaultDescriptionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.DefaultDescriptionCheckBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.DefaultDescriptionCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(13, 467);
-            this.DefaultDescriptionCheckBox.Name = "DefaultDescriptionCheckBox";
-            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(398, 34);
-            this.DefaultDescriptionCheckBox.TabIndex = 18;
-            this.DefaultDescriptionCheckBox.Text = "Создать стандартное описание";
-            this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
-            this.DefaultDescriptionCheckBox.CheckedChanged += new System.EventHandler(this.DefaultDescriptionCheckBox_CheckedChanged);
-            // 
             // GainCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -199,16 +198,17 @@ namespace MilitaryEngineering.Fortification
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(691, 701);
             this.Controls.Add(this.AddGainButton);
-            this.Controls.Add(this.HeaderPanel);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GainCreatorForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание усиления";
-            this.HeaderPanel.ResumeLayout(false);
-            this.HeaderPanel.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -216,7 +216,7 @@ namespace MilitaryEngineering.Fortification
         #endregion
 
         public System.Windows.Forms.Label InfoLabel;
-        private System.Windows.Forms.Panel HeaderPanel;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.TextBox PitPerfomanceBox;
         public System.Windows.Forms.Label DescriptionLabel;
         public System.Windows.Forms.Label PitPerfomanceLabel;

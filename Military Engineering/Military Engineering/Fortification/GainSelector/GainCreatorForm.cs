@@ -19,6 +19,7 @@ namespace MilitaryEngineering.Fortification
             SetColorTheme();
             DefaultColor = TrenchPerfomanceBox.BackColor;
             Sender = sender;
+            InfoLabel.Text = "СОЗДАТЬ УСИЛЕНИЕ";
         }
 
         private void SetColorTheme()
@@ -28,7 +29,7 @@ namespace MilitaryEngineering.Fortification
 
             BackColor = selectedTheme.MainMainColor;
             InfoLabel.ForeColor = selectedTheme.MainForeColor;
-            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+            MainPanel.BackColor = selectedTheme.MainSecondaryColor;
 
             NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
             TrenchPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
@@ -54,8 +55,7 @@ namespace MilitaryEngineering.Fortification
             TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
             PitPerfomanceBox.Text = edit.PitPerformance.ToString("0.###");
             DefaultDescriptionCheckBox.Checked = false;
-            DescriptionLabel.Enabled = true;
-            DescriptionBox.Enabled = true;
+            InfoLabel.Text = "РЕДАКТИРОВАТЬ УСИЛЕНИЕ";
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -127,7 +127,6 @@ namespace MilitaryEngineering.Fortification
         private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
-            DescriptionLabel.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

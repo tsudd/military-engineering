@@ -89,18 +89,21 @@
             this.CreateCompositionButton.TabStop = false;
             this.CreateCompositionButton.Text = "Создать новую";
             this.CreateCompositionButton.UseVisualStyleBackColor = false;
+            this.CreateCompositionButton.Click += new System.EventHandler(this.CreateCompositionButton_Click);
             // 
             // CompositionSelectorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(494, 668);
             this.Controls.Add(this.CreateCompositionButton);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.Name = "CompositionSelectorForm";
-            this.Text = "CompositionSelectorForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Выбор композиции";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CompositionSelectorForm_FormClosed);
             this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 

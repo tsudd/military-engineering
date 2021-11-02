@@ -32,7 +32,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             
         }
 
-        void ConfigureToolTip()
+        public void ConfigureToolTip()
         {
             Dictionary<string, string> description = new Dictionary<string, string>()
             {

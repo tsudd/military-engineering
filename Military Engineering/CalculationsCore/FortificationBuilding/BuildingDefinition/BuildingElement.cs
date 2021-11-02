@@ -20,7 +20,8 @@ namespace CalculationsCore.FortificationBuilding
 
     public class BuildingElement : IBuilding
     {
-        public const string STANDART_NAME = "Unknown building";
+        public const string DEFAULT_BUILDING_NAME = "Unknown building";
+        public const string DEFAULT_COMPOSITION_NAME = "Unknown composition";
         public double FirstTurn { get; set; } = 0;
         public double SecondTurn { get; set; } = 0;
         public double FutureTurn { get; set; } = 0;
@@ -34,7 +35,7 @@ namespace CalculationsCore.FortificationBuilding
         public bool IsDefault { get; set; }
 
         public BuildingElement() { }
-        public BuildingElement(string name = STANDART_NAME) => this.Name = name;
+        public BuildingElement(string name = DEFAULT_BUILDING_NAME) => this.Name = name;
         public BuildingElement(
             string name, 
             double firstTurn, 
@@ -44,7 +45,15 @@ namespace CalculationsCore.FortificationBuilding
             ElementTypes elementType = ElementTypes.Pit,
             BuildingTypes buildingType = BuildingTypes.Element)
         {
-            Name = name;
+            if (string.IsNullOrEmpty(name))
+            {
+                Name = DEFAULT_BUILDING_NAME;
+            }
+            else
+            {
+                Name = name;
+            }
+
             FirstTurn = firstTurn;
             SecondTurn = secondTurn;
             FutureTurn = futurTurns;
@@ -55,13 +64,23 @@ namespace CalculationsCore.FortificationBuilding
 
         public static BuildingElement CreateComposition(List<(BuildingElement, int)> elements, string name, string description = null)
         {
-            BuildingElement buildingElement = new BuildingElement(name);
+            BuildingElement buildingElement = new BuildingElement();
             buildingElement.FirstTurn = elements.Sum(e => e.Item1.FirstTurn * e.Item2);
             buildingElement.SecondTurn = elements.Sum(e => e.Item1.SecondTurn * e.Item2);
             buildingElement.FutureTurn = elements.Sum(e => e.Item1.FutureTurn * e.Item2);
 
             buildingElement.BuildingType = BuildingTypes.Composition;
             buildingElement.ElementType = ElementTypes.Pit;
+            buildingElement.Id = new Random().Next(10000);
+
+            if (name == null)
+            {
+                buildingElement.Name = DEFAULT_COMPOSITION_NAME;
+            }
+            else
+            {
+                buildingElement.Name = name;
+            }
 
             if(description == null)
             {
@@ -91,6 +110,17 @@ namespace CalculationsCore.FortificationBuilding
             return buildingElement;
         }
 
+        public static string CreateDefaultDescription(BuildingElement buildingElement, int precision)
+        {
+            StringBuilder description = new StringBuilder();
+            description.AppendLine($"В первую очередь - {Math.Round(buildingElement.FirstTurn, precision)} чел./час.");
+            description.AppendLine($"Во вторую очередь - {Math.Round(buildingElement.SecondTurn, precision)} чел./час.");
+            description.AppendLine($"В дальнейшем - {Math.Round(buildingElement.FutureTurn, precision)} чел./час.");
+            description.AppendLine($"Всего - {Math.Round(buildingElement.AllTurns, precision)} чел./час.");
+            description.Append(buildingElement.ElementType == ElementTypes.Pit ? "Котлован" : "Траншея");
+
+            return description.ToString();
+        }
         public double GetFirstTurn()
         {
             return FirstTurn;

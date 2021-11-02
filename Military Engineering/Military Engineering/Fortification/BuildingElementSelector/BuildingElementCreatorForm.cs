@@ -18,6 +18,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             InitializeComponent();
             SetColorTheme();
             DefaultColor = FirstTurnTextBox.BackColor;
+            InfoLabel.Text = "СОЗДАТЬ ЭЛЕМЕНТ";
         }
 
         private void SetColorTheme()
@@ -47,7 +48,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
             AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
 
-
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
         }
 
         public BuildingElementCreatorForm(BuildingElementSelectorForm sender, BuildingElement edit) : this(sender)
@@ -62,6 +63,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             {
                 TrenchRadioButton.Checked = true;
             }
+            InfoLabel.Text = "РЕДАКТИРОВАТЬ ЭЛЕМЕНТ";
+            DefaultDescriptionCheckBox.Checked = false;
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
@@ -80,7 +83,15 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 checkBox1.Checked,
                 PitRadioButton.Checked ? ElementTypes.Pit : ElementTypes.Trench);
 
-            buildingElement.Description = DescriptionBox.Text;
+            if (DefaultDescriptionCheckBox.Checked)
+            {
+                buildingElement.Description = BuildingElement.CreateDefaultDescription(buildingElement, 2);
+            }
+            else
+            {
+                buildingElement.Description = DescriptionBox.Text;
+            }
+            
 
             if(BuildingElement == null)
             {
@@ -130,6 +141,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                 }
             }
             return true;
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }
