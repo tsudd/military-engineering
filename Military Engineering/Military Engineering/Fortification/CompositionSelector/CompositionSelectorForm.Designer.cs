@@ -101,6 +101,7 @@
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.Name = "CompositionSelectorForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор композиции";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CompositionSelectorForm_FormClosed);

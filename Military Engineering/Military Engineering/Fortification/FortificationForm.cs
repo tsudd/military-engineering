@@ -83,14 +83,14 @@ namespace MilitaryEngineering.Fortification
             CoeffThoursLabel.BackColor = selectedTheme.MainSecondaryColor;
             CoeffThoursLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
 
-            DayTimeBox.BackColor = selectedTheme.MainMainColor;
-            DayTimeBox.ForeColor = selectedTheme.MainForeColor;
+            DayTimeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DayTimeBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
 
-            PollutionsBox.BackColor = selectedTheme.MainMainColor;
-            PollutionsBox.ForeColor = selectedTheme.MainForeColor;
+            PollutionsBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            PollutionsBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
 
-            SoilTypeBox.BackColor = selectedTheme.MainMainColor;
-            SoilTypeBox.ForeColor = selectedTheme.MainForeColor;
+            SoilTypeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            SoilTypeBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
 
             PeopleAmountInput.BackColor = selectedTheme.SecondarySecondaryColor;
             OrganizationInput.BackColor = selectedTheme.SecondarySecondaryColor;

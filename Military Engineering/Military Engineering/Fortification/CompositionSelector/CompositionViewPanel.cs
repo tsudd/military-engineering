@@ -16,6 +16,8 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
     {
         TextAutoAdjuster textAutoAdjuster;
         ColorTheme selectedTheme;
+        Color hoverColor;
+        Color defaultColor;
         public BuildingElement BuildingElement { get; set; }
         public event EventHandler Clicked;
         public event EventHandler Removed;
@@ -30,6 +32,9 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             InfoLabel.Text = buildingElement.Name;
             SetColorTheme();
             ConfigureToolTip();
+
+            defaultColor = BackPanel.BackColor;
+            RemoveButton.Visible = false;
         }
 
         public void ConfigureToolTip()
@@ -48,11 +53,54 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
             selectedTheme = themeManager.ColorTheme;
+
+            hoverColor = selectedTheme.HoverColor;
+            BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
+            InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
+            BackPanel.BackColor = selectedTheme.SecondaryMainColor;
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             Removed?.Invoke(this, e);
+        }
+
+        private void BackPanel_MouseEnter(object sender, EventArgs e)
+        {
+            InfoLabel.BackColor = hoverColor;
+            BackPanel.BackColor = hoverColor;
+
+            if (!BuildingElement.IsDefault)
+            {
+                RemoveButton.Visible = true;
+            }
+        }
+
+        private void BackPanel_MouseLeave(object sender, EventArgs e)
+        {
+            Unfocus();
+        }
+
+        public void Unfocus()
+        {
+            Point cursorPos = Cursor.Position;
+            Point location = BackPanel.PointToScreen(Point.Empty);
+            if (cursorPos.X > location.X && cursorPos.X < location.X + BackPanel.Width
+                && cursorPos.Y > location.Y && cursorPos.Y < location.Y + BackPanel.Height)
+            {
+                return;
+            }
+
+            InfoLabel.BackColor = defaultColor;
+            BackPanel.BackColor = defaultColor;
+
+            RemoveButton.Visible = false;
+        }
+
+        private void BackPanel_Click(object sender, EventArgs e)
+        {
+            Clicked.Invoke(this, e);
         }
     }
 }

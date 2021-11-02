@@ -35,7 +35,7 @@
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.InfoSecondLabel = new System.Windows.Forms.Label();
             this.ElementsLabel = new System.Windows.Forms.Label();
             this.ElementsPanel = new System.Windows.Forms.Panel();
             this.ElementsTable = new System.Windows.Forms.TableLayoutPanel();
@@ -86,6 +86,7 @@
             this.DefaultDescriptionCheckBox.TabIndex = 18;
             this.DefaultDescriptionCheckBox.Text = "Создать описание автоматически";
             this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
+            this.DefaultDescriptionCheckBox.CheckedChanged += new System.EventHandler(this.DefaultDescriptionCheckBox_CheckedChanged);
             // 
             // DescriptionBox
             // 
@@ -101,7 +102,6 @@
             // 
             // DescriptionLabel
             // 
-            this.DescriptionLabel.Enabled = false;
             this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.DescriptionLabel.Location = new System.Drawing.Point(11, 123);
@@ -132,16 +132,16 @@
             this.NameLabel.Text = "Имя";
             this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // InfoSecondLabel
             // 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 20F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label1.Location = new System.Drawing.Point(0, 427);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(695, 74);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "ДОБАВИТЬ ЭЛЕМЕНТЫ И КОМПОЗИЦИИ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.InfoSecondLabel.Font = new System.Drawing.Font("Bahnschrift", 20F);
+            this.InfoSecondLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.InfoSecondLabel.Location = new System.Drawing.Point(0, 427);
+            this.InfoSecondLabel.Name = "InfoSecondLabel";
+            this.InfoSecondLabel.Size = new System.Drawing.Size(695, 74);
+            this.InfoSecondLabel.TabIndex = 8;
+            this.InfoSecondLabel.Text = "ДОБАВИТЬ ЭЛЕМЕНТЫ И КОМПОЗИЦИИ";
+            this.InfoSecondLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ElementsLabel
             // 
@@ -234,12 +234,13 @@
             this.Controls.Add(this.CompositionsLabel);
             this.Controls.Add(this.ElementsPanel);
             this.Controls.Add(this.ElementsLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.InfoSecondLabel);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "CompositionCreatorForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание композиции";
             this.MainPanel.ResumeLayout(false);
@@ -259,7 +260,7 @@
         public System.Windows.Forms.Label DescriptionLabel;
         private System.Windows.Forms.TextBox NameTextBox;
         public System.Windows.Forms.Label NameLabel;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label InfoSecondLabel;
         public System.Windows.Forms.Label ElementsLabel;
         private System.Windows.Forms.Panel ElementsPanel;
         private System.Windows.Forms.Panel CompositionsPanel;

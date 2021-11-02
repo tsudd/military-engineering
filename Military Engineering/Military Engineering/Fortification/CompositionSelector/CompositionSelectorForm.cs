@@ -1,4 +1,5 @@
 ﻿using CalculationsCore.FortificationBuilding;
+using ColorThemeManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,7 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
         public CompositionSelectorForm(FortificationForm sender, List<BuildingElement> elements)
         {
             InitializeComponent();
+            SetColorTheme();
             Sender = sender;
             this.elements = elements.Where(e => e.BuildingType == BuildingTypes.Element).ToList();
             elements
@@ -29,6 +31,18 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
                 .ForEach(e => AddNewElement(e));
         }
 
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            CreateCompositionButton.BackColor = selectedTheme.SecondaryMainColor;
+            CreateCompositionButton.ForeColor = selectedTheme.SecondaryForeColor;
+        }
         private void CreateCompositionButton_Click(object sender, EventArgs e)
         {
             if(elements.Count == 0)

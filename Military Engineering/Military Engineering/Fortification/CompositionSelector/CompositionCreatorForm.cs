@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.CompositionSelector
 {
@@ -23,6 +24,7 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
         public CompositionCreatorForm(CompositionSelectorForm sender, List<BuildingElement> buildingElements)
         {
             InitializeComponent();
+            SetColorTheme();
             Sender = sender;
             elements = buildingElements.Where(b => b.BuildingType == BuildingTypes.Element).ToList();
             compositions = buildingElements.Where(b => b.BuildingType == BuildingTypes.Composition).ToList();
@@ -36,13 +38,24 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             elements.ForEach(b => AddElement(b, ElementsTable, ElementsPanel));
             compositions.ForEach(b => AddElement(b, CompositionsTable, CompositionsPanel));
 
-            if(compositions.Count == 0)
+            if(elements.Count == 0)
+            {
+                ElementsLabel.Visible = false;
+                ElementsPanel.Visible = false;
+
+                CompositionsLabel.Location = new Point(CompositionsLabel.Location.X,
+                                                       InfoSecondLabel.Location.Y + InfoSecondLabel.Size.Height);
+                CompositionsPanel.Location = new Point(CompositionsPanel.Location.X,
+                                                        CompositionsLabel.Location.Y + CompositionsLabel.Height + 10);
+                SaveCompositionButton.Location = new Point(SaveCompositionButton.Location.X,
+                                                            CompositionsPanel.Location.Y + CompositionsPanel.Size.Height + 10);
+            }
+            else if(compositions.Count == 0)
             {
                 CompositionsLabel.Visible = false;
                 CompositionsPanel.Visible = false;
                 SaveCompositionButton.Location = new Point(SaveCompositionButton.Location.X,
                                                             ElementsPanel.Location.Y + ElementsPanel.Size.Height + 10);
-                //Height = SaveCompositionButton.Location.Y + SaveCompositionButton.Height + 10;
             }
             else
             {
@@ -53,6 +66,40 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
                 SaveCompositionButton.Location = new Point(SaveCompositionButton.Location.X,
                                                             CompositionsPanel.Location.Y + CompositionsPanel.Size.Height + 10);
             }
+
+            if(SaveCompositionButton.Location.Y + SaveCompositionButton.Size.Height < Size.Height)
+            {
+                Height = SaveCompositionButton.Location.Y + SaveCompositionButton.Size.Height + 50;
+            }
+        }
+
+        public void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+
+            ElementsTable.BackColor = selectedTheme.MainSecondaryColor;
+            CompositionsTable.BackColor = selectedTheme.MainSecondaryColor;
+
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+            InfoSecondLabel.ForeColor = selectedTheme.MainForeColor;
+            ElementsLabel.ForeColor = selectedTheme.MainForeColor;
+            CompositionsLabel.ForeColor = selectedTheme.MainForeColor;
+
+            MainPanel.BackColor = selectedTheme.MainSecondaryColor;
+            NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondaryForeColor;
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondaryForeColor;
+
+            NameTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            NameTextBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
+            DescriptionBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
+
+            SaveCompositionButton.BackColor = selectedTheme.SecondaryMainColor;
+            SaveCompositionButton.ForeColor = selectedTheme.SecondaryForeColor;
         }
 
         void AddElement(BuildingElement building, TableLayoutPanel table, Panel parentPanel)
@@ -114,6 +161,11 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             
             Sender.AddNewElement(composition);
             Close();
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

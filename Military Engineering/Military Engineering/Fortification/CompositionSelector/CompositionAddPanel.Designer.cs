@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.BackPanel = new System.Windows.Forms.Panel();
             this.CounterLabel = new System.Windows.Forms.Label();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.DescriptionToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SubstractButton = new MilitaryEngineering.Controls.Button();
             this.AddButton = new MilitaryEngineering.Controls.Button();
-            this.panel1.SuspendLayout();
+            this.BackPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // BackPanel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.panel1.Controls.Add(this.SubstractButton);
-            this.panel1.Controls.Add(this.AddButton);
-            this.panel1.Controls.Add(this.CounterLabel);
-            this.panel1.Controls.Add(this.InfoLabel);
-            this.panel1.Location = new System.Drawing.Point(17, 8);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(638, 70);
-            this.panel1.TabIndex = 1;
+            this.BackPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BackPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.BackPanel.Controls.Add(this.SubstractButton);
+            this.BackPanel.Controls.Add(this.AddButton);
+            this.BackPanel.Controls.Add(this.CounterLabel);
+            this.BackPanel.Controls.Add(this.InfoLabel);
+            this.BackPanel.Location = new System.Drawing.Point(17, 8);
+            this.BackPanel.Name = "BackPanel";
+            this.BackPanel.Size = new System.Drawing.Size(638, 70);
+            this.BackPanel.TabIndex = 1;
             // 
             // CounterLabel
             // 
@@ -63,6 +63,8 @@
             this.CounterLabel.TabIndex = 12;
             this.CounterLabel.Text = "0";
             this.CounterLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CounterLabel.MouseEnter += new System.EventHandler(this.InfoLabel_MouseEnter);
+            this.CounterLabel.MouseLeave += new System.EventHandler(this.CounterLabel_MouseLeave);
             // 
             // InfoLabel
             // 
@@ -76,6 +78,8 @@
             this.InfoLabel.TabIndex = 5;
             this.InfoLabel.Text = "No name";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.InfoLabel.MouseEnter += new System.EventHandler(this.InfoLabel_MouseEnter);
+            this.InfoLabel.MouseLeave += new System.EventHandler(this.InfoLabel_MouseLeave);
             // 
             // SubstractButton
             // 
@@ -110,17 +114,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.BackPanel);
             this.Name = "CompositionAddPanel";
             this.Size = new System.Drawing.Size(674, 85);
-            this.panel1.ResumeLayout(false);
+            this.BackPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel BackPanel;
         private Controls.Button SubstractButton;
         private Controls.Button AddButton;
         public System.Windows.Forms.Label CounterLabel;

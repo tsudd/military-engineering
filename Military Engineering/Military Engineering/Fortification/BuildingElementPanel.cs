@@ -123,7 +123,7 @@ namespace MilitaryEngineering.Fortification
             else if(obj is ComboBox comboBox)
             {
                 comboBox.BackColor = colorTheme.SecondarySecondaryColor;
-                comboBox.ForeColor = colorTheme.MainForeColor;
+                comboBox.ForeColor = colorTheme.SecondaryForeColorAlternative;
             }
             else if(obj is TextBox textBox)
             {
