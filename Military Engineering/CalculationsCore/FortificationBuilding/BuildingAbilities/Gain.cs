@@ -1,4 +1,6 @@
-﻿namespace CalculationsCore.FortificationBuilding.BuildingAbilities
+﻿using System.Text;
+
+namespace CalculationsCore.FortificationBuilding.BuildingAbilities
 {
     public class Gain
     {
@@ -20,11 +22,20 @@
             IsDefault = gain.IsDefault;
             Id = gain.Id;
         }
-        public Gain(string description, double trenchPerfomance, double pitPerfomance, string name = DEFAULT_NAME, int id = 0)
-        {
-            Description = description;
+        public Gain(double trenchPerfomance, double pitPerfomance, string name = DEFAULT_NAME, int id = 0, string description = null)
+        {         
             TrenchPerformance = trenchPerfomance;
             PitPerformance = pitPerfomance;
+
+            if (string.IsNullOrEmpty(description))
+            {
+                Description = CreateDefaultDescription(TrenchPerformance.ToString(), PitPerformance.ToString());
+            }
+            else
+            {
+                Description = description;
+            }
+
             Name = name;
             if (id == 0)
             {
@@ -35,22 +46,32 @@
                 Id = id;
             }
         }
-        public double Evaluate(BuildingElement element, DayAbility ability, int amount)
+
+        public static string CreateDefaultDescription(string trenchPerformance, string pitPerformance)
         {
-            if (element is null || ability is null)
+            StringBuilder description = new StringBuilder();
+            description.AppendLine("Производительность:");
+            description.AppendLine($"для траншей - {trenchPerformance}");
+            description.AppendLine($"для котлованов - {pitPerformance}");
+            return description.ToString();
+        }
+        public double Evaluate(DayAbility ability, GainAbility gainAbility)
+        {
+            //TODO: implement performance evaluation according to building type (keep in mind, that we have new hierarchy)
+            if (ability is null)
             {
                 return 0;
             }
-            return amount
-                * DeterminePerformance(element.ElementType)
+            return gainAbility.Amount
+                * DeterminePerformance(0)
                 * ability.Organization
-                * ((ability.WorkTime > 24) ? 1.5 : 1)
-                * ability.WorkTime;
+                * ((gainAbility.WorkTime > 24) ? 1.5 : 1)
+                * gainAbility.WorkTime;
         }
 
-        private double DeterminePerformance(ElementType type)
+        private double DeterminePerformance(ElementTypes type)
         {
-            return (type == ElementType.Pit) ? PitPerformance : TrenchPerformance;
+            return (type == ElementTypes.Pit) ? PitPerformance : TrenchPerformance;
         }
     }
 }

@@ -7,6 +7,10 @@ using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using MilitaryEngineering.Fortification;
 using MilitaryConfiguration.Configurations;
+using CalculationsCore.FortificationBuilding.BuildingDefinition;
+using ColorThemeManager;
+using MilitaryEngineering.Fortification.CompositionSelector;
+using System.Linq;
 
 namespace MilitaryEngineering.Fortification
 {
@@ -40,11 +44,115 @@ namespace MilitaryEngineering.Fortification
             //PollutionsBox.SelectedItem = null;
 
             MainTable.RowStyles[0] = new RowStyle(SizeType.Absolute, 120);
+            SetColorTheme();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainMainColor;
+            ForeColor = selectedTheme.MainForeColor;
+
+            //header labels
+            HeaderPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            DayTimeLabel.BackColor = selectedTheme.MainSecondaryColor;
+            DayTimeLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            PollutionLabel.BackColor = selectedTheme.MainSecondaryColor;
+            PollutionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            SoilTypeLabel.BackColor = selectedTheme.MainSecondaryColor;
+            SoilTypeLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffNpersonnelLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffNpersonnelLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKcallingLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKcallingLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKorganizationLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKorganizationLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffKstaffingLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffKstaffingLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            CoeffThoursLabel.BackColor = selectedTheme.MainSecondaryColor;
+            CoeffThoursLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            DayTimeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DayTimeBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
+
+            PollutionsBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            PollutionsBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
+
+            SoilTypeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            SoilTypeBox.ForeColor = selectedTheme.SecondaryForeColorAlternative;
+
+            PeopleAmountInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            OrganizationInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            AttritionRateInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            ManPowerInput.BackColor = selectedTheme.SecondarySecondaryColor;
+            WorkTimeInput.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            RemoveSelectedButton.BackColor = selectedTheme.SecondaryMainColor;
+            RemoveSelectedButton.ForeColor = selectedTheme.SecondaryForeColor;
+            
+            FooterPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            AddElementButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            AddCompositionButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddCompositionButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            AllLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllAllTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllAllTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllFirstTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllFirstTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllSecondTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllSecondTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AllFutureTurnsLabel.BackColor = selectedTheme.MainSecondaryColor;
+            AllFutureTurnsLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            ChangeTableLabels(selectedTheme, MainTable);
+
+            if (selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                CheckBox.ImgDefault = Properties.Resources.CheckBoxUncheckedAlternative;
+                CheckBox.ImgDefaultHower = Properties.Resources.CheckBoxUncheckedHoverAlternative;
+            }
+        }
+
+        private void ChangeTableLabels(ColorTheme theme, object obj)
+        {
+            if(obj is TableLayoutPanel panel)
+            {
+                foreach (object obj1 in panel.Controls)
+                {
+                    ChangeTableLabels(theme, obj1);
+                }
+            }
+            else if(obj is Label label)
+            {
+                label.ForeColor = theme.MainForeColor;
+            }
         }
 
         private void AddElementButton_Click(object sender, EventArgs e)
         {
-            var form = new BuildingElementSelectorForm(this, Config.BuildingElements);
+            var form = new BuildingElementSelectorForm(this, 
+                Config.BuildingElements.Where(b => b.BuildingType == BuildingTypes.Element).ToList());
+
             form.FormClosed += (obj, args) =>
             {
                 Enabled = true;
@@ -61,7 +169,7 @@ namespace MilitaryEngineering.Fortification
             parent.Dispose();
         }
 
-        public void AddNewElement(BuildingElement buildingElement)
+        public void AddNewElement(IBuilding buildingElement)
         {
             MainPanel.Visible = true;
             var index = Board.AddElement(new BuildingCalculation(buildingElement));
@@ -78,8 +186,6 @@ namespace MilitaryEngineering.Fortification
             element.Dock = DockStyle.Top;
             EvaluateAllTurns();
         }
-
-        //public void Update(
 
         private void RemoveSelectedButton_Click(object sender, EventArgs e)
         {
@@ -233,7 +339,7 @@ namespace MilitaryEngineering.Fortification
 
         public void RemoveGains(List<int> gainsToRemove)
         {
-            if (gainsToRemove is null)
+            if (gainsToRemove is null || gainsToRemove.Count == 0)
             {
                 return;
             }
@@ -253,7 +359,7 @@ namespace MilitaryEngineering.Fortification
 
         public void UpdateGains(List<Gain> gainsToUpdate)
         {
-            if (gainsToUpdate is null)
+            if (gainsToUpdate is null || gainsToUpdate.Count == 0)
                 return;
             foreach (var ga in gainsToUpdate)
             {
@@ -319,6 +425,29 @@ namespace MilitaryEngineering.Fortification
                     buildingElement.ChangeChartInterval(interval);
                 }
             }
+        }
+
+        private void AddCompositionButton_Click(object sender, EventArgs e)
+        {
+            CompositionSelectorForm form = new CompositionSelectorForm(this, Config.BuildingElements);
+            form.FormClosed += (s, args) =>
+            {
+                Enabled = true;
+            };
+            Enabled = false;
+            form.Show();
+        }
+
+        public void SaveBuildingElementsToConfig(List<BuildingElement> buildingElements)
+        {
+            Config.BuildingElements.RemoveAll(b => b.BuildingType == BuildingTypes.Element);
+            Config.BuildingElements.AddRange(buildingElements);
+        }
+
+        public void SaveCompositionsToConfig(List<BuildingElement> compositions)
+        {
+            Config.BuildingElements.RemoveAll(b => b.BuildingType == BuildingTypes.Composition);
+            Config.BuildingElements.AddRange(compositions);
         }
     }
 }

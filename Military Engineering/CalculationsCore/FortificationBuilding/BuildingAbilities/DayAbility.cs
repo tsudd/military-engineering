@@ -13,15 +13,26 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         WorkTime
     }
 
+    public struct GainAbility
+    {
+        public int Amount { get; set; }
+        public double WorkTime { get; set; }
+        public GainAbility(int Amount, double WorkTime)
+        {
+            this.Amount = Amount;
+            this.WorkTime = WorkTime;
+        }
+    }
+
     public class DayAbility
     {
         public int PeopleAmount { get; set;  } = 0;
         public double ManPower { get; set; } = 0;
         public double AttritionRate { get; set; } = 0;
         public double Organization { get; set; } = 0;
-        public List<KeyValuePair<Gain, int>> BuildingGains { get; set; } = new List<KeyValuePair<Gain, int>>();
+        public List<KeyValuePair<Gain, GainAbility>> BuildingGains { get; set; } = new List<KeyValuePair<Gain, GainAbility>>();
         public double WorkTime { get; set; } = 0;
-        public double Evaluate(BuildingElement element)
+        public double Evaluate()
         {
             if (WorkTime <= 0 
                 || PeopleAmount <= 0 
@@ -31,7 +42,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             {
                 throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero");
             }
-            return EvaluateGains(element) 
+            return EvaluateGains() 
                 + ( PeopleAmount 
                 * ManPower 
                 * AttritionRate 
@@ -39,12 +50,12 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
                 * WorkTime );
         }
 
-        private double EvaluateGains(BuildingElement element)
+        private double EvaluateGains()
         {
             double ans = 0;
             foreach( var ga in BuildingGains)
             {
-                ans += ga.Key.Evaluate(element, this, ga.Value);
+                ans += ga.Key.Evaluate(this, ga.Value);
             }
             return ans;
         }

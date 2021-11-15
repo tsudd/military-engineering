@@ -73,6 +73,16 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddAlternative {
+            get {
+                object obj = ResourceManager.GetObject("AddAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AddHover {
             get {
                 object obj = ResourceManager.GetObject("AddHover", resourceCulture);
@@ -113,6 +123,16 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUncheckedAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CheckBoxUncheckedHover {
             get {
                 object obj = ResourceManager.GetObject("CheckBoxUncheckedHover", resourceCulture);
@@ -123,9 +143,29 @@ namespace MilitaryEngineering.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CheckBoxUncheckedHoverAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CheckBoxUncheckedHoverAlternative", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cross {
             get {
                 object obj = ResourceManager.GetObject("Cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CrossAlternative {
+            get {
+                object obj = ResourceManager.GetObject("CrossAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +186,16 @@ namespace MilitaryEngineering.Properties {
         internal static System.Drawing.Bitmap Edit {
             get {
                 object obj = ResourceManager.GetObject("Edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EditAlternative {
+            get {
+                object obj = ResourceManager.GetObject("EditAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -260,6 +310,16 @@ namespace MilitaryEngineering.Properties {
         internal static System.Drawing.Bitmap Substract {
             get {
                 object obj = ResourceManager.GetObject("Substract", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SubstractAlternative {
+            get {
+                object obj = ResourceManager.GetObject("SubstractAlternative", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

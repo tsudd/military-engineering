@@ -50,7 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Messaging" />
@@ -101,6 +101,30 @@
     </Compile>
     <Compile Include="Controls\CheckBox.Designer.cs">
       <DependentUpon>CheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionAddPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionAddPanel.Designer.cs">
+      <DependentUpon>CompositionAddPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionCreatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionCreatorForm.Designer.cs">
+      <DependentUpon>CompositionCreatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionSelectorForm.Designer.cs">
+      <DependentUpon>CompositionSelectorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Fortification\CompositionSelector\CompositionViewPanel.Designer.cs">
+      <DependentUpon>CompositionViewPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Fortification\FortificationForm.cs">
       <SubType>Form</SubType>
@@ -154,6 +178,18 @@
     <EmbeddedResource Include="Controls\CheckBox.resx">
       <DependentUpon>CheckBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionAddPanel.resx">
+      <DependentUpon>CompositionAddPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionCreatorForm.resx">
+      <DependentUpon>CompositionCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionSelectorForm.resx">
+      <DependentUpon>CompositionSelectorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fortification\CompositionSelector\CompositionViewPanel.resx">
+      <DependentUpon>CompositionViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Fortification\FortificationForm.resx">
       <DependentUpon>FortificationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +232,10 @@
     <ProjectReference Include="..\CalculationsCore\CalculationsCore.csproj">
       <Project>{fbcdb1a4-64b0-43bf-95d3-b153e5c4394e}</Project>
       <Name>CalculationsCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ColorThemeManager\ColorThemeManager.csproj">
+      <Project>{c984c1ea-8cab-4c04-8207-e19c09b3fa15}</Project>
+      <Name>ColorThemeManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\MilitaryConfiguration\MilitaryConfiguration.csproj">
       <Project>{64e862a3-1d1e-4db3-b116-bbf3284198df}</Project>
@@ -261,6 +301,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\CheckBoxUncheckedHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CheckBoxUncheckedHoverAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\AddAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\CrossAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\EditAlternative.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\SubstractAlternative.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

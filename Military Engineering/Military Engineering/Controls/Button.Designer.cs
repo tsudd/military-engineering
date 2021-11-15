@@ -29,13 +29,17 @@ namespace MilitaryEngineering.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            this.SuspendLayout();
             // 
             // Button
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Name = "Button";
             this.ResumeLayout(false);
+
         }
 
         #endregion

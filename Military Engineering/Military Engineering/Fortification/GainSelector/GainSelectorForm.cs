@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
@@ -11,19 +12,20 @@ namespace MilitaryEngineering.Fortification.GainSelector
     {
         public BuildingElementPanel Sender {  get; private set; }
         public List<Gain> Gains { get; private set; } = new List<Gain>();
-        public Dictionary<int, int> Amounts { get; private set; } = new Dictionary<int, int>();
+        public Dictionary<int, GainAbility> Amounts { get; private set; } = new Dictionary<int, GainAbility>();
         public List<int> GainsToRemove { get; private set; } = new List<int>();
         public Dictionary<int, Gain> GainsToUpdate { get; private set; } = new Dictionary<int, Gain>();
         public int GainsAmount { get; private set; } = 0;
         public GainSelectorForm(BuildingElementPanel sender)
         {
             InitializeComponent();
+            SetColorTheme();
             Sender = sender;
             foreach(var gain in Sender.FortForm.Config.Gains)
             {
                 var g = new Gain(gain);
                 Gains.Add(g);
-                Amounts.Add(g.Id, 0);
+                Amounts.Add(g.Id, new GainAbility(0, 0));
             }
             foreach(var gain in Sender.FortForm
                 .Board
@@ -32,10 +34,32 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 .BuildingGains) // really hate this code
             {
                 Amounts[gain.Key.Id] = gain.Value;
-                GainsAmount += gain.Value;
+                GainsAmount += gain.Value.Amount;
             }
             AddEntries();
             UpdateAmountLabel();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            DoneButton.BackColor = selectedTheme.SecondaryMainColor;
+            DoneButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            NoChangesButton.BackColor = selectedTheme.SecondaryMainColor;
+            NoChangesButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            AmountLabel.ForeColor = selectedTheme.MainForeColor;
+
+            CreateGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            CreateGainButton.ForeColor = selectedTheme.SecondaryForeColor;
+
         }
 
         private void GainSelectorForm_Load(object sender, EventArgs e)
@@ -92,6 +116,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             var panel = new GainPanel(gain, Amounts[gain.Id]);
             panel.Incremented += IncrementGainAmount;
             panel.Decremented += DecrementGainAmount;
+            panel.ChangedTime += ChangeGainWorkTime;
             MainTable.RowCount++;
             MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
@@ -101,12 +126,21 @@ namespace MilitaryEngineering.Fortification.GainSelector
             panel.Edited += Edit;
         }
 
+        private void ChangeGainWorkTime(int gainId, double workTime)
+        {
+            GainAbility gainAbility = Amounts[gainId];
+            gainAbility.WorkTime = workTime;
+            Amounts[gainId] = gainAbility;
+        }
+
         private void IncrementGainAmount(int gainId, out int amount)
         {
             try
             {
-                Amounts[gainId]++;
-                amount = Amounts[gainId];
+                GainAbility gainAbility = Amounts[gainId];
+                gainAbility.Amount++;
+                Amounts[gainId] = gainAbility;
+                amount = gainAbility.Amount;
                 GainsAmount++;
                 UpdateAmountLabel();
             }
@@ -119,13 +153,15 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DecrementGainAmount(int gainId, out int amount)
         {
-            if (Amounts[gainId] == 0)
+            if (Amounts[gainId].Amount == 0)
             {
                 amount = 0;
                 return;
             }
-            Amounts[gainId]--;
-            amount = Amounts[gainId];
+            GainAbility gainAbility = Amounts[gainId];
+            gainAbility.Amount--;
+            Amounts[gainId] = gainAbility;
+            amount = Amounts[gainId].Amount;
             GainsAmount--;
             UpdateAmountLabel();  
         }
@@ -140,8 +176,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             {
                 if (panel.GainEntry == prevGain)
                 {
-                    var index = Gains.IndexOf(prevGain);
-
                     AddGainToUpdateList(newGain);
                     panel.GainEntry = newGain;
                     panel.ConfigureToolTip();
@@ -166,8 +200,16 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DoneButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Sender.UpdateGainsAmountsList(Amounts, GainsToUpdate.Values.ToList());
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             Sender.UpdateAndRemoveGains(GainsToUpdate.Values.ToList(), GainsToRemove);
-            Sender.UpdateGainsAmountsList(Amounts);
             Close();
         }
 
@@ -206,7 +248,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         {
             Gains.Add(gain);
             GainsToUpdate.Add(gain.Id, gain);
-            Amounts.Add(gain.Id, 0);
+            Amounts.Add(gain.Id, new GainAbility(0, 0));
             AddEntry(gain);
         }
 
@@ -217,7 +259,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 GainsToUpdate.Remove(gain.Id);
             }
             GainsToRemove.Add(gain.Id);
-            GainsAmount -= Amounts[gain.Id];
+            GainsAmount -= Amounts[gain.Id].Amount;
             Amounts.Remove(gain.Id);
             Gains.Remove(gain);
             UpdateAmountLabel();

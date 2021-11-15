@@ -4,13 +4,13 @@ using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
     public partial class GainPanel : UserControl
     {
         Gain gainEntry;
-        public Dictionary<string, string> GainInfo = new Dictionary<string, string>();
         public Gain GainEntry
         {
             get
@@ -32,23 +32,59 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public delegate void DecrementGainAmount(int gainId, out int amount);
         public event IncrementGainAmount Incremented;
         public event DecrementGainAmount Decremented;
+        public delegate void ChangeGainTime(int gainId, double workTime);
+        public event ChangeGainTime ChangedTime;
         public IncrementGainAmount IncrementGain { get; set; }
         public DecrementGainAmount DecrementGain { get; set;  }
-        Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
+        ColorTheme selectedTheme;
+        Color hoverColor { get; set; }
         Color defaultColor {  get; set; }
+        Color DefaultBoxColor;
         TextAutoAdjuster textAutoAdjuster;
-        public GainPanel(Gain gain, int amount = 0)
+        public GainPanel(Gain gain, GainAbility gainAbility)
         {
             GainEntry = gain;
             InitializeComponent();
+            SetColorTheme();
             textAutoAdjuster = new TextAutoAdjuster(InfoLabel, Width - SubstractButton.Location.X);
             EditButton.Click += (sender, e) => Edited?.Invoke(this, e);
             RemoveButton.Click += (sender, e) => Removed?.Invoke(this, e);
             HideAll();
             defaultColor = panel1.BackColor;
             InfoLabel.Text = gain.Name;
-            CounterLabel.Text = amount.ToString();
+            CounterLabel.Text = gainAbility.Amount.ToString();
+            if (gainAbility.Amount > 0)
+            {
+                WorkTimeBox.ReadOnly = false;
+            }
+            WorkTimeBox.Text = gainAbility.WorkTime > 0 ? gainAbility.WorkTime.ToString(): "";
+            DefaultBoxColor = WorkTimeBox.BackColor;
             ConfigureToolTip();
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.BackColor = selectedTheme.SecondaryMainColor;
+            InfoLabel.ForeColor = selectedTheme.SecondaryForeColor;
+            panel1.BackColor = selectedTheme.SecondaryMainColor;
+            hoverColor = selectedTheme.HoverColor;
+
+            WorkTimeBox.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            CounterLabel.BackColor = selectedTheme.SecondaryMainColor;
+            CounterLabel.ForeColor = selectedTheme.SecondaryForeColor;
+
+            if (selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                SubstractButton.Image = Properties.Resources.SubstractAlternative;
+                AddButton.Image = Properties.Resources.AddAlternative;
+                EditButton.Image = Properties.Resources.EditAlternative;
+                RemoveButton.Image = Properties.Resources.CrossAlternative;
+            }
         }
 
         private void HideAll()
@@ -72,18 +108,18 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         public void ConfigureToolTip()
         {
-            GainInfo.Clear();
-            GainInfo.Add(InfoLabel.Name, FormDescribtion());
-            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, GainInfo);
-            autoMapper.Map();
-            CoeffInfoToolTip.OwnerDraw = true;
-            CoeffInfoToolTip.Draw += (sender, e) =>
+            if (string.IsNullOrEmpty(gainEntry.Description))
             {
-                Font f = new Font("Arial", 9f);
-                e.DrawBackground();
-                e.DrawBorder();
-                e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
+                gainEntry.Description = Gain.CreateDefaultDescription(gainEntry.TrenchPerformance.ToString(), gainEntry.PitPerformance.ToString());
+            }
+            Dictionary<string, string> description = new Dictionary<string, string>()
+            {
+                { "InfoLabel", gainEntry.Description }
             };
+
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, DescriptionToolTip, description);
+            autoMapper.Map();
+            autoMapper.Configure(selectedTheme);
         }
 
         private void panel1_MouseEnter(object sender, EventArgs e)
@@ -124,6 +160,13 @@ namespace MilitaryEngineering.Fortification.GainSelector
             //DecrementGain?.Invoke(GainIndex);
             int amount = 0;
             Decremented?.Invoke(GainIndex, out amount);
+            if (amount == 0)
+            {
+                WorkTimeBox.Text = "";
+                WorkTimeBox.BackColor = DefaultBoxColor;
+                WorkTimeBox.ReadOnly = true;
+            }
+
             CounterLabel.Text = amount.ToString();
         }
 
@@ -132,22 +175,36 @@ namespace MilitaryEngineering.Fortification.GainSelector
             //IncrementGain?.Invoke(GainIndex);
             int amount = 0;
             Incremented?.Invoke(GainIndex, out amount);
+            WorkTimeBox.ReadOnly = false;
             CounterLabel.Text = amount.ToString();
         }
 
         private void RemoveButton_Click(object sender, EventArgs e)
         {
         }
-
-        private string FormDescribtion()
-        {
-            return $"{GainEntry.Description} Производительность: " +
-                $"для траншей - {GainEntry.TrenchPerformance}, " +
-                $"для котлованов - {GainEntry.PitPerformance}.";
-        }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void WorkTimeBox_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            if (double.TryParse(textBox.Text, out double num))
+            {
+                if (num <= 0 || num > 24)
+                {
+                    textBox.BackColor = Color.FromArgb(255, 128, 128);
+                }
+                else
+                {
+                    textBox.BackColor = DefaultBoxColor;              
+                }
+                ChangedTime?.Invoke(GainIndex, Convert.ToDouble(textBox.Text));
+            }
+            else
+            {
+                textBox.BackColor = Color.FromArgb(255, 128, 128);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using CalculationsCore.FortificationBuilding.BuildingAbilities;
+using ColorThemeManager;
 using MilitaryEngineering.Fortification.GainSelector;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,35 @@ namespace MilitaryEngineering.Fortification
         public GainCreatorForm(GainSelectorForm sender)
         {
             InitializeComponent();
+            SetColorTheme();
             DefaultColor = TrenchPerfomanceBox.BackColor;
             Sender = sender;
+            InfoLabel.Text = "СОЗДАТЬ УСИЛЕНИЕ";
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+            MainPanel.BackColor = selectedTheme.MainSecondaryColor;
+
+            NameLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            TrenchPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+            PitPerfomanceLabel.ForeColor = selectedTheme.SecondarySecondaryColor;
+
+            NameTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            TrenchPerfomanceBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            DescriptionBox.BackColor = selectedTheme.SecondarySecondaryColor;
+            PitPerfomanceBox.BackColor = selectedTheme.SecondarySecondaryColor;
+
+            AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddGainButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            DefaultDescriptionCheckBox.ForeColor = selectedTheme.SecondarySecondaryColor;
         }
 
         public GainCreatorForm(GainSelectorForm sender, Gain edit) : this(sender)
@@ -26,6 +54,8 @@ namespace MilitaryEngineering.Fortification
             DescriptionBox.Text = edit.Description;
             TrenchPerfomanceBox.Text = edit.TrenchPerformance.ToString("0.###");
             PitPerfomanceBox.Text = edit.PitPerformance.ToString("0.###");
+            DefaultDescriptionCheckBox.Checked = false;
+            InfoLabel.Text = "РЕДАКТИРОВАТЬ УСИЛЕНИЕ";
         }
 
         private void AddGainButton_Click(object sender, EventArgs e)
@@ -37,10 +67,11 @@ namespace MilitaryEngineering.Fortification
             }
 
             Gain gain = new Gain(
-                DescriptionBox.Text,
                 parsed[0],
                 parsed[1],
-                NameTextBox.Text);
+                NameTextBox.Text,
+                description: DefaultDescriptionCheckBox.Checked ? null : DescriptionBox.Text);
+
             if (PrevGain is null)
             {
                 Sender.CreateEntry(gain);
@@ -91,6 +122,11 @@ namespace MilitaryEngineering.Fortification
             {
                 textBox.BackColor = DefaultColor;
             }
+        }
+
+        private void DefaultDescriptionCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            DescriptionBox.Enabled = !DefaultDescriptionCheckBox.Checked;
         }
     }
 }

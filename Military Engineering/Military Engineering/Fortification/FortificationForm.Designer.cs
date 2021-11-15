@@ -39,7 +39,6 @@ namespace MilitaryEngineering.Fortification
             this.PollutionLabel = new System.Windows.Forms.Label();
             this.DayTimeLabel = new System.Windows.Forms.Label();
             this.DayTimeBox = new System.Windows.Forms.ComboBox();
-            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.WorkTimeInput = new System.Windows.Forms.TextBox();
@@ -55,11 +54,12 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.RemoveSelectedButton = new System.Windows.Forms.Button();
             this.FooterPanel = new System.Windows.Forms.Panel();
+            this.AddCompositionButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.AllFutureTurnsLabel = new System.Windows.Forms.Label();
             this.AllAllTurnsLabel = new System.Windows.Forms.Label();
             this.AllSecondTurnsLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.AllLabel = new System.Windows.Forms.Label();
             this.AllFirstTurnsLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
@@ -82,6 +82,7 @@ namespace MilitaryEngineering.Fortification
             this.label1 = new System.Windows.Forms.Label();
             this.ElementNameLabel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.CheckBox = new MilitaryEngineering.Controls.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
@@ -177,7 +178,7 @@ namespace MilitaryEngineering.Fortification
             this.SoilTypeBox.Location = new System.Drawing.Point(170, 77);
             this.SoilTypeBox.Name = "SoilTypeBox";
             this.SoilTypeBox.Size = new System.Drawing.Size(139, 29);
-            this.SoilTypeBox.TabIndex = 13;
+            this.SoilTypeBox.TabIndex = 4;
             this.SoilTypeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // SoilTypeLabel
@@ -203,7 +204,7 @@ namespace MilitaryEngineering.Fortification
             this.PollutionsBox.Location = new System.Drawing.Point(170, 40);
             this.PollutionsBox.Name = "PollutionsBox";
             this.PollutionsBox.Size = new System.Drawing.Size(139, 29);
-            this.PollutionsBox.TabIndex = 10;
+            this.PollutionsBox.TabIndex = 3;
             this.PollutionsBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // PollutionLabel
@@ -241,18 +242,8 @@ namespace MilitaryEngineering.Fortification
             this.DayTimeBox.Location = new System.Drawing.Point(170, 3);
             this.DayTimeBox.Name = "DayTimeBox";
             this.DayTimeBox.Size = new System.Drawing.Size(139, 29);
-            this.DayTimeBox.TabIndex = 7;
+            this.DayTimeBox.TabIndex = 2;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.GlobalFilter_Changed);
-            // 
-            // CheckBox
-            // 
-            this.CheckBox.Checked = false;
-            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 40);
-            this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 31);
-            this.CheckBox.TabIndex = 14;
-            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // tableLayoutPanel12
             // 
@@ -305,7 +296,7 @@ namespace MilitaryEngineering.Fortification
             this.WorkTimeInput.Location = new System.Drawing.Point(372, 38);
             this.WorkTimeInput.Name = "WorkTimeInput";
             this.WorkTimeInput.Size = new System.Drawing.Size(117, 28);
-            this.WorkTimeInput.TabIndex = 24;
+            this.WorkTimeInput.TabIndex = 9;
             this.WorkTimeInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // ManPowerInput
@@ -317,7 +308,7 @@ namespace MilitaryEngineering.Fortification
             this.ManPowerInput.Location = new System.Drawing.Point(126, 38);
             this.ManPowerInput.Name = "ManPowerInput";
             this.ManPowerInput.Size = new System.Drawing.Size(117, 28);
-            this.ManPowerInput.TabIndex = 23;
+            this.ManPowerInput.TabIndex = 6;
             this.ManPowerInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // AttritionRateInput
@@ -329,7 +320,7 @@ namespace MilitaryEngineering.Fortification
             this.AttritionRateInput.Location = new System.Drawing.Point(372, 3);
             this.AttritionRateInput.Name = "AttritionRateInput";
             this.AttritionRateInput.Size = new System.Drawing.Size(117, 28);
-            this.AttritionRateInput.TabIndex = 22;
+            this.AttritionRateInput.TabIndex = 8;
             this.AttritionRateInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // OrganizationInput
@@ -341,7 +332,7 @@ namespace MilitaryEngineering.Fortification
             this.OrganizationInput.Location = new System.Drawing.Point(126, 73);
             this.OrganizationInput.Name = "OrganizationInput";
             this.OrganizationInput.Size = new System.Drawing.Size(117, 28);
-            this.OrganizationInput.TabIndex = 21;
+            this.OrganizationInput.TabIndex = 7;
             this.OrganizationInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // CoeffThoursLabel
@@ -365,7 +356,7 @@ namespace MilitaryEngineering.Fortification
             this.PeopleAmountInput.Location = new System.Drawing.Point(126, 3);
             this.PeopleAmountInput.Name = "PeopleAmountInput";
             this.PeopleAmountInput.Size = new System.Drawing.Size(117, 28);
-            this.PeopleAmountInput.TabIndex = 19;
+            this.PeopleAmountInput.TabIndex = 5;
             this.PeopleAmountInput.TextChanged += new System.EventHandler(this.GlobalFilter_Changed);
             // 
             // CoeffKorganizationLabel
@@ -441,7 +432,7 @@ namespace MilitaryEngineering.Fortification
             this.RemoveSelectedButton.Location = new System.Drawing.Point(3, 11);
             this.RemoveSelectedButton.Name = "RemoveSelectedButton";
             this.RemoveSelectedButton.Size = new System.Drawing.Size(288, 94);
-            this.RemoveSelectedButton.TabIndex = 2;
+            this.RemoveSelectedButton.TabIndex = 10;
             this.RemoveSelectedButton.TabStop = false;
             this.RemoveSelectedButton.Text = "Удалить выбранные";
             this.RemoveSelectedButton.UseVisualStyleBackColor = false;
@@ -450,6 +441,7 @@ namespace MilitaryEngineering.Fortification
             // FooterPanel
             // 
             this.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.FooterPanel.Controls.Add(this.AddCompositionButton);
             this.FooterPanel.Controls.Add(this.tableLayoutPanel5);
             this.FooterPanel.Controls.Add(this.AddElementButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -457,6 +449,23 @@ namespace MilitaryEngineering.Fortification
             this.FooterPanel.Name = "FooterPanel";
             this.FooterPanel.Size = new System.Drawing.Size(1128, 90);
             this.FooterPanel.TabIndex = 1;
+            // 
+            // AddCompositionButton
+            // 
+            this.AddCompositionButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddCompositionButton.AutoSize = true;
+            this.AddCompositionButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AddCompositionButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddCompositionButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.AddCompositionButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.AddCompositionButton.Location = new System.Drawing.Point(768, 6);
+            this.AddCompositionButton.Name = "AddCompositionButton";
+            this.AddCompositionButton.Size = new System.Drawing.Size(171, 72);
+            this.AddCompositionButton.TabIndex = 3;
+            this.AddCompositionButton.TabStop = false;
+            this.AddCompositionButton.Text = "Добавить\r\nкомпозицию";
+            this.AddCompositionButton.UseVisualStyleBackColor = false;
+            this.AddCompositionButton.Click += new System.EventHandler(this.AddCompositionButton_Click);
             // 
             // tableLayoutPanel5
             // 
@@ -472,7 +481,7 @@ namespace MilitaryEngineering.Fortification
             this.tableLayoutPanel5.Controls.Add(this.AllFutureTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllAllTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllSecondTurnsLabel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.AllLabel, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.AllFirstTurnsLabel, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -517,17 +526,17 @@ namespace MilitaryEngineering.Fortification
             this.AllSecondTurnsLabel.Text = "Всего";
             this.AllSecondTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // AllLabel
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label11.Location = new System.Drawing.Point(3, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(293, 90);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Всего";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AllLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AllLabel.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.AllLabel.Location = new System.Drawing.Point(3, 0);
+            this.AllLabel.Name = "AllLabel";
+            this.AllLabel.Size = new System.Drawing.Size(293, 90);
+            this.AllLabel.TabIndex = 6;
+            this.AllLabel.Text = "Всего";
+            this.AllLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AllFirstTurnsLabel
             // 
@@ -833,6 +842,22 @@ namespace MilitaryEngineering.Fortification
             this.label12.Text = "График сроков фортоборудования";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // CheckBox
+            // 
+            this.CheckBox.BackgroundImage = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CheckBox.Checked = false;
+            this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CheckBox.ImgChecked = global::MilitaryEngineering.Properties.Resources.CheckBoxChecked;
+            this.CheckBox.ImgCheckedHower = global::MilitaryEngineering.Properties.Resources.CheckBoxCheckedHover;
+            this.CheckBox.ImgDefault = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.ImgDefaultHower = global::MilitaryEngineering.Properties.Resources.CheckBoxUncheckedHover;
+            this.CheckBox.Location = new System.Drawing.Point(3, 40);
+            this.CheckBox.Name = "CheckBox";
+            this.CheckBox.Size = new System.Drawing.Size(34, 31);
+            this.CheckBox.TabIndex = 14;
+            this.CheckBox.CheckBox_Checked += new System.EventHandler(this.GlobalFilter_Changed);
+            // 
             // FortificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -902,7 +927,7 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label AllFutureTurnsLabel;
         public System.Windows.Forms.Label AllAllTurnsLabel;
         public System.Windows.Forms.Label AllSecondTurnsLabel;
-        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label AllLabel;
         private System.Windows.Forms.Button RemoveSelectedButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
@@ -928,5 +953,6 @@ namespace MilitaryEngineering.Fortification
         public System.Windows.Forms.Label CoeffNpersonnelLabel;
         public System.Windows.Forms.TableLayoutPanel ComboBoxLayoutPanel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button AddCompositionButton;
     }
 }

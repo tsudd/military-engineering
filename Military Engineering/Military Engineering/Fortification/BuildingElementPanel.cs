@@ -7,13 +7,14 @@ using System.Collections.Generic;
 using System;
 using MilitaryEngineering.Fortification.GainSelector;
 using System.Windows.Forms.DataVisualization.Charting;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification
 {
     public partial class BuildingElementPanel : UserControl
     {
         public const string ERROR_TEXT = "Ошибка";
-        public static readonly Dictionary<string, string> coeffInfo = new Dictionary<string, string>()
+        private Dictionary<string, string> tooltipDict = new Dictionary<string, string>()
         {
             { "CoeffNpersonnelLabel", "Количество личного состава в соединении (воинской части) по штату, чел" },
             { "CoeffKstaffingLabel", "Коэффициент, учитывающий укомплектованность соединения (воинской части) \nк моменту начала выполнения задач" },
@@ -23,30 +24,33 @@ namespace MilitaryEngineering.Fortification
         };
         public event EventHandler ElementChanged; 
         public bool Checked { get; set; } = false;
-        public int GainsAmount { get; private set; } = 0;
         public FortificationForm FortForm {  get; private set; }
         public int ElementIndex { get; private set; }
-        Color hoverColor { get; set; } = Color.FromArgb(107, 126, 152);
         Color defaultColor { get; set; }
-        Image prevImage {  get; set; }
+        Color chartForeColor;
+
+        ColorTheme selectedTheme;
         public BuildingElementPanel(FortificationForm fortificationForm, int key)
         {
             FortForm = fortificationForm;
             ElementIndex = key;
             InitializeComponent();
+            SetColorTheme();
             CheckBox.CheckBox_Checked += (sender, e) =>
             {
                 Checked = ((Controls.CheckBox)sender).Checked;
                 ElementChanged?.Invoke(sender, e);
             };
-            ConfigureToolTip();
-            defaultColor = tableLayoutPanel1.BackColor;
+            
             var element = FortForm.Board.GetElement(ElementIndex);
-            ElementNameLabel.Text = element.Element.Name;
-            FirstTurnLabel.Text = element.Element.FirstTurn.ToString("0.###");
-            SecondTurnLabel.Text = element.Element.SecondTurn.ToString("0.###");
-            FutureTurnLabel.Text = element.Element.FutureTurn.ToString("0.###");
-            AllTurnsLabel.Text = element.Element.AllTurns.ToString("0.###");
+            tooltipDict.Add("ElementNameLabel", element.Building.Description);
+
+            ConfigureToolTip();
+            ElementNameLabel.Text = element.Building.Name;
+            FirstTurnLabel.Text = element.Building.GetFirstTurn().ToString("0.###");
+            SecondTurnLabel.Text = element.Building.GetSecondTurn().ToString("0.###");
+            FutureTurnLabel.Text = element.Building.GetFutureTurn().ToString("0.###");
+            AllTurnsLabel.Text = element.Building.GetAllTurns().ToString("0.###");
             AddGainButton.Text = element.Ability.BuildingGains.Count.ToString();
 
             SoilTypeBox.DataSource = FortificationBoard.SoilTypes;
@@ -69,21 +73,71 @@ namespace MilitaryEngineering.Fortification
             DayTimeBox.SelectedIndexChanged += Evaluate;
             SoilTypeBox.SelectedIndexChanged += Evaluate;
             PollutionsBox.SelectedIndexChanged += Evaluate;
-            AddGainButton.Click += Evaluate;
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            tableLayoutPanel1.BackColor = selectedTheme.MainSecondaryColor;
+
+            defaultColor = selectedTheme.SecondarySecondaryColor;
+
+            ChangeMainTableLabels(selectedTheme, tableLayoutPanel1);
+
+            FirstTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            SecondTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            FutureTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+            AllTurnEvaluationLabel.ForeColor = selectedTheme.MainForeColor;
+
+            chart1.BackColor = selectedTheme.MainSecondaryColor;
+            chart1.BorderlineColor = selectedTheme.MainMainColor;
+            chart1.ChartAreas["ChartArea1"].BackColor = selectedTheme.SecondarySecondaryColor;
+            chartForeColor = selectedTheme.SecondarySecondaryColor;
+
+            AddGainButton.BackColor = selectedTheme.SecondaryMainColor;
+            AddGainButton.ForeColor = selectedTheme.MainMainColor;
+
+            if(selectedTheme.IconType == ColorTheme.IconTypes.Alternative)
+            {
+                CheckBox.ImgDefault = Properties.Resources.CheckBoxUncheckedAlternative;
+                CheckBox.ImgDefaultHower = Properties.Resources.CheckBoxUncheckedHoverAlternative;
+            }
+        }
+
+        private void ChangeMainTableLabels(ColorTheme colorTheme, object obj)
+        {
+            if (obj is TableLayoutPanel panel)
+            {
+                foreach (object obj1 in panel.Controls)
+                {
+                    ChangeMainTableLabels(colorTheme, obj1);
+                }
+            }
+            else if (obj is Label label)
+            {
+                label.ForeColor = colorTheme.SecondarySecondaryColor;
+            }
+            else if(obj is ComboBox comboBox)
+            {
+                comboBox.BackColor = colorTheme.SecondarySecondaryColor;
+                comboBox.ForeColor = colorTheme.SecondaryForeColorAlternative;
+            }
+            else if(obj is TextBox textBox)
+            {
+                textBox.BackColor = colorTheme.SecondarySecondaryColor;
+                textBox.ForeColor = colorTheme.SecondaryForeColorAlternative;
+            }
         }
 
         void ConfigureToolTip()
         {
-            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, coeffInfo);
+            ToolTipAutoMapper autoMapper = new ToolTipAutoMapper(this, CoeffInfoToolTip, tooltipDict);
             autoMapper.Map();
-            CoeffInfoToolTip.OwnerDraw = true;
-            CoeffInfoToolTip.Draw += (sender, e) =>
-            {
-                Font f = new Font("Arial", 9f);
-                e.DrawBackground();
-                e.DrawBorder();
-                e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(1, 2));
-            };
+           
+            autoMapper.Configure(selectedTheme);
         }
 
         private void DayTimeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,7 +169,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.PeopleAmount);
-                PeopleAmountInput.BackColor = Color.FromArgb(119, 141, 169);
+                PeopleAmountInput.BackColor = defaultColor;
             }
             catch
             {
@@ -129,7 +183,7 @@ namespace MilitaryEngineering.Fortification
             try
             {
                 var calc = FortForm.Board.GetElement(ElementIndex);
-                AddGainButton.Text = $"Всего {GainsAmount}";
+                AddGainButton.Text = calc.GetGainsAmount().ToString();
                 FirstTurnEvaluationLabel.Text = calc.EvaluateFirstTurn().ToString();
                 SecondTurnEvaluationLabel.Text = calc.EvaluateSecondTurn().ToString();
                 FutureTurnEvaluationLabel.Text = calc.EvaluateFutureTurn().ToString();
@@ -159,7 +213,7 @@ namespace MilitaryEngineering.Fortification
             chart1.ChartAreas[0].AxisY.MinorGrid.LineWidth = 0;
 
             chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Bahnschrift", 6, FontStyle.Regular);
-            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.FromArgb(166, 180, 199);
+            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = chartForeColor;
 
             FortForm.UpdateChartsInterval();
 
@@ -188,7 +242,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.ManPower);
-                ManPowerInput.BackColor = Color.FromArgb(119, 141, 169);
+                ManPowerInput.BackColor = defaultColor;
             }
             catch
             {
@@ -208,7 +262,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.Organization);
-                OrganizationInput.BackColor = Color.FromArgb(119, 141, 169);
+                OrganizationInput.BackColor = defaultColor;
             }
             catch
             {
@@ -228,7 +282,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.AttritionRate);
-                AttritionRateInput.BackColor = Color.FromArgb(119, 141, 169);
+                AttritionRateInput.BackColor = defaultColor;
             }
             catch
             {
@@ -248,7 +302,7 @@ namespace MilitaryEngineering.Fortification
                     return;
                 }
                 FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.WorkTime);
-                WorkTimeInput.BackColor = Color.FromArgb(119, 141, 169);
+                WorkTimeInput.BackColor = defaultColor;
             }
             catch
             {
@@ -257,26 +311,45 @@ namespace MilitaryEngineering.Fortification
             ElementChanged?.Invoke(sender, e);
         }
 
-        public void UpdateGainsAmountsList(Dictionary<int, int> gainsAmounts)
+        public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAbilities, List<Gain> createdGains = null)
         {
-            if (gainsAmounts == null)
+            if (gainsAbilities == null)
                 return;
-            GainsAmount = 0;
-            var ans = new List<KeyValuePair<Gain, int>>();
-            foreach (var gainAmount in gainsAmounts)
+            var ans = new List<KeyValuePair<Gain, GainAbility>>();
+            foreach (var gainAbility in gainsAbilities)
             {
-                if (gainAmount.Value > 0)
+                if (gainAbility.Value.Amount > 0)
                 {
-                    GainsAmount += gainAmount.Value;
-                    ans.Add(new KeyValuePair<Gain, int>(FortForm.GetGainById(gainAmount.Key), gainAmount.Value));
+                    if (gainAbility.Value.WorkTime <= 0 || gainAbility.Value.WorkTime  > 24)
+                    {
+                        throw new ArgumentException("Введите положительные часы работы");
+                    }
+                    var gain = FortForm.GetGainById(gainAbility.Key);
+                    if (gain == null && createdGains != null) // really hate this code
+                    {
+                        foreach(var g in createdGains)
+                        {
+                            if (g.Id == gainAbility.Key)
+                            {
+                                gain = g;
+                                break;
+                            }
+                        }
+                    }
+                    else if (gain == null)
+                    {
+                        continue;
+                    }
+                    ans.Add(new KeyValuePair<Gain, GainAbility>(gain, gainAbility.Value));
                 }
             }
             FortForm.Board.UpdateElementAbility(ElementIndex, ans, AbilityType.BuildingGain);
+            //FortForm.EvaluateElements();
         }
 
-        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainToRemove)
+        public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainsToRemove)
         {
-            FortForm.UpdateAndRemoveGains(gainsToUpdate, gainToRemove);
+            FortForm.UpdateAndRemoveGains(gainsToUpdate, gainsToRemove);
         }
 
         private void AddGainButton_Click(object sender, System.EventArgs e)
@@ -289,6 +362,5 @@ namespace MilitaryEngineering.Fortification
             form.Show(this);
             FortForm.Enabled = false; 
         }
-
     }
 }

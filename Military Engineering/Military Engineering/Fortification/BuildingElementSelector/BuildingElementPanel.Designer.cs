@@ -29,10 +29,12 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.RemoveButton = new MilitaryEngineering.Controls.Button();
             this.EditButton = new MilitaryEngineering.Controls.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
+            this.DescriptionToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +80,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.EditButton.Size = new System.Drawing.Size(25, 25);
             this.EditButton.TabIndex = 8;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            this.EditButton.Load += new System.EventHandler(this.EditButton_Load);
             // 
             // InfoLabel
             // 
@@ -113,5 +116,6 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         public System.Windows.Forms.Panel panel1;
         private Controls.Button EditButton;
         private Controls.Button RemoveButton;
+        private System.Windows.Forms.ToolTip DescriptionToolTip;
     }
 }

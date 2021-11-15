@@ -31,18 +31,21 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             this.InfoLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
+            this.DescriptionBox = new System.Windows.Forms.RichTextBox();
+            this.DescriptionLabel = new System.Windows.Forms.Label();
             this.TrenchRadioButton = new System.Windows.Forms.RadioButton();
             this.PitRadioButton = new System.Windows.Forms.RadioButton();
             this.FutureTurnsTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FutureTurnsLabel = new System.Windows.Forms.Label();
             this.SecondTurnTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SecondTurnLabel = new System.Windows.Forms.Label();
             this.FirstTurnTextBox = new System.Windows.Forms.TextBox();
             this.FirstTurnLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,27 +64,53 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             // HeaderPanel
             // 
             this.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.HeaderPanel.Controls.Add(this.DefaultDescriptionCheckBox);
+            this.HeaderPanel.Controls.Add(this.DescriptionBox);
+            this.HeaderPanel.Controls.Add(this.DescriptionLabel);
             this.HeaderPanel.Controls.Add(this.TrenchRadioButton);
             this.HeaderPanel.Controls.Add(this.PitRadioButton);
             this.HeaderPanel.Controls.Add(this.FutureTurnsTextBox);
-            this.HeaderPanel.Controls.Add(this.label2);
+            this.HeaderPanel.Controls.Add(this.FutureTurnsLabel);
             this.HeaderPanel.Controls.Add(this.SecondTurnTextBox);
-            this.HeaderPanel.Controls.Add(this.label1);
+            this.HeaderPanel.Controls.Add(this.SecondTurnLabel);
             this.HeaderPanel.Controls.Add(this.FirstTurnTextBox);
             this.HeaderPanel.Controls.Add(this.FirstTurnLabel);
             this.HeaderPanel.Controls.Add(this.NameTextBox);
             this.HeaderPanel.Controls.Add(this.NameLabel);
             this.HeaderPanel.Location = new System.Drawing.Point(12, 77);
             this.HeaderPanel.Name = "HeaderPanel";
-            this.HeaderPanel.Size = new System.Drawing.Size(667, 380);
+            this.HeaderPanel.Size = new System.Drawing.Size(667, 587);
             this.HeaderPanel.TabIndex = 5;
+            // 
+            // DescriptionBox
+            // 
+            this.DescriptionBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionBox.Enabled = false;
+            this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
+            this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.DescriptionBox.Location = new System.Drawing.Point(10, 345);
+            this.DescriptionBox.Name = "DescriptionBox";
+            this.DescriptionBox.Size = new System.Drawing.Size(631, 96);
+            this.DescriptionBox.TabIndex = 16;
+            this.DescriptionBox.Text = "";
+            // 
+            // DescriptionLabel
+            // 
+            this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DescriptionLabel.Location = new System.Drawing.Point(8, 271);
+            this.DescriptionLabel.Name = "DescriptionLabel";
+            this.DescriptionLabel.Size = new System.Drawing.Size(312, 85);
+            this.DescriptionLabel.TabIndex = 15;
+            this.DescriptionLabel.Text = "Описание";
+            this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TrenchRadioButton
             // 
             this.TrenchRadioButton.AutoSize = true;
             this.TrenchRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.TrenchRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.TrenchRadioButton.Location = new System.Drawing.Point(13, 331);
+            this.TrenchRadioButton.Location = new System.Drawing.Point(10, 541);
             this.TrenchRadioButton.Name = "TrenchRadioButton";
             this.TrenchRadioButton.Size = new System.Drawing.Size(131, 34);
             this.TrenchRadioButton.TabIndex = 14;
@@ -94,7 +123,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.PitRadioButton.Checked = true;
             this.PitRadioButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.PitRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.PitRadioButton.Location = new System.Drawing.Point(13, 291);
+            this.PitRadioButton.Location = new System.Drawing.Point(10, 501);
             this.PitRadioButton.Name = "PitRadioButton";
             this.PitRadioButton.Size = new System.Drawing.Size(145, 34);
             this.PitRadioButton.TabIndex = 13;
@@ -113,16 +142,16 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.FutureTurnsTextBox.TabIndex = 12;
             this.FutureTurnsTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
-            // label2
+            // FutureTurnsLabel
             // 
-            this.label2.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label2.Location = new System.Drawing.Point(335, 142);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 85);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "В дальнейшем VIII\r\nприв.чел./час";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FutureTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FutureTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FutureTurnsLabel.Location = new System.Drawing.Point(335, 142);
+            this.FutureTurnsLabel.Name = "FutureTurnsLabel";
+            this.FutureTurnsLabel.Size = new System.Drawing.Size(309, 85);
+            this.FutureTurnsLabel.TabIndex = 11;
+            this.FutureTurnsLabel.Text = "В дальнейшем VIII\r\nприв.чел./час";
+            this.FutureTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SecondTurnTextBox
             // 
@@ -135,16 +164,16 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.SecondTurnTextBox.TabIndex = 10;
             this.SecondTurnTextBox.TextChanged += new System.EventHandler(this.TurnTextBox_TextChanged);
             // 
-            // label1
+            // SecondTurnLabel
             // 
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label1.Location = new System.Drawing.Point(8, 142);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 85);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "II очереди VII\r\nприв.чел./час";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SecondTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.SecondTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.SecondTurnLabel.Location = new System.Drawing.Point(8, 142);
+            this.SecondTurnLabel.Name = "SecondTurnLabel";
+            this.SecondTurnLabel.Size = new System.Drawing.Size(309, 85);
+            this.SecondTurnLabel.TabIndex = 9;
+            this.SecondTurnLabel.Text = "II очереди VII\r\nприв.чел./час";
+            this.SecondTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FirstTurnTextBox
             // 
@@ -195,7 +224,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.AddElementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddElementButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddElementButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddElementButton.Location = new System.Drawing.Point(486, 463);
+            this.AddElementButton.Location = new System.Drawing.Point(486, 682);
             this.AddElementButton.Name = "AddElementButton";
             this.AddElementButton.Size = new System.Drawing.Size(193, 66);
             this.AddElementButton.TabIndex = 6;
@@ -208,24 +237,40 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.checkBox1.Location = new System.Drawing.Point(22, 487);
+            this.checkBox1.Location = new System.Drawing.Point(7, 711);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(174, 20);
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "Сделать стандартным";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // DefaultDescriptionCheckBox
+            // 
+            this.DefaultDescriptionCheckBox.AutoSize = true;
+            this.DefaultDescriptionCheckBox.Checked = true;
+            this.DefaultDescriptionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DefaultDescriptionCheckBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.DefaultDescriptionCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(10, 447);
+            this.DefaultDescriptionCheckBox.Name = "DefaultDescriptionCheckBox";
+            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(424, 34);
+            this.DefaultDescriptionCheckBox.TabIndex = 19;
+            this.DefaultDescriptionCheckBox.Text = "Создать описание автоматически";
+            this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
+            this.DefaultDescriptionCheckBox.CheckedChanged += new System.EventHandler(this.DefaultDescriptionCheckBox_CheckedChanged);
+            // 
             // BuildingElementCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(691, 538);
+            this.ClientSize = new System.Drawing.Size(691, 760);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.AddElementButton);
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "BuildingElementCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание элемента построения";
@@ -245,12 +290,15 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         private System.Windows.Forms.TextBox FirstTurnTextBox;
         public System.Windows.Forms.Label FirstTurnLabel;
         private System.Windows.Forms.TextBox FutureTurnsTextBox;
-        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label FutureTurnsLabel;
         private System.Windows.Forms.TextBox SecondTurnTextBox;
-        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label SecondTurnLabel;
         private System.Windows.Forms.Button AddElementButton;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.RadioButton TrenchRadioButton;
         private System.Windows.Forms.RadioButton PitRadioButton;
+        private System.Windows.Forms.RichTextBox DescriptionBox;
+        public System.Windows.Forms.Label DescriptionLabel;
+        private System.Windows.Forms.CheckBox DefaultDescriptionCheckBox;
     }
 }

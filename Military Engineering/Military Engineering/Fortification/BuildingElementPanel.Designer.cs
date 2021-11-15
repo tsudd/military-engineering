@@ -109,7 +109,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(641, 173);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(651, 183);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -125,7 +125,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(635, 112);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(645, 122);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -149,7 +149,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(239, 106);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(243, 116);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // SoilTypeBox
@@ -160,10 +160,10 @@
             this.SoilTypeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SoilTypeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.SoilTypeBox.FormattingEnabled = true;
-            this.SoilTypeBox.Location = new System.Drawing.Point(136, 73);
+            this.SoilTypeBox.Location = new System.Drawing.Point(138, 79);
             this.SoilTypeBox.Name = "SoilTypeBox";
-            this.SoilTypeBox.Size = new System.Drawing.Size(100, 29);
-            this.SoilTypeBox.TabIndex = 13;
+            this.SoilTypeBox.Size = new System.Drawing.Size(102, 29);
+            this.SoilTypeBox.TabIndex = 4;
             this.SoilTypeBox.SelectedIndexChanged += new System.EventHandler(this.SoilTypeBox_SelectedIndexChanged);
             // 
             // SoilTypeLabel
@@ -171,9 +171,9 @@
             this.SoilTypeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SoilTypeLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SoilTypeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SoilTypeLabel.Location = new System.Drawing.Point(43, 70);
+            this.SoilTypeLabel.Location = new System.Drawing.Point(43, 76);
             this.SoilTypeLabel.Name = "SoilTypeLabel";
-            this.SoilTypeLabel.Size = new System.Drawing.Size(87, 36);
+            this.SoilTypeLabel.Size = new System.Drawing.Size(89, 40);
             this.SoilTypeLabel.TabIndex = 12;
             this.SoilTypeLabel.Text = "Тип грунта";
             this.SoilTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -186,10 +186,10 @@
             this.PollutionsBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PollutionsBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.PollutionsBox.FormattingEnabled = true;
-            this.PollutionsBox.Location = new System.Drawing.Point(136, 38);
+            this.PollutionsBox.Location = new System.Drawing.Point(138, 41);
             this.PollutionsBox.Name = "PollutionsBox";
-            this.PollutionsBox.Size = new System.Drawing.Size(100, 29);
-            this.PollutionsBox.TabIndex = 10;
+            this.PollutionsBox.Size = new System.Drawing.Size(102, 29);
+            this.PollutionsBox.TabIndex = 3;
             this.PollutionsBox.SelectedIndexChanged += new System.EventHandler(this.PollutionsBox_SelectedIndexChanged);
             // 
             // PollutionLabel
@@ -197,9 +197,9 @@
             this.PollutionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PollutionLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PollutionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.PollutionLabel.Location = new System.Drawing.Point(43, 35);
+            this.PollutionLabel.Location = new System.Drawing.Point(43, 38);
             this.PollutionLabel.Name = "PollutionLabel";
-            this.PollutionLabel.Size = new System.Drawing.Size(87, 35);
+            this.PollutionLabel.Size = new System.Drawing.Size(89, 38);
             this.PollutionLabel.TabIndex = 9;
             this.PollutionLabel.Text = "Заражение";
             this.PollutionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,7 +211,7 @@
             this.DayTimeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.DayTimeLabel.Location = new System.Drawing.Point(43, 0);
             this.DayTimeLabel.Name = "DayTimeLabel";
-            this.DayTimeLabel.Size = new System.Drawing.Size(87, 35);
+            this.DayTimeLabel.Size = new System.Drawing.Size(89, 38);
             this.DayTimeLabel.TabIndex = 6;
             this.DayTimeLabel.Text = "Время суток";
             this.DayTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -224,20 +224,26 @@
             this.DayTimeBox.Font = new System.Drawing.Font("Bahnschrift Condensed", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DayTimeBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.DayTimeBox.FormattingEnabled = true;
-            this.DayTimeBox.Location = new System.Drawing.Point(136, 3);
+            this.DayTimeBox.Location = new System.Drawing.Point(138, 3);
             this.DayTimeBox.Name = "DayTimeBox";
-            this.DayTimeBox.Size = new System.Drawing.Size(100, 29);
-            this.DayTimeBox.TabIndex = 7;
+            this.DayTimeBox.Size = new System.Drawing.Size(102, 29);
+            this.DayTimeBox.TabIndex = 2;
             this.DayTimeBox.SelectedIndexChanged += new System.EventHandler(this.DayTimeBox_SelectedIndexChanged);
             // 
             // CheckBox
             // 
+            this.CheckBox.BackgroundImage = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CheckBox.Checked = false;
             this.CheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBox.Location = new System.Drawing.Point(3, 38);
+            this.CheckBox.ImgChecked = global::MilitaryEngineering.Properties.Resources.CheckBoxChecked;
+            this.CheckBox.ImgCheckedHower = global::MilitaryEngineering.Properties.Resources.CheckBoxCheckedHover;
+            this.CheckBox.ImgDefault = global::MilitaryEngineering.Properties.Resources.CheckBoxUnchecked;
+            this.CheckBox.ImgDefaultHower = global::MilitaryEngineering.Properties.Resources.CheckBoxUncheckedHover;
+            this.CheckBox.Location = new System.Drawing.Point(3, 41);
             this.CheckBox.Name = "CheckBox";
-            this.CheckBox.Size = new System.Drawing.Size(34, 29);
-            this.CheckBox.TabIndex = 14;
+            this.CheckBox.Size = new System.Drawing.Size(34, 32);
+            this.CheckBox.TabIndex = 1;
             // 
             // tableLayoutPanel5
             // 
@@ -245,12 +251,12 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel6, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(248, 3);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(252, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(384, 106);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 116F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(390, 116);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -280,7 +286,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(378, 100);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(384, 110);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // label7
@@ -288,9 +294,9 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.label7.Location = new System.Drawing.Point(191, 66);
+            this.label7.Location = new System.Drawing.Point(195, 72);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 34);
+            this.label7.Size = new System.Drawing.Size(90, 38);
             this.label7.TabIndex = 25;
             this.label7.Text = "Усиление";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -301,10 +307,10 @@
             this.WorkTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WorkTimeInput.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WorkTimeInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.WorkTimeInput.Location = new System.Drawing.Point(285, 36);
+            this.WorkTimeInput.Location = new System.Drawing.Point(291, 39);
             this.WorkTimeInput.Name = "WorkTimeInput";
             this.WorkTimeInput.Size = new System.Drawing.Size(90, 28);
-            this.WorkTimeInput.TabIndex = 24;
+            this.WorkTimeInput.TabIndex = 9;
             this.WorkTimeInput.TextChanged += new System.EventHandler(this.WorkTimeInput_TextChanged);
             // 
             // ManPowerInput
@@ -313,10 +319,10 @@
             this.ManPowerInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManPowerInput.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ManPowerInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ManPowerInput.Location = new System.Drawing.Point(97, 36);
+            this.ManPowerInput.Location = new System.Drawing.Point(99, 39);
             this.ManPowerInput.Name = "ManPowerInput";
-            this.ManPowerInput.Size = new System.Drawing.Size(88, 28);
-            this.ManPowerInput.TabIndex = 23;
+            this.ManPowerInput.Size = new System.Drawing.Size(90, 28);
+            this.ManPowerInput.TabIndex = 6;
             this.ManPowerInput.TextChanged += new System.EventHandler(this.ManPowerInput_TextChanged);
             // 
             // AttritionRateInput
@@ -325,10 +331,10 @@
             this.AttritionRateInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AttritionRateInput.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AttritionRateInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AttritionRateInput.Location = new System.Drawing.Point(285, 3);
+            this.AttritionRateInput.Location = new System.Drawing.Point(291, 3);
             this.AttritionRateInput.Name = "AttritionRateInput";
             this.AttritionRateInput.Size = new System.Drawing.Size(90, 28);
-            this.AttritionRateInput.TabIndex = 22;
+            this.AttritionRateInput.TabIndex = 8;
             this.AttritionRateInput.TextChanged += new System.EventHandler(this.AttritionRateInput_TextChanged);
             // 
             // OrganizationInput
@@ -337,10 +343,10 @@
             this.OrganizationInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrganizationInput.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.OrganizationInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.OrganizationInput.Location = new System.Drawing.Point(97, 69);
+            this.OrganizationInput.Location = new System.Drawing.Point(99, 75);
             this.OrganizationInput.Name = "OrganizationInput";
-            this.OrganizationInput.Size = new System.Drawing.Size(88, 28);
-            this.OrganizationInput.TabIndex = 21;
+            this.OrganizationInput.Size = new System.Drawing.Size(90, 28);
+            this.OrganizationInput.TabIndex = 7;
             this.OrganizationInput.TextChanged += new System.EventHandler(this.OrganizationInput_TextChanged);
             // 
             // CoeffThoursLabel
@@ -348,9 +354,9 @@
             this.CoeffThoursLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CoeffThoursLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CoeffThoursLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffThoursLabel.Location = new System.Drawing.Point(191, 33);
+            this.CoeffThoursLabel.Location = new System.Drawing.Point(195, 36);
             this.CoeffThoursLabel.Name = "CoeffThoursLabel";
-            this.CoeffThoursLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffThoursLabel.Size = new System.Drawing.Size(90, 36);
             this.CoeffThoursLabel.TabIndex = 20;
             this.CoeffThoursLabel.Text = "tч";
             this.CoeffThoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -361,10 +367,10 @@
             this.PeopleAmountInput.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PeopleAmountInput.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PeopleAmountInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.PeopleAmountInput.Location = new System.Drawing.Point(97, 3);
+            this.PeopleAmountInput.Location = new System.Drawing.Point(99, 3);
             this.PeopleAmountInput.Name = "PeopleAmountInput";
-            this.PeopleAmountInput.Size = new System.Drawing.Size(88, 28);
-            this.PeopleAmountInput.TabIndex = 19;
+            this.PeopleAmountInput.Size = new System.Drawing.Size(90, 28);
+            this.PeopleAmountInput.TabIndex = 5;
             this.PeopleAmountInput.TextChanged += new System.EventHandler(this.PeopleAmountInput_TextChanged);
             // 
             // CoeffKorganizationLabel
@@ -372,9 +378,9 @@
             this.CoeffKorganizationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CoeffKorganizationLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CoeffKorganizationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffKorganizationLabel.Location = new System.Drawing.Point(3, 66);
+            this.CoeffKorganizationLabel.Location = new System.Drawing.Point(3, 72);
             this.CoeffKorganizationLabel.Name = "CoeffKorganizationLabel";
-            this.CoeffKorganizationLabel.Size = new System.Drawing.Size(88, 34);
+            this.CoeffKorganizationLabel.Size = new System.Drawing.Size(90, 38);
             this.CoeffKorganizationLabel.TabIndex = 17;
             this.CoeffKorganizationLabel.Text = "Kор";
             this.CoeffKorganizationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -384,9 +390,9 @@
             this.CoeffKcallingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CoeffKcallingLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CoeffKcallingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffKcallingLabel.Location = new System.Drawing.Point(191, 0);
+            this.CoeffKcallingLabel.Location = new System.Drawing.Point(195, 0);
             this.CoeffKcallingLabel.Name = "CoeffKcallingLabel";
-            this.CoeffKcallingLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffKcallingLabel.Size = new System.Drawing.Size(90, 36);
             this.CoeffKcallingLabel.TabIndex = 16;
             this.CoeffKcallingLabel.Text = "Kпр";
             this.CoeffKcallingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -396,9 +402,9 @@
             this.CoeffKstaffingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CoeffKstaffingLabel.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CoeffKstaffingLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CoeffKstaffingLabel.Location = new System.Drawing.Point(3, 33);
+            this.CoeffKstaffingLabel.Location = new System.Drawing.Point(3, 36);
             this.CoeffKstaffingLabel.Name = "CoeffKstaffingLabel";
-            this.CoeffKstaffingLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffKstaffingLabel.Size = new System.Drawing.Size(90, 36);
             this.CoeffKstaffingLabel.TabIndex = 15;
             this.CoeffKstaffingLabel.Text = "Kук";
             this.CoeffKstaffingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -410,7 +416,7 @@
             this.CoeffNpersonnelLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CoeffNpersonnelLabel.Location = new System.Drawing.Point(3, 0);
             this.CoeffNpersonnelLabel.Name = "CoeffNpersonnelLabel";
-            this.CoeffNpersonnelLabel.Size = new System.Drawing.Size(88, 33);
+            this.CoeffNpersonnelLabel.Size = new System.Drawing.Size(90, 36);
             this.CoeffNpersonnelLabel.TabIndex = 14;
             this.CoeffNpersonnelLabel.Text = "Nлс";
             this.CoeffNpersonnelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -423,10 +429,10 @@
             this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddGainButton.Location = new System.Drawing.Point(285, 69);
+            this.AddGainButton.Location = new System.Drawing.Point(291, 75);
             this.AddGainButton.Name = "AddGainButton";
-            this.AddGainButton.Size = new System.Drawing.Size(90, 28);
-            this.AddGainButton.TabIndex = 26;
+            this.AddGainButton.Size = new System.Drawing.Size(90, 32);
+            this.AddGainButton.TabIndex = 10;
             this.AddGainButton.TabStop = false;
             this.AddGainButton.Text = "Добавить\r\nэлемент";
             this.AddGainButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -452,7 +458,7 @@
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(635, 49);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(645, 49);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // SecondTurnLabel
@@ -460,9 +466,9 @@
             this.SecondTurnLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.SecondTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnLabel.Location = new System.Drawing.Point(352, 0);
+            this.SecondTurnLabel.Location = new System.Drawing.Point(357, 0);
             this.SecondTurnLabel.Name = "SecondTurnLabel";
-            this.SecondTurnLabel.Size = new System.Drawing.Size(89, 49);
+            this.SecondTurnLabel.Size = new System.Drawing.Size(90, 49);
             this.SecondTurnLabel.TabIndex = 7;
             this.SecondTurnLabel.Text = "SecondTurn";
             this.SecondTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -472,9 +478,9 @@
             this.FutureTurnLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FutureTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FutureTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnLabel.Location = new System.Drawing.Point(447, 0);
+            this.FutureTurnLabel.Location = new System.Drawing.Point(453, 0);
             this.FutureTurnLabel.Name = "FutureTurnLabel";
-            this.FutureTurnLabel.Size = new System.Drawing.Size(89, 49);
+            this.FutureTurnLabel.Size = new System.Drawing.Size(90, 49);
             this.FutureTurnLabel.TabIndex = 6;
             this.FutureTurnLabel.Text = "FutureTurnLabel";
             this.FutureTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -486,7 +492,7 @@
             this.ElementNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.ElementNameLabel.Location = new System.Drawing.Point(3, 0);
             this.ElementNameLabel.Name = "ElementNameLabel";
-            this.ElementNameLabel.Size = new System.Drawing.Size(248, 49);
+            this.ElementNameLabel.Size = new System.Drawing.Size(252, 49);
             this.ElementNameLabel.TabIndex = 5;
             this.ElementNameLabel.Text = "Name";
             this.ElementNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -496,9 +502,9 @@
             this.FirstTurnLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FirstTurnLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FirstTurnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FirstTurnLabel.Location = new System.Drawing.Point(257, 0);
+            this.FirstTurnLabel.Location = new System.Drawing.Point(261, 0);
             this.FirstTurnLabel.Name = "FirstTurnLabel";
-            this.FirstTurnLabel.Size = new System.Drawing.Size(89, 49);
+            this.FirstTurnLabel.Size = new System.Drawing.Size(90, 49);
             this.FirstTurnLabel.TabIndex = 4;
             this.FirstTurnLabel.Text = "FirstTurnLabel";
             this.FirstTurnLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -508,9 +514,9 @@
             this.AllTurnsLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllTurnsLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AllTurnsLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllTurnsLabel.Location = new System.Drawing.Point(542, 0);
+            this.AllTurnsLabel.Location = new System.Drawing.Point(549, 0);
             this.AllTurnsLabel.Name = "AllTurnsLabel";
-            this.AllTurnsLabel.Size = new System.Drawing.Size(90, 49);
+            this.AllTurnsLabel.Size = new System.Drawing.Size(93, 49);
             this.AllTurnsLabel.TabIndex = 8;
             this.AllTurnsLabel.Text = "AllTurnsLabel";
             this.AllTurnsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -527,11 +533,11 @@
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 0);
             this.tableLayoutPanel7.Controls.Add(this.chart1, 2, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(15, 10);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1422, 179);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1444, 189);
             this.tableLayoutPanel7.TabIndex = 7;
             // 
             // tableLayoutPanel8
@@ -546,12 +552,12 @@
             this.tableLayoutPanel8.Controls.Add(this.SecondTurnEvaluationLabel, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.FirstTurnEvaluationLabel, 0, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(650, 3);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(660, 3);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 173F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(342, 173);
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 183F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(347, 183);
             this.tableLayoutPanel8.TabIndex = 1;
             // 
             // AllTurnEvaluationLabel
@@ -559,9 +565,9 @@
             this.AllTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AllTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AllTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(258, 0);
+            this.AllTurnEvaluationLabel.Location = new System.Drawing.Point(261, 0);
             this.AllTurnEvaluationLabel.Name = "AllTurnEvaluationLabel";
-            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(81, 173);
+            this.AllTurnEvaluationLabel.Size = new System.Drawing.Size(83, 183);
             this.AllTurnEvaluationLabel.TabIndex = 9;
             this.AllTurnEvaluationLabel.Text = "Ошибка";
             this.AllTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -571,9 +577,9 @@
             this.FutureTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FutureTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FutureTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(173, 0);
+            this.FutureTurnEvaluationLabel.Location = new System.Drawing.Point(175, 0);
             this.FutureTurnEvaluationLabel.Name = "FutureTurnEvaluationLabel";
-            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
+            this.FutureTurnEvaluationLabel.Size = new System.Drawing.Size(80, 183);
             this.FutureTurnEvaluationLabel.TabIndex = 8;
             this.FutureTurnEvaluationLabel.Text = "Ошибка";
             this.FutureTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -583,9 +589,9 @@
             this.SecondTurnEvaluationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondTurnEvaluationLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.SecondTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(88, 0);
+            this.SecondTurnEvaluationLabel.Location = new System.Drawing.Point(89, 0);
             this.SecondTurnEvaluationLabel.Name = "SecondTurnEvaluationLabel";
-            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
+            this.SecondTurnEvaluationLabel.Size = new System.Drawing.Size(80, 183);
             this.SecondTurnEvaluationLabel.TabIndex = 7;
             this.SecondTurnEvaluationLabel.Text = "Ошибка";
             this.SecondTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -597,7 +603,7 @@
             this.FirstTurnEvaluationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.FirstTurnEvaluationLabel.Location = new System.Drawing.Point(3, 0);
             this.FirstTurnEvaluationLabel.Name = "FirstTurnEvaluationLabel";
-            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(79, 173);
+            this.FirstTurnEvaluationLabel.Size = new System.Drawing.Size(80, 183);
             this.FirstTurnEvaluationLabel.TabIndex = 6;
             this.FirstTurnEvaluationLabel.Text = "Ошибка";
             this.FirstTurnEvaluationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -606,12 +612,13 @@
             // 
             this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(52)))), ((int)(((byte)(81)))));
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.chart1.BorderSkin.BackColor = System.Drawing.Color.LightGray;
             chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
             chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(180)))), ((int)(((byte)(199)))));
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chart1.Location = new System.Drawing.Point(998, 3);
+            this.chart1.Location = new System.Drawing.Point(1013, 3);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
@@ -630,7 +637,7 @@
             this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
             this.chart1.Series.Add(series4);
-            this.chart1.Size = new System.Drawing.Size(421, 173);
+            this.chart1.Size = new System.Drawing.Size(428, 183);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             // 

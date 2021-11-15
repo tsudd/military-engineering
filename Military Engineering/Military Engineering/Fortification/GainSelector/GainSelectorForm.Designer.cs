@@ -83,17 +83,17 @@ namespace MilitaryEngineering.Fortification.GainSelector
             // 
             this.CreateGainButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CreateGainButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CreateGainButton.BackgroundImage = global::MilitaryEngineering.Properties.Resources.Add;
             this.CreateGainButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CreateGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.CreateGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.CreateGainButton.Location = new System.Drawing.Point(481, 9);
+            this.CreateGainButton.Location = new System.Drawing.Point(392, 6);
             this.CreateGainButton.MinimumSize = new System.Drawing.Size(75, 67);
             this.CreateGainButton.Name = "CreateGainButton";
-            this.CreateGainButton.Size = new System.Drawing.Size(75, 67);
+            this.CreateGainButton.Size = new System.Drawing.Size(164, 73);
             this.CreateGainButton.TabIndex = 4;
             this.CreateGainButton.TabStop = false;
+            this.CreateGainButton.Text = "Добавить\r\nновое";
             this.CreateGainButton.UseVisualStyleBackColor = false;
             this.CreateGainButton.Click += new System.EventHandler(this.CreateGainButton_Click);
             // 

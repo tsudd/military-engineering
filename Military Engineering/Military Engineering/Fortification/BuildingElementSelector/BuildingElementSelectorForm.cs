@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using MilitaryConfiguration;
+using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
@@ -19,11 +20,26 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         public BuildingElementSelectorForm(FortificationForm sender, List<BuildingElement> buildingElements)
         {
             InitializeComponent();
+            SetColorTheme();
             Sender = sender;
             foreach(BuildingElement buildingElement in buildingElements)
             {
                 AddNewElement(buildingElement);
             }
+        }
+
+        private void SetColorTheme()
+        {
+            ThemeManager themeManager = ThemeManager.GetInstance();
+            ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            BackColor = selectedTheme.MainMainColor;
+            MainTable.BackColor = selectedTheme.MainSecondaryColor;
+            InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            CreateElementButton.BackColor = selectedTheme.SecondaryMainColor;
+            CreateElementButton.ForeColor = selectedTheme.SecondaryForeColor;
+
         }
 
         private void BuildingElementSelectorForm_Load(object sender, EventArgs e)
@@ -93,6 +109,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
                     panel.BuildingElement = newElement;
                     panel.InfoLabel.Text = newElement.Name;
                     panel.Unfocus();
+                    panel.ConfigureToolTip();
                     break;
                 }
             }
@@ -100,7 +117,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 
         private void BuildingElementSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Sender.Config.BuildingElements = buildingElements;
+            //Sender.Config.BuildingElements = buildingElements;
+            Sender.SaveBuildingElementsToConfig(buildingElements);
         }
     }
 }

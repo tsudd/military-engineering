@@ -46,7 +46,9 @@
     <Compile Include="FortificationBuilding\BuildingConditions\DayTime.cs" />
     <Compile Include="FortificationBuilding\BuildingConditions\FieldPollution.cs" />
     <Compile Include="FortificationBuilding\BuildingConditions\SoilType.cs" />
+    <Compile Include="FortificationBuilding\BuildingDefinition\BuildingComposition.cs" />
     <Compile Include="FortificationBuilding\BuildingDefinition\BuildingElement.cs" />
+    <Compile Include="FortificationBuilding\BuildingDefinition\IBuilding.cs" />
     <Compile Include="FortificationBuilding\Evaluations.cs" />
     <Compile Include="FortificationBuilding\FortificationBoard.cs" />
     <Compile Include="FortificationBuilding\BuildingAbilities\DayAbility.cs" />
