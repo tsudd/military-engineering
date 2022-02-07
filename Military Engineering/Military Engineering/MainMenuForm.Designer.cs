@@ -29,7 +29,10 @@ namespace MilitaryEngineering
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.ThemesBox = new System.Windows.Forms.ComboBox();
+            this.ThemeLabel = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -38,8 +41,6 @@ namespace MilitaryEngineering
             this.FortificationButton = new System.Windows.Forms.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.PreviewPictureBox = new System.Windows.Forms.PictureBox();
-            this.ThemeLabel = new System.Windows.Forms.Label();
-            this.ThemesBox = new System.Windows.Forms.ComboBox();
             this.LeftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,28 @@ namespace MilitaryEngineering
             this.LeftPanel.Name = "LeftPanel";
             this.LeftPanel.Size = new System.Drawing.Size(490, 699);
             this.LeftPanel.TabIndex = 0;
+            // 
+            // ThemesBox
+            // 
+            this.ThemesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ThemesBox.FormattingEnabled = true;
+            this.ThemesBox.Location = new System.Drawing.Point(101, 606);
+            this.ThemesBox.Name = "ThemesBox";
+            this.ThemesBox.Size = new System.Drawing.Size(241, 25);
+            this.ThemesBox.TabIndex = 7;
+            this.ThemesBox.TabStop = false;
+            this.ThemesBox.SelectedIndexChanged += new System.EventHandler(this.ThemesBox_SelectedIndexChanged);
+            // 
+            // ThemeLabel
+            // 
+            this.ThemeLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.ThemeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.ThemeLabel.Location = new System.Drawing.Point(12, 598);
+            this.ThemeLabel.Name = "ThemeLabel";
+            this.ThemeLabel.Size = new System.Drawing.Size(83, 36);
+            this.ThemeLabel.TabIndex = 6;
+            this.ThemeLabel.Text = "Тема:";
+            this.ThemeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button3
             // 
@@ -187,28 +210,6 @@ namespace MilitaryEngineering
             this.PreviewPictureBox.TabIndex = 1;
             this.PreviewPictureBox.TabStop = false;
             // 
-            // ThemeLabel
-            // 
-            this.ThemeLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.ThemeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.ThemeLabel.Location = new System.Drawing.Point(12, 598);
-            this.ThemeLabel.Name = "ThemeLabel";
-            this.ThemeLabel.Size = new System.Drawing.Size(83, 36);
-            this.ThemeLabel.TabIndex = 6;
-            this.ThemeLabel.Text = "Тема:";
-            this.ThemeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ThemesBox
-            // 
-            this.ThemesBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ThemesBox.FormattingEnabled = true;
-            this.ThemesBox.Location = new System.Drawing.Point(101, 606);
-            this.ThemesBox.Name = "ThemesBox";
-            this.ThemesBox.Size = new System.Drawing.Size(241, 25);
-            this.ThemesBox.TabIndex = 7;
-            this.ThemesBox.TabStop = false;
-            this.ThemesBox.SelectedIndexChanged += new System.EventHandler(this.ThemesBox_SelectedIndexChanged);
-            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -220,9 +221,9 @@ namespace MilitaryEngineering
             this.Controls.Add(this.LeftPanel);
             this.Font = new System.Drawing.Font("Bahnschrift", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainMenuForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainMenuForm_KeyDown);

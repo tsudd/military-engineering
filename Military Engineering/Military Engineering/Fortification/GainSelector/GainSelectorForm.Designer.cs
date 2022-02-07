@@ -29,6 +29,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GainSelectorForm));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.MainTable = new System.Windows.Forms.TableLayoutPanel();
             this.InfoLabel = new System.Windows.Forms.Label();
@@ -155,9 +156,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.Controls.Add(this.CreateGainButton);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.MainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(512, 715);
             this.Name = "GainSelectorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор усиления";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GainSelectorForm_FormClosed);

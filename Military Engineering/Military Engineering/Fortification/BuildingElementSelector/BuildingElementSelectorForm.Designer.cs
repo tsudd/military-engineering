@@ -29,6 +29,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuildingElementSelectorForm));
             this.MainPanel = new System.Windows.Forms.Panel();
             this.MainTable = new System.Windows.Forms.TableLayoutPanel();
             this.InfoLabel = new System.Windows.Forms.Label();
@@ -119,9 +120,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.Controls.Add(this.CreateElementButton);
             this.Controls.Add(this.InfoLabel);
             this.Controls.Add(this.MainPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(512, 715);
             this.Name = "BuildingElementSelectorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор элемента построения";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BuildingElementSelectorForm_FormClosed);

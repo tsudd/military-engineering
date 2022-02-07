@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using Newtonsoft.Json;
 
@@ -6,13 +7,21 @@ namespace MilitaryConfiguration
 {
     public class ConfigurationManager
     {
-        
-        public ConfigurationManager() { }
-        public T LoadConfiguration<T>(string filename)
+        string path;
+        public ConfigurationManager() 
+        {
+            path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            path = Path.Combine(path, "Kisel", "Military Engineering");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+        }
+        public T LoadConfiguration<T>(string fileName)
         {
             try
             {
-                using (var reader = new StreamReader(filename))
+                using (var reader = new StreamReader(Path.Combine(path, fileName)))
                 {
                     var config = JsonConvert.DeserializeObject<T>(reader.ReadToEnd());
                     if (config == null)
@@ -30,7 +39,7 @@ namespace MilitaryConfiguration
 
         public void SaveConfiguration<T>(string fileName, T configuration) 
         {
-            using(var sw = new StreamWriter(fileName))
+            using(var sw = new StreamWriter(Path.Combine(path, fileName)))
             {
                 sw.Write(JsonConvert.SerializeObject(configuration, Formatting.Indented));
             }
