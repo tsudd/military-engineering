@@ -68,8 +68,12 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
 
             if(!BuildingElement.IsDefault)
             {
-                RemoveButton.Visible = true;
-                EditButton.Visible = true; 
+                RemoveButton.Visible = true; 
+            }
+
+            if (BuildingElement.CanBeEdited)
+            {
+                EditButton.Visible = true;
             }
         }
 
@@ -92,6 +96,10 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             if (!BuildingElement.IsDefault)
             {
                 RemoveButton.Visible = false;
+            }
+
+            if (BuildingElement.CanBeEdited)
+            {
                 EditButton.Visible = false;
             }
         }
