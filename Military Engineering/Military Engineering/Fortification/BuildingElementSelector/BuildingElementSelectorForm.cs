@@ -40,6 +40,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             CreateElementButton.BackColor = selectedTheme.SecondaryMainColor;
             CreateElementButton.ForeColor = selectedTheme.SecondaryForeColor;
 
+            CreateTrenchButton.BackColor = selectedTheme.SecondaryMainColor;
+            CreateTrenchButton.ForeColor = selectedTheme.SecondaryForeColor;
         }
 
         private void BuildingElementSelectorForm_Load(object sender, EventArgs e)
@@ -119,6 +121,17 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             //Sender.Config.BuildingElements = buildingElements;
             Sender.SaveBuildingElementsToConfig(buildingElements);
+        }
+
+        private void CreateTrenchButton_Click(object sender, EventArgs e)
+        {
+            var form = new TrenchCreatorForm(this);
+            form.FormClosed += (obj, args) =>
+            {
+                Enabled = true;
+            };
+            form.Show();
+            Enabled = false;
         }
     }
 }

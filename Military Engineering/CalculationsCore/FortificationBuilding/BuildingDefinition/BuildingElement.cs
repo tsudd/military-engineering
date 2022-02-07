@@ -33,6 +33,16 @@ namespace CalculationsCore.FortificationBuilding
         public BuildingTypes BuildingType { get; set; } = BuildingTypes.Element;
 
         public bool IsDefault { get; set; }
+        public bool CanBeEdited 
+        {
+            get
+            {
+                return !IsDefault && ElementType == ElementTypes.Pit;
+            }
+        }
+
+        private const float TRENCH_SMALL = 0.8f;
+        private const float TRENCH_DEEP = 1.1f;
 
         public BuildingElement() { }
         public BuildingElement(string name = DEFAULT_BUILDING_NAME) => this.Name = name;
@@ -62,7 +72,7 @@ namespace CalculationsCore.FortificationBuilding
             BuildingType = buildingType;
         }
 
-        public static BuildingElement CreateComposition(List<(BuildingElement, int)> elements, string name, string description = null)
+        public static BuildingElement CompositionFactory(List<(BuildingElement, int)> elements, string name, string description = null)
         {
             BuildingElement buildingElement = new BuildingElement();
             buildingElement.FirstTurn = elements.Sum(e => e.Item1.FirstTurn * e.Item2);
@@ -112,6 +122,27 @@ namespace CalculationsCore.FortificationBuilding
             return buildingElement;
         }
 
+        public static BuildingElement TrenchFactory(string name, bool isDeep, float length, float kCoeff)
+        {
+            BuildingElement trench = new BuildingElement(name);
+            float manPower = length * kCoeff * (isDeep ? TRENCH_DEEP : TRENCH_SMALL);
+            trench.FirstTurn = manPower;
+            trench.ElementType = ElementTypes.Trench;
+            trench.BuildingType = BuildingTypes.Element;
+
+            return trench;
+        }
+
+        public static string CreateDefaultDescriptionForTrench(BuildingElement buildingElement, float length, float curvFact, bool isDeep, int precision)
+        {
+            StringBuilder description = new StringBuilder();
+            description.AppendLine($"Длина - {Math.Round(length, precision)} м.");
+            description.AppendLine($"Коэфициент кривизны - {Math.Round(curvFact, precision)}");
+            description.AppendLine($"Глубина - {Math.Round(isDeep ? 1.5f : 1.1f, precision)} м.");
+            description.Append(CreateDefaultDescription(buildingElement, precision));
+
+            return description.ToString();
+        }
         public static string CreateDefaultDescription(BuildingElement buildingElement, int precision)
         {
             StringBuilder description = new StringBuilder();

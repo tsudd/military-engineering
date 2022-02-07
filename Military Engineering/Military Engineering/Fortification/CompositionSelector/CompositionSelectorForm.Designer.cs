@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompositionSelectorForm));
             this.InfoLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.MainTable = new System.Windows.Forms.TableLayoutPanel();
@@ -100,8 +101,8 @@
             this.Controls.Add(this.CreateCompositionButton);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CompositionSelectorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор композиции";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CompositionSelectorForm_FormClosed);
