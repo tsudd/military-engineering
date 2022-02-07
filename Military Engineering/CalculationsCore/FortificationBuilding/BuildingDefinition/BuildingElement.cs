@@ -62,7 +62,7 @@ namespace CalculationsCore.FortificationBuilding
             BuildingType = buildingType;
         }
 
-        public static BuildingElement CreateComposition(List<(BuildingElement, int)> elements, string name, string description = null)
+        public static BuildingElement CompositionFactory(List<(BuildingElement, int)> elements, string name, string description = null)
         {
             BuildingElement buildingElement = new BuildingElement();
             buildingElement.FirstTurn = elements.Sum(e => e.Item1.FirstTurn * e.Item2);
@@ -112,6 +112,17 @@ namespace CalculationsCore.FortificationBuilding
             return buildingElement;
         }
 
+        public static BuildingElement TrenchFactory(string name, bool isDeep, float length, float kCoeff)
+        {
+            BuildingElement trench = new BuildingElement(name);
+            float manPower = length * kCoeff * (isDeep ? 0.8f : 1.1f);
+            trench.FirstTurn = manPower;
+            trench.ElementType = ElementTypes.Trench;
+            trench.BuildingType = BuildingTypes.Element;
+            trench.Description = CreateDefaultDescription(trench, 2);
+
+            return trench;
+        }
         public static string CreateDefaultDescription(BuildingElement buildingElement, int precision)
         {
             StringBuilder description = new StringBuilder();

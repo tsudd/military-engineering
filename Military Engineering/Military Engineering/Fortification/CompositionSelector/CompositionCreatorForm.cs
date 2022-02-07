@@ -157,7 +157,7 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
 
 
             BuildingElement composition = BuildingElement
-                .CreateComposition(elements, name, description);
+                .CompositionFactory(elements, name, description);
             
             Sender.AddNewElement(composition);
             Close();
