@@ -29,6 +29,7 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BuildingElementCreatorForm));
             this.InfoLabel = new System.Windows.Forms.Label();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
@@ -240,9 +241,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             this.Controls.Add(this.HeaderPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BuildingElementCreatorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание элемента построения";
             this.HeaderPanel.ResumeLayout(false);

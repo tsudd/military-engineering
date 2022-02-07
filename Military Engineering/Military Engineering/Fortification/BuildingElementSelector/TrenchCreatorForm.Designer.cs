@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrenchCreatorForm));
             this.InfoLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.TurnTypePanel = new System.Windows.Forms.Panel();
+            this.FutureTurnsRadioBotton = new System.Windows.Forms.RadioButton();
+            this.SecondTurnRadioBotton = new System.Windows.Forms.RadioButton();
+            this.FirstTurnRadioBotton = new System.Windows.Forms.RadioButton();
             this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
             this.DescriptionBox = new System.Windows.Forms.RichTextBox();
             this.DescriptionLabel = new System.Windows.Forms.Label();
@@ -42,10 +47,6 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.AddElementButton = new System.Windows.Forms.Button();
-            this.TurnTypePanel = new System.Windows.Forms.Panel();
-            this.FirstTurnRadioBotton = new System.Windows.Forms.RadioButton();
-            this.SecondTurnRadioBotton = new System.Windows.Forms.RadioButton();
-            this.FutureTurnsRadioBotton = new System.Windows.Forms.RadioButton();
             this.MainPanel.SuspendLayout();
             this.TurnTypePanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,55 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(641, 562);
             this.MainPanel.TabIndex = 6;
+            // 
+            // TurnTypePanel
+            // 
+            this.TurnTypePanel.Controls.Add(this.FutureTurnsRadioBotton);
+            this.TurnTypePanel.Controls.Add(this.SecondTurnRadioBotton);
+            this.TurnTypePanel.Controls.Add(this.FirstTurnRadioBotton);
+            this.TurnTypePanel.Location = new System.Drawing.Point(0, 278);
+            this.TurnTypePanel.Name = "TurnTypePanel";
+            this.TurnTypePanel.Size = new System.Drawing.Size(641, 73);
+            this.TurnTypePanel.TabIndex = 23;
+            // 
+            // FutureTurnsRadioBotton
+            // 
+            this.FutureTurnsRadioBotton.AutoSize = true;
+            this.FutureTurnsRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FutureTurnsRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FutureTurnsRadioBotton.Location = new System.Drawing.Point(428, 19);
+            this.FutureTurnsRadioBotton.Name = "FutureTurnsRadioBotton";
+            this.FutureTurnsRadioBotton.Size = new System.Drawing.Size(202, 34);
+            this.FutureTurnsRadioBotton.TabIndex = 16;
+            this.FutureTurnsRadioBotton.Text = "В дальнейшем";
+            this.FutureTurnsRadioBotton.UseVisualStyleBackColor = true;
+            // 
+            // SecondTurnRadioBotton
+            // 
+            this.SecondTurnRadioBotton.AutoSize = true;
+            this.SecondTurnRadioBotton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SecondTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.SecondTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.SecondTurnRadioBotton.Location = new System.Drawing.Point(209, 19);
+            this.SecondTurnRadioBotton.Name = "SecondTurnRadioBotton";
+            this.SecondTurnRadioBotton.Size = new System.Drawing.Size(188, 34);
+            this.SecondTurnRadioBotton.TabIndex = 15;
+            this.SecondTurnRadioBotton.Text = "Во II очередь";
+            this.SecondTurnRadioBotton.UseVisualStyleBackColor = true;
+            // 
+            // FirstTurnRadioBotton
+            // 
+            this.FirstTurnRadioBotton.AutoSize = true;
+            this.FirstTurnRadioBotton.Checked = true;
+            this.FirstTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.FirstTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.FirstTurnRadioBotton.Location = new System.Drawing.Point(11, 19);
+            this.FirstTurnRadioBotton.Name = "FirstTurnRadioBotton";
+            this.FirstTurnRadioBotton.Size = new System.Drawing.Size(167, 34);
+            this.FirstTurnRadioBotton.TabIndex = 14;
+            this.FirstTurnRadioBotton.TabStop = true;
+            this.FirstTurnRadioBotton.Text = "В I очередь";
+            this.FirstTurnRadioBotton.UseVisualStyleBackColor = true;
             // 
             // DefaultDescriptionCheckBox
             // 
@@ -230,54 +280,6 @@
             this.AddElementButton.UseVisualStyleBackColor = false;
             this.AddElementButton.Click += new System.EventHandler(this.AddElementButton_Click);
             // 
-            // TurnTypePanel
-            // 
-            this.TurnTypePanel.Controls.Add(this.FutureTurnsRadioBotton);
-            this.TurnTypePanel.Controls.Add(this.SecondTurnRadioBotton);
-            this.TurnTypePanel.Controls.Add(this.FirstTurnRadioBotton);
-            this.TurnTypePanel.Location = new System.Drawing.Point(0, 278);
-            this.TurnTypePanel.Name = "TurnTypePanel";
-            this.TurnTypePanel.Size = new System.Drawing.Size(641, 73);
-            this.TurnTypePanel.TabIndex = 23;
-            // 
-            // FirstTurnRadioBotton
-            // 
-            this.FirstTurnRadioBotton.AutoSize = true;
-            this.FirstTurnRadioBotton.Checked = true;
-            this.FirstTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.FirstTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FirstTurnRadioBotton.Location = new System.Drawing.Point(11, 19);
-            this.FirstTurnRadioBotton.Name = "FirstTurnRadioBotton";
-            this.FirstTurnRadioBotton.Size = new System.Drawing.Size(167, 34);
-            this.FirstTurnRadioBotton.TabIndex = 14;
-            this.FirstTurnRadioBotton.Text = "В I очередь";
-            this.FirstTurnRadioBotton.UseVisualStyleBackColor = true;
-            // 
-            // SecondTurnRadioBotton
-            // 
-            this.SecondTurnRadioBotton.AutoSize = true;
-            this.SecondTurnRadioBotton.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SecondTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.SecondTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnRadioBotton.Location = new System.Drawing.Point(209, 19);
-            this.SecondTurnRadioBotton.Name = "SecondTurnRadioBotton";
-            this.SecondTurnRadioBotton.Size = new System.Drawing.Size(188, 34);
-            this.SecondTurnRadioBotton.TabIndex = 15;
-            this.SecondTurnRadioBotton.Text = "Во II очередь";
-            this.SecondTurnRadioBotton.UseVisualStyleBackColor = true;
-            // 
-            // FutureTurnsRadioBotton
-            // 
-            this.FutureTurnsRadioBotton.AutoSize = true;
-            this.FutureTurnsRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
-            this.FutureTurnsRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnsRadioBotton.Location = new System.Drawing.Point(428, 19);
-            this.FutureTurnsRadioBotton.Name = "FutureTurnsRadioBotton";
-            this.FutureTurnsRadioBotton.Size = new System.Drawing.Size(202, 34);
-            this.FutureTurnsRadioBotton.TabIndex = 16;
-            this.FutureTurnsRadioBotton.Text = "В дальнейшем";
-            this.FutureTurnsRadioBotton.UseVisualStyleBackColor = true;
-            // 
             // TrenchCreatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -288,9 +290,9 @@
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TrenchCreatorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создать траншею";
             this.MainPanel.ResumeLayout(false);

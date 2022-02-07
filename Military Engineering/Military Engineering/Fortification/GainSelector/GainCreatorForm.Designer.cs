@@ -29,6 +29,7 @@ namespace MilitaryEngineering.Fortification
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GainCreatorForm));
             this.InfoLabel = new System.Windows.Forms.Label();
             this.MainPanel = new System.Windows.Forms.Panel();
             this.DefaultDescriptionCheckBox = new System.Windows.Forms.CheckBox();
@@ -201,10 +202,10 @@ namespace MilitaryEngineering.Fortification
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "GainCreatorForm";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Создание усиления";
             this.MainPanel.ResumeLayout(false);
