@@ -51,8 +51,9 @@ namespace MilitaryEngineering.Fortification
             this.InfoLabel.Font = new System.Drawing.Font("Bahnschrift", 20F);
             this.InfoLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.InfoLabel.Location = new System.Drawing.Point(0, 0);
+            this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(691, 74);
+            this.InfoLabel.Size = new System.Drawing.Size(518, 60);
             this.InfoLabel.TabIndex = 5;
             this.InfoLabel.Text = "СОЗДАТЬ/РЕДАКТИРОВАТЬ УСИЛЕНИЕ";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -69,9 +70,10 @@ namespace MilitaryEngineering.Fortification
             this.MainPanel.Controls.Add(this.TrenchPerfomanceLabel);
             this.MainPanel.Controls.Add(this.NameTextBox);
             this.MainPanel.Controls.Add(this.NameLabel);
-            this.MainPanel.Location = new System.Drawing.Point(12, 83);
+            this.MainPanel.Location = new System.Drawing.Point(9, 67);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(667, 518);
+            this.MainPanel.Size = new System.Drawing.Size(500, 421);
             this.MainPanel.TabIndex = 6;
             // 
             // DefaultDescriptionCheckBox
@@ -81,9 +83,10 @@ namespace MilitaryEngineering.Fortification
             this.DefaultDescriptionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultDescriptionCheckBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DefaultDescriptionCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(13, 467);
+            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(10, 379);
+            this.DefaultDescriptionCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DefaultDescriptionCheckBox.Name = "DefaultDescriptionCheckBox";
-            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(424, 34);
+            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(343, 28);
             this.DefaultDescriptionCheckBox.TabIndex = 18;
             this.DefaultDescriptionCheckBox.Text = "Создать описание автоматически";
             this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
@@ -95,9 +98,10 @@ namespace MilitaryEngineering.Fortification
             this.DescriptionBox.Enabled = false;
             this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
             this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.DescriptionBox.Location = new System.Drawing.Point(13, 355);
+            this.DescriptionBox.Location = new System.Drawing.Point(10, 288);
+            this.DescriptionBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(631, 96);
+            this.DescriptionBox.Size = new System.Drawing.Size(474, 79);
             this.DescriptionBox.TabIndex = 17;
             this.DescriptionBox.Text = "";
             // 
@@ -106,19 +110,22 @@ namespace MilitaryEngineering.Fortification
             this.PitPerfomanceBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.PitPerfomanceBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.PitPerfomanceBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.PitPerfomanceBox.Location = new System.Drawing.Point(337, 245);
+            this.PitPerfomanceBox.Location = new System.Drawing.Point(253, 199);
+            this.PitPerfomanceBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PitPerfomanceBox.Name = "PitPerfomanceBox";
-            this.PitPerfomanceBox.Size = new System.Drawing.Size(307, 38);
+            this.PitPerfomanceBox.Size = new System.Drawing.Size(231, 32);
             this.PitPerfomanceBox.TabIndex = 12;
+            this.PitPerfomanceBox.Text = "0";
             this.PitPerfomanceBox.TextChanged += new System.EventHandler(this.PerfomanceBox_TextChanged);
             // 
             // DescriptionLabel
             // 
             this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DescriptionLabel.Location = new System.Drawing.Point(11, 286);
+            this.DescriptionLabel.Location = new System.Drawing.Point(8, 232);
+            this.DescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(305, 81);
+            this.DescriptionLabel.Size = new System.Drawing.Size(229, 66);
             this.DescriptionLabel.TabIndex = 11;
             this.DescriptionLabel.Text = "Описание";
             this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -127,11 +134,12 @@ namespace MilitaryEngineering.Fortification
             // 
             this.PitPerfomanceLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.PitPerfomanceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.PitPerfomanceLabel.Location = new System.Drawing.Point(332, 142);
+            this.PitPerfomanceLabel.Location = new System.Drawing.Point(249, 115);
+            this.PitPerfomanceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PitPerfomanceLabel.Name = "PitPerfomanceLabel";
-            this.PitPerfomanceLabel.Size = new System.Drawing.Size(312, 85);
+            this.PitPerfomanceLabel.Size = new System.Drawing.Size(234, 69);
             this.PitPerfomanceLabel.TabIndex = 9;
-            this.PitPerfomanceLabel.Text = "Производительность\r\nпри отрывке котлованов\r\nм^3/час";
+            this.PitPerfomanceLabel.Text = "Производительность \r\nпри отр. котлованов\r\nм^3/час";
             this.PitPerfomanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // TrenchPerfomanceBox
@@ -139,19 +147,22 @@ namespace MilitaryEngineering.Fortification
             this.TrenchPerfomanceBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.TrenchPerfomanceBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.TrenchPerfomanceBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.TrenchPerfomanceBox.Location = new System.Drawing.Point(13, 245);
+            this.TrenchPerfomanceBox.Location = new System.Drawing.Point(10, 199);
+            this.TrenchPerfomanceBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TrenchPerfomanceBox.Name = "TrenchPerfomanceBox";
-            this.TrenchPerfomanceBox.Size = new System.Drawing.Size(307, 38);
+            this.TrenchPerfomanceBox.Size = new System.Drawing.Size(231, 32);
             this.TrenchPerfomanceBox.TabIndex = 8;
+            this.TrenchPerfomanceBox.Text = "0";
             this.TrenchPerfomanceBox.TextChanged += new System.EventHandler(this.PerfomanceBox_TextChanged);
             // 
             // TrenchPerfomanceLabel
             // 
             this.TrenchPerfomanceLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.TrenchPerfomanceLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.TrenchPerfomanceLabel.Location = new System.Drawing.Point(11, 142);
+            this.TrenchPerfomanceLabel.Location = new System.Drawing.Point(8, 115);
+            this.TrenchPerfomanceLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TrenchPerfomanceLabel.Name = "TrenchPerfomanceLabel";
-            this.TrenchPerfomanceLabel.Size = new System.Drawing.Size(309, 85);
+            this.TrenchPerfomanceLabel.Size = new System.Drawing.Size(232, 69);
             this.TrenchPerfomanceLabel.TabIndex = 7;
             this.TrenchPerfomanceLabel.Text = "Производительность\r\nпри отрывке траншей\r\nм^3/час";
             this.TrenchPerfomanceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,18 +172,20 @@ namespace MilitaryEngineering.Fortification
             this.NameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.NameTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.NameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.NameTextBox.Location = new System.Drawing.Point(13, 83);
+            this.NameTextBox.Location = new System.Drawing.Point(10, 67);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(631, 38);
+            this.NameTextBox.Size = new System.Drawing.Size(474, 32);
             this.NameTextBox.TabIndex = 6;
             // 
             // NameLabel
             // 
             this.NameLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.NameLabel.Location = new System.Drawing.Point(8, 13);
+            this.NameLabel.Location = new System.Drawing.Point(6, 11);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(312, 67);
+            this.NameLabel.Size = new System.Drawing.Size(234, 54);
             this.NameLabel.TabIndex = 5;
             this.NameLabel.Text = "Имя";
             this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,9 +196,10 @@ namespace MilitaryEngineering.Fortification
             this.AddGainButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddGainButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddGainButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddGainButton.Location = new System.Drawing.Point(486, 623);
+            this.AddGainButton.Location = new System.Drawing.Point(364, 506);
+            this.AddGainButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddGainButton.Name = "AddGainButton";
-            this.AddGainButton.Size = new System.Drawing.Size(193, 66);
+            this.AddGainButton.Size = new System.Drawing.Size(145, 54);
             this.AddGainButton.TabIndex = 7;
             this.AddGainButton.TabStop = false;
             this.AddGainButton.Text = "Сохранить";
@@ -194,10 +208,10 @@ namespace MilitaryEngineering.Fortification
             // 
             // GainCreatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(691, 701);
+            this.ClientSize = new System.Drawing.Size(518, 570);
             this.Controls.Add(this.AddGainButton);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
