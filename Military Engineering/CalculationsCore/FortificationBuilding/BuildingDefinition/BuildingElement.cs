@@ -1,3 +1,4 @@
+using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using CalculationsCore.FortificationBuilding.BuildingConditions;
 using CalculationsCore.FortificationBuilding.BuildingDefinition;
 using System;
@@ -10,7 +11,8 @@ namespace CalculationsCore.FortificationBuilding
     public enum ElementTypes
     {
         Trench,
-        Pit
+        Pit,
+        Mixed
     }
     public enum BuildingTypes
     {
@@ -31,7 +33,6 @@ namespace CalculationsCore.FortificationBuilding
         public int Id { get; set; } = 0;
         public ElementTypes ElementType {  get; set; } = ElementTypes.Pit; //will be adjusted in future
         public BuildingTypes BuildingType { get; set; } = BuildingTypes.Element;
-
         public bool IsDefault { get; set; }
         public bool CanBeEdited 
         {
@@ -80,7 +81,7 @@ namespace CalculationsCore.FortificationBuilding
             buildingElement.FutureTurn = elements.Sum(e => e.Item1.FutureTurn * e.Item2);
 
             buildingElement.BuildingType = BuildingTypes.Composition;
-            buildingElement.ElementType = ElementTypes.Pit;
+            buildingElement.ElementType = elements.TrueForAll(b => b.Item1.ElementType == elements[0].Item1.ElementType) ? elements[0].Item1.ElementType : ElementTypes.Mixed;
             buildingElement.Id = new Random().Next(10000);
 
             if (name == null)

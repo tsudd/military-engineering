@@ -55,15 +55,14 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             description.AppendLine($"для котлованов - {pitPerformance}");
             return description.ToString();
         }
-        public double Evaluate(DayAbility ability, GainAbility gainAbility)
+        public double Evaluate(DayAbility ability, GainAbility gainAbility, ElementTypes elementType)
         {
-            //TODO: implement performance evaluation according to building type (keep in mind, that we have new hierarchy)
             if (ability is null)
             {
                 return 0;
             }
             return gainAbility.Amount
-                * DeterminePerformance(0)
+                * DeterminePerformance(elementType)
                 * ability.Organization
                 * ((gainAbility.WorkTime > 24) ? 1.5 : 1)
                 * gainAbility.WorkTime;
@@ -71,7 +70,14 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
 
         private double DeterminePerformance(ElementTypes type)
         {
-            return (type == ElementTypes.Pit) ? PitPerformance : TrenchPerformance;
+            switch (type)
+            {
+                case ElementTypes.Pit: return PitPerformance;
+                case ElementTypes.Trench: return TrenchPerformance;
+                case ElementTypes.Mixed: return (PitPerformance + TrenchPerformance) / 2;
+            }
+
+            return 0;
         }
     }
 }

@@ -60,7 +60,7 @@ namespace CalculationsCore.FortificationBuilding
             return DayTime.Value 
                 * Pollution.Value 
                 * Soil.Value
-                * Ability.Evaluate();
+                * Ability.Evaluate(Building.ElementType);
         }
 
         public Evaluations GetBuildingTerms()

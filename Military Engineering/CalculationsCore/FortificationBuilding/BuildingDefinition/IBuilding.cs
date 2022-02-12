@@ -11,6 +11,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingDefinition
         bool IsDefault { get; }
         string Name { get; }
         string Description {  get; }
+        ElementTypes ElementType { get; }
         double GetFirstTurn();
         double GetSecondTurn();
         double GetFutureTurn();

@@ -16,6 +16,8 @@ namespace CalculationsCore.FortificationBuilding.BuildingDefinition
         public string Description { get; set; } = "";
         public bool IsDefault { get; set; } = false;
 
+        public ElementTypes ElementType { get; set; }
+
         public BuildingComposition()
         {
             buildings = new List<IBuilding>();

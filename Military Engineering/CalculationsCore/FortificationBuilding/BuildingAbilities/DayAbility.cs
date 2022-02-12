@@ -32,7 +32,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public double Organization { get; set; } = 0;
         public List<KeyValuePair<Gain, GainAbility>> BuildingGains { get; set; } = new List<KeyValuePair<Gain, GainAbility>>();
         public double WorkTime { get; set; } = 0;
-        public double Evaluate()
+        public double Evaluate(ElementTypes elementType)
         {
             if (WorkTime <= 0 
                 || PeopleAmount <= 0 
@@ -42,7 +42,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             {
                 throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero");
             }
-            return EvaluateGains() 
+            return EvaluateGains(elementType) 
                 + ( PeopleAmount 
                 * ManPower 
                 * AttritionRate 
@@ -50,12 +50,12 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
                 * WorkTime );
         }
 
-        private double EvaluateGains()
+        private double EvaluateGains(ElementTypes elementType)
         {
             double ans = 0;
             foreach( var ga in BuildingGains)
             {
-                ans += ga.Key.Evaluate(this, ga.Value);
+                ans += ga.Key.Evaluate(this, ga.Value, elementType);
             }
             return ans;
         }
