@@ -140,42 +140,60 @@ namespace MilitaryEngineering.Fortification
             autoMapper.Configure(selectedTheme);
         }
 
-        private void DayTimeBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void Box_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FortForm.Board.UpdateElementCondition(ElementIndex, (DayTime)DayTimeBox.SelectedItem);
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void PollutionsBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FortForm.Board.UpdateElementCondition(ElementIndex, (FieldPollution)PollutionsBox.SelectedItem);
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void SoilTypeBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FortForm.Board.UpdateElementCondition(ElementIndex, (SoilType)SoilTypeBox.SelectedItem);
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void PeopleAmountInput_TextChanged(object sender, EventArgs e)
-        {
-            try
+            if (sender is ComboBox comboBox)
             {
-                var value = int.Parse(PeopleAmountInput.Text);
-                if (value <= 0)
+                FortForm.Board.UpdateElementCondition(ElementIndex, comboBox.SelectedItem);
+                ElementChanged?.Invoke(sender, e);
+            }
+        }
+
+        private void ElementPropertyInput_TextChanged(object sender, EventArgs e)
+        {
+            if (sender is TextBox)
+            {
+                var textBox = (TextBox)sender;
+                try
                 {
-                    PeopleAmountInput.BackColor = Color.FromArgb(255, 128, 128);
-                    return;
+                    var value = double.Parse(textBox.Text);
+                    if (value <= 0)
+                    {
+                        throw new Exception();
+                    }
+                    textBox.BackColor = defaultColor;
+                    var ability = AbilityType.PeopleAmount;
+                    if (textBox == PeopleAmountInput)
+                    {
+                        ability = AbilityType.PeopleAmount;
+                    } 
+                    else if (textBox == ManPowerInput)
+                    {
+                        ability = AbilityType.ManPower;
+                    }
+                    else if (textBox == OrganizationInput)
+                    {
+                        ability = AbilityType.Organization;
+                    }
+                    else if (textBox == WorkTimeInput)
+                    {
+                        ability = AbilityType.WorkTime;
+                    }
+                    else if (textBox == AttritionRateInput)
+                    {
+                        ability = AbilityType.AttritionRate;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                    FortForm.Board.UpdateElementAbility(ElementIndex, value, ability);
+                } 
+                catch
+                {
+                    textBox.BackColor = Color.FromArgb(255, 128, 128);
                 }
-                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.PeopleAmount);
-                PeopleAmountInput.BackColor = defaultColor;
             }
-            catch
-            {
-                PeopleAmountInput.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            ElementChanged?.Invoke(sender, e);
         }
 
         public void Evaluate(object sender, EventArgs e)
@@ -231,86 +249,6 @@ namespace MilitaryEngineering.Fortification
             AllTurnEvaluationLabel.Text = ERROR_TEXT;
         }
 
-        private void ManPowerInput_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var value = double.Parse(ManPowerInput.Text);
-                if (value <= 0)
-                {
-                    ManPowerInput.BackColor = Color.FromArgb(255, 128, 128);
-                    return;
-                }
-                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.ManPower);
-                ManPowerInput.BackColor = defaultColor;
-            }
-            catch
-            {
-                ManPowerInput.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void OrganizationInput_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var value = double.Parse(OrganizationInput.Text);
-                if (value <= 0)
-                {
-                    OrganizationInput.BackColor = Color.FromArgb(255, 128, 128);
-                    return;
-                }
-                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.Organization);
-                OrganizationInput.BackColor = defaultColor;
-            }
-            catch
-            {
-                OrganizationInput.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void AttritionRateInput_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var value = double.Parse(AttritionRateInput.Text);
-                if (value <= 0)
-                {
-                    AttritionRateInput.BackColor = Color.FromArgb(255, 128, 128);
-                    return;
-                }
-                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.AttritionRate);
-                AttritionRateInput.BackColor = defaultColor;
-            }
-            catch
-            {
-                AttritionRateInput.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            ElementChanged?.Invoke(sender, e);
-        }
-
-        private void WorkTimeInput_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var value = double.Parse(WorkTimeInput.Text);
-                if (value <= 0)
-                {
-                    WorkTimeInput.BackColor = Color.FromArgb(255, 128, 128);
-                    return;
-                }
-                FortForm.Board.UpdateElementAbility(ElementIndex, value, AbilityType.WorkTime);
-                WorkTimeInput.BackColor = defaultColor;
-            }
-            catch
-            {
-                WorkTimeInput.BackColor = Color.FromArgb(255, 128, 128);
-            }
-            ElementChanged?.Invoke(sender, e);
-        }
-
         public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAbilities, List<Gain> createdGains = null)
         {
             if (gainsAbilities == null)
@@ -344,7 +282,6 @@ namespace MilitaryEngineering.Fortification
                 }
             }
             FortForm.Board.UpdateElementAbility(ElementIndex, ans, AbilityType.BuildingGain);
-            //FortForm.EvaluateElements();
         }
 
         public void UpdateAndRemoveGains(List<Gain> gainsToUpdate, List<int> gainsToRemove)
