@@ -22,14 +22,14 @@ namespace CalculationsCore.FortificationBuilding
 
     public class BuildingElement : IBuilding
     {
-        public const string DEFAULT_BUILDING_NAME = "Unknown building";
-        public const string DEFAULT_COMPOSITION_NAME = "Unknown composition";
+        public const string DEFAULT_BUILDING_NAME = "Неизвестное построение";
+        public const string DEFAULT_COMPOSITION_NAME = "Неизвестная композиция";
         public double FirstTurn { get; set; } = 0;
         public double SecondTurn { get; set; } = 0;
         public double FutureTurn { get; set; } = 0;
         public double AllTurns { get => FirstTurn + SecondTurn + FutureTurn; }
         public string Name { get; set; }
-        public string Description { get; set; } = "Single object";
+        public string Description { get; set; } = "Одиночный объект";
         public int Id { get; set; } = 0;
         public ElementTypes ElementType {  get; set; } = ElementTypes.Pit; //will be adjusted in future
         public BuildingTypes BuildingType { get; set; } = BuildingTypes.Element;

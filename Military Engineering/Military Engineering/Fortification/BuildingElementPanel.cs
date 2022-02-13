@@ -11,6 +11,15 @@ using ColorThemeManager;
 
 namespace MilitaryEngineering.Fortification
 {
+    class WrongAbilityException : FormatException
+    {
+        public readonly AbilityType Type;
+
+        public WrongAbilityException(AbilityType abilityType) : base()
+        {
+            Type = abilityType;
+        }
+    }
     public partial class BuildingElementPanel : UserControl
     {
         public const string ERROR_TEXT = "Ошибка";
@@ -156,11 +165,13 @@ namespace MilitaryEngineering.Fortification
                 var textBox = (TextBox)sender;
                 try
                 {
-                    var value = double.Parse(textBox.Text);
-                    if (value <= 0)
+                    double value = 0;
+                    try
                     {
-                        throw new Exception();
+                        value = double.Parse(textBox.Text);
                     }
+                    catch (FormatException)
+                    {}
                     textBox.BackColor = defaultColor;
                     var ability = AbilityType.PeopleAmount;
                     if (textBox == PeopleAmountInput)
@@ -177,6 +188,8 @@ namespace MilitaryEngineering.Fortification
                     }
                     else if (textBox == WorkTimeInput)
                     {
+                        if (value > 24)
+                            throw new WrongAbilityException(AbilityType.WorkTime);
                         ability = AbilityType.WorkTime;
                     }
                     else if (textBox == AttritionRateInput)
@@ -187,12 +200,22 @@ namespace MilitaryEngineering.Fortification
                     {
                         throw new Exception();
                     }
+                    if (value <= 0)
+                    {
+                        throw new WrongAbilityException(ability);
+                    }
                     FortForm.Board.UpdateElementAbility(ElementIndex, value, ability);
                 } 
-                catch
+                catch (WrongAbilityException ex)
                 {
                     textBox.BackColor = Color.FromArgb(255, 128, 128);
+                    FortForm.Board.UpdateElementAbility(ElementIndex, 0, ex.Type);
                 }
+                catch
+                {
+                    return;
+                }
+                ElementChanged?.Invoke(sender, e);
             }
         }
 
@@ -206,13 +229,13 @@ namespace MilitaryEngineering.Fortification
                 SecondTurnEvaluationLabel.Text = calc.EvaluateSecondTurn().ToString();
                 FutureTurnEvaluationLabel.Text = calc.EvaluateFutureTurn().ToString();
                 AllTurnEvaluationLabel.Text = calc.EvaluateAllTurns().ToString();
-
                 DrawTurnsChart();
             }
             catch
             {
                 FillEvaluationLabelsWithError();
             }
+            FortForm.UpdateChartsInterval();
             ElementChanged?.Invoke(sender, e);
         }
         public void ChangeChartInterval(double interval) => chart1.ChartAreas[0].AxisY.Maximum = interval;
@@ -220,22 +243,12 @@ namespace MilitaryEngineering.Fortification
         {
             Evaluations buildingTerms = FortForm.Board.GetElement(ElementIndex).GetBuildingTerms();
 
-            chart1.Series[0].Points.Clear();
-            chart1.Series[1].Points.Clear();
-            chart1.Series[2].Points.Clear();
-            chart1.Series[3].Points.Clear();
-
-            chart1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
-            chart1.ChartAreas[0].AxisX.MinorGrid.LineWidth = 0;
-            chart1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
-            chart1.ChartAreas[0].AxisY.MinorGrid.LineWidth = 0;
+            ClearChart();
 
             chart1.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Bahnschrift", 6, FontStyle.Regular);
             chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = chartForeColor;
 
-            FortForm.UpdateChartsInterval();
-
-            chart1.Series[0].Points.AddXY(1, buildingTerms.DaysToSettle);
+            chart1.Series[0].Points.AddXY(1, buildingTerms.DaysToSettle); //maybe we don't need this?
             chart1.Series[1].Points.AddXY(1, buildingTerms.FirstTurn);
             chart1.Series[2].Points.AddXY(1, buildingTerms.SecondTurn);
             chart1.Series[3].Points.AddXY(1, buildingTerms.FutureTurn);
@@ -247,6 +260,21 @@ namespace MilitaryEngineering.Fortification
             SecondTurnEvaluationLabel.Text = ERROR_TEXT;
             FutureTurnEvaluationLabel.Text = ERROR_TEXT;
             AllTurnEvaluationLabel.Text = ERROR_TEXT;
+            //if calculations wrong, make chart clear
+            ClearChart();
+        }
+
+        private void ClearChart()
+        {
+            chart1.Series[0].Points.Clear();
+            chart1.Series[1].Points.Clear();
+            chart1.Series[2].Points.Clear();
+            chart1.Series[3].Points.Clear();
+
+            chart1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            chart1.ChartAreas[0].AxisX.MinorGrid.LineWidth = 0;
+            chart1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            chart1.ChartAreas[0].AxisY.MinorGrid.LineWidth = 0;
         }
 
         public void UpdateGainsAmountsList(Dictionary<int, GainAbility> gainsAbilities, List<Gain> createdGains = null)

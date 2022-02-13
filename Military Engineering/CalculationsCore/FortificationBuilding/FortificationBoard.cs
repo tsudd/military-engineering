@@ -236,8 +236,16 @@ namespace CalculationsCore.FortificationBuilding
             double interval = 0;
             foreach(var element in elements.Values)
             {
-                if (interval < element.EvaluateAllTurns())
-                    interval = element.EvaluateAllTurns();
+                try
+                {
+                    if (interval < element.EvaluateAllTurns())
+                        interval = element.EvaluateAllTurns();
+                }
+                catch (DivideByZeroException)
+                {
+
+                }
+                
             }
             return interval;
         }
