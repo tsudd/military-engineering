@@ -75,9 +75,7 @@
     <Compile Include="Controls\Button.Designer.cs">
       <DependentUpon>Button.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fortification\BuildingElementPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="Fortification\BuildingElementPanel.cs" />
     <Compile Include="Fortification\BuildingElementPanel.Designer.cs">
       <DependentUpon>BuildingElementPanel.cs</DependentUpon>
     </Compile>

@@ -56,6 +56,28 @@ namespace CalculationsCore.FortificationBuilding
             return buildingTerms;
         }
 
+        public void UpdateElementCondition(int id, object value)
+        {
+            if (value == null)
+                throw new ArgumentNullException("Value can't be null");
+            if (value is DayTime dayTime)
+            {
+                elements[id].DayTime = dayTime;
+            }
+            else if (value is SoilType soilType)
+            {
+                elements[id].Soil = soilType;
+            }
+            else if (value is FieldPollution pollution)
+            {
+                elements[id].Pollution = pollution;
+            }
+            else
+            {
+                throw new ArgumentException("Wrong element condition type");
+            }
+        }
+
         public void UpdateElementCondition(int id, DayTime value)
         {
             if (value is null)
@@ -83,11 +105,6 @@ namespace CalculationsCore.FortificationBuilding
             elements[id].Pollution = pollution;
         }
 
-        public void UpdateElementCondition(int id, double daysToSattle)
-        {
-            elements[id].DaysToSettle = daysToSattle;
-        }
-
         public void UpdateElementAbility(int id, object value, AbilityType abilityType)
         {
             var ability = GetElement(id).Ability;
@@ -96,28 +113,28 @@ namespace CalculationsCore.FortificationBuilding
                 switch (abilityType)
                 {
                     case AbilityType.PeopleAmount:
-                        ability.PeopleAmount = (int)value;
+                        ability.PeopleAmount = Convert.ToInt32(value);
                         break;
                     case AbilityType.AttritionRate:
-                        ability.AttritionRate = (double)value;
+                        ability.AttritionRate = Convert.ToDouble(value);
                         break;
                     case AbilityType.ManPower:
-                        ability.ManPower = (double)value;
+                        ability.ManPower = Convert.ToDouble(value);
                         break;
                     case AbilityType.Organization:
-                        ability.Organization = (double)value;
+                        ability.Organization = Convert.ToDouble(value);
                         break;
                     case AbilityType.BuildingGain:
                         ability.BuildingGains = (List<KeyValuePair<Gain, GainAbility>>)value;
                         break;
                     case AbilityType.WorkTime:
-                        ability.WorkTime = (double)value;
+                        ability.WorkTime = Convert.ToDouble(value);
                         break;
                     default:
                         throw new ArgumentException();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArgumentException();
             }
@@ -219,8 +236,16 @@ namespace CalculationsCore.FortificationBuilding
             double interval = 0;
             foreach(var element in elements.Values)
             {
-                if (interval < element.EvaluateAllTurns())
-                    interval = element.EvaluateAllTurns();
+                try
+                {
+                    if (interval < element.EvaluateAllTurns())
+                        interval = element.EvaluateAllTurns();
+                }
+                catch (DivideByZeroException)
+                {
+
+                }
+                
             }
             return interval;
         }

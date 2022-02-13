@@ -161,14 +161,6 @@ namespace MilitaryEngineering.Fortification
             Enabled = false;
         }
 
-        private void RemoveElement(object sender, EventArgs e)
-        {
-            var childPanel = (Panel)((Button)sender).Parent;
-            var parent = (BuildingElementPanel)(childPanel.Parent);
-            Board.DeleteElement(parent.ElementIndex);
-            parent.Dispose();
-        }
-
         public void AddNewElement(IBuilding buildingElement)
         {
             MainPanel.Visible = true;
@@ -207,6 +199,7 @@ namespace MilitaryEngineering.Fortification
             {
                 MainPanel.Visible = false;
             }
+            UpdateChartsInterval();
             EvaluateAllTurns();
         }
 

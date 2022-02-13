@@ -157,7 +157,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void DecrementButton_Click(object sender, EventArgs e)
         {
-            //DecrementGain?.Invoke(GainIndex);
             int amount = 0;
             Decremented?.Invoke(GainIndex, out amount);
             if (amount == 0)
@@ -172,18 +171,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
         private void IncrementButton_Click(object sender, EventArgs e)
         {
-            //IncrementGain?.Invoke(GainIndex);
             int amount = 0;
             Incremented?.Invoke(GainIndex, out amount);
             WorkTimeBox.ReadOnly = false;
+            WorkTimeBox.Text = "0";
             CounterLabel.Text = amount.ToString();
-        }
-
-        private void RemoveButton_Click(object sender, EventArgs e)
-        {
-        }
-        private void EditButton_Click(object sender, EventArgs e)
-        {
         }
 
         private void WorkTimeBox_TextChanged(object sender, EventArgs e)

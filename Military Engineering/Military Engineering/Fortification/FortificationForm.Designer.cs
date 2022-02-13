@@ -843,7 +843,7 @@ namespace MilitaryEngineering.Fortification
             this.ElementNameLabel.Name = "ElementNameLabel";
             this.ElementNameLabel.Size = new System.Drawing.Size(195, 479);
             this.ElementNameLabel.TabIndex = 5;
-            this.ElementNameLabel.Text = "ЭОП";
+            this.ElementNameLabel.Text = "Элементы";
             this.ElementNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label12

@@ -186,18 +186,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
             }
         }
 
-        private void UpdateGain(Gain gain)
-        {
-            foreach(var ga in Gains)
-            {
-                if (ga.Id == gain.Id)
-                {
-                    Gains[Gains.IndexOf(ga)] = gain;
-                    break;
-                }
-            }
-        }
-
         private void DoneButton_Click(object sender, EventArgs e)
         {
             try
