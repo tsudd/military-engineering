@@ -4,10 +4,11 @@ using System.Drawing;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Interfaces;
 
 namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
-    public partial class BuildingElementPanel : UserControl
+    public partial class BuildingElementPanel : UserControl, IVisible
     {
         public BuildingElement BuildingElement { get; set; }
         public event EventHandler Clicked;

@@ -1,5 +1,6 @@
 ﻿using CalculationsCore.FortificationBuilding;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Search;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
         FortificationForm Sender { get; set; }
         List<BuildingElement> compositions { get; set; } = new List<BuildingElement>();
         List<BuildingElement> elements {  get; set; }
+        SearchEngine searchEngine;
         const string ERROR = "Ошибка";
         const string ERROR_NO_ELEMENTS = "Невозможно создать композицию элементов построния, потому что нет ни одного элемента построения";
         public CompositionSelectorForm(FortificationForm sender, List<BuildingElement> elements)
@@ -24,6 +26,7 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             InitializeComponent();
             SetColorTheme();
             Sender = sender;
+            searchEngine = new SearchEngine(new List<SearchElement>());
             this.elements = elements.Where(e => e.BuildingType == BuildingTypes.Element).ToList();
             elements
                 .Where(e => e.BuildingType == BuildingTypes.Composition)
@@ -39,6 +42,8 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             BackColor = selectedTheme.MainMainColor;
             MainTable.BackColor = selectedTheme.MainSecondaryColor;
             InfoLabel.ForeColor = selectedTheme.MainForeColor;
+
+            SearchTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             CreateCompositionButton.BackColor = selectedTheme.SecondaryMainColor;
             CreateCompositionButton.ForeColor = selectedTheme.SecondaryForeColor;
@@ -70,7 +75,9 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
             elements.Add(composition);
             CompositionViewPanel panel = new CompositionViewPanel(composition);
             MainTable.RowCount++;
-            MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            RowStyle rowStyle = new RowStyle(SizeType.AutoSize);
+            searchEngine.SearchElements.Add(new SearchElement(composition, new TableRowHideable(rowStyle, panel)));
+            MainTable.RowStyles.Add(rowStyle);
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
             panel.Clicked += (sender, e) =>
@@ -94,6 +101,11 @@ namespace MilitaryEngineering.Fortification.CompositionSelector
         private void CompositionSelectorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Sender.SaveCompositionsToConfig(compositions);
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            searchEngine.Search(SearchTextBox.Text);
         }
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace CalculationsCore.FortificationBuilding.BuildingAbilities
 {
-    public class Gain
+    public class Gain : ISearchable
     {
         public const string DEFAULT_NAME = "UNKNOWN_GAIN";
         public const int MAX_ID = 10000;
@@ -78,6 +80,11 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             }
 
             return 0;
+        }
+
+        public IEnumerable<string> GetFeatures()
+        {
+            return Name.Split().Where(s => !string.IsNullOrWhiteSpace(s));
         }
     }
 }

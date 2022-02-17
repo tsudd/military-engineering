@@ -20,7 +20,7 @@ namespace CalculationsCore.FortificationBuilding
         Composition
     }
 
-    public class BuildingElement : IBuilding
+    public class BuildingElement : IBuilding, ISearchable
     {
         public const string DEFAULT_BUILDING_NAME = "Неизвестное построение";
         public const string DEFAULT_COMPOSITION_NAME = "Неизвестная композиция";
@@ -178,6 +178,11 @@ namespace CalculationsCore.FortificationBuilding
         public int GetId()
         {
             return Id;
+        }
+
+        public IEnumerable<string> GetFeatures()
+        {
+            return Name.Split().Where(s => !string.IsNullOrWhiteSpace(s));
         }
     }
 }
