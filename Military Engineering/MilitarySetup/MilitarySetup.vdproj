@@ -166,6 +166,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -428,7 +436,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Military Engineering"
         "ProductCode" = "8:{5B0FCDB3-785E-4124-81E2-3D24269D4927}"
-        "PackageCode" = "8:{8F24E34F-E798-41A2-AEAF-6E55A108BB50}"
+        "PackageCode" = "8:{6465D46E-12A4-4118-B653-EE4FD08A7AFE}"
         "UpgradeCode" = "8:{DF8643BB-635A-46DC-A239-2DD9ABC165A9}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -436,16 +444,16 @@
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Kisel"
+        "Manufacturer" = "8:BSUIR-MilitaryFaculty"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Military Engineering"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Kisel"
+        "ARPCONTACT" = "8:BSUIR-MilitaryFaculty"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_3A80FD88616D46F9A0315AC6591503D1"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"

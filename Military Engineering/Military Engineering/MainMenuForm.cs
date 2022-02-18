@@ -18,7 +18,7 @@ namespace MilitaryEngineering
     {
         const string mainInfo = "МЕТОДИКИ ИНЖЕНЕРНЫХ РАСЧЕТОВ";
         const string fortificationInfo = "МЕТОДИКА РАСЧЕТА ФОРТИФИКАЦИОННОГО \nОБОРУДОВАНИЯ ПОЗИЦИЙ И РАЙОНОВ \nРАСПОЛОЖЕНИЯ ВОЙСК";
-        const string fencingInfo = "МЕТОДИКА РАСЧЕТА СИСТЕМЫ ИНЖЕНЕРНЫХ ЗАГРАЖДЕНИЙ";
+        const string fencingInfo = "МЕТОДИКА РАСЧЕТА СИСТЕМЫ \nИНЖЕНЕРНЫХ ЗАГРАЖДЕНИЙ";
         Dictionary<Button, Type> formMap { get; set; }
         public string buffer;
         public bool coolFlag;
@@ -91,7 +91,7 @@ namespace MilitaryEngineering
 
         private void Placeholder_MouseEnter(object sender, EventArgs e)
         {
-            DisplayButtonInfo("ПРИЛОЖЕНИЕ ИМЕНИ КИСЕЛЯ А.Г.", Properties.Resources.Placeholder);
+            DisplayButtonInfo("ПРИЛОЖЕНИЕ ИМЕНИ ████████", Properties.Resources.Placeholder);
         }
 
         private void MainMenuForm_KeyDown(object sender, KeyEventArgs e)
