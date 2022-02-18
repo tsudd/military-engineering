@@ -5,10 +5,11 @@ using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Interfaces;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
-    public partial class GainPanel : UserControl
+    public partial class GainPanel : UserControl, IVisible
     {
         Gain gainEntry;
         public Gain GainEntry

@@ -53,6 +53,7 @@
     <Compile Include="FortificationBuilding\FortificationBoard.cs" />
     <Compile Include="FortificationBuilding\BuildingAbilities\DayAbility.cs" />
     <Compile Include="Initial.cs" />
+    <Compile Include="ISearchable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

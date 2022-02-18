@@ -20,7 +20,7 @@ namespace CalculationsCore.FortificationBuilding
         Composition
     }
 
-    public class BuildingElement : IBuilding
+    public class BuildingElement : IBuilding, ISearchable
     {
         public const string DEFAULT_BUILDING_NAME = "Неизвестное построение";
         public const string DEFAULT_COMPOSITION_NAME = "Неизвестная композиция";
@@ -102,13 +102,13 @@ namespace CalculationsCore.FortificationBuilding
                 if(compositions.Count > 0)
                 {
                     autoDescription.AppendLine("Композиции:");
-                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name}({c.Item1.FirstTurn}|{c.Item1.SecondTurn}|{c.Item1.FutureTurn});"));
+                    compositions.ForEach(c => autoDescription.AppendLine($" - {c.Item2}x {c.Item1.Name}({Math.Round(c.Item1.FirstTurn, 2)}|{Math.Round(c.Item1.SecondTurn, 2)}|{Math.Round(c.Item1.FutureTurn, 2)});"));
                 }
 
                 if (simples.Count > 0)
                 {
                     autoDescription.AppendLine("Элементы:");
-                    simples.ForEach(s => autoDescription.AppendLine($" - {s.Item2}x {s.Item1.Name}({s.Item1.FirstTurn}|{s.Item1.SecondTurn}|{s.Item1.FutureTurn});"));
+                    simples.ForEach(s => autoDescription.AppendLine($" - {s.Item2}x {s.Item1.Name}({Math.Round(s.Item1.FirstTurn, 2)}|{Math.Round(s.Item1.SecondTurn, 2)}|{Math.Round(s.Item1.FutureTurn, 2)});"));
                 }
                 autoDescription.AppendLine();
                 autoDescription.Append(CreateDefaultDescription(buildingElement, 2));
@@ -151,7 +151,18 @@ namespace CalculationsCore.FortificationBuilding
             description.AppendLine($"Во вторую очередь - {Math.Round(buildingElement.SecondTurn, precision)} чел./час.");
             description.AppendLine($"В дальнейшем - {Math.Round(buildingElement.FutureTurn, precision)} чел./час.");
             description.AppendLine($"Всего - {Math.Round(buildingElement.AllTurns, precision)} чел./час.");
-            description.Append(buildingElement.ElementType == ElementTypes.Pit ? "Котлован" : "Траншея");
+            switch (buildingElement.ElementType) 
+            {
+                case ElementTypes.Trench:
+                    description.Append("Траншея");
+                    break;
+                case ElementTypes.Pit:
+                    description.Append("Котлован");
+                    break;
+                case ElementTypes.Mixed:
+                    description.Append("Смешанное построение");
+                    break;
+            }
 
             return description.ToString();
         }
@@ -178,6 +189,11 @@ namespace CalculationsCore.FortificationBuilding
         public int GetId()
         {
             return Id;
+        }
+
+        public IEnumerable<string> GetFeatures()
+        {
+            return Name.Split().Where(s => !string.IsNullOrWhiteSpace(s));
         }
     }
 }

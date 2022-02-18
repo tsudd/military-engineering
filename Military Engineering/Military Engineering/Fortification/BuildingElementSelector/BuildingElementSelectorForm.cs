@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding;
 using MilitaryConfiguration;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Search;
 
 namespace MilitaryEngineering.Fortification.BuildingElementSelector
 {
@@ -17,11 +18,13 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
     {
         FortificationForm Sender {  get; set; }
         List<BuildingElement> buildingElements { get; set; } = new List<BuildingElement>();
+        SearchEngine searchEngine;
         public BuildingElementSelectorForm(FortificationForm sender, List<BuildingElement> buildingElements)
         {
             InitializeComponent();
             SetColorTheme();
             Sender = sender;
+            searchEngine = new SearchEngine(new List<SearchElement>());
             foreach(BuildingElement buildingElement in buildingElements)
             {
                 AddNewElement(buildingElement);
@@ -32,6 +35,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             ThemeManager themeManager = ThemeManager.GetInstance();
             ColorTheme selectedTheme = themeManager.ColorTheme;
+
+            SearchTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             BackColor = selectedTheme.MainMainColor;
             MainTable.BackColor = selectedTheme.MainSecondaryColor;
@@ -88,7 +93,9 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             buildingElements.Add(buildingElement);
             var panel = new BuildingElementPanel(buildingElement);
             MainTable.RowCount++;
-            MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            RowStyle rowStyle = new RowStyle(SizeType.AutoSize);
+            searchEngine.SearchElements.Add(new SearchElement(buildingElement, new TableRowHideable(rowStyle, panel)));
+            MainTable.RowStyles.Add(rowStyle);
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
             panel.Clicked += (sender, e) =>
@@ -132,6 +139,11 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
             };
             form.Show();
             Enabled = false;
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            searchEngine.Search(SearchTextBox.Text);
         }
     }
 }

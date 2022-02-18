@@ -1,5 +1,6 @@
 ﻿using CalculationsCore.FortificationBuilding;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace MilitaryEngineering.Fortification.CompositionSelector
 {
-    public partial class CompositionViewPanel : UserControl
+    public partial class CompositionViewPanel : UserControl, IVisible
     {
         TextAutoAdjuster textAutoAdjuster;
         ColorTheme selectedTheme;

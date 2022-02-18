@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using CalculationsCore.FortificationBuilding.BuildingAbilities;
 using ColorThemeManager;
+using MilitaryEngineering.Fortification.Search;
 
 namespace MilitaryEngineering.Fortification.GainSelector
 {
@@ -16,6 +17,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
         public List<int> GainsToRemove { get; private set; } = new List<int>();
         public Dictionary<int, Gain> GainsToUpdate { get; private set; } = new Dictionary<int, Gain>();
         public int GainsAmount { get; private set; } = 0;
+        SearchEngine searchEngine;
         public GainSelectorForm(BuildingElementPanel sender)
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
                 Amounts[gain.Key.Id] = gain.Value;
                 GainsAmount += gain.Value.Amount;
             }
+            searchEngine = new SearchEngine(new List<SearchElement>());
             AddEntries();
             UpdateAmountLabel();
         }
@@ -51,6 +54,8 @@ namespace MilitaryEngineering.Fortification.GainSelector
 
             DoneButton.BackColor = selectedTheme.SecondaryMainColor;
             DoneButton.ForeColor = selectedTheme.SecondaryForeColor;
+
+            SearchTextBox.BackColor = selectedTheme.SecondarySecondaryColor;
 
             NoChangesButton.BackColor = selectedTheme.SecondaryMainColor;
             NoChangesButton.ForeColor = selectedTheme.SecondaryForeColor;
@@ -118,7 +123,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             panel.Decremented += DecrementGainAmount;
             panel.ChangedTime += ChangeGainWorkTime;
             MainTable.RowCount++;
-            MainTable.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            RowStyle rowStyle = new RowStyle(SizeType.AutoSize);
+            searchEngine.SearchElements.Add(new SearchElement(gain, new TableRowHideable(rowStyle, panel)));
+            MainTable.RowStyles.Add(rowStyle);
             MainTable.Controls.Add(panel, 0, MainTable.RowCount - 1);
             panel.Dock = DockStyle.Top;
             panel.Removed += Remove;
@@ -251,6 +258,11 @@ namespace MilitaryEngineering.Fortification.GainSelector
             Amounts.Remove(gain.Id);
             Gains.Remove(gain);
             UpdateAmountLabel();
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            searchEngine.Search(SearchTextBox.Text);
         }
     }
 }

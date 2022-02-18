@@ -37,6 +37,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.DoneButton = new System.Windows.Forms.Button();
             this.NoChangesButton = new System.Windows.Forms.Button();
             this.AmountLabel = new System.Windows.Forms.Label();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,9 +50,9 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.MainPanel.AutoScrollMargin = new System.Drawing.Size(10, 0);
             this.MainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
             this.MainPanel.Controls.Add(this.MainTable);
-            this.MainPanel.Location = new System.Drawing.Point(12, 85);
+            this.MainPanel.Location = new System.Drawing.Point(12, 127);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(542, 498);
+            this.MainPanel.Size = new System.Drawing.Size(542, 456);
             this.MainPanel.TabIndex = 0;
             // 
             // MainTable
@@ -64,7 +65,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.MainTable.Name = "MainTable";
             this.MainTable.RowCount = 1;
             this.MainTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.MainTable.Size = new System.Drawing.Size(542, 498);
+            this.MainTable.Size = new System.Drawing.Size(542, 456);
             this.MainTable.TabIndex = 0;
             // 
             // InfoLabel
@@ -144,12 +145,27 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.AmountLabel.Text = "Всего";
             this.AmountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
+            this.SearchTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
+            this.SearchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
+            this.SearchTextBox.Location = new System.Drawing.Point(12, 84);
+            this.SearchTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(542, 38);
+            this.SearchTextBox.TabIndex = 9;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
+            // 
             // GainSelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(566, 668);
+            this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.NoChangesButton);
             this.Controls.Add(this.DoneButton);
@@ -165,6 +181,7 @@ namespace MilitaryEngineering.Fortification.GainSelector
             this.Load += new System.EventHandler(this.GainSelectorForm_Load);
             this.MainPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -177,5 +194,6 @@ namespace MilitaryEngineering.Fortification.GainSelector
         private System.Windows.Forms.Button DoneButton;
         private System.Windows.Forms.Button NoChangesButton;
         public System.Windows.Forms.Label AmountLabel;
+        private System.Windows.Forms.TextBox SearchTextBox;
     }
 }

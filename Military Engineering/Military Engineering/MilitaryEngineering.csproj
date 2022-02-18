@@ -157,6 +157,11 @@
     <Compile Include="Fortification\GainSelector\GainPanel.Designer.cs">
       <DependentUpon>GainPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Fortification\Interfaces\IHideable.cs" />
+    <Compile Include="Fortification\Interfaces\IVisible.cs" />
+    <Compile Include="Fortification\Search\SearchElement.cs" />
+    <Compile Include="Fortification\Search\SearchEngine.cs" />
+    <Compile Include="Fortification\Search\TableRowHideable.cs" />
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,5 +338,6 @@
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
