@@ -59,7 +59,7 @@
             this.InfoLabel.Location = new System.Drawing.Point(0, 0);
             this.InfoLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.InfoLabel.Name = "InfoLabel";
-            this.InfoLabel.Size = new System.Drawing.Size(532, 59);
+            this.InfoLabel.Size = new System.Drawing.Size(665, 74);
             this.InfoLabel.TabIndex = 5;
             this.InfoLabel.Text = "СОЗДАТЬ/РЕДАКТИРОВАТЬ ТРАНШЕЮ";
             this.InfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,10 +82,10 @@
             this.MainPanel.Controls.Add(this.LengthLabel);
             this.MainPanel.Controls.Add(this.NameTextBox);
             this.MainPanel.Controls.Add(this.NameLabel);
-            this.MainPanel.Location = new System.Drawing.Point(10, 54);
-            this.MainPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MainPanel.Location = new System.Drawing.Point(12, 68);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.MainPanel.Name = "MainPanel";
-            this.MainPanel.Size = new System.Drawing.Size(513, 450);
+            this.MainPanel.Size = new System.Drawing.Size(641, 562);
             this.MainPanel.TabIndex = 6;
             // 
             // TurnTypePanel
@@ -93,10 +93,10 @@
             this.TurnTypePanel.Controls.Add(this.FutureTurnsRadioBotton);
             this.TurnTypePanel.Controls.Add(this.SecondTurnRadioBotton);
             this.TurnTypePanel.Controls.Add(this.FirstTurnRadioBotton);
-            this.TurnTypePanel.Location = new System.Drawing.Point(0, 222);
-            this.TurnTypePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TurnTypePanel.Location = new System.Drawing.Point(0, 278);
+            this.TurnTypePanel.Margin = new System.Windows.Forms.Padding(2);
             this.TurnTypePanel.Name = "TurnTypePanel";
-            this.TurnTypePanel.Size = new System.Drawing.Size(513, 58);
+            this.TurnTypePanel.Size = new System.Drawing.Size(641, 72);
             this.TurnTypePanel.TabIndex = 23;
             // 
             // FutureTurnsRadioBotton
@@ -104,10 +104,10 @@
             this.FutureTurnsRadioBotton.AutoSize = true;
             this.FutureTurnsRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FutureTurnsRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FutureTurnsRadioBotton.Location = new System.Drawing.Point(342, 15);
-            this.FutureTurnsRadioBotton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FutureTurnsRadioBotton.Location = new System.Drawing.Point(428, 19);
+            this.FutureTurnsRadioBotton.Margin = new System.Windows.Forms.Padding(2);
             this.FutureTurnsRadioBotton.Name = "FutureTurnsRadioBotton";
-            this.FutureTurnsRadioBotton.Size = new System.Drawing.Size(165, 28);
+            this.FutureTurnsRadioBotton.Size = new System.Drawing.Size(202, 34);
             this.FutureTurnsRadioBotton.TabIndex = 16;
             this.FutureTurnsRadioBotton.Text = "В дальнейшем";
             this.FutureTurnsRadioBotton.UseVisualStyleBackColor = true;
@@ -118,10 +118,10 @@
             this.SecondTurnRadioBotton.Cursor = System.Windows.Forms.Cursors.Default;
             this.SecondTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.SecondTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.SecondTurnRadioBotton.Location = new System.Drawing.Point(167, 15);
-            this.SecondTurnRadioBotton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SecondTurnRadioBotton.Location = new System.Drawing.Point(209, 19);
+            this.SecondTurnRadioBotton.Margin = new System.Windows.Forms.Padding(2);
             this.SecondTurnRadioBotton.Name = "SecondTurnRadioBotton";
-            this.SecondTurnRadioBotton.Size = new System.Drawing.Size(153, 28);
+            this.SecondTurnRadioBotton.Size = new System.Drawing.Size(188, 34);
             this.SecondTurnRadioBotton.TabIndex = 15;
             this.SecondTurnRadioBotton.Text = "Во II очередь";
             this.SecondTurnRadioBotton.UseVisualStyleBackColor = true;
@@ -132,10 +132,10 @@
             this.FirstTurnRadioBotton.Checked = true;
             this.FirstTurnRadioBotton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.FirstTurnRadioBotton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.FirstTurnRadioBotton.Location = new System.Drawing.Point(9, 15);
-            this.FirstTurnRadioBotton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FirstTurnRadioBotton.Location = new System.Drawing.Point(11, 19);
+            this.FirstTurnRadioBotton.Margin = new System.Windows.Forms.Padding(2);
             this.FirstTurnRadioBotton.Name = "FirstTurnRadioBotton";
-            this.FirstTurnRadioBotton.Size = new System.Drawing.Size(136, 28);
+            this.FirstTurnRadioBotton.Size = new System.Drawing.Size(167, 34);
             this.FirstTurnRadioBotton.TabIndex = 14;
             this.FirstTurnRadioBotton.TabStop = true;
             this.FirstTurnRadioBotton.Text = "В I очередь";
@@ -148,10 +148,10 @@
             this.DefaultDescriptionCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.DefaultDescriptionCheckBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DefaultDescriptionCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(4, 411);
-            this.DefaultDescriptionCheckBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DefaultDescriptionCheckBox.Location = new System.Drawing.Point(5, 514);
+            this.DefaultDescriptionCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.DefaultDescriptionCheckBox.Name = "DefaultDescriptionCheckBox";
-            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(343, 28);
+            this.DefaultDescriptionCheckBox.Size = new System.Drawing.Size(424, 34);
             this.DefaultDescriptionCheckBox.TabIndex = 22;
             this.DefaultDescriptionCheckBox.Text = "Создать описание автоматически";
             this.DefaultDescriptionCheckBox.UseVisualStyleBackColor = true;
@@ -163,10 +163,10 @@
             this.DescriptionBox.Enabled = false;
             this.DescriptionBox.Font = new System.Drawing.Font("Bahnschrift", 10F);
             this.DescriptionBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.DescriptionBox.Location = new System.Drawing.Point(6, 330);
-            this.DescriptionBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DescriptionBox.Location = new System.Drawing.Point(8, 412);
+            this.DescriptionBox.Margin = new System.Windows.Forms.Padding(2);
             this.DescriptionBox.Name = "DescriptionBox";
-            this.DescriptionBox.Size = new System.Drawing.Size(498, 78);
+            this.DescriptionBox.Size = new System.Drawing.Size(622, 96);
             this.DescriptionBox.TabIndex = 21;
             this.DescriptionBox.Text = "";
             // 
@@ -174,10 +174,10 @@
             // 
             this.DescriptionLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.DescriptionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.DescriptionLabel.Location = new System.Drawing.Point(2, 270);
+            this.DescriptionLabel.Location = new System.Drawing.Point(2, 338);
             this.DescriptionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(250, 68);
+            this.DescriptionLabel.Size = new System.Drawing.Size(312, 85);
             this.DescriptionLabel.TabIndex = 20;
             this.DescriptionLabel.Text = "Описание";
             this.DescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -187,10 +187,10 @@
             this.TrenchTypeRadioButton2.AutoSize = true;
             this.TrenchTypeRadioButton2.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.TrenchTypeRadioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.TrenchTypeRadioButton2.Location = new System.Drawing.Point(261, 178);
-            this.TrenchTypeRadioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TrenchTypeRadioButton2.Location = new System.Drawing.Point(326, 222);
+            this.TrenchTypeRadioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.TrenchTypeRadioButton2.Name = "TrenchTypeRadioButton2";
-            this.TrenchTypeRadioButton2.Size = new System.Drawing.Size(227, 28);
+            this.TrenchTypeRadioButton2.Size = new System.Drawing.Size(280, 34);
             this.TrenchTypeRadioButton2.TabIndex = 14;
             this.TrenchTypeRadioButton2.Text = "Ход сообщения(1.5 м)";
             this.TrenchTypeRadioButton2.UseVisualStyleBackColor = true;
@@ -201,10 +201,10 @@
             this.TrenchTypeRadioButton1.Checked = true;
             this.TrenchTypeRadioButton1.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.TrenchTypeRadioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.TrenchTypeRadioButton1.Location = new System.Drawing.Point(261, 128);
-            this.TrenchTypeRadioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TrenchTypeRadioButton1.Location = new System.Drawing.Point(326, 160);
+            this.TrenchTypeRadioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.TrenchTypeRadioButton1.Name = "TrenchTypeRadioButton1";
-            this.TrenchTypeRadioButton1.Size = new System.Drawing.Size(159, 28);
+            this.TrenchTypeRadioButton1.Size = new System.Drawing.Size(192, 34);
             this.TrenchTypeRadioButton1.TabIndex = 13;
             this.TrenchTypeRadioButton1.TabStop = true;
             this.TrenchTypeRadioButton1.Text = "Траншея(1.1 м)";
@@ -215,22 +215,22 @@
             this.CurvFactorTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.CurvFactorTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.CurvFactorTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.CurvFactorTextBox.Location = new System.Drawing.Point(6, 178);
-            this.CurvFactorTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CurvFactorTextBox.Location = new System.Drawing.Point(8, 222);
+            this.CurvFactorTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.CurvFactorTextBox.Name = "CurvFactorTextBox";
-            this.CurvFactorTextBox.Size = new System.Drawing.Size(246, 32);
+            this.CurvFactorTextBox.Size = new System.Drawing.Size(306, 38);
             this.CurvFactorTextBox.TabIndex = 12;
-            this.CurvFactorTextBox.Text = "1,15";
+            this.CurvFactorTextBox.Text = "1.15";
             this.CurvFactorTextBox.TextChanged += new System.EventHandler(this.ValuesTextBox_TextChanged);
             // 
             // CurvFactorLabel
             // 
             this.CurvFactorLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.CurvFactorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.CurvFactorLabel.Location = new System.Drawing.Point(5, 108);
+            this.CurvFactorLabel.Location = new System.Drawing.Point(6, 135);
             this.CurvFactorLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CurvFactorLabel.Name = "CurvFactorLabel";
-            this.CurvFactorLabel.Size = new System.Drawing.Size(247, 68);
+            this.CurvFactorLabel.Size = new System.Drawing.Size(309, 85);
             this.CurvFactorLabel.TabIndex = 11;
             this.CurvFactorLabel.Text = "Коэффициент кривизны";
             this.CurvFactorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -240,10 +240,10 @@
             this.LengthTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.LengthTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.LengthTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.LengthTextBox.Location = new System.Drawing.Point(258, 75);
-            this.LengthTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LengthTextBox.Location = new System.Drawing.Point(322, 94);
+            this.LengthTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.LengthTextBox.Name = "LengthTextBox";
-            this.LengthTextBox.Size = new System.Drawing.Size(246, 32);
+            this.LengthTextBox.Size = new System.Drawing.Size(306, 38);
             this.LengthTextBox.TabIndex = 10;
             this.LengthTextBox.Text = "0";
             this.LengthTextBox.TextChanged += new System.EventHandler(this.ValuesTextBox_TextChanged);
@@ -252,10 +252,10 @@
             // 
             this.LengthLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.LengthLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.LengthLabel.Location = new System.Drawing.Point(257, 5);
+            this.LengthLabel.Location = new System.Drawing.Point(321, 6);
             this.LengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LengthLabel.Name = "LengthLabel";
-            this.LengthLabel.Size = new System.Drawing.Size(247, 68);
+            this.LengthLabel.Size = new System.Drawing.Size(309, 85);
             this.LengthLabel.TabIndex = 9;
             this.LengthLabel.Text = "Длина";
             this.LengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,20 +265,20 @@
             this.NameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
             this.NameTextBox.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.NameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.NameTextBox.Location = new System.Drawing.Point(6, 75);
-            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NameTextBox.Location = new System.Drawing.Point(8, 94);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(246, 32);
+            this.NameTextBox.Size = new System.Drawing.Size(306, 38);
             this.NameTextBox.TabIndex = 8;
             // 
             // NameLabel
             // 
             this.NameLabel.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.NameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(141)))), ((int)(((byte)(169)))));
-            this.NameLabel.Location = new System.Drawing.Point(2, 5);
+            this.NameLabel.Location = new System.Drawing.Point(2, 6);
             this.NameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(250, 68);
+            this.NameLabel.Size = new System.Drawing.Size(312, 85);
             this.NameLabel.TabIndex = 7;
             this.NameLabel.Text = "Имя";
             this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -289,10 +289,10 @@
             this.AddElementButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddElementButton.Font = new System.Drawing.Font("Bahnschrift", 15F);
             this.AddElementButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.AddElementButton.Location = new System.Drawing.Point(368, 509);
-            this.AddElementButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddElementButton.Location = new System.Drawing.Point(460, 636);
+            this.AddElementButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddElementButton.Name = "AddElementButton";
-            this.AddElementButton.Size = new System.Drawing.Size(154, 53);
+            this.AddElementButton.Size = new System.Drawing.Size(192, 66);
             this.AddElementButton.TabIndex = 7;
             this.AddElementButton.TabStop = false;
             this.AddElementButton.Text = "Сохранить";
@@ -301,16 +301,16 @@
             // 
             // TrenchCreatorForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(27)))), ((int)(((byte)(42)))));
-            this.ClientSize = new System.Drawing.Size(532, 572);
+            this.ClientSize = new System.Drawing.Size(665, 715);
             this.Controls.Add(this.AddElementButton);
             this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.InfoLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "TrenchCreatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
