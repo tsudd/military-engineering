@@ -200,7 +200,7 @@ namespace MilitaryEngineering.Fortification
                     {
                         throw new Exception();
                     }
-                    if (value <= 0)
+                    if (value < 0 && textBox != PeopleAmountInput)
                     {
                         throw new WrongAbilityException(ability);
                     }
