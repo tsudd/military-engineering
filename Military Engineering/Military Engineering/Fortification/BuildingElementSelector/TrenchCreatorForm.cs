@@ -73,8 +73,8 @@ namespace MilitaryEngineering.Fortification.BuildingElementSelector
         {
             parsed = new List<float>();
             foreach (string s in args)
-            {
-                if (float.TryParse(s, out float num))
+            { 
+                if (!s.Contains(',') && float.TryParse(s, out float num))
                 {
                     if (num < 0)
                     {

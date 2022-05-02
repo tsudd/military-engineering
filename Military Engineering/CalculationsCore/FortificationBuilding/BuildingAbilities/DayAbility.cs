@@ -34,20 +34,17 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
         public double WorkTime { get; set; } = 0;
         public double Evaluate(ElementTypes elementType)
         {
-            if (WorkTime <= 0 
-                || PeopleAmount <= 0 
-                || ManPower <= 0 
-                || Organization <= 0 
-                || AttritionRate <= 0)
-            {
-                throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero");
-            }
-            return EvaluateGains(elementType) 
+            var result = EvaluateGains(elementType) 
                 + ( PeopleAmount 
                 * ManPower 
                 * AttritionRate 
                 * Organization 
                 * WorkTime );
+            if (result <= 0)
+            {
+                throw new DivideByZeroException("Not able to evaluate, 'cause some fields are equeled zero or zero gain");
+            }
+            return result;
         }
 
         private double EvaluateGains(ElementTypes elementType)

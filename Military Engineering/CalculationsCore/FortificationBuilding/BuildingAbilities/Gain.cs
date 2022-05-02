@@ -66,7 +66,7 @@ namespace CalculationsCore.FortificationBuilding.BuildingAbilities
             return gainAbility.Amount
                 * DeterminePerformance(elementType)
                 * ability.Organization
-                * ((gainAbility.WorkTime > 24) ? 1.5 : 1)
+                * ((gainAbility.WorkTime > 10) ? 1.5 : 1)
                 * gainAbility.WorkTime;
         }
 
